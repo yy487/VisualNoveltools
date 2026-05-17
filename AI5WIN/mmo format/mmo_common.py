@@ -18,6 +18,9 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
+import ctypes
+import os
+import platform
 import struct
 from typing import Iterable, Optional, Tuple
 
@@ -28,6 +31,83 @@ except ImportError as exc:  # pragma: no cover
 
 
 MMO_MAGIC = b"MMO "
+
+
+class _MMOFast:
+    """ctypes 封装的 C 加速核心。找不到 DLL/SO 时自动回退纯 Python。"""
+
+    def __init__(self) -> None:
+        self.lib = None
+        self.path: Optional[Path] = None
+        self.error: Optional[str] = None
+        self._load()
+
+    def _candidate_names(self) -> list[str]:
+        sysname = platform.system().lower()
+        if sysname == "windows":
+            return ["mmo_fast.dll"]
+        if sysname == "darwin":
+            return ["mmo_fast.dylib", "mmo_fast.so"]
+        return ["mmo_fast.so"]
+
+    def _load(self) -> None:
+        base = Path(__file__).resolve().parent
+        for name in self._candidate_names():
+            path = base / name
+            if not path.exists():
+                continue
+            try:
+                lib = ctypes.CDLL(str(path))
+                fn = lib.mmo_decode_rgb_fast
+                fn.argtypes = [
+                    ctypes.c_void_p, ctypes.c_size_t,
+                    ctypes.c_uint32, ctypes.c_uint32,
+                    ctypes.c_void_p, ctypes.c_size_t,
+                    ctypes.POINTER(ctypes.c_size_t),
+                    ctypes.c_char_p, ctypes.c_size_t,
+                ]
+                fn.restype = ctypes.c_int
+                self.lib = lib
+                self.path = path
+                self.error = None
+                return
+            except Exception as exc:  # pragma: no cover
+                self.error = f"加载 {path} 失败：{exc}"
+        if self.error is None:
+            self.error = "未找到 mmo_fast 动态库"
+
+    @property
+    def available(self) -> bool:
+        return self.lib is not None
+
+    def decode_rgb(self, comp: bytes | memoryview, width: int, height: int) -> tuple[bytes, int]:
+        if self.lib is None:
+            raise RuntimeError(self.error or "mmo_fast 不可用")
+        src = bytes(comp) if isinstance(comp, memoryview) else comp
+        expected = width * height * 3
+        dst = ctypes.create_string_buffer(expected)
+        used = ctypes.c_size_t(0)
+        err = ctypes.create_string_buffer(512)
+        rc = self.lib.mmo_decode_rgb_fast(
+            ctypes.c_char_p(src), ctypes.c_size_t(len(src)),
+            ctypes.c_uint32(width), ctypes.c_uint32(height),
+            ctypes.cast(dst, ctypes.c_void_p), ctypes.c_size_t(expected),
+            ctypes.byref(used), err, ctypes.c_size_t(len(err)),
+        )
+        if rc != 0:
+            msg = err.value.decode("utf-8", errors="replace") or f"mmo_fast failed rc={rc}"
+            raise RuntimeError(msg)
+        return dst.raw, int(used.value)
+
+
+_FAST = _MMOFast()
+
+
+def mmo_fast_status() -> str:
+    """返回 C 加速状态，供 CLI --fast-info 使用。"""
+    if _FAST.available:
+        return f"enabled: {_FAST.path}"
+    return f"disabled: {_FAST.error}"
 
 
 @dataclass(frozen=True)
@@ -181,17 +261,26 @@ def restore_rgb_delta(raw: bytes | bytearray, width: int, height: int) -> bytes:
     return bytes(buf)
 
 
-def decode_mmo_bytes(data: bytes, *, flip_y: bool = True) -> Image.Image:
-    """解码 MMO bytes 为 Pillow Image。默认垂直翻转为 PNG 正常观看方向。"""
+def decode_mmo_bytes(data: bytes, *, flip_y: bool = True, use_fast: bool = True) -> Image.Image:
+    """解码 MMO bytes 为 Pillow Image。默认优先使用 C 加速，失败时回退纯 Python。"""
     header = parse_header(data)
     rgb_expected = header.width * header.height * 3
     rgb_comp = data[0x28:]
-    rgb_raw, rgb_used = lzss_decompress(rgb_comp, rgb_expected)
-    rgb = restore_rgb_delta(rgb_raw, header.width, header.height)
 
-    # EXE 最终写入的是 24bit DIB / surface，通道顺序为 BGR。
-    # 之前这里直接按 RGB 导出，导致整体偏蓝；这里改为显式按 BGR 解读。
-    img = Image.frombytes("RGB", (header.width, header.height), rgb, "raw", "BGR")
+    # C 快路径：LZSS + 差分还原 + BGR->RGB 全部放进 C，避免 Python 逐字节循环。
+    if use_fast and _FAST.available:
+        try:
+            rgb, rgb_used = _FAST.decode_rgb(rgb_comp, header.width, header.height)
+            img = Image.frombytes("RGB", (header.width, header.height), rgb)
+        except Exception:
+            # 加速库异常时不直接中断，回退纯 Python，保证工具仍然可用。
+            rgb_raw, rgb_used = lzss_decompress(rgb_comp, rgb_expected)
+            rgb = restore_rgb_delta(rgb_raw, header.width, header.height)
+            img = Image.frombytes("RGB", (header.width, header.height), rgb, "raw", "BGR")
+    else:
+        rgb_raw, rgb_used = lzss_decompress(rgb_comp, rgb_expected)
+        rgb = restore_rgb_delta(rgb_raw, header.width, header.height)
+        img = Image.frombytes("RGB", (header.width, header.height), rgb, "raw", "BGR")
 
     if header.has_alpha:
         alpha_expected = header.alpha_rect.width * header.alpha_rect.height
@@ -212,10 +301,9 @@ def decode_mmo_bytes(data: bytes, *, flip_y: bool = True) -> Image.Image:
         img = img.transpose(Image.Transpose.FLIP_TOP_BOTTOM)
     return img
 
-
-def decode_mmo_file(input_path: str | Path, output_path: str | Path, *, flip_y: bool = True) -> None:
+def decode_mmo_file(input_path: str | Path, output_path: str | Path, *, flip_y: bool = True, use_fast: bool = True) -> None:
     data = Path(input_path).read_bytes()
-    img = decode_mmo_bytes(data, flip_y=flip_y)
+    img = decode_mmo_bytes(data, flip_y=flip_y, use_fast=use_fast)
     out = Path(output_path)
     out.parent.mkdir(parents=True, exist_ok=True)
     img.save(out)

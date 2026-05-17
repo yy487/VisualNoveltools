@@ -7,7 +7,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from mmo_common import decode_mmo_file, iter_mmo_files, parse_header
+from mmo_common import decode_mmo_file, iter_mmo_files, parse_header, mmo_fast_status
 
 
 def build_argparser() -> argparse.ArgumentParser:
@@ -17,11 +17,16 @@ def build_argparser() -> argparse.ArgumentParser:
     ap.add_argument("--no-recursive", action="store_true", help="目录输入只扫描当前层，不递归子目录")
     ap.add_argument("--no-flip", action="store_true", help="不做垂直翻转，保留游戏内 bottom-up 内存方向")
     ap.add_argument("--list", action="store_true", help="只列出 MMO header，不导出 PNG")
+    ap.add_argument("--no-fast", action="store_true", help="禁用 C 加速，强制使用纯 Python 解码")
+    ap.add_argument("--fast-info", action="store_true", help="显示 C 加速加载状态")
     return ap
 
 
 def main() -> int:
     args = build_argparser().parse_args()
+    if args.fast_info:
+        print(f"mmo_fast: {mmo_fast_status()}")
+
     files = list(iter_mmo_files(args.inputs, recursive=not args.no_recursive))
     if not files:
         raise SystemExit("没有找到 MMO 文件")
@@ -39,12 +44,12 @@ def main() -> int:
         out_dir.mkdir(parents=True, exist_ok=True)
         for src in files:
             dst = out_dir / (src.stem + ".png")
-            decode_mmo_file(src, dst, flip_y=not args.no_flip)
+            decode_mmo_file(src, dst, flip_y=not args.no_flip, use_fast=not args.no_fast)
             print(f"[OK] {src} -> {dst}")
     else:
         src = files[0]
         dst = out_arg if out_arg else src.with_suffix(".png")
-        decode_mmo_file(src, dst, flip_y=not args.no_flip)
+        decode_mmo_file(src, dst, flip_y=not args.no_flip, use_fast=not args.no_fast)
         print(f"[OK] {src} -> {dst}")
     return 0
 

@@ -147,3 +147,10 @@ sys.szs              -> unpack -> pack -> 与原文件 bit-exact 一致
 ## 注意
 
 这个工具只负责 SZS 解包/封包和成员解密/加密。解出来的 `.sd/.tko/.lb/.lbn/.ev/.bl/.sb/.sbn` 仍然是引擎脚本、标签、事件表和索引结构；文本提取/变长注入需要继续分析这些内部格式。
+
+
+## v3 更新
+
+- 新增三国姫3这类 `Sangokuhime3.exe` 被保护壳处理时的 fallback：当 EXE 常量候选得分过低时，工具会从 `.szs` 成员明文特征反推 `reseed_lcg_xor` 的首个 15-bit rand，并构造等价 seed。
+- 三国姫3 样本检测结果：`mode=reseed_lcg_xor`, `xor=0x90`, 等价 `seed=0x2bddf641`，首个 rand 为 `0x54b9`。
+- 该等价 seed 不一定是 EXE 中原始写死 seed，但生成的解密/加密字节流完全一致，支持 bit-exact 重封包。

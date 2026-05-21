@@ -20,9 +20,12 @@ LCG_C = 0x269EC3
 # 已确认样本：
 # - 三国姫1 script.szs:       full_lcg_sub, seed 0x7f501e37
 # - 三国姫2 script2.szs:      full_lcg_sub, seed 0x3e9f9d19
+# - 三国姫3 script.szs:       reseed_lcg_xor, 等价 seed 0x2bddf641（由 archive 反推首个 rand=0x54b9）
+# - 三国姫4 script4.szs:      reseed_lcg_xor, seed 0xbffff1d2
+# - 三国姫5 script.szs:       full_lcg_sub, seed 0x7f501e37
 # - 天極姫1 script*.szs:      reseed_lcg_xor, seed 0x15ec7646
 # - 天極姫2 sys.szs:          reseed_lcg_xor, seed 0x13194ff5
-KNOWN_SEEDS = (0x3E9F9D19, 0x7F501E37, 0x15EC7646, 0x13194FF5)
+KNOWN_SEEDS = (0x3E9F9D19, 0x7F501E37, 0x15EC7646, 0x13194FF5, 0xBFFFF1D2, 0x2BDDF641)
 CRYPTO_MODES = ("full_lcg_sub", "reseed_lcg_xor")
 
 
@@ -391,9 +394,107 @@ def detect_crypto(
         refined.append(CryptoInfo(seed=seed, archive_xor=ax, mode=mode, score=sc, source=", ".join(sources) or "built-in candidates"))
     refined.sort(key=lambda x: x.score, reverse=True)
 
+    # 如果 EXE/known seed 候选得分过低，通常表示 EXE 被壳保护或 seed 不以明文 imm32 出现。
+    # 对 reseed_lcg_xor 可以直接从 archive 特征反推首个 15-bit rand，再构造等价 seed。
+    if (not refined) or refined[0].score < 2.0:
+        brute: list[CryptoInfo] = []
+        for ax in xor_candidates:
+            brute.extend(detect_reseed_by_archive_bruteforce(data, entries, archive_xor=ax, show_top=show_top))
+        brute.sort(key=lambda x: x.score, reverse=True)
+        if brute and ((not refined) or brute[0].score > refined[0].score):
+            refined = brute
+
     if not refined:
         raise ValueError("failed to score seed candidates")
     return refined[0], refined[:show_top]
+
+
+
+def _canonical_seed_for_reseed_first_rand(first_rand: int) -> int:
+    """为 reseed_lcg_xor 构造一个等价 seed。
+
+    reseed_lcg_xor 的流只依赖第一轮 rand 结果；若 EXE 被保护壳处理、
+    原 seed 静态不可见，可以从 archive 已知明文特征反推 first_rand，
+    再构造任意一个满足 f(seed)==first_rand 的 seed。这样 pack/unpack 的
+    字节流与游戏实际解密流完全一致。
+    """
+    first_rand &= 0x7FFF
+    # 令 (seed * A + C) 的高 16 位等于 first_rand，低 16 位取 0。
+    inv_a = pow(LCG_A, -1, 1 << 32)
+    value = (first_rand << 16) & 0xFFFFFFFF
+    return ((value - LCG_C) * inv_a) & 0xFFFFFFFF
+
+
+def _quick_reseed_stream(first_rand: int, n: int) -> bytes:
+    out = bytearray(n)
+    x = first_rand & 0x7FFF
+    for i in range(n):
+        out[i] = x & 0xFF
+        value = (x * LCG_A + LCG_C) & 0xFFFFFFFF
+        x = _sar32(value, 16) & 0x7FFF
+    return bytes(out)
+
+
+def _quick_plain_score(plain: bytes, name: str) -> float:
+    if not plain:
+        return -999.0
+    n = len(plain)
+    zero = plain.count(0)
+    printable = sum((32 <= b < 127) or b in (0, 9, 10, 13) for b in plain)
+    bad_ctrl = sum((b < 32 and b not in (0, 9, 10, 13)) for b in plain)
+    high_f0 = sum(b >= 0xF0 for b in plain)
+    score = printable / n + 2.8 * zero / n - 1.8 * bad_ctrl / n - 0.25 * high_f0 / n
+    lower = name.lower()
+    if lower.endswith((".sfn", ".swn", ".sbn", ".ev", ".lbn")):
+        score *= 2.0
+    elif lower.endswith((".lb", ".sw", ".sb", ".tko")):
+        score *= 1.2
+    for token in (b"main.txt", b"start", b"mode", b".txt", b"main", b"Data\\", b"data\\", b"shake", b"bg\\"):
+        if token in plain:
+            score += 2.0
+    if re.match(rb"^[A-Za-z0-9_.\\/ -]{3,}\x00", plain):
+        score += 2.0
+    if n >= 4 and struct.unpack_from("<I", plain, 0)[0] < 0x02000000:
+        score += 0.2
+    return score
+
+
+def detect_reseed_by_archive_bruteforce(
+    data: bytes,
+    entries: Sequence[Entry],
+    *,
+    archive_xor: int,
+    show_top: int = 10,
+) -> list[CryptoInfo]:
+    """不依赖 EXE 常量，从 archive 特征反推 reseed_lcg_xor 的首个 rand。
+
+    适用于 EXE 被 protect.dll/壳处理、imm32 候选不可用的样本，例如三国姫3。
+    搜索空间只有 0x8000，因为 reseed 模式每轮 state 被截断到 15 bit。
+    """
+    probes = _probe_entries(entries)
+    sample_size = 256
+    samples = [(e, data[e.offset:e.offset + min(e.size, sample_size)]) for e in probes]
+    best: list[tuple[float, int]] = []
+
+    for first_rand in range(0x8000):
+        stream = _quick_reseed_stream(first_rand, sample_size)
+        total = 0.0
+        for ent, stored in samples:
+            plain = bytes(((b ^ archive_xor) ^ stream[i]) for i, b in enumerate(stored))
+            total += _quick_plain_score(plain, ent.name)
+        score = total / max(len(samples), 1)
+        if len(best) < max(show_top * 4, 20) or score > best[-1][0]:
+            best.append((score, first_rand))
+            best.sort(reverse=True)
+            del best[max(show_top * 4, 20):]
+
+    refined: list[CryptoInfo] = []
+    for _, first_rand in best:
+        seed = _canonical_seed_for_reseed_first_rand(first_rand)
+        score = score_crypto(data, entries, seed=seed, archive_xor=archive_xor, mode="reseed_lcg_xor", sample_size=4096)
+        refined.append(CryptoInfo(seed=seed, archive_xor=archive_xor, mode="reseed_lcg_xor", score=score, source=f"archive-bruteforce first_rand=0x{first_rand:04x}"))
+    refined.sort(key=lambda x: x.score, reverse=True)
+    return refined[:show_top]
 
 
 def manifest_obj(entries: list[Entry], crypto: CryptoInfo) -> dict:

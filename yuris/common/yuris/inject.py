@@ -44,7 +44,7 @@ def inject_project(
     json_path: Path,
     output_path: Path,
     *,
-    ysc_path: Path,
+    ysc_path: Path | None = None,
     key: bytes | None = None,
     xor_mode: str = "segment",
     encoding: str = DEFAULT_ENCODING,
@@ -53,7 +53,7 @@ def inject_project(
     strict: bool = False,
 ) -> tuple[int, int, int]:
     target_encoding = target_encoding or encoding
-    yscm = Yscm.read(ysc_path, encoding=encoding)
+    yscm = Yscm.read(ysc_path, encoding=encoding) if ysc_path and ysc_path.exists() else None
     entries = read_json_entries(json_path)
     grouped = group_entries(entries)
 
@@ -112,7 +112,15 @@ def inject_project(
 
             if tref is None:
                 # fallback：同文件内 scr_msg 唯一匹配。
-                matches = [r for r in ystb.iter_text_refs(yscm, encoding=encoding) if r.text == scr_msg]
+                matches = []
+                if yscm is not None:
+                    matches.extend(r for r in ystb.iter_text_refs(yscm, encoding=encoding) if r.text == scr_msg)
+                matches.extend(r for r in ystb.iter_args_scan_text_refs(encoding=encoding) if r.text == scr_msg)
+                # 同一位置可能被结构化逻辑和 args 扫描同时命中，按位置去重。
+                uniq = {}
+                for r in matches:
+                    uniq[(r.command.index, r.expr_index)] = r
+                matches = list(uniq.values())
                 if len(matches) == 1:
                     tref = matches[0]
                 else:
@@ -157,7 +165,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     p.add_argument("input", help="原始 ysbin/脚本目录或单个 ystxxxxx.ybn")
     p.add_argument("json", help="翻译 JSON 文件或目录")
     p.add_argument("output", help="输出目录")
-    p.add_argument("--ysc", required=True, help="ysc.ybn 路径")
+    p.add_argument("--ysc", help="ysc.ybn 路径；有 _cmd_index/_expr_index 时可省略，fallback 匹配建议提供")
     p.add_argument("--key-text", help="用于 CRC32 计算 ybnKey 的字符串")
     p.add_argument("--key-hex", help="直接指定 4 字节 key，例如 12345678 或 0x12345678")
     p.add_argument("--xor-mode", choices=["segment", "flat"], default="segment")
@@ -174,7 +182,7 @@ def main() -> None:
         Path(args.input),
         Path(args.json),
         Path(args.output),
-        ysc_path=Path(args.ysc),
+        ysc_path=Path(args.ysc) if args.ysc else None,
         key=load_key(args),
         xor_mode=args.xor_mode,
         encoding=args.encoding,

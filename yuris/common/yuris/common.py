@@ -31,6 +31,9 @@ class TextEntry:
     _expr_id: int | None = None
     _expr_offset: int | None = None
     _expr_size: int | None = None
+    _offset: int | None = None
+    _is_option: bool | None = None
+    _extract_source: str | None = None
     _text_format: str | None = None
     _opcode: str | None = None
     _opcode_id: int | None = None

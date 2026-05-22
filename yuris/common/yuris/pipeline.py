@@ -27,7 +27,7 @@ def cmd_extract(args: argparse.Namespace) -> None:
     parsed, total, failed = extract_project(
         Path(args.input),
         Path(args.output),
-        ysc_path=Path(args.ysc),
+        ysc_path=Path(args.ysc) if args.ysc else None,
         ystl_path=Path(args.yst_list) if args.yst_list else None,
         ysl_path=Path(args.ysl) if args.ysl else None,
         key=_load_key(args),
@@ -36,6 +36,7 @@ def cmd_extract(args: argparse.Namespace) -> None:
         command_names=args.command or ["WORD"],
         include_raw_candidates=args.include_raw_candidates,
         split_files=args.split_files,
+        extract_mode=args.extract_mode,
     )
     print(f"[extract] 解析 YSTB：{parsed}")
     print(f"[extract] 提取文本：{total}")
@@ -47,7 +48,7 @@ def cmd_inject(args: argparse.Namespace) -> None:
         Path(args.input),
         Path(args.json),
         Path(args.output),
-        ysc_path=Path(args.ysc),
+        ysc_path=Path(args.ysc) if args.ysc else None,
         key=_load_key(args),
         xor_mode=args.xor_mode,
         encoding=args.encoding,
@@ -94,10 +95,11 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("extract", help="提取 YSTB 文本到 JSON")
     p.add_argument("input")
     p.add_argument("output")
-    p.add_argument("--ysc", required=True)
+    p.add_argument("--ysc")
     p.add_argument("--yst-list")
     p.add_argument("--ysl")
     p.add_argument("--command", action="append")
+    p.add_argument("--extract-mode", choices=["word", "args", "both"], default="both")
     p.add_argument("--include-raw-candidates", action="store_true")
     p.add_argument("--split-files", action="store_true")
     add_common_key_args(p)
@@ -107,7 +109,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("input")
     p.add_argument("json")
     p.add_argument("output")
-    p.add_argument("--ysc", required=True)
+    p.add_argument("--ysc")
     p.add_argument("--target-encoding")
     p.add_argument("--no-copy-rest", action="store_true")
     p.add_argument("--strict", action="store_true")

@@ -15,8 +15,10 @@ import os
 from dataclasses import dataclass
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
-# 角色名块里出现的特殊 PUSH 数值。不同 Silky 变体可能略有差异，后续可在这里扩展。
-NAME_BLOCK_PUSH_VALS = frozenset([83886080, 167772160])
+# 角色名块里出现的特殊 PUSH 数值。
+# 本作 END05A.MES 的 name 结构为：PUSH_STR[角色名] -> PUSH[117440512] -> PUSH[486539264] -> 18[]。
+# 旧版只收录了 83886080/167772160，因此会漏掉本作角色名。不同 Silky 变体可继续在这里扩展。
+NAME_BLOCK_PUSH_VALS = frozenset([83886080, 117440512, 167772160])
 
 # 块内 op：遇到这些不结束当前文本块，按 op + arg 两行跳过。
 BLOCK_INTERNAL_OPCODES = frozenset([

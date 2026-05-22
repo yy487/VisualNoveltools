@@ -16,6 +16,8 @@ def main() -> None:
     ap.add_argument("--no-compress", action="store_true", help="silky-lzss 新增文件不压缩；默认仍保持原有条目的压缩状态")
     ap.add_argument("--store-all", action="store_true", help="silky-lzss 所有文件都不压缩，速度最快，体积较大")
     ap.add_argument("--write-manifest", action="store_true", help="同时在输出目录旁写一份新 manifest")
+    ap.add_argument("-j", "--jobs", type=int, default=0,
+                    help="silky-lzss 并行压缩进程数；0=自动使用 CPU 核心数，1=单进程。默认 0")
     args = ap.parse_args()
 
     manifest = pack_archive(
@@ -26,6 +28,7 @@ def main() -> None:
         compress=not args.no_compress,
         manifest_path=args.manifest,
         preserve_packed=not args.store_all,
+        jobs=args.jobs,
     )
     if args.write_manifest:
         write_manifest(manifest, args.out_arc.parent)

@@ -14,6 +14,7 @@ from pathlib import Path, PurePosixPath
 import json
 import os
 import struct
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from typing import Iterable, Literal
 
 from silky_lzss import compress as lzss_compress, decompress as lzss_decompress
@@ -222,17 +223,81 @@ def _iter_files_sorted(input_dir: Path) -> Iterable[tuple[str, Path, ArcEntry | 
         yield path.relative_to(input_dir).as_posix(), path, None
 
 
+def _resolve_pack_jobs(jobs: int | None, task_count: int) -> int:
+    """把 jobs 参数规范化。0/None 表示自动使用 CPU 数。"""
+    if task_count <= 1:
+        return 1
+    if jobs is None or jobs <= 0:
+        workers = os.cpu_count() or 1
+    else:
+        workers = jobs
+    return max(1, min(workers, task_count))
+
+
+def _silky_lzss_pack_worker(job: tuple[int, str, str, bool]) -> tuple[int, str, bytes, int]:
+    """多进程 worker：读取单个文件并按需要 LZSS 压缩。必须保持顶层函数，Windows 才能 pickle。"""
+    idx, name, path_str, should_pack = job
+    raw = Path(path_str).read_bytes()
+    stored = lzss_compress(raw) if should_pack else raw
+    return idx, name, stored, len(raw)
+
+
 def pack_silky_lzss(input_dir: Path, out_arc: Path, manifest: ArcManifest | None = None,
-                    encoding: str = "cp932", compress: bool = True, preserve_packed: bool = True) -> ArcManifest:
-    records: list[tuple[str, bytes, bytes, int]] = []
+                    encoding: str = "cp932", compress: bool = True, preserve_packed: bool = True,
+                    jobs: int | None = 1) -> ArcManifest:
+    """回封 silky-lzss ARC。
+
+    jobs:
+      - 1：单进程，行为最接近旧版；
+      - 0 / None：自动使用 CPU 核心数；
+      - N：使用 N 个进程并行压缩文件。
+
+    注意：只并行化每个文件的 LZSS 压缩，不改变 ARC 头、文件顺序、offset 计算和压缩格式。
+    """
     iterator = _iter_files_by_manifest(input_dir, manifest) if manifest else _iter_files_sorted(input_dir)
-    for name, path, old_entry in iterator:
-        raw = path.read_bytes()
+
+    # 先在主进程收集顺序、文件名、压缩策略，避免多进程改变条目顺序。
+    tasks: list[tuple[int, str, str, bool]] = []
+    for idx, (name, path, old_entry) in enumerate(iterator):
         # 默认 preserve_packed=True：原来压缩的条目继续压缩；新增文件由 compress 控制。
         # 若 preserve_packed=False 且 compress=False，则所有文件直接存储，速度最快，体积较大。
         should_pack = (old_entry.packed if old_entry else compress) if preserve_packed else compress
-        stored = lzss_compress(raw) if should_pack else raw
-        records.append((name, encrypt_name(name, encoding), stored, len(raw)))
+        tasks.append((idx, name, str(path), bool(should_pack)))
+
+    if not tasks:
+        raise ValueError(f"no files to pack: {input_dir}")
+
+    worker_count = _resolve_pack_jobs(jobs, len(tasks))
+    results: list[tuple[int, str, bytes, int] | None] = [None] * len(tasks)
+
+    if worker_count <= 1:
+        for job in tasks:
+            result = _silky_lzss_pack_worker(job)
+            results[result[0]] = result
+    else:
+        done = 0
+        with ProcessPoolExecutor(max_workers=worker_count) as ex:
+            future_map = {ex.submit(_silky_lzss_pack_worker, job): job for job in tasks}
+            for fut in as_completed(future_map):
+                job = future_map[fut]
+                try:
+                    result = fut.result()
+                except Exception as exc:  # noqa: BLE001 - 附带文件名方便定位。
+                    _idx, name, path_str, _should_pack = job
+                    raise RuntimeError(f"LZSS pack failed: {name} ({path_str}): {exc}") from exc
+                results[result[0]] = result
+                done += 1
+                if done % 50 == 0 or done == len(tasks):
+                    print(f"[pack:lzss] compressed {done}/{len(tasks)} files (workers={worker_count})")
+
+    # 这里开始完全按旧逻辑组织 records，只是 stored 已经提前并行算好。
+    records: list[tuple[str, bytes, bytes, int]] = []
+    for item in results:
+        if item is None:
+            raise RuntimeError("internal error: missing LZSS worker result")
+        _idx, name, stored, raw_size = item
+        records.append((name, encrypt_name(name, encoding), stored, raw_size))
+
     header_size = sum(1 + len(enc_name) + 12 for _, enc_name, _, _ in records)
     offset = 4 + header_size
     entries: list[ArcEntry] = []
@@ -249,7 +314,6 @@ def pack_silky_lzss(input_dir: Path, out_arc: Path, manifest: ArcManifest | None
         for _, _, stored, _ in records:
             f.write(stored)
     return ArcManifest("silky-lzss", encoding, entries)
-
 
 def pack_garbro_fixed(input_dir: Path, out_arc: Path, manifest: ArcManifest | None = None,
                       encoding: str = "cp932") -> ArcManifest:
@@ -279,7 +343,8 @@ def pack_garbro_fixed(input_dir: Path, out_arc: Path, manifest: ArcManifest | No
 
 
 def pack_archive(input_dir: Path, out_arc: Path, fmt: str = "auto", encoding: str = "cp932",
-                 compress: bool = True, manifest_path: Path | None = None, preserve_packed: bool = True) -> ArcManifest:
+                 compress: bool = True, manifest_path: Path | None = None, preserve_packed: bool = True,
+                 jobs: int | None = 1) -> ArcManifest:
     manifest = None
     if manifest_path is None and (input_dir / MANIFEST_NAME).is_file():
         manifest_path = input_dir / MANIFEST_NAME
@@ -291,7 +356,7 @@ def pack_archive(input_dir: Path, out_arc: Path, fmt: str = "auto", encoding: st
     if fmt == "auto":
         fmt = "silky-lzss"
     if fmt == "silky-lzss":
-        return pack_silky_lzss(input_dir, out_arc, manifest, encoding, compress, preserve_packed)
+        return pack_silky_lzss(input_dir, out_arc, manifest, encoding, compress, preserve_packed, jobs=jobs)
     if fmt == "garbro-fixed":
         return pack_garbro_fixed(input_dir, out_arc, manifest, encoding)
     raise ValueError(f"unknown format: {fmt}")

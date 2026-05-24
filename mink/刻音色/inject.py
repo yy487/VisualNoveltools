@@ -36,7 +36,11 @@ def main() -> None:
     ap.add_argument("--encoding", default=DEFAULT_ENCODING, help="script encoding, default: cp932")
     ap.add_argument("--mode", choices=["relocate", "in-place"], default="relocate",
                     help="relocate can grow/shrink records and fixes known absolute script offsets; in-place keeps original byte sizes")
-    ap.add_argument("--strict", action="store_true", help="abort on first mismatch/encoding/length error")
+    ap.add_argument("--strict", action="store_true", help="abort on first mismatch/encoding/length/layout error")
+    ap.add_argument("--page-mark-mode", choices=["drop", "auto-fit", "proportional", "byte-offset", "manual", "none"], default="drop",
+                    help="how to handle hidden ＃ breaks; beta default: drop strips internal ＃ and does not reconstruct them")
+    ap.add_argument("--layout-policy", choices=["skip", "warn", "off"], default="warn",
+                    help="text renderer safety check: skip unsafe entries, only warn, or disable; beta default: warn so drop-mode output is still written")
     ap.add_argument("--stats-json", help="optional path to write machine-readable injection stats")
     args = ap.parse_args()
 
@@ -49,7 +53,9 @@ def main() -> None:
         entries = _load_entries_for_script(inp, js)
         entry_map = entries_for_file(entries, inp.name)
         patched, stats = patch_script(inp.read_bytes(), inp.name, entry_map, encoding=args.encoding,
-                                      mode=args.mode, strict=args.strict)
+                                      mode=args.mode, strict=args.strict,
+                                      page_mark_mode=args.page_mark_mode,
+                                      layout_policy=args.layout_policy)
         if out.exists() and out.is_dir():
             out_path = out / inp.name
         elif out.suffix:
@@ -79,7 +85,9 @@ def main() -> None:
                 continue
             entry_map = entries_for_file(entries, script.name)
             patched, stats = patch_script(script.read_bytes(), script.name, entry_map, encoding=args.encoding,
-                                          mode=args.mode, strict=args.strict)
+                                          mode=args.mode, strict=args.strict,
+                                          page_mark_mode=args.page_mark_mode,
+                                          layout_policy=args.layout_policy)
             rel = script.relative_to(inp)
             dst = out / rel
             dst.parent.mkdir(parents=True, exist_ok=True)

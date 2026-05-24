@@ -187,3 +187,115 @@ python inject.py scr json out_scr --mode in-place
 python extract.py --version
 python inject.py --version
 ```
+
+## v4：文本渲染闪退保护
+
+`crash.dmp` 显示异常点在游戏本体 `004100C5`，对应 `FUN_0040fda0` 字形渲染函数，异常码为 `0xC0000005`，是在绘制文本时读写了异常的 DIB 像素地址。这类问题通常不是脚本 opcode 边界错位，而是某条翻译文本让游戏的旧文本渲染器越界。
+
+源码里 `FUN_00438880` / `FUN_0040fda0` 的关键限制：
+
+- 正文按 2 字节 CP932 单元读取，半角 ASCII、半角空格、半角数字/字母会造成读取错位风险。
+- 正文里的 `＃` / `0x8194` 是手动换行控制；末尾的 `81 94 00` 是文本结束。
+- 单行约 23 个双字节字符后会自动换行。
+- 临时文本位图高度很小，安全行数约 4 行；翻译过长或换行位置不合适会导致渲染函数越界。
+
+因此 v4 的注入默认增加两层保护：
+
+```bat
+python inject.py scr json out_scr --mode relocate --stats-json inject_stats.json
+```
+
+默认行为：
+
+- `--page-mark-mode proportional`：`message` 里仍然不显示 `＃`，注入时按原文换行比例自动回填，而不是死用原字节偏移。
+- `--layout-policy skip`：如果某条译文含半角字符、编码后奇数字节长度、或估算渲染行数超过安全上限，就跳过该条并写入 warning，避免生成会闪退的脚本。
+
+需要复现 v3 固定字节位置行为：
+
+```bat
+python inject.py scr json out_scr --mode relocate --page-mark-mode byte-offset
+```
+
+需要强制注入并只输出警告：
+
+```bat
+python inject.py scr json out_scr --mode relocate --layout-policy warn --stats-json inject_stats.json
+```
+
+如果游戏在某一句之后闪退，优先看 `inject_stats.json` 中该文件后续几条的 `unsafe text layout` warning，通常不是屏幕上已经显示出的那一句，而是下一条文本开始预渲染时崩。
+
+
+## v6：超长文本自动分段防崩
+
+从 v6 开始，`inject.py` 默认使用：
+
+```bat
+python inject.py liudang chs scr --mode relocate --stats-json inject_stats.json
+```
+
+等价于：
+
+```bat
+--page-mark-mode auto-fit --layout-policy skip
+```
+
+规则：
+
+1. `scr_msg` 继续保留原始 `＃`。
+2. `message` 默认不显示 `＃`，正常翻译不用手动写。
+3. 注入时如果 `message` 没有 `＃`，会按 `scr_msg` 的分段比例自动补回。
+4. 如果你在 `message` 里手动写了 `＃`，v6 会尊重这个手动分段，不再先删除它。
+5. 如果某一段仍然过长，v6 会自动追加 `＃`，避免游戏文本渲染函数越界崩溃。
+
+针对类似：
+
+```json
+"scr_msg": "目立ちこそしないが＃一目で上質と解る家具の数々＃資産家の家だとは思っていたけど……。",
+"message": "雖然毫不起眼，但一眼望去便知皆是上乘之作的累累家具，我此前雖然就想過這里定是資產階級的宅邸……。"
+```
+
+旧逻辑可能生成一个过长连续段，游戏会在下一句渲染时闪退。v6 会自动插入 `＃` 分段。
+
+如果你想完全手动控制分段：
+
+```bat
+python inject.py liudang chs scr --mode relocate --page-mark-mode manual --stats-json inject_stats.json
+```
+
+如果要复现旧版比例补 `＃`：
+
+```bat
+python inject.py liudang chs scr --mode relocate --page-mark-mode proportional --stats-json inject_stats.json
+```
+
+
+## Beta: drop-page-mark 模式
+
+本 beta 版默认采用：
+
+```bash
+--page-mark-mode drop --layout-policy warn
+```
+
+含义：
+
+1. `scr_msg` 仍然保留原始 `＃`，用于校验。
+2. `message` 里默认不显示 `＃`。
+3. 注入时不会根据 `scr_msg` 自动补回 `＃`。
+4. 即使 `message` 里手动写了 `＃`，`drop` 模式也会在写回前移除。
+5. 文本块末尾必须存在的 `81 94 00` 终止结构仍由工具自动生成；本模式只移除正文内部的分页/中断 `＃`。
+6. 默认 `layout-policy=warn`，长文本风险只报警不跳过，方便实机测试。若想恢复保护可加 `--layout-policy skip`。
+
+常用命令：
+
+```bash
+python inject.py liudang chs scr --mode relocate --stats-json inject_stats.json
+```
+
+显式指定：
+
+```bash
+python inject.py liudang chs scr --mode relocate --page-mark-mode drop --layout-policy warn --stats-json inject_stats.json
+```
+
+风险：游戏文本渲染器可能因为单段过长而闪退；这个 beta 版就是用于验证“完全不插正文 `＃`”的实机行为。

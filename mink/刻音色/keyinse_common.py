@@ -17,7 +17,7 @@ import json
 import re
 
 DEFAULT_ENCODING = "cp932"
-TOOL_VERSION = "2026-05-24-page-mark-auto-v3"
+TOOL_VERSION = "2026-05-24-drop-page-mark-beta"
 TEXT_END = b"\x81\x94\x00"  # CP932 '＃' + NUL; text display treats 0x8194 as line/end control.
 PAGE_MARK = "＃"
 PAD_BYTE = 0xCD
@@ -96,8 +96,12 @@ def encode_text(text: str, encoding: str = DEFAULT_ENCODING) -> bytes:
 
 
 def strip_page_marks(text: str) -> str:
-    """Hide in-text page/wait marks from translator-facing message."""
+    """Hide in-text manual line-break marks from translator-facing message."""
     return text.replace(PAGE_MARK, "")
+
+
+def _encoded_len(ch: str, encoding: str = DEFAULT_ENCODING) -> int:
+    return len(ch.encode(encoding))
 
 
 def page_mark_byte_offsets(scr_msg: str, encoding: str = DEFAULT_ENCODING) -> list[int]:
@@ -108,19 +112,30 @@ def page_mark_byte_offsets(scr_msg: str, encoding: str = DEFAULT_ENCODING) -> li
         if ch == PAGE_MARK:
             offsets.append(acc)
         else:
-            acc += len(ch.encode(encoding))
+            acc += _encoded_len(ch, encoding)
     return offsets
 
 
-def apply_page_marks_from_scr_msg(scr_msg: str, message: str,
-                                  encoding: str = DEFAULT_ENCODING) -> str:
-    """Insert PAGE_MARK into message at byte positions inherited from scr_msg.
+def page_mark_unit_offsets(scr_msg: str, encoding: str = DEFAULT_ENCODING) -> list[int]:
+    """Return 2-byte display-cell offsets where PAGE_MARK occurred.
 
-    Translators edit message without PAGE_MARK.  On import we reconstruct the
-    original page/wait marks by using the byte offsets where PAGE_MARK appeared
-    in scr_msg after removing PAGE_MARK itself.  Existing PAGE_MARK in message is
-    removed first to avoid accidental double insertion.
+    The game text renderer walks the string as ushort-sized CP932 code units.
+    Normal dialogue should therefore be made from 2-byte CP932 characters.
     """
+    offsets: list[int] = []
+    acc = 0
+    for ch in scr_msg:
+        if ch == PAGE_MARK:
+            offsets.append(acc)
+        else:
+            n = _encoded_len(ch, encoding)
+            acc += max(1, (n + 1) // 2)
+    return offsets
+
+
+def apply_page_marks_by_byte_offsets(scr_msg: str, message: str,
+                                     encoding: str = DEFAULT_ENCODING) -> str:
+    """Old v3 behavior: insert PAGE_MARK using the original byte offsets."""
     offsets = page_mark_byte_offsets(scr_msg, encoding)
     if not offsets:
         return message
@@ -131,17 +146,271 @@ def apply_page_marks_from_scr_msg(scr_msg: str, message: str,
     mark_i = 0
     for ch in clean:
         out.append(ch)
-        acc += len(ch.encode(encoding))
+        acc += _encoded_len(ch, encoding)
         while mark_i < len(offsets) and offsets[mark_i] <= acc:
             out.append(PAGE_MARK)
             mark_i += 1
 
-    # If the translated message is shorter than the original breakpoint offset,
-    # keep the required control marks at the end rather than dropping them.
     while mark_i < len(offsets):
         out.append(PAGE_MARK)
         mark_i += 1
     return "".join(out)
+
+
+def apply_page_marks_proportional(scr_msg: str, message: str,
+                                  encoding: str = DEFAULT_ENCODING) -> str:
+    """Insert PAGE_MARK while preserving the original line-break ratio.
+
+    This is safer than raw byte offsets after translation: Chinese text is often
+    shorter/longer than Japanese, and a fixed byte offset can leave the last
+    segment too long.  The renderer has a small text bitmap and can crash if too
+    many wrapped rows are produced.
+    """
+    clean = strip_page_marks(message)
+    mark_count = scr_msg.count(PAGE_MARK)
+    if mark_count == 0:
+        return clean
+    if not clean:
+        return PAGE_MARK * mark_count
+
+    src_segments = scr_msg.split(PAGE_MARK)
+    src_units = [sum(max(1, (_encoded_len(ch, encoding) + 1) // 2) for ch in seg) for seg in src_segments]
+    src_total = sum(src_units)
+    if src_total <= 0:
+        return clean + PAGE_MARK * mark_count
+
+    chars = list(clean)
+    dst_units = [max(1, (_encoded_len(ch, encoding) + 1) // 2) for ch in chars]
+    dst_total = sum(dst_units)
+    cumulative_src: list[int] = []
+    acc = 0
+    for u in src_units[:-1]:
+        acc += u
+        cumulative_src.append(acc)
+
+    # Convert each source break ratio into a destination character boundary.
+    target_units = [max(0, min(dst_total, round(dst_total * c / src_total))) for c in cumulative_src]
+    out: list[str] = []
+    acc_dst = 0
+    mark_i = 0
+    for ch, u in zip(chars, dst_units):
+        # Breaks at offset 0 are emitted before the first char.
+        while mark_i < len(target_units) and target_units[mark_i] <= acc_dst:
+            out.append(PAGE_MARK)
+            mark_i += 1
+        out.append(ch)
+        acc_dst += u
+    while mark_i < len(target_units):
+        out.append(PAGE_MARK)
+        mark_i += 1
+    return "".join(out)
+
+
+def _unit_len_text(text: str, encoding: str = DEFAULT_ENCODING) -> int:
+    total = 0
+    for ch in text:
+        if ch == PAGE_MARK:
+            continue
+        total += max(1, (_encoded_len(ch, encoding) + 1) // 2)
+    return total
+
+
+def _find_safe_break(chars: list[str], start: int, hard_end: int,
+                     preferred_end: int) -> int:
+    """Choose a readable boundary for inserting PAGE_MARK.
+
+    The return value is a character index in ``chars`` where the mark should be
+    inserted before that character.  Prefer punctuation near the limit; fall back
+    to the hard limit to keep the renderer safe.
+    """
+    preferred_end = max(start + 1, min(preferred_end, hard_end, len(chars)))
+    hard_end = max(start + 1, min(hard_end, len(chars)))
+    punct = set('、。，．,.…！？!?；;：:」』）)]】》〉"\'　 \t')
+
+    # Search backward from the preferred boundary, accepting a little earlier.
+    lo = max(start + 1, preferred_end - 8)
+    for i in range(preferred_end, lo - 1, -1):
+        if i <= start or i > len(chars):
+            continue
+        if chars[i - 1] in punct:
+            return i
+
+    # Search forward up to the hard limit, still preferring punctuation.
+    for i in range(preferred_end + 1, hard_end + 1):
+        if i <= start or i > len(chars):
+            continue
+        if chars[i - 1] in punct:
+            return i
+
+    return preferred_end
+
+
+def enforce_page_mark_fit(message_with_marks: str, encoding: str = DEFAULT_ENCODING,
+                          max_segment_units: int | None = None) -> str:
+    """Insert extra PAGE_MARKs so every uninterrupted segment stays render-safe.
+
+    Existing marks are preserved.  This is intentionally conservative: the game
+    renderer may crash when one segment produces too many wrapped rows, even if
+    the whole text is otherwise structurally valid.
+    """
+    if max_segment_units is None:
+        max_segment_units = MAX_RENDER_COLUMNS * MAX_RENDER_ROWS_PER_SEGMENT
+    if max_segment_units <= 0:
+        return message_with_marks
+
+    fixed_segments: list[str] = []
+    for segment in message_with_marks.split(PAGE_MARK):
+        chars = list(segment)
+        if not chars:
+            fixed_segments.append(segment)
+            continue
+
+        out: list[str] = []
+        start = 0
+        acc_units = 0
+        last_break_start = 0
+        i = 0
+        # Greedy pack up to max_segment_units; if a segment is too long, insert
+        # PAGE_MARK at a punctuation-aware boundary and continue.
+        while i < len(chars):
+            u = max(1, (_encoded_len(chars[i], encoding) + 1) // 2)
+            if acc_units + u > max_segment_units and i > start:
+                br = _find_safe_break(chars, start, i, i)
+                out.extend(chars[start:br])
+                out.append(PAGE_MARK)
+                start = br
+                i = br
+                acc_units = 0
+                last_break_start = start
+                continue
+            acc_units += u
+            i += 1
+        out.extend(chars[start:])
+        fixed_segments.append("".join(out))
+
+    return PAGE_MARK.join(fixed_segments)
+
+
+def apply_page_marks_auto_fit(scr_msg: str, message: str,
+                              encoding: str = DEFAULT_ENCODING) -> str:
+    """Default v6 behavior for translated dialogue.
+
+    * If the translator manually wrote PAGE_MARK in ``message``, preserve that
+      layout and only add extra marks if a segment is still unsafe.
+    * Otherwise, reconstruct marks from ``scr_msg`` proportionally.
+    * Finally, enforce the renderer's per-segment length limit.
+    """
+    if PAGE_MARK in message:
+        base = message
+    else:
+        base = apply_page_marks_proportional(scr_msg, message, encoding)
+    return enforce_page_mark_fit(base, encoding)
+
+
+def apply_page_marks_from_scr_msg(scr_msg: str, message: str,
+                                  encoding: str = DEFAULT_ENCODING,
+                                  mode: str = "auto-fit") -> str:
+    """Reconstruct hidden PAGE_MARK characters for injection.
+
+    mode="auto-fit" is the v6 default. It preserves manual marks when present,
+    otherwise reconstructs marks from scr_msg, and then inserts additional marks
+    when a segment is too long for the text renderer.
+
+    mode="proportional" is the v4 behavior.
+    mode="byte-offset" is the v3 behavior.
+    mode="manual" writes message PAGE_MARKs exactly as supplied.
+    mode="none" writes message as-is.
+    mode="drop" strips all visible/internal PAGE_MARKs and does not reconstruct them.
+    """
+    if mode == "byte-offset":
+        return apply_page_marks_by_byte_offsets(scr_msg, message, encoding)
+    if mode == "proportional":
+        return apply_page_marks_proportional(scr_msg, message, encoding)
+    if mode == "auto-fit":
+        return apply_page_marks_auto_fit(scr_msg, message, encoding)
+    if mode == "manual":
+        return message
+    if mode == "none":
+        return message
+    if mode == "drop":
+        return strip_page_marks(message)
+    raise ValueError(f"unknown page mark mode: {mode}")
+
+
+MAX_RENDER_COLUMNS = 23
+# The renderer is unsafe when one uninterrupted segment wraps too many rows.
+# In practice, 2 rows per segment/page is safe for the 0x280x0x91 text DIB.
+MAX_RENDER_ROWS_PER_SEGMENT = 2
+MAX_RENDER_ROWS = 4
+
+
+def renderer_layout_report(text: str, encoding: str = DEFAULT_ENCODING,
+                           max_columns: int = MAX_RENDER_COLUMNS,
+                           max_rows: int = MAX_RENDER_ROWS) -> dict[str, Any]:
+    """Return diagnostics for the game's 2-byte text renderer.
+
+    Decompiled FUN_00438880/FUN_0040fda0 show that dialogue text is walked as
+    2-byte CP932 units and rendered into a 0x280 x 0x91 temporary bitmap.  More
+    than about four wrapped rows can make the renderer write outside the bitmap.
+    """
+    warnings: list[str] = []
+    encoded = b""
+    try:
+        encoded = text.encode(encoding)
+    except UnicodeEncodeError as ex:
+        return {
+            "ok": False,
+            "rows": 0,
+            "max_rows": max_rows,
+            "warnings": [f"not encodable as {encoding}: {ex}"],
+        }
+
+    if len(encoded) % 2 != 0:
+        warnings.append(f"encoded byte length is odd ({len(encoded)}); dialogue renderer expects 2-byte units")
+
+    for ch in text:
+        if ch == PAGE_MARK:
+            continue
+        n = len(ch.encode(encoding))
+        if n != 2:
+            warnings.append(f"half-width or non-2-byte character {ch!r} encodes to {n} byte(s)")
+            break
+
+    segments = text.split(PAGE_MARK)
+    rows = 0
+    segment_units: list[int] = []
+    segment_rows: list[int] = []
+    for seg in segments:
+        units = 0
+        for ch in seg:
+            n = len(ch.encode(encoding))
+            units += max(1, (n + 1) // 2)
+        r = max(1, (units + max_columns - 1) // max_columns)
+        segment_units.append(units)
+        segment_rows.append(r)
+        rows += r
+
+    max_seg_rows = max(segment_rows, default=0)
+    if max_seg_rows > MAX_RENDER_ROWS_PER_SEGMENT:
+        warnings.append(
+            f"segment render rows {max_seg_rows} > safe per-segment limit {MAX_RENDER_ROWS_PER_SEGMENT}; "
+            f"insert {PAGE_MARK} to split long text"
+        )
+    if rows > max_rows and PAGE_MARK not in text:
+        warnings.append(f"render rows {rows} > safe limit {max_rows} without manual segment breaks")
+
+    return {
+        "ok": not warnings,
+        "rows": rows,
+        "max_rows": max_rows,
+        "max_columns": max_columns,
+        "segment_units": segment_units,
+        "segment_rows": segment_rows,
+        "max_segment_rows": max_seg_rows,
+        "max_rows_per_segment": MAX_RENDER_ROWS_PER_SEGMENT,
+        "encoded_size": len(encoded),
+        "warnings": warnings,
+    }
 
 
 def u32le(data: bytes | bytearray, off: int) -> int:
@@ -477,9 +746,14 @@ def _make_boundary_mapper(old_offsets: list[int], old_lengths: list[int], new_of
 
 def patch_script(original_data: bytes, file_name: str, entries: dict[int, dict[str, Any]], *,
                  encoding: str = DEFAULT_ENCODING, mode: str = "relocate",
-                 strict: bool = False) -> tuple[bytes, dict[str, Any]]:
+                 strict: bool = False, page_mark_mode: str = "drop",
+                 layout_policy: str = "warn") -> tuple[bytes, dict[str, Any]]:
     if mode not in {"relocate", "in-place"}:
         raise ValueError("mode must be 'relocate' or 'in-place'")
+    if page_mark_mode not in {"drop", "auto-fit", "proportional", "byte-offset", "manual", "none"}:
+        raise ValueError("page_mark_mode must be 'drop', 'auto-fit', 'proportional', 'byte-offset', 'manual', or 'none'")
+    if layout_policy not in {"skip", "warn", "off"}:
+        raise ValueError("layout_policy must be 'skip', 'warn', or 'off'")
 
     instructions = parse_instructions(original_data)
     rebuilt: list[bytearray] = []
@@ -494,6 +768,8 @@ def patch_script(original_data: bytes, file_name: str, entries: dict[int, dict[s
         "warnings": [],
         "mode": mode,
         "file": file_name,
+        "page_mark_mode": page_mark_mode,
+        "layout_policy": layout_policy,
     }
     text_index = 0
     new_pos = 0
@@ -528,11 +804,40 @@ def patch_script(original_data: bytes, file_name: str, entries: dict[int, dict[s
                 if strict:
                     raise ValueError(msg)
             else:
-                message_for_inject = (
-                    apply_page_marks_from_scr_msg(scr_msg, message, encoding)
-                    if entry_type == "text" else message
-                )
-                if message_for_inject == old_text:
+                is_untranslated = False
+                if entry_type == "text":
+                    # Preserve exact zero-modification roundtrip.  Extracted JSON hides ＃
+                    # from message, so an untranslated entry would otherwise be
+                    # re-split by the selected reconstruction mode.
+                    if page_mark_mode != "drop" and strip_page_marks(message) == strip_page_marks(scr_msg):
+                        message_for_inject = old_text
+                        is_untranslated = True
+                    else:
+                        message_for_inject = apply_page_marks_from_scr_msg(
+                            scr_msg, message, encoding, page_mark_mode
+                        )
+                else:
+                    message_for_inject = message
+                layout_bad = False
+                if entry_type == "text" and layout_policy != "off" and not is_untranslated:
+                    report = renderer_layout_report(message_for_inject, encoding)
+                    if not report["ok"]:
+                        layout_msg = (
+                            f"index={text_index} unsafe text layout at 0x{inst.offset:X}: "
+                            f"rows={report.get('rows')}/{report.get('max_rows')}, "
+                            f"segment_rows={report.get('segment_rows')}, "
+                            f"segments={report.get('segment_units')}, "
+                            f"message={message!r}; " + "; ".join(report["warnings"])
+                        )
+                        stats["warnings"].append(layout_msg)
+                        if layout_policy == "skip":
+                            stats["failed"] += 1
+                            layout_bad = True
+                            if strict:
+                                raise ValueError(layout_msg)
+                if layout_bad:
+                    raw_new = bytes(inst.raw)
+                elif message_for_inject == old_text:
                     stats["unchanged"] += 1
                 else:
                     try:

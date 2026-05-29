@@ -43,7 +43,8 @@ def _make_dialog_entry(
     name_arg_index=None,
     message_arg_index=None,
     call_line=None,
-    user_func_name=None
+    user_func_name=None,
+    entry_type=None
 ):
     visible_message, message_suffix = _split_dialog_message_suffix(message)
     if visible_message == "　" and not message_suffix:
@@ -64,6 +65,8 @@ def _make_dialog_entry(
         entry["call_line"] = call_line
     if user_func_name is not None:
         entry["user_func_name"] = user_func_name
+    if entry_type is not None:
+        entry["entry_type"] = entry_type
     return entry
 
 def _restore_message_suffix(text, suffix):
@@ -694,6 +697,288 @@ def _extract_direct_selectex_entries(lines, call_idx):
         return []
     return entries
 
+
+def _extract_selectex_prompt_entry(lines, call_idx):
+    """提取 _SelectEx/SelectEx 的提示标题。实际样本中旧式 move(2) 选项后可能紧接：
+
+        push_string("見たいシーンを選択してください");
+        push_string("_SelectEx");
+        f_01c();
+
+    选项本身由旧式 move(2) 逻辑提取，这里只补最靠近 SelectEx 函数名之前的提示文本。
+    """
+    func_name_idx, func_name = _extract_selectex_func_name_before_user_call(lines, call_idx)
+    if func_name_idx is None:
+        return None
+    prompt_idx = _prev_effective_line(lines, func_name_idx)
+    if prompt_idx is None:
+        return None
+    value = _extract_push_string(lines[prompt_idx])
+    if value is None:
+        return None
+    if _normalize_user_function_name_for_match(value) == "SelectEx":
+        return None
+    if not _looks_like_visible_select_text(value):
+        return None
+    # 如果这行本身就是旧式 choice 的 push_string(...); move(2)，它不是提示标题。
+    next_idx = _next_effective_line(lines, prompt_idx)
+    if next_idx is not None and _extract_move_arity(lines[next_idx]) == 2:
+        return None
+    return _make_dialog_entry(
+        name=None,
+        message=value,
+        name_line_index=None,
+        message_line_index=prompt_idx,
+        is_select=False,
+        call_line=call_idx + 1,
+        user_func_name=func_name,
+        entry_type="ui",
+    )
+
+
+def _extract_named_user_func_single_arg_entry(lines, call_idx, target_func_names, entry_type="ui"):
+    """提取 f_01c("FuncName") 前面的单个可见字符串参数。
+
+    用于 AutoSaveRange 这种运行时 UI/章节标题字符串：
+        push_string("プロローグ");
+        push_string("AutoSaveRange");
+        f_01c();
+    """
+    if not _is_user_func_call(lines[call_idx]):
+        return None
+    func_idx = _prev_effective_line(lines, call_idx)
+    if func_idx is None:
+        return None
+    func_name = _extract_push_string(lines[func_idx])
+    norm_func = _normalize_user_function_name_for_match(func_name)
+    targets = {_normalize_user_function_name_for_match(x) for x in target_func_names}
+    if norm_func not in targets:
+        return None
+    arg_idx = _prev_effective_line(lines, func_idx)
+    if arg_idx is None:
+        return None
+    value = _extract_push_string(lines[arg_idx])
+    if value is None:
+        return None
+    if not _looks_like_visible_select_text(value):
+        return None
+    return _make_dialog_entry(
+        name=None,
+        message=value,
+        name_line_index=None,
+        message_line_index=arg_idx,
+        is_select=False,
+        call_line=call_idx + 1,
+        user_func_name=func_name,
+        entry_type=entry_type,
+    )
+
+
+def _is_sys_set_caption_call(line):
+    call_name = _extract_call_name(line)
+    if not call_name:
+        return False
+    _, base = _split_qualified_name(call_name)
+    return base == "f_11e"
+
+
+def _extract_sys_set_caption_entry(lines, call_idx):
+    """提取 sys_::f_11e 的标题文本：push_string("おまけ"); nargs(1); sys_::f_11e();"""
+    if not _is_sys_set_caption_call(lines[call_idx]):
+        return None
+    arg_idx = _prev_effective_non_nargs_line(lines, call_idx)
+    if arg_idx is None:
+        return None
+    value = _extract_push_string(lines[arg_idx])
+    if value is None:
+        return None
+    if not _looks_like_visible_select_text(value):
+        return None
+    return _make_dialog_entry(
+        name=None,
+        message=value,
+        name_line_index=None,
+        message_line_index=arg_idx,
+        is_select=False,
+        call_line=call_idx + 1,
+        user_func_name="sys_::f_11e",
+        entry_type="ui",
+    )
+
+
+def _is_call_base(line, base_name, prefix=None):
+    call_name = _extract_call_name(line)
+    if not call_name:
+        return False
+    pfx, base = _split_qualified_name(call_name)
+    if base != base_name:
+        return False
+    if prefix is not None and pfx != prefix:
+        return False
+    return True
+
+
+def _arg_window_before_call(lines, call_idx, max_scan=96):
+    """Return effective line indices belonging to the argument block before a no-arg call.
+
+    This handles the common V1 form:
+        push_string(...)
+        push_dword(...)
+        nargs(n)
+        some_::f_xxx();
+    and stops at the previous runtime line notification / label / business call.
+    """
+    cursor = _prev_effective_line(lines, call_idx)
+    arg_indices = []
+    scanned = 0
+    while cursor is not None and scanned < max_scan:
+        if _is_label_line(lines[cursor]):
+            break
+        stripped = lines[cursor].strip()
+        if not stripped or stripped.startswith('//'):
+            cursor = _prev_effective_line(lines, cursor)
+            scanned += 1
+            continue
+        if _is_notify_line_count_call(lines[cursor]):
+            break
+        call_name = _extract_call_name(lines[cursor])
+        if call_name and not _extract_nargs(lines[cursor]):
+            break
+        if not (stripped.startswith('push_') or _extract_nargs(lines[cursor]) is not None or _is_add(lines[cursor]) or _is_mul(lines[cursor])):
+            break
+        arg_indices.append(cursor)
+        cursor = _prev_effective_line(lines, cursor)
+        scanned += 1
+    return list(reversed(arg_indices))
+
+
+def _extract_visible_string_entries_from_call(lines, call_idx, *, call_bases, prefix=None, entry_type='ui', is_select=False, skip_first_ascii_resource=True):
+    call_name = _extract_call_name(lines[call_idx])
+    if not call_name:
+        return []
+    pfx, base = _split_qualified_name(call_name)
+    if base not in set(call_bases):
+        return []
+    if prefix is not None and pfx != prefix:
+        return []
+    entries = []
+    for idx in _arg_window_before_call(lines, call_idx):
+        value = _extract_push_string(lines[idx])
+        if value is None:
+            continue
+        if not _looks_like_visible_select_text(value):
+            continue
+        entry = _make_dialog_entry(
+            name=None,
+            message=value,
+            name_line_index=None,
+            message_line_index=idx,
+            is_select=is_select,
+            call_line=call_idx + 1,
+            user_func_name=call_name,
+            entry_type=entry_type,
+        )
+        if entry:
+            entries.append(entry)
+    return entries
+
+
+def _extract_msg143_entry(lines, call_idx):
+    """Extract msg_::f_143(), used by this title for simple one/two string messages.
+
+    Observed forms:
+        push_string("name"); push_string("message"); nargs(2); msg_::f_143();
+        push_dword(0); push_string("message"); nargs(2); msg_::f_143();
+    """
+    if not _is_call_base(lines[call_idx], 'f_143', prefix='msg_') and not _is_call_base(lines[call_idx], 'f_143', prefix='msg'):
+        return None
+    msg_idx = _prev_effective_non_nargs_line(lines, call_idx)
+    if msg_idx is None:
+        return None
+    message = _extract_push_string(lines[msg_idx])
+    if message is None:
+        return None
+    prev_idx = _prev_effective_line(lines, msg_idx)
+    name = None
+    name_idx = None
+    if prev_idx is not None:
+        maybe_name = _extract_push_string(lines[prev_idx])
+        if maybe_name is not None:
+            name = maybe_name
+            name_idx = prev_idx
+    return _make_dialog_entry(
+        name=name,
+        message=message,
+        name_line_index=name_idx,
+        message_line_index=msg_idx,
+        is_select=False,
+        call_line=call_idx + 1,
+        user_func_name='msg_::f_143',
+    )
+
+
+def _extract_preview_text_entry(lines, call_idx):
+    # setup.bsc SetPreviewText: push_string(...); nargs(1); grp_::f_451();
+    return _extract_visible_string_entries_from_call(
+        lines,
+        call_idx,
+        call_bases={'f_451'},
+        prefix='grp_',
+        entry_type='ui',
+    )
+
+
+def _extract_default_caption_entry(lines, call_idx):
+    # setup.bsc SetDefaultCaption: push_string(...); nargs(1); sys_::f_13f();
+    return _extract_visible_string_entries_from_call(
+        lines,
+        call_idx,
+        call_bases={'f_13f'},
+        prefix='sys_',
+        entry_type='ui',
+    )
+
+
+def _extract_name_setup_entries(lines, call_idx):
+    """Extract visible strings from name/config registration calls in setup.bsc.
+
+    These are not dialogue lines, but they are visible default names / random name pools / line-icon names.
+    Resource arguments such as line_icon_NA are filtered by _looks_like_visible_select_text().
+    """
+    entries = []
+    entries.extend(_extract_visible_string_entries_from_call(lines, call_idx, call_bases={'f_108', 'f_109'}, prefix='sys_', entry_type='ui'))
+    entries.extend(_extract_visible_string_entries_from_call(lines, call_idx, call_bases={'f_448', 'f_449', 'f_469'}, prefix='grp_', entry_type='ui'))
+    return entries
+
+
+def _extract_function_concat_literal_entry(lines, call_idx):
+    # function.bsc display fragments: push_string("　ナスカ:"); push_base_offset(...); ...; f_091();
+    if not _is_call_base(lines[call_idx], 'f_091'):
+        return None
+    cursor = _prev_effective_line(lines, call_idx)
+    scanned = 0
+    while cursor is not None and scanned < 8:
+        value = _extract_push_string(lines[cursor])
+        if value is not None:
+            if not _looks_like_visible_select_text(value):
+                return None
+            return _make_dialog_entry(
+                name=None,
+                message=value,
+                name_line_index=None,
+                message_line_index=cursor,
+                is_select=False,
+                call_line=call_idx + 1,
+                user_func_name='f_091',
+                entry_type='ui',
+            )
+        stripped = lines[cursor].strip()
+        if not stripped.startswith('push_'):
+            break
+        cursor = _prev_effective_line(lines, cursor)
+        scanned += 1
+    return None
+
 def _entry_dedupe_key(entry):
     return (
         entry.get("message_line_index"),
@@ -753,6 +1038,27 @@ def extract_dialog_entries(lines, user_function_names=None):
         # 选项文本不直接挂在 slct::f_16x，而是位于 SelectEx 之前的参数构造块中。
         for parsed_option in _extract_direct_selectex_entries(lines, i):
             add_entry(parsed_option)
+
+        # _SelectEx/SelectEx 的提示标题，例如「見たいシーンを選択してください」。
+        add_entry(_extract_selectex_prompt_entry(lines, i))
+
+        # AutoSaveRange 的章节/回想标题，例如「プロローグ」「共通・第一話（前編）」。
+        add_entry(_extract_named_user_func_single_arg_entry(lines, i, {"AutoSaveRange"}, entry_type="ui"))
+
+        # sys_::f_11e 的窗口/场景标题，例如「おまけ」。
+        add_entry(_extract_sys_set_caption_entry(lines, i))
+
+        # msg_::f_143 的简化对话/系统消息形态。
+        add_entry(_extract_msg143_entry(lines, i))
+
+        # setup/function 里的可见 UI、默认名、随机名池、预览文本等。
+        for setup_entry in _extract_default_caption_entry(lines, i):
+            add_entry(setup_entry)
+        for setup_entry in _extract_preview_text_entry(lines, i):
+            add_entry(setup_entry)
+        for setup_entry in _extract_name_setup_entries(lines, i):
+            add_entry(setup_entry)
+        add_entry(_extract_function_concat_literal_entry(lines, i))
 
         # 兼容旧样式：push_string("選択肢"); move(2);
         parsed_option = _is_select_option_string(lines, i)

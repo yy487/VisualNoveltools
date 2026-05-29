@@ -139,6 +139,9 @@ def assemble_bsd_to_script(
 
 
 def _entry_type(engine_entry: dict[str, Any]) -> str:
+    explicit = engine_entry.get("entry_type")
+    if explicit:
+        return str(explicit)
     if engine_entry.get("is_select"):
         return "choice"
     if engine_entry.get("name"):
@@ -154,17 +157,18 @@ def convert_engine_entries_to_workflow(
     out: list[dict[str, Any]] = []
     for index, e in enumerate(engine_entries):
         text = str(e.get("message", ""))
-        item: dict[str, Any] = {
+        name = e.get("name")
+        item: dict[str, Any] = {}
+        if name is not None and name != "":
+            item["name"] = str(name)
+        item.update({
             "scr_msg": text,
             "message": text,
             "_file": file_name,
             "_index": index,
             "_type": _entry_type(e),
             "_line": int(e.get("message_line_index", -1)) + 1,
-        }
-        name = e.get("name")
-        if name is not None and name != "":
-            item["name"] = str(name)
+        })
         if e.get("name_line_index") is not None:
             item["_name_line"] = int(e["name_line_index"]) + 1
         if e.get("message_arg_index") is not None:
@@ -173,6 +177,8 @@ def convert_engine_entries_to_workflow(
             item["_name_arg_index"] = int(e["name_arg_index"])
         if e.get("call_line") is not None:
             item["_call_line"] = int(e["call_line"])
+        if e.get("user_func_name") is not None:
+            item["_user_func"] = str(e["user_func_name"])
         suffix = e.get("message_suffix")
         if suffix:
             item["_message_suffix"] = str(suffix)

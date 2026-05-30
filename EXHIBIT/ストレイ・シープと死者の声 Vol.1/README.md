@@ -1,4 +1,4 @@
-# ExHIBIT RLD JSON Tool v4
+# ExHIBIT RLD JSON Tool 
 
 用于 ExHIBIT`.rld` 脚本的静态解密、反汇编、正文/选择支 JSON 提取和 JSON 注入回封。
 

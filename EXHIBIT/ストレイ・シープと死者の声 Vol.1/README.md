@@ -1,18 +1,6 @@
 # ExHIBIT RLD JSON Tool v4
 
-用于 ExHIBIT / Retouch 系 `.rld` 脚本的静态解密、反汇编、正文/选择支 JSON 提取和 JSON 注入回封。
-
-## v4 主要修正
-
-- 增加 `--export-names`：可额外导出 `defChara.rld` / opcode `0x0030` 中的角色名条目。
-- `_type=name` 条目会参与注入，修改它的 `message` 后会写回 `defChara.rld`，所有通过角色 ID 引用该名字的正文都会跟着变。
-- 正文条目里的 `name` 仍然只作为上下文，不参与写回，避免同一角色名在多条正文中被不同翻译反复覆盖。
-- 不再把 `defChara.rld` 误判为固定 `DEF_SEED`。当前样本中：
-  - `def.rld` 使用固定 seed `0xAE85A916`。
-  - `defChara.rld` 使用普通场景 seed，用于建立角色名表。
-- 提取目录时会先全局扫描 `defChara.rld` / `def.rld` / 其他 RLD 中的 `0x30` 角色定义，建立全局 `char_id -> name` 表。
-- JSON 输出字段顺序为：`name`、`scr_msg`、`message` 在前。无角色名时不输出 `name`。
-- 将 CP932 私用区字符 `U+E000~U+F8FF` 转义为 `<PUA_XXXX>`，例如原始字节 `F0 4A` 解码为 `U+E00A`，提取时输出 `<PUA_E00A>`，注入时自动还原。
+用于 ExHIBIT`.rld` 脚本的静态解密、反汇编、正文/选择支 JSON 提取和 JSON 注入回封。
 
 ## 基本流程
 
@@ -105,25 +93,17 @@ python inject.py --seed 0x851C549B "rld" "json" "out_rld"
 
 - `0x001C`：正文显示。`init[0]` 为角色 ID，命中全局 name table 时输出 `name`。
 - `0x0015`：普通正文/旁白。
-- `0x00BF`：保守作为选择支候选；当前样本中未发现可翻译选择支文本。
+- `0x00BF`：保守作为选择支候选。
 - `0x0030`：角色定义。默认只用于建立 name table；开启 `--export-names` 后导出 `_type=name` 条目。
 - `0x000C`：历史/缓存类重复文本。样本中它总是紧邻同文 `0x001C`，因此默认不导出，避免重复。
 
 ## 私用区控制符
 
-样本中发现 `U+E00A`，原始 CP932 字节为 `F0 4A`。它不是乱码，而是引擎私用控制符，常出现在句中或句尾，疑似停顿/演出控制。提取时显示为 `<PUA_E00A>`，翻译时应保留，注入时工具会还原。
+样本中发现 `U+E00A`，原始 CP932 字节为 `F0 4A`。它不是乱码，而是引擎私用控制符，常出现在句中或句尾，疑似停顿/演出控制。提取时显示为 `<PUA_E00A>`，翻译时应保留，注入时工具会还原。可删除
 
-## 已验证样本
-
-对 `rld.zip`：
-
+## 相关说明
 - 角色名表：从 `defChara.rld` 使用普通 seed 解析得到 31 个角色名。
 - `--export-names`：导出 31 条 `_type=name` 角色名条目。
-- 正文/旁白：1701 条。
-- 有 name 的 dialogue：1306 条。
-- 无 name 的 monologue：395 条。
-- `<PUA_E00A>` 出现：387 次，涉及 148 条 JSON。
-- 原文 JSON 未修改直接注入回封：正文 RLD 与 `defChara.rld` 均 byte-exact 一致。
 
 ## 注意
 

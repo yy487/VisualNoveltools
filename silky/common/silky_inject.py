@@ -5,7 +5,7 @@
   2. 注入前用 scr_msg 校验原文；
   3. 校验不一致时给 warning，默认仍按 _index 注入，便于旧 JSON 小改后继续使用。
 
-只修改 message；scr_msg 用作定位与校验依据，不应修改。旧版 msg 仍作为兼容 fallback。
+修改 message；如果 JSON 条目存在 name，也会直接写回对应角色名块。scr_msg 用作定位与校验依据，不应修改。旧版 msg 仍作为兼容 fallback。
 """
 
 from __future__ import annotations
@@ -50,7 +50,8 @@ def import_text(opcode_txt_path: str, json_path: str, output_txt_path: str, *, s
                 continue
 
         new_msg = str(item.get('message', item.get('msg', json_scr if json_scr else old_scr)))
-        apply_translation_to_block(lines, block, new_msg)
+        new_name = item.get('name') if 'name' in item else None
+        apply_translation_to_block(lines, block, new_msg, name=new_name)
         patched += 1
 
     os.makedirs(os.path.dirname(os.path.abspath(output_txt_path)), exist_ok=True)

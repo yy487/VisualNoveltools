@@ -326,12 +326,23 @@ def split_visible_newline(text: str) -> List[str]:
     return text.split('\\n')
 
 
-def apply_translation_to_block(lines: List[str], block: TextBlock, message: str) -> None:
-    """把一个 JSON 条目的 message 写回对应 TextBlock。
+def apply_translation_to_block(
+    lines: List[str],
+    block: TextBlock,
+    message: str,
+    name: Optional[str] = None,
+) -> None:
+    """把一个 JSON 条目的 message/name 写回对应 TextBlock。
+
+    - message：写回正文字符串槽。
+    - name：如果 JSON 条目里存在 name，且当前块识别到了 name_arg_idx，则直接写回原 name 参数行。
 
     规则与旧版一致：以 TO_NEW_STRING[0] 形成的字面 \\n 为段组边界；每段组第一个 text/ruby 槽位写入译文，后续槽位清空。
     ruby reading 槽位不暴露给译者，注入时按原 reading 长度写全角空格占位。
     """
+    if name is not None and block.name_arg_idx is not None:
+        lines[block.name_arg_idx] = write_json_arg(str(name))
+
     groups: List[List[TextPart]] = [[]]
     for p in block.parts:
         if p.kind == 'newline':

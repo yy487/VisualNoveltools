@@ -170,11 +170,29 @@ def validate_entry_at(data: bytes, entry: dict[str, Any]) -> tuple[int, int, byt
 
 
 def patch_mes_non_equal(data: bytes, entries: list[dict[str, Any]], *, force_jump: bool = False) -> tuple[bytes, dict[str, Any]]:
-    """Patch MES text using in-place replacement or EOF jump stubs.
+    """Patch MES text with safe non-equal-length support.
 
-    If the new encoded text fits in the original command span, it is written in
-    place unless force_jump is set.  Otherwise the original command is replaced
-    by `0A append_offset`, and EOF receives `01 new_text 00 0A return_offset`.
+    MES text command format is::
+
+        01 <cp932 zero-terminated string> 00
+
+    After the text renderer consumes the zero terminator, the VM resumes at the
+    byte immediately after that terminator.  Therefore simply writing a shorter
+    string and padding the rest with zero bytes is unsafe: the VM resumes inside
+    the padding rather than at the original next instruction.
+
+    Safe policy used by this version:
+      * unchanged entries are skipped;
+      * exactly equal command spans are patched in place;
+      * shorter/equal-fitting replacements with at least 5 spare bytes use an
+        inline tail jump: ``01 new 00 0A old_end``;
+      * longer replacements, or replacements without room for an inline tail
+        jump, use an EOF trampoline: original position becomes
+        ``0A append_off`` and EOF receives ``01 new 00 0A old_end``.
+
+    In both relocation modes, the VM's resume PC is forced back to the original
+    command end, so following opcodes and existing absolute jump targets remain
+    valid.
     """
     buf = bytearray(data)
     appended = bytearray()
@@ -182,14 +200,19 @@ def patch_mes_non_equal(data: bytes, entries: list[dict[str, Any]], *, force_jum
         "json_entries": len(entries),
         "patched": 0,
         "skipped_same": 0,
+        "inplace_equal": 0,
+        "inline_tail_jump": 0,
+        "eof_trampoline": 0,
+        # Compatibility counters for older scripts/log readers.
         "inplace": 0,
         "jump": 0,
         "errors": [],
         "warnings": [],
     }
 
-    # Patch in original order.  Offsets are from the original file and remain valid because
-    # we never insert in the middle of the existing file.
+    # Offsets are from the original file and remain valid because we never
+    # insert in the middle of the existing region.  We only modify bytes inside
+    # the original command span or append new code at EOF.
     for idx, e in enumerate(entries):
         msg = e.get("message", e.get("scr_msg"))
         scr = e.get("scr_msg")
@@ -208,27 +231,48 @@ def patch_mes_non_equal(data: bytes, entries: list[dict[str, Any]], *, force_jum
 
         old_span = end - off
         new_command = b"\x01" + new_raw + b"\x00"
-        if not force_jump and len(new_command) <= old_span:
-            buf[off:off + len(new_command)] = new_command
-            if len(new_command) < old_span:
-                buf[off + len(new_command):end] = b"\x00" * (old_span - len(new_command))
+        return_jump = b"\x0A" + end.to_bytes(4, "little")
+
+        # Case 1: exact-size normal replacement.  This keeps the terminator at
+        # the same byte position, so PC resume is unchanged.
+        if not force_jump and len(new_command) == old_span:
+            buf[off:end] = new_command
             report["patched"] += 1
+            report["inplace_equal"] += 1
             report["inplace"] += 1
             continue
 
+        # Case 2: shorter/fitting replacement.  Put a jump immediately after the
+        # new terminator.  The renderer resumes into this 0A instruction, which
+        # jumps to the original command end.  This is the safe "padding" method.
+        if not force_jump and len(new_command) + 5 <= old_span:
+            used = len(new_command) + 5
+            buf[off:off + len(new_command)] = new_command
+            buf[off + len(new_command):off + used] = return_jump
+            if used < old_span:
+                # Not executed: only padding after the tail jump.
+                buf[off + used:end] = b"\x00" * (old_span - used)
+            report["patched"] += 1
+            report["inline_tail_jump"] += 1
+            report["jump"] += 1
+            continue
+
+        # Case 3: longer replacement, or no room for inline tail jump.  Replace
+        # the old command start with a jump to an appended block.
         if old_span < 5:
             report["errors"].append(
-                f"entry[{idx}] original span too small for jump: span={old_span}, off=0x{off:X}"
+                f"entry[{idx}] original span too small for EOF trampoline: span={old_span}, off=0x{off:X}"
             )
             continue
 
         append_off = len(buf) + len(appended)
-        return_off = end
         buf[off:off + 5] = b"\x0A" + append_off.to_bytes(4, "little")
         if old_span > 5:
+            # Not executed because the first opcode is a jump.
             buf[off + 5:end] = b"\x00" * (old_span - 5)
-        appended += new_command + b"\x0A" + return_off.to_bytes(4, "little")
+        appended += new_command + return_jump
         report["patched"] += 1
+        report["eof_trampoline"] += 1
         report["jump"] += 1
 
     if appended:

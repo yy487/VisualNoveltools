@@ -7,13 +7,13 @@ from pathlib import Path
 from typing import Iterable
 from bisect import bisect_right
 
-# Load local opcode.py explicitly because Python itself imports the stdlib module named "opcode" very early.
+# Load local rp_mes_opcode.py explicitly because Python itself imports the stdlib module named "opcode" very early.
 import importlib.util as _importlib_util
 import sys as _sys
-_OPCODE_PATH = Path(__file__).with_name("opcode.py")
+_OPCODE_PATH = Path(__file__).with_name("rp_mes_opcode.py")
 _spec = _importlib_util.spec_from_file_location("rp_mes_opcode", _OPCODE_PATH)
 if _spec is None or _spec.loader is None:
-    raise ImportError(f"cannot load local opcode.py from {_OPCODE_PATH}")
+    raise ImportError(f"cannot load local rp_mes_opcode.py from {_OPCODE_PATH}")
 _opcode_mod = _importlib_util.module_from_spec(_spec)
 _sys.modules[_spec.name] = _opcode_mod
 _spec.loader.exec_module(_opcode_mod)

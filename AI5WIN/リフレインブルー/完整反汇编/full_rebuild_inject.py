@@ -30,12 +30,12 @@ sys.path.insert(0, str(SCRIPT_DIR))
 import rp_arc  # type: ignore
 from rp_mes_common import scan_mes_text  # type: ignore
 
-# Local opcode.py cannot be imported as "opcode" because stdlib already uses that name.
+# Local rp_mes_opcode.py cannot be imported as "opcode" because stdlib already uses that name.
 import importlib.util as _importlib_util
-_OPCODE_PATH = SCRIPT_DIR / "opcode.py"
+_OPCODE_PATH = SCRIPT_DIR / "rp_mes_opcode.py"
 _spec = _importlib_util.spec_from_file_location("rp_mes_opcode", _OPCODE_PATH)
 if _spec is None or _spec.loader is None:
-    raise ImportError(f"cannot load local opcode.py from {_OPCODE_PATH}")
+    raise ImportError(f"cannot load local rp_mes_opcode.py from {_OPCODE_PATH}")
 _opcode_mod = _importlib_util.module_from_spec(_spec)
 sys.modules[_spec.name] = _opcode_mod
 _spec.loader.exec_module(_opcode_mod)

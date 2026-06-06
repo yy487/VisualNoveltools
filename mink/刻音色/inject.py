@@ -41,6 +41,8 @@ def main() -> None:
                     help="how to handle hidden ＃ breaks; beta default: drop strips internal ＃ and does not reconstruct them")
     ap.add_argument("--layout-policy", choices=["skip", "warn", "off"], default="warn",
                     help="text renderer safety check: skip unsafe entries, only warn, or disable; beta default: warn so drop-mode output is still written")
+    ap.add_argument("--no-split-overflow", action="store_true",
+                    help="disable v7 safety split; unsafe >3-row messages will remain one 0x04 record")
     ap.add_argument("--stats-json", help="optional path to write machine-readable injection stats")
     args = ap.parse_args()
 
@@ -55,7 +57,8 @@ def main() -> None:
         patched, stats = patch_script(inp.read_bytes(), inp.name, entry_map, encoding=args.encoding,
                                       mode=args.mode, strict=args.strict,
                                       page_mark_mode=args.page_mark_mode,
-                                      layout_policy=args.layout_policy)
+                                      layout_policy=args.layout_policy,
+                                      split_overflow=not args.no_split_overflow)
         if out.exists() and out.is_dir():
             out_path = out / inp.name
         elif out.suffix:
@@ -87,7 +90,8 @@ def main() -> None:
             patched, stats = patch_script(script.read_bytes(), script.name, entry_map, encoding=args.encoding,
                                           mode=args.mode, strict=args.strict,
                                           page_mark_mode=args.page_mark_mode,
-                                          layout_policy=args.layout_policy)
+                                          layout_policy=args.layout_policy,
+                                          split_overflow=not args.no_split_overflow)
             rel = script.relative_to(inp)
             dst = out / rel
             dst.parent.mkdir(parents=True, exist_ok=True)

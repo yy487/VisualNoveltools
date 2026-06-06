@@ -17,7 +17,7 @@ import json
 import re
 
 DEFAULT_ENCODING = "cp932"
-TOOL_VERSION = "2026-05-24-drop-page-mark-beta"
+TOOL_VERSION = "2026-05-24-drop-page-mark-split-v7"
 TEXT_END = b"\x81\x94\x00"  # CP932 '＃' + NUL; text display treats 0x8194 as line/end control.
 PAGE_MARK = "＃"
 PAD_BYTE = 0xCD
@@ -28,6 +28,11 @@ VARLEN_B3 = {0x01, 0x04, 0x07, 0x09, 0x0B, 0x0C, 0x0D, 0x22, 0x29, 0x2E}
 # case 1b stores choice text: byte2 bytes from p+byte1, target is dword at p+4.
 CHOICE_OP = 0x1B
 TEXT_OP = 0x04
+
+# Renderer safety constants. Must be defined before any function defaults use them.
+MAX_RENDER_COLUMNS = 23
+MAX_RENDER_ROWS_PER_SEGMENT = 2
+MAX_RENDER_ROWS = 3
 
 # Absolute script offsets observed in the interpreter:
 # op05: ip = script_base + dword(p+4)
@@ -291,6 +296,53 @@ def enforce_page_mark_fit(message_with_marks: str, encoding: str = DEFAULT_ENCOD
     return PAGE_MARK.join(fixed_segments)
 
 
+
+def split_text_for_renderer(text: str, encoding: str = DEFAULT_ENCODING,
+                            max_rows: int = MAX_RENDER_ROWS,
+                            max_columns: int = MAX_RENDER_COLUMNS,
+                            margin_units: int = 0) -> list[str]:
+    """Split one logical message into several 0x04 text instructions.
+
+    The game pre-renders one 0x04 message into a 640x145 temporary DIB.
+    Decompiled sub_438880 starts text rows at y=46 and advances by 28 px.
+    Drawing a fourth row can enter sub_40FDA0 with an out-of-bounds DIB pointer
+    and crash.  Internal PAGE_MARK is only a hard line break inside the same
+    pre-render pass, so it cannot make a >3-row message safe.  For beta tests
+    that drop PAGE_MARK, long translations must therefore be emitted as several
+    consecutive 0x04 instructions.
+    """
+    clean = strip_page_marks(text)
+    if not clean:
+        return [clean]
+
+    max_units = max(1, max_rows * max_columns - margin_units)
+    chars = list(clean)
+    units = [max(1, (_encoded_len(ch, encoding) + 1) // 2) for ch in chars]
+    if sum(units) <= max_units:
+        return [clean]
+
+    chunks: list[str] = []
+    start = 0
+    acc = 0
+    i = 0
+    while i < len(chars):
+        u = units[i]
+        if acc + u > max_units and i > start:
+            br = _find_safe_break(chars, start, i, i)
+            if br <= start:
+                br = i
+            chunks.append("".join(chars[start:br]))
+            start = br
+            i = br
+            acc = 0
+            continue
+        acc += u
+        i += 1
+    if start < len(chars):
+        chunks.append("".join(chars[start:]))
+    return chunks or [clean]
+
+
 def apply_page_marks_auto_fit(scr_msg: str, message: str,
                               encoding: str = DEFAULT_ENCODING) -> str:
     """Default v6 behavior for translated dialogue.
@@ -341,7 +393,7 @@ MAX_RENDER_COLUMNS = 23
 # The renderer is unsafe when one uninterrupted segment wraps too many rows.
 # In practice, 2 rows per segment/page is safe for the 0x280x0x91 text DIB.
 MAX_RENDER_ROWS_PER_SEGMENT = 2
-MAX_RENDER_ROWS = 4
+MAX_RENDER_ROWS = 3
 
 
 def renderer_layout_report(text: str, encoding: str = DEFAULT_ENCODING,
@@ -747,7 +799,7 @@ def _make_boundary_mapper(old_offsets: list[int], old_lengths: list[int], new_of
 def patch_script(original_data: bytes, file_name: str, entries: dict[int, dict[str, Any]], *,
                  encoding: str = DEFAULT_ENCODING, mode: str = "relocate",
                  strict: bool = False, page_mark_mode: str = "drop",
-                 layout_policy: str = "warn") -> tuple[bytes, dict[str, Any]]:
+                 layout_policy: str = "warn", split_overflow: bool = True) -> tuple[bytes, dict[str, Any]]:
     if mode not in {"relocate", "in-place"}:
         raise ValueError("mode must be 'relocate' or 'in-place'")
     if page_mark_mode not in {"drop", "auto-fit", "proportional", "byte-offset", "manual", "none"}:
@@ -770,6 +822,9 @@ def patch_script(original_data: bytes, file_name: str, entries: dict[int, dict[s
         "file": file_name,
         "page_mark_mode": page_mark_mode,
         "layout_policy": layout_policy,
+        "split_overflow": split_overflow,
+        "split_entries": 0,
+        "split_extra_instructions": 0,
     }
     text_index = 0
     new_pos = 0
@@ -842,8 +897,20 @@ def patch_script(original_data: bytes, file_name: str, entries: dict[int, dict[s
                 else:
                     try:
                         if entry_type == "text":
+                            chunks = [message_for_inject]
+                            if mode == "relocate" and split_overflow:
+                                chunks = split_text_for_renderer(message_for_inject, encoding)
                             if mode == "in-place":
                                 raw_new = make_text_instruction(inst, message_for_inject, encoding, keep_payload_size=inst.b3)
+                            elif len(chunks) > 1:
+                                raw_new = b"".join(make_text_instruction(inst, chunk, encoding, keep_payload_size=None) for chunk in chunks)
+                                stats["split_entries"] += 1
+                                stats["split_extra_instructions"] += len(chunks) - 1
+                                stats["warnings"].append(
+                                    f"index={text_index} split long text at 0x{inst.offset:X}: "
+                                    f"chunks={len(chunks)}, units={[ _unit_len_text(c, encoding) for c in chunks ]}, "
+                                    f"message={message!r}"
+                                )
                             else:
                                 raw_new = make_text_instruction(inst, message_for_inject, encoding, keep_payload_size=None)
                         else:

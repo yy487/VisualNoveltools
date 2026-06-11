@@ -21,7 +21,7 @@ python assembler.py 0105.MES.asm.txt -o 0105.MES.rebuild --encoding cp932
 
 ## 文本提取
 
-默认只提取剧情/菜单文本，跳过 `0.MES`、`NAME.MES`、`STAND*.MES`、`FLAGINI.MES`、`START.MES`、`TEST.MES`、`L*.MES` 等资源/表/loader 文件，避免把表数据误当成文本。
+默认只提取剧情/菜单文本，跳过 `0.MES`、`NAME.MES`、`STAND*.MES`、`FLAGINI.MES`、`START.MES`、`TEST.MES` 等资源/表文件，避免把表数据误当成文本。`LBATTLE/LCLIMAX/LEND/LOMAKE` 等 L 系列脚本现在会正常纳入提取；误扫的二进制 cstring 会由占位符过滤规则剔除。
 
 ```bat
 python extract.py mes json --encoding cp932

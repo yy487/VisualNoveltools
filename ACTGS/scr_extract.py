@@ -35,7 +35,19 @@ PURE_COMMANDS = {
     'shake', 'sleep', 'wait',
     'window', 'window_off', 'window_on', 'window_sel',
     'kaisou_end', 'auto_ret_off',
+    'vo_wait', 'vo_sel', 'bgm_stop', 'bgm_wait', 'bgm2',
+    'se1', 'se2', 'se3', 'se_bgm1', 'se_bgm2', 'se_fo', 'se_stop', 'se_wait', 'sex',
 }
+
+# 对话触发指令: 这些指令后跟随文本行
+VOICE_TRIGGERS = {'vo', 'vo2', 'vox'}
+
+# 消息块内可安全跳过的控制指令 (不中断文本收集)
+SKIP_IN_MSG = {'vo_wait', 'bgm_stop', 'bgm_wait', 'se_stop', 'se_wait',
+               'se_fo', 'bgm_fo', 'se1', 'se2', 'se3', 'sex'}
+
+# 可含日文字符串参数的命令 (参数以引号包裹)
+TEXT_ARG_COMMANDS = {'ev1_fi', 'ev1', 'ev', 'ev1_cf'}
 
 SEL_PREFIX_RE = re.compile(r'^[１２３４５６７８９０]+[．.]')
 INLINE_NAME_RE = re.compile(r'^([^\x00-\x7F]+?)\s*(「.+)', re.DOTALL)
@@ -61,7 +73,7 @@ def is_pure_command(line):
     if re.match(r'^F\d+', s):
         return True
     cmd = s.split(None, 1)[0]
-    if cmd in PURE_COMMANDS or cmd in ('vo', 'vo2', 'msg2'):
+    if cmd in PURE_COMMANDS or cmd in ('vo', 'vo2', 'vox', 'msg2'):
         return True
     return False
 
@@ -112,7 +124,14 @@ def extract_text(name, scr_bytes):
             i += 1
             continue
 
-        if stripped.startswith('vo ') or stripped.startswith('vo2 '):
+        # ── 对话块: vo / vo2 / vox ──
+        voice_match = None
+        for vt in VOICE_TRIGGERS:
+            if stripped.startswith(vt + ' ') or stripped == vt:
+                voice_match = vt
+                break
+
+        if voice_match:
             i += 1
             speaker = ""
             msg_lines = []
@@ -123,15 +142,28 @@ def extract_text(name, scr_bytes):
                     i += 1; continue
                 if cur.startswith('msg2 '):
                     speaker = cur[5:].strip(); i += 1; continue
+                # 嵌套的 vo/vo2/vox → 中断当前块
+                if any(cur.startswith(vt + ' ') or cur == vt for vt in VOICE_TRIGGERS):
+                    break
                 if (cur.startswith('def_sel ') or
                     (cur.startswith('def_selmes ') and not cur.startswith('def_selmes2'))):
                     break
                 if cur == 'ret':
                     i += 1; break
                 if is_pure_command(cur):
+                    # 消息块内可安全跳过的控制指令
+                    cmd = cur.split(None, 1)[0] if cur.split(None, 1) else cur
+                    if cmd in SKIP_IN_MSG:
+                        i += 1; continue
                     break
                 if has_japanese(cur) or cur.startswith('「'):
                     msg_lines.append(cur); i += 1; continue
+                # 检查是否为含日文参数的指令 (如 ev1_fi "_文本_")
+                cmd = cur.split(None, 1)[0] if cur.split(None, 1) else ''
+                if cmd in TEXT_ARG_COMMANDS:
+                    m = re.search(r'\"([^\"]*[぀-ゟ゠-ヿ一-鿿][^\"]*)\"', cur)
+                    if m:
+                        msg_lines.append(m.group(1)); i += 1; continue
                 i += 1; break
 
             if msg_lines:
@@ -148,6 +180,18 @@ def extract_text(name, scr_bytes):
                 })
                 text_id += 1
             continue
+
+        # ── 独立含日文参数指令 (非对话块内) ──
+        cmd = stripped.split(None, 1)[0] if stripped.split(None, 1) else ''
+        if cmd in TEXT_ARG_COMMANDS:
+            m = re.search(r'\"([^\"]*[぀-ゟ゠-ヿ一-鿿][^\"]*)\"', stripped)
+            if m:
+                entries.append({
+                    "name": "",
+                    "message": m.group(1),
+                    "id": f"{basename}/{text_id}/cmd_{cmd}"
+                })
+                text_id += 1
 
         i += 1
 

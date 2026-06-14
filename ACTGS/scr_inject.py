@@ -19,6 +19,7 @@ from scr_crypto import (
 from scr_extract import (
     PURE_COMMANDS, SEL_PREFIX_RE, INLINE_NAME_RE,
     has_japanese, is_pure_command,
+    VOICE_TRIGGERS, SKIP_IN_MSG, TEXT_ARG_COMMANDS,
 )
 
 
@@ -173,8 +174,14 @@ def inject_text(name, scr_bytes, translations, encoding='cp932'):
                 new_lines.append(lines[i])
             i += 1; continue
 
-        # ---- vo / vo2 ----
-        if stripped.startswith('vo ') or stripped.startswith('vo2 '):
+        # ---- vo / vo2 / vox ----
+        voice_match = None
+        for vt in VOICE_TRIGGERS:
+            if stripped.startswith(vt + ' ') or stripped == vt:
+                voice_match = vt
+                break
+
+        if voice_match:
             new_lines.append(lines[i]); i += 1
             speaker = ""
             msg_lines = []
@@ -190,11 +197,18 @@ def inject_text(name, scr_bytes, translations, encoding='cp932'):
                     speaker = cur[5:].strip()
                     speaker_line_idx = len(new_lines)
                     new_lines.append(lines[i]); i += 1; continue
+                # 嵌套的 vo/vo2/vox → 中断当前块
+                if any(cur.startswith(vt + ' ') or cur == vt for vt in VOICE_TRIGGERS):
+                    break
                 if (cur.startswith('def_sel ') or
                     (cur.startswith('def_selmes ') and not cur.startswith('def_selmes2'))):
                     break
                 if cur == 'ret': break
-                if is_pure_command(cur): break
+                if is_pure_command(cur):
+                    cmd = cur.split(None, 1)[0] if cur.split(None, 1) else cur
+                    if cmd in SKIP_IN_MSG:
+                        new_lines.append(lines[i]); i += 1; continue
+                    break
                 if has_japanese(cur) or cur.startswith('「'):
                     if msg_start < 0: msg_start = len(new_lines)
                     msg_lines.append(cur)

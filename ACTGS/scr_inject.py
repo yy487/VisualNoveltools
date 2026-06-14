@@ -263,7 +263,7 @@ def main():
     print(f"密钥: {key.hex()} (长度 {len(key)})")
 
     print(f"解析档案: {arc_path}")
-    scripts, header, header_encrypted = parse_archive(arc_path, key)
+    scripts, header, header_encrypted, _gaps, _trailing = parse_archive(arc_path, key)
     print(f"脚本数量: {len(scripts)}" + (" (头部加密)" if header_encrypted else ""))
     print(f"输出编码: {encoding}")
 

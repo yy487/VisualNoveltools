@@ -175,7 +175,7 @@ def main():
 
     os.makedirs(out_dir, exist_ok=True)
     print(f"解析档案: {arc_path}")
-    scripts, _header, _enc = parse_archive(arc_path, key)
+    scripts, _header, _enc, _gaps, _trailing = parse_archive(arc_path, key)
     print(f"脚本数量: {len(scripts)}")
 
     total_entries = 0

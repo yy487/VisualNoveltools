@@ -193,6 +193,9 @@ def inject_text(name, scr_bytes, translations, encoding='cp932'):
                 cur = lines[i].strip()
                 if not cur:
                     new_lines.append(lines[i]); i += 1; continue
+                # 注释行: 消息块内保持并跳过
+                if cur.startswith(';'):
+                    new_lines.append(lines[i]); i += 1; continue
                 if cur.startswith('msg2 '):
                     speaker = cur[5:].strip()
                     speaker_line_idx = len(new_lines)

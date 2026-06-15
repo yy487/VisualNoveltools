@@ -22,7 +22,7 @@ PURE_COMMANDS = {
     'bgm1', 'bgm_fo',
     'bg', 'bg1_fi',
     'sp1', 'sp1_cf', 'sp2_cf', 'sp3', 'sp3_cf', 'sp_fo',
-    'ev', 'ev1_cf', 'ev1_fi',
+    'ev', 'ev1_cf', 'ev1_fi', 'ev1',
     'fi', 'fo',
     'change', 'change_kaisou',
     'define', 'def_cg', 'def_indent', 'def_kinsoku',
@@ -35,16 +35,46 @@ PURE_COMMANDS = {
     'shake', 'sleep', 'wait',
     'window', 'window_off', 'window_on', 'window_sel',
     'kaisou_end', 'auto_ret_off',
+    # 扩展: 音频/视觉/时序/精灵控制
     'vo_wait', 'vo_sel', 'bgm_stop', 'bgm_wait', 'bgm2',
     'se1', 'se2', 'se3', 'se_bgm1', 'se_bgm2', 'se_fo', 'se_stop', 'se_wait', 'sex',
+    'flash1', 'flash2', 'shake2',
+    'moji', 'pan',
+    'move_xyset', 'move_xywait',
+    'sp1_cf', 'sp2_cf', 'sp_fade_in', 'sp_loop',
+    'def_sp_left3', 'def_sp_right3',
+    'exchg',
+    # 精灵显示/控制
+    'sp', 'sp2', 'sp1_', 'sp2_', 'sp3_', 'spx_', 'sp2_fi',
+    # 效果/转场
+    'set_effect', 'zoom', 'bg1_', 'ev1_', 'fade_sp4', 'trans_sp4',
 }
 
 # 对话触发指令: 这些指令后跟随文本行
 VOICE_TRIGGERS = {'vo', 'vo2', 'vox'}
 
 # 消息块内可安全跳过的控制指令 (不中断文本收集)
-SKIP_IN_MSG = {'vo_wait', 'bgm_stop', 'bgm_wait', 'se_stop', 'se_wait',
-               'se_fo', 'bgm_fo', 'se1', 'se2', 'se3', 'sex'}
+# 这些是视觉效果/音频/时序指令, 常出现在同一对话块的文本行之间
+SKIP_IN_MSG = {
+    # 音频
+    'vo_wait', 'bgm_stop', 'bgm_wait', 'se_stop', 'se_wait',
+    'se_fo', 'bgm_fo', 'se1', 'se2', 'se3', 'sex', 'se_bgm2',
+    # 视觉特效
+    'flash1', 'flash2', 'shake', 'shake2',
+    # 时序
+    'wait', 'moji',
+    # 镜头/位置
+    'pan', 'move_xyset', 'move_xywait', 'posi',
+    # 精灵动画/渐变 (同一角色表情变化)
+    'sp1_cf', 'sp2_cf', 'sp3_cf', 'sp_fade_in', 'sp_loop', 'sp2_fi',
+    # 精灵位置定义
+    'def_sp_left', 'def_sp_center', 'def_sp_right',
+    'def_sp_left3', 'def_sp_right3',
+    # 精灵显示/交换 (非入场/退场)
+    'sp', 'sp1', 'sp2', 'sp3', 'sp1_', 'sp2_', 'sp3_', 'spx_', 'exchg',
+    # 效果
+    'set_effect', 'zoom',
+}
 
 # 可含日文字符串参数的命令 (参数以引号包裹)
 TEXT_ARG_COMMANDS = {'ev1_fi', 'ev1', 'ev', 'ev1_cf'}
@@ -62,6 +92,9 @@ def has_japanese(s):
         if (0x3040 <= cp <= 0x309F or 0x30A0 <= cp <= 0x30FF or
             0x4E00 <= cp <= 0x9FFF or 0xFF00 <= cp <= 0xFFEF or
             0x3000 <= cp <= 0x303F):
+            return True
+        # CJK 标点: 省略号 (…), 破折号等
+        if cp in (0x2026, 0x2014, 0x2015):
             return True
     return False
 
@@ -140,6 +173,9 @@ def extract_text(name, scr_bytes):
                 cur = lines[i].strip()
                 if not cur:
                     i += 1; continue
+                # 注释行: 消息块内跳过, 不中断收集
+                if cur.startswith(';'):
+                    i += 1; continue
                 if cur.startswith('msg2 '):
                     speaker = cur[5:].strip(); i += 1; continue
                 # 嵌套的 vo/vo2/vox → 中断当前块
@@ -173,6 +209,13 @@ def extract_text(name, scr_bytes):
                     if m:
                         speaker = m.group(1)
                         message = msg_lines[0][m.start(2):]
+                # 若有 msg2 已设说话人, 且首文本行以该名字开头 (如 "稔「..."),
+                # 则剥离行内冗余名字, 避免译文中出现重复说话人
+                if speaker and msg_lines:
+                    m = INLINE_NAME_RE.match(msg_lines[0])
+                    if m and m.group(1) == speaker:
+                        msg_lines[0] = msg_lines[0][m.start(2):]
+                        message = '\\n'.join(msg_lines)
                 entries.append({
                     "name": speaker,
                     "message": message,

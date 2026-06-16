@@ -328,49 +328,49 @@ def skip_bare_arg(code: bytes, pos: int) -> int:
 
 
 def skip_command_args(code: bytes, pos: int, argc: int) -> int:
-    """Skip command arguments after the 8-byte # header.
+    """Skip one parenthesized command-argument block.
 
-    The important fix versus a naive balanced-parenthesis skip is that command
-    arguments are expression atoms, not source text.  An immediate expression
-    like '$ FF 28 23 00 00' contains byte 0x28 '(' and 0x23 '#'; treating those
-    bytes as syntax swallows the following scenario body and causes massive
-    missed extraction.
+    RealLive expression bytecode uses many printable bytes as operators; a byte
+    value 0x28 '(' inside an expression is not necessarily a nested source
+    parenthesis.  The previous parser balanced these bytes and therefore
+    skipped past the real command-argument terminator, missing the raw u32 jump
+    target immediately after it.  Here we scan to the first real ')' while
+    treating CP932 lead bytes, quoted strings, and `$FF <u32>` immediates as
+    opaque atoms.
     """
     if pos >= len(code) or code[pos] != ord('('):
         return pos
     pos += 1
-    seen = 0
-    hard_limit = max(argc, 0) + 32
+    quoted = False
     while pos < len(code):
-        if code[pos] == ord(')'):
-            pos += 1
-            break
-        if code[pos] == ord('$'):
-            pos = skip_dollar_expr(code, pos)
-        else:
-            pos = skip_bare_arg(code, pos)
-        seen += 1
-        if pos < len(code) and code[pos] == ord(','):
-            pos += 1
-            continue
-        if pos < len(code) and code[pos] == ord(')'):
-            pos += 1
-            break
-        if seen > hard_limit:
-            break
+        b = code[pos]
+        if quoted:
+            if b == ord('\\'):
+                pos += 2; continue
+            if b == ord('"'):
+                quoted = False; pos += 1; continue
+            if is_sjis_lead(b):
+                pos += 2; continue
+            pos += 1; continue
+        if b == ord('"'):
+            quoted = True; pos += 1; continue
+        if is_sjis_lead(b):
+            pos += 2; continue
+        if b == ord('$') and pos + 1 < len(code) and code[pos + 1] == 0xFF:
+            pos = min(pos + 6, len(code)); continue
+        if b == ord(')'):
+            return pos + 1
+        pos += 1
     return pos
 
-
 def skip_hash_command(code: bytes, pos: int) -> int:
-    """Skip a RealLive '#' command structurally.
+    """Skip a RealLive '#' command and any inline flow payload.
 
     Header layout from sub_463E00:
       '#' cls:u8 grp:u8 op:u16 argc:i16 flag:u8
 
-    For class 0/group 1 flow commands, the byte stream commonly stores a raw
-    little-endian code offset after the parenthesized condition/expression.  If
-    that u32 points inside the decoded code range, it is skipped as an operand;
-    otherwise it is left for the normal VM scanner.
+    Class 0 / group 1 flow commands embed VM-code offsets after the argument
+    list.  These bytes are not text and must be skipped during extraction.
     """
     if pos + 8 > len(code):
         return len(code)
@@ -378,15 +378,49 @@ def skip_hash_command(code: bytes, pos: int) -> int:
     grp = code[pos + 2]
     op = code[pos + 3] | (code[pos + 4] << 8)
     argc = int.from_bytes(code[pos + 5:pos + 7], 'little', signed=True)
+    cmd_pos = pos
     pos += 8
     pos = skip_command_args(code, pos, argc)
-    if cls == 0 and grp == 1 and op in (0, 1, 2, 3, 5, 10, 11, 12, 13):
-        if pos + 4 <= len(code):
-            target = int.from_bytes(code[pos:pos + 4], 'little')
-            if target < len(code):
-                pos += 4
-    return pos
+    n = len(code)
 
+    if cls == 0 and grp == 1:
+        if op in (0, 2, 5):
+            if pos + 4 <= n:
+                return pos + 4
+            return pos
+        if op in (3, 8):
+            if pos < n and code[pos] == ord('{'):
+                pos += 1
+                count = max(argc, 0)
+                done = 0
+                while pos + 4 <= n and code[pos] != ord('}') and (count == 0 or done < count):
+                    pos += 4
+                    done += 1
+                if pos < n and code[pos] == ord('}'):
+                    pos += 1
+            return pos
+        if op == 4:
+            if pos < n and code[pos] == ord('{'):
+                pos += 1
+                guard = 0
+                while pos < n and code[pos] != ord('}') and guard < 100000:
+                    guard += 1
+                    if code[pos] == ord('('):
+                        pos = skip_command_args(code, pos, 1)
+                        if pos + 4 <= n:
+                            pos += 4
+                        continue
+                    if code[pos] == ord('$') and pos + 1 < n and code[pos + 1] == 0xFF:
+                        pos = min(pos + 6, n)
+                        continue
+                    if is_sjis_lead(code[pos]):
+                        pos += 2
+                    else:
+                        pos += 1
+                if pos < n and code[pos] == ord('}'):
+                    pos += 1
+            return pos
+    return max(pos, cmd_pos + 1)
 
 def iter_text_entries(decoded: DecodedSeen) -> list[TextEntry]:
     """Extract visible text by emulating the message-stream parser.
@@ -671,21 +705,156 @@ def patch_line_table_for_new_code(chunk_prefix: bytearray, hdr: SeenHeader, old_
             write_u32(chunk_prefix, off, remap_code_offset(val, delta_map))
 
 
+
+
+def _range_contains(repls: list[tuple[int, int, int]], pos: int, size: int = 4) -> bool:
+    end = pos + size
+    for st, old_len, _new_len in repls:
+        if pos < st + old_len and end > st:
+            return True
+    return False
+
+
+
+def iter_flow_jump_field_offsets(code: bytes) -> Iterator[int]:
+    """Yield byte offsets of VM-code absolute jump operands in #00:01 flow ops.
+
+    RealLive does not encode all branch targets as `) <u32>` / `} <u32>`.
+    Several flow commands store raw target offsets immediately after the 8-byte
+    command header or inside a brace jump table.  If text relocation changes code
+    length, every one of these operands must be remapped.
+
+    Observed layouts in this title:
+      #00:01:0000()       <u32 target>          unconditional branch
+      #00:01:0002(expr)   <u32 target>          conditional branch
+      #00:01:0005()       <u32 target>          branch/call-like flow
+      #00:01:0003(expr)   { <u32>*argc }        selection/choice jump table
+      #00:01:0008(expr)   { <u32>*argc }        multi-way jump table
+      #00:01:0004(expr)   { (case) <u32> ... }  switch table
+
+    The scanner is structural: it starts only from a `#` command header and uses
+    the expression skipper for `$FF <u32>` immediates, so numeric constants are
+    not treated as branch targets.
+    """
+    pos = 0
+    n = len(code)
+    while pos + 8 <= n:
+        if code[pos] != ord('#'):
+            pos += 1
+            continue
+        cmd_pos = pos
+        cls = code[pos + 1]
+        grp = code[pos + 2]
+        op = code[pos + 3] | (code[pos + 4] << 8)
+        argc = int.from_bytes(code[pos + 5:pos + 7], 'little', signed=True)
+        pos += 8
+        after_args = skip_command_args(code, pos, argc)
+
+        if cls == 0 and grp == 1:
+            # Simple branch forms: target immediately follows the arguments.
+            if op in (0, 2, 5):
+                if after_args + 4 <= n:
+                    yield after_args
+                pos = max(after_args + 4, cmd_pos + 1)
+                continue
+
+            # Jump table: raw u32 targets between braces.
+            if op in (3, 8):
+                p = after_args
+                if p < n and code[p] == ord('{'):
+                    p += 1
+                    count = max(argc, 0)
+                    done = 0
+                    while p + 4 <= n and code[p] != ord('}') and (count == 0 or done < count):
+                        yield p
+                        p += 4
+                        done += 1
+                    pos = max(p + 1 if p < n and code[p] == ord('}') else p, cmd_pos + 1)
+                    continue
+
+            # Switch table: { (expr) target (expr) target ... }
+            if op == 4:
+                p = after_args
+                if p < n and code[p] == ord('{'):
+                    p += 1
+                    while p < n and code[p] != ord('}'):
+                        if code[p] == ord('('):
+                            p = skip_command_args(code, p, 1)
+                            if p + 4 <= n:
+                                yield p
+                                p += 4
+                            continue
+                        if code[p] == ord('$'):
+                            p = skip_dollar_expr(code, p)
+                            continue
+                        p += 1
+                    pos = max(p + 1 if p < n and code[p] == ord('}') else p, cmd_pos + 1)
+                    continue
+
+        # For non-flow commands, or flow commands with no raw target, continue
+        # after the parsed argument block.  Always advance at least one byte to
+        # avoid getting stuck on malformed data.
+        pos = max(after_args, cmd_pos + 1)
+
+
+def patch_inline_jump_targets(old_code: bytes, new_code: bytearray,
+                              replacements: list[tuple[int, int, int]]) -> int:
+    """Remap absolute VM-code jump targets after text relocation.
+
+    Earlier versions patched only the very narrow pattern `) <u32>` / `} <u32>`.
+    That misses the main RealLive flow command operands, especially
+    `#00:01:0000 <u32>` and brace jump tables used by choices.  The result is a
+    syntactically valid Seen.txt whose VM branches into the wrong byte offset and
+    can freeze before the first scene.
+    """
+    if not replacements:
+        return 0
+    delta_map = build_offset_delta_map(replacements)
+    patched = 0
+    seen_fields: set[int] = set()
+
+    for old_pos in iter_flow_jump_field_offsets(old_code):
+        if old_pos in seen_fields:
+            continue
+        seen_fields.add(old_pos)
+        if _range_contains(replacements, old_pos, 4):
+            continue
+        if old_pos + 4 > len(old_code):
+            continue
+        old_target = int.from_bytes(old_code[old_pos:old_pos + 4], 'little')
+        # Target 0 is valid and remains 0 unless text before offset 0 existed.
+        # Other values must point into the decoded VM code.
+        if old_target >= len(old_code):
+            continue
+        new_pos = remap_code_offset(old_pos, delta_map)
+        new_target = remap_code_offset(old_target, delta_map)
+        if new_pos < 0 or new_pos + 4 > len(new_code):
+            continue
+        cur = int.from_bytes(new_code[new_pos:new_pos + 4], 'little')
+        # If the value was already changed by another pass, do not overwrite it.
+        if cur != old_target:
+            continue
+        new_code[new_pos:new_pos + 4] = new_target.to_bytes(4, 'little')
+        patched += 1
+    return patched
+
 def rebuild_seen_chunk_with_code(decoded: DecodedSeen, new_code: bytes, key: bytes,
                                  replacements: list[tuple[int, int, int]]) -> bytes:
     """Rebuild one SEEN chunk after decoded VM code has changed."""
     hdr = decoded.header
     prefix = bytearray(decoded.raw_chunk[:hdr.code_off])
     # Header is 12 u32 fields; only code sizes and packed payload length change.
+    new_code_buf = bytearray(new_code)
+    patched_jumps = patch_inline_jump_targets(decoded.code, new_code_buf, replacements)
+    new_code = bytes(new_code_buf)
+
     packed = lz_compress(new_code)
     packed_enc = xor_crypt(packed, key)
     write_u32(prefix, 9 * 4, len(new_code))
     write_u32(prefix, 10 * 4, len(packed_enc))
-    # Do not rewrite the line table here. In this title the table values are
-    # source/debug line mappings, not bytecode offsets (for example Seen0106 has
-    # code size 0xBEF8 but line-table values stay around source line numbers).
-    # Normal choice flow is carried by VM syntax/expression state and remains
-    # valid when the whole code stream is rebuilt.
+    # The line table in this title stores source/scenario line numbers, not VM
+    # byte offsets; it is intentionally left unchanged.  Inline branch targets
+    # in the code stream itself are remapped above.
     return bytes(prefix) + packed_enc
 
 

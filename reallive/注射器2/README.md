@@ -1,124 +1,81 @@
-# RealLive Seen.txt structural tool
+# RealLive Seen.txt 工具
+这好像还不能随便hook，容易出问题奇妙
+本工具针对当前项目的 RealLive `Seen.txt`。文本流程为结构化解析：读取 10000 项索引表，解 SEEN 块，使用内置 `crypt_template.py` 中的 256 字节 XOR key 解密 packed code，再按 RealLive LZ 解压 VM code。提取和注入都不依赖裸扫 SJIS 字符串。
 
-用于本项目 `Seen.txt` 的结构化解码、反汇编、JSON 提取和非等长注入。工具不依赖裸 SJIS 扫描；流程为：SEEN 索引表 -> SEEN 块头 -> XOR crypt -> RealLive LZ 解压 -> VM message stream 解析。
+## 命令
 
-## 当前结构
-
-- `Seen.txt` 开头 `0x13880` 字节为 10000 项索引表，每项 `<u32 offset, u32 size>`。
-- 每个非空 SEEN 块头 magic 为 `10002`。
-- packed code 先用 256 字节 key 做循环 XOR，再进入 RealLive LZ 流。
-- 解压后的 VM stream 中：
-  - `0x0A + u16` 为 line marker；
-  - `@ / ! + u16` 为文本显示控制；
-  - `# cls grp op argc flag` 为命令；
-  - `$` 为表达式；
-  - `#00:02:0003` 后 `{...}` 内为选择支文本。
-
-## 静态 crypt 模板
-
-`crypt_template.py` 内置了本作 RealLive.exe 中 `byte_596984` 的 256 字节 XOR key，因此正常使用不再需要 `RealLive.exe_export_for_ai`。
-
-如果换了另一个 RealLive build，可以：
-
-1. 修改 `crypt_template.py` 里的 `STATIC_XOR_KEY`；或
-2. 命令中传 `--ida-export RealLive.exe_export_for_ai`，从 `memory/*.txt` 读取 key。
-
-## 提取
-
-推荐命令：
+提取：
 
 ```bat
-python extract.py Seen.txt json
+python extract.py Seen.txt json --clean
 ```
 
-兼容旧命令：
+注入：
 
 ```bat
-python extract.py Seen.txt RealLive.exe_export_for_ai json
+python inject.py Seen.txt json\new chs\Seen.txt
 ```
 
 指定 SEEN：
 
 ```bat
-python extract.py Seen.txt json --seen 106 601
+python extract.py Seen.txt json --seen 2 106 --clean
+python inject.py Seen.txt json\new chs\Seen.txt --seen 2 106
 ```
 
-## 注入
-
-推荐命令：
+可选字符映射：
 
 ```bat
-python inject.py Seen.txt json Seen_chs.txt
+python inject.py Seen.txt json\new chs\Seen.txt --map-json subs_cn_jp.json
 ```
 
-兼容旧命令：
+## JSON
 
-```bat
-python inject.py Seen.txt RealLive.exe_export_for_ai json Seen_chs.txt
-```
-
-指定 SEEN：
-
-```bat
-python inject.py Seen.txt json Seen_chs.txt --seen 601
-```
-
-带中日字符映射：
-
-```bat
-python inject.py Seen.txt json Seen_chs.txt --map-json subs_cn_jp.json
-```
-
-## 反汇编
-
-```bat
-python disasm.py Seen.txt disasm_out
-```
-
-或：
-
-```bat
-python disasm.py Seen.txt disasm_out --seen 106
-```
-
-## JSON 格式
-
-角色名内嵌在正文开头的格式：
-
-```text
-【葵】「んはぁ！」
-```
-
-会导出为：
+对话中 `【】` 内角色名拆为 `name`：
 
 ```json
 {
   "name": "葵",
-  "scr_msg": "「んはぁ！」",
-  "message": "「んはぁ！」",
+  "scr_msg": "「……」",
+  "message": "「……」",
+  "_scr_name": "葵",
   "_name_source": "bracket_prefix"
 }
 ```
 
-注入时会自动组合回：
+`_scr_name` 用于校验原始人名；翻译 `name` 不会导致 `scr_msg mismatch`。写回时工具会组合成 `【name】message`。
 
-```text
-【葵】 + message
-```
+## 本版关键修复
 
-因此翻译时只改 `message`；如果确实要改角色名，可以改 `name`，注入也会写回。
+1. 修复 `#00:01` 流程命令解析。RealLive 表达式字节码中的 `0x28 '('` 可能是运算符，不是嵌套括号；旧版把它当括号平衡，导致跳过位置错误。
+2. 注入时重定位以下 VM 内联跳转目标：
+   - `#00:01:0000 <u32 target>`
+   - `#00:01:0002(expr) <u32 target>`
+   - `#00:01:0005 <u32 target>`
+   - `#00:01:0003(expr) { <u32 target>... }`
+   - `#00:01:0008(expr) { <u32 target>... }`
+   - `#00:01:0004(expr) { (case) <u32 target>... }`
+3. 提取时跳过上述 flow jump table，不再把目标 offset 字节误提取成 `祐`、`弖`、`)就` 这类伪文本。
+4. 零修改回环：`extract -> inject` 不改变原始 `Seen.txt`，byte-exact。
 
-## 变长注入
-
-注入器会重建 decoded VM code、重新 LZ 压缩、重新 XOR，并重建外层 10000 项索引表。不是等长覆盖。
-
-当前不主动改 line table；本样本 line table 表现为 source/debug line 映射，不是 bytecode offset 表。选择支和普通场景流由 VM command/expression stream 保持。
 
 
-## Re-extract after parser updates
+## Verification
 
-When rerunning extraction into an existing json directory, use `--clean` to remove stale `Seen*.json` produced by older extractor versions. Without this, old files that are no longer regenerated can remain in the directory and look like current output.
+Basic structural check:
 
 ```bat
-python extract.py Seen.txt json --clean
+python verify.py Seen_chs.txt
+```
+
+Check a patched file against the original Seen.txt and the JSON used for injection:
+
+```bat
+python verify.py chs\seen.txt --original seen.txt --json json\new
+```
+
+If injection used a character map, pass the same map:
+
+```bat
+python verify.py chs\seen.txt --original seen.txt --json json\new --map-json subs_cn_jp.json
 ```

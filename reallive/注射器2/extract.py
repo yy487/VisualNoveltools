@@ -12,6 +12,7 @@ def parse_args():
     ap.add_argument('arg3', nargs='?', help='legacy json_out when ida_export_dir is supplied')
     ap.add_argument('--ida-export', help='optional IDA export dir; normally not needed because crypt_template.py is bundled')
     ap.add_argument('--seen', type=int, nargs='*')
+    ap.add_argument('--clean', action='store_true', help='delete existing Seen*.json in json_out before extraction; use this when rerunning after parser fixes')
     args = ap.parse_args()
     if args.arg3 is None:
         args.ida_export_dir = args.ida_export
@@ -27,6 +28,17 @@ def main() -> None:
     seen_data = Path(args.seen_txt).read_bytes()
     key = load_xor_key_from_export(args.ida_export_dir)
     out = Path(args.json_out); out.mkdir(parents=True, exist_ok=True)
+    if args.clean:
+        removed = 0
+        for old in out.glob('Seen*.json'):
+            old.unlink()
+            removed += 1
+        if removed:
+            print(f'[extract] clean removed={removed} old json files')
+    else:
+        stale = list(out.glob('Seen*.json'))
+        if stale:
+            print(f'[extract][warn] json_out already contains {len(stale)} Seen*.json files; stale files from older extractor may remain. Use --clean when re-extracting.')
     want = set(args.seen or [])
     total = 0; files = 0
     for entry in iter_seen_entries(seen_data):

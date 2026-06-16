@@ -52,9 +52,21 @@ def validate_entry(decoded, entry: dict[str, Any], start: int, old_len: int) -> 
         old_text = old_raw.decode(enc)
     except Exception:
         return False
-    # Bracket-name entries expose scr_msg without 【name】, but the VM span still
-    # stores the inline prefix.  Recompose before validation.
-    return old_text == compose_entry_text(entry, scr, source_field='scr_msg')
+
+    expected = compose_entry_text(entry, scr, source_field='scr_msg')
+    if old_text == expected:
+        return True
+
+    # Compatibility for JSON extracted before `_scr_name` was added, or JSON
+    # where translators already edited `name`.  In bracket-prefix entries, the
+    # source body is the stable verification key; the current editable `name`
+    # must not make validation fail.
+    if entry.get('_name_source') == 'bracket_prefix':
+        from common import split_bracket_name
+        old_name, old_body, old_src = split_bracket_name(old_text)
+        return old_src == 'bracket_prefix' and old_body == scr
+
+    return False
 
 
 def inject_seen_txt(seen_path: Path, export_dir: Path | None, json_path: Path, out_path: Path,

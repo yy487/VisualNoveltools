@@ -113,3 +113,12 @@ python disasm.py Seen.txt disasm_out --seen 106
 注入器会重建 decoded VM code、重新 LZ 压缩、重新 XOR，并重建外层 10000 项索引表。不是等长覆盖。
 
 当前不主动改 line table；本样本 line table 表现为 source/debug line 映射，不是 bytecode offset 表。选择支和普通场景流由 VM command/expression stream 保持。
+
+
+## Re-extract after parser updates
+
+When rerunning extraction into an existing json directory, use `--clean` to remove stale `Seen*.json` produced by older extractor versions. Without this, old files that are no longer regenerated can remain in the directory and look like current output.
+
+```bat
+python extract.py Seen.txt json --clean
+```

@@ -200,6 +200,7 @@ class TextEntry:
     _code_offset: int
     _size: int
     name: str | None = None
+    _scr_name: str | None = None
     _type: str = 'message'
     _encoding: str = DEFAULT_ENCODING
     _policy: str = 'relocate'
@@ -238,9 +239,23 @@ def split_bracket_name(text: str) -> tuple[str | None, str, str | None]:
 
 
 def compose_entry_text(entry: dict[str, Any], body: str, *, source_field: str = 'message') -> str:
-    """Compose the actual VM text written/read for a JSON entry."""
-    if entry.get('_name_source') == 'bracket_prefix' and isinstance(entry.get('name'), str):
-        return f'【{entry["name"]}】{body}'
+    """Compose the actual VM text written/read for a JSON entry.
+
+    For bracket-prefix dialogue the VM stores one inline string:
+    `【speaker】message`.  JSON exposes `name` as the editable/target name and
+    `scr_msg` as the immutable source body.  Validation must therefore use the
+    original speaker name, not the possibly translated `name` field.  Newer
+    extracted JSON stores that original speaker in `_scr_name`; older JSON does
+    not, so injection also has a body-only fallback in validate_entry().
+    """
+    if entry.get('_name_source') == 'bracket_prefix':
+        if source_field == 'scr_msg':
+            nm = entry.get('_scr_name')
+            if isinstance(nm, str):
+                return f'【{nm}】{body}'
+        nm = entry.get('name')
+        if isinstance(nm, str):
+            return f'【{nm}】{body}'
     return body
 
 
@@ -419,6 +434,7 @@ def iter_text_entries(decoded: DecodedSeen) -> list[TextEntry]:
                     name, body, name_source = split_bracket_name(text)
                 entries.append(TextEntry(
                     name=name,
+                    _scr_name=name if name_source == 'bracket_prefix' else None,
                     scr_msg=body,
                     message=body,
                     _file=f'Seen{decoded.entry.seen_no:04d}',

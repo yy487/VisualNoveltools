@@ -118,6 +118,35 @@ class SjisFontIndex:
             "cell_index": int(glyph) - 1,
         }
 
+    def iter_canonical_hosts(self) -> list[dict[str, Any]]:
+        """遍历 EXE 字库索引表可定位到的代表性宿主字符。
+        对同一 (page, cell) 若有多个 CP932 编码命中，只保留按编码顺序遇到的第一个。
+        """
+        out: list[dict[str, Any]] = []
+        seen: set[tuple[str, int]] = set()
+        ranges = [(0x81, 0x9F), (0xE0, 0xEE), (0xFA, 0xFC)]
+        for lo, hi in ranges:
+            for lead in range(lo, hi + 1):
+                for trail in range(0x40, 0xFD):
+                    if trail == 0x7F:
+                        continue
+                    b = bytes((lead, trail))
+                    try:
+                        ch = b.decode("cp932")
+                    except UnicodeDecodeError:
+                        continue
+                    if len(ch) != 1:
+                        continue
+                    loc = self.lookup_host(ch)
+                    if loc is None:
+                        continue
+                    key = (loc["page"], loc["cell_index"])
+                    if key in seen:
+                        continue
+                    seen.add(key)
+                    out.append(loc)
+        return out
+
 
 def load_map(path: str | Path) -> dict[str, str]:
     with open(path, "r", encoding="utf-8") as f:
@@ -178,30 +207,55 @@ def patch_font(args: argparse.Namespace) -> None:
     font = load_font(args.ttf, args.size, args.ttc_index)
     cols = {"01": pages["01"].size[0] // CELL, "02": pages["02"].size[0] // CELL}
 
-    used_cells: dict[tuple[str, int], str] = {}
     errors = []
-    patched = 0
     report = []
+    patched = 0
 
+    host_to_cn: dict[str, str] = {}
     for cn, host in m.items():
-        loc = idx.lookup_host(host)
-        if loc is None:
-            errors.append({"cn": cn, "host": host, "error": "host char not found in EXE font index"})
+        old = host_to_cn.get(host)
+        if old is not None and old != cn:
+            errors.append({"cn": cn, "host": host, "error": f"duplicate host mapped by both {old} and {cn}"})
             continue
+        host_to_cn[host] = cn
+
+    if args.full_redraw:
+        items = []
+        for loc in idx.iter_canonical_hosts():
+            host = loc["host"]
+            target = host_to_cn.get(host, host)
+            row = dict(loc)
+            row["target"] = target
+            row["mapped"] = host in host_to_cn
+            items.append(row)
+    else:
+        items = []
+        used_cells: dict[tuple[str, int], str] = {}
+        for cn, host in m.items():
+            loc = idx.lookup_host(host)
+            if loc is None:
+                errors.append({"cn": cn, "host": host, "error": "host char not found in EXE font index"})
+                continue
+            page = loc["page"]
+            cell_index = loc["cell_index"]
+            key = (page, cell_index)
+            if key in used_cells:
+                errors.append({"cn": cn, "host": host, "error": f"cell collision with {used_cells[key]}"})
+                continue
+            used_cells[key] = cn
+            row = dict(loc)
+            row["target"] = cn
+            row["mapped"] = True
+            items.append(row)
+
+    for loc in items:
         page = loc["page"]
         cell_index = loc["cell_index"]
-        key = (page, cell_index)
-        if key in used_cells:
-            errors.append({"cn": cn, "host": host, "error": f"cell collision with {used_cells[key]}"})
-            continue
-        used_cells[key] = cn
-
         x = (cell_index % cols[page]) * CELL
         y = (cell_index // cols[page]) * CELL
-        mask = render_char_mask(cn, font, CELL, args.xoff, args.yoff)
+        mask = render_char_mask(loc["target"], font, CELL, args.xoff, args.yoff)
 
         paste_glyph(pages[page], x, y, mask, 1.0)
-        # _b 页用于备用/描边/阴影显示。默认写入较淡且轻微膨胀的同形字，避免启用时仍显示旧宿主字。
         if args.b_mode == "normal":
             paste_glyph(pages[page + "_b"], x, y, mask, args.b_alpha)
         elif args.b_mode == "blur":
@@ -213,16 +267,21 @@ def patch_font(args: argparse.Namespace) -> None:
             raise ValueError(f"unknown b_mode: {args.b_mode}")
 
         patched += 1
-        loc.update({"cn": cn, "x": x, "y": y})
+        loc.update({"x": x, "y": y})
         report.append(loc)
 
     for k, name in PNG_NAMES.items():
         pages[k].save(out_dir / name)
 
     with open(out_dir / "cnjp_font_patch_report.json", "w", encoding="utf-8") as f:
-        json.dump({"patched": patched, "errors": errors, "items": report}, f, ensure_ascii=False, indent=2)
+        json.dump({
+            "mode": "full_redraw" if args.full_redraw else "mapped_only",
+            "patched": patched,
+            "errors": errors,
+            "items": report,
+        }, f, ensure_ascii=False, indent=2)
 
-    print(f"[patch-font] patched={patched} errors={len(errors)} out={out_dir}")
+    print(f"[patch-font] mode={'full_redraw' if args.full_redraw else 'mapped_only'} patched={patched} errors={len(errors)} out={out_dir}")
     if errors:
         print(f"[patch-font] report: {out_dir / 'cnjp_font_patch_report.json'}")
 
@@ -342,6 +401,7 @@ def main() -> None:
     p.add_argument("--b-mode", choices=["normal", "blur", "clear"], default="blur")
     p.add_argument("--b-alpha", type=float, default=0.55)
     p.add_argument("--b-blur", type=float, default=0.45)
+    p.add_argument("--full-redraw", action="store_true", help="全量重绘：映射表中有的画中文；没有的按宿主字符原字形重绘")
     p.set_defaults(func=patch_font)
 
     p = sub.add_parser("convert-json", help="把翻译 JSON 的 message 等字段转换为 CP932 宿主字符")

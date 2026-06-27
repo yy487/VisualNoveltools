@@ -1,0 +1,1364 @@
+# DSAT export for PS2I054A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2I054A.BIN off=0x00000053 inst=0x00000053 tag=text source=inline_len8_string len=82 enc=cp932 policy=in_place
+○000001●text○なにかがおかしかった。\nイレギュラーな事態がおきている。\nそれが、すぐにわかった。
+●000001●text●なにかがおかしかった。\nイレギュラーな事態がおきている。\nそれが、すぐにわかった。
+
+# idx=000002 file=PS2I054A.BIN off=0x000000C1 inst=0x000000C1 tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000002●text○通用門には鍵がかかっておらず、警備員室にも\n人の姿がなかった。
+●000002●text●通用門には鍵がかかっておらず、警備員室にも\n人の姿がなかった。
+
+# idx=000003 file=PS2I054A.BIN off=0x0000011B inst=0x0000011B tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place
+○000003●text○足音だけが廊下に響く、静まり返ったその\n雰囲気は、あの街に……にていた。
+●000003●text●足音だけが廊下に響く、静まり返ったその\n雰囲気は、あの街に……にていた。
+
+# idx=000004 file=PS2I054A.BIN off=0x000001B4 inst=0x000001B4 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000004●label○IZ07110
+●000004●label●IZ07110
+
+# idx=000005 file=PS2I054A.BIN off=0x000001C3 inst=0x000001B4 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07110 name_source=prev_voice_label virtual=true writable=false pair=000006 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000005●name○泉美
+●000005●name●泉美
+
+# idx=000006 file=PS2I054A.BIN off=0x000001C3 inst=0x000001C3 tag=text source=inline_len8_string len=120 enc=cp932 policy=in_place speaker_idx=000005 name=泉美 name_id=IZ speaker_code=IZ07110 name_source=prev_voice_label pair=000005 confidence=high full_name=泉美
+○000006●text○「どーしたんだろーねー。誰もいないなんて、\nすごく不用心ー。泥棒とかはいったらー、警備の人たち、怒られちゃうよー後でー」
+●000006●text●「どーしたんだろーねー。誰もいないなんて、\nすごく不用心ー。泥棒とかはいったらー、警備の人たち、怒られちゃうよー後でー」
+
+# idx=000007 file=PS2I054A.BIN off=0x00000257 inst=0x00000257 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000007●text○空き巣に下着を盗まれた泉美さんは、眉を\nひそめる。
+●000007●text●空き巣に下着を盗まれた泉美さんは、眉を\nひそめる。
+
+# idx=000008 file=PS2I054A.BIN off=0x000002A5 inst=0x000002A5 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000008●text○どこに行くべきだろう。\nぼくたちは、目をあわせた。
+●000008●text●どこに行くべきだろう。\nぼくたちは、目をあわせた。
+
+# idx=000009 file=PS2I054A.BIN off=0x000002DF inst=0x000002DF tag=text source=inline_len8_string len=22 enc=cp932 policy=in_place
+○000009●text○泉美さんの職場にいこう
+●000009●text●泉美さんの職場にいこう
+
+# idx=000010 file=PS2I054A.BIN off=0x00000305 inst=0x00000305 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000010●text○冬木さんのオフィスにいこう
+●000010●text●冬木さんのオフィスにいこう
+
+# idx=000011 file=PS2I054A.BIN off=0x000003AB inst=0x000003AB tag=text source=inline_len8_string len=90 enc=cp932 policy=in_place
+○000011●text○こんな時間だから、オフィスに人は残っていない。足を踏み入れた泉美さんが、小さく息を飲んだ。
+●000011●text●こんな時間だから、オフィスに人は残っていない。足を踏み入れた泉美さんが、小さく息を飲んだ。
+
+# idx=000012 file=PS2I054A.BIN off=0x00000456 inst=0x00000456 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000012●label○IZ07120
+●000012●label●IZ07120
+
+# idx=000013 file=PS2I054A.BIN off=0x00000465 inst=0x00000456 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07120 name_source=prev_voice_label virtual=true writable=false pair=000014 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000013●name○泉美
+●000013●name●泉美
+
+# idx=000014 file=PS2I054A.BIN off=0x00000465 inst=0x00000465 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place speaker_idx=000013 name=泉美 name_id=IZ speaker_code=IZ07120 name_source=prev_voice_label pair=000013 confidence=high full_name=泉美
+○000014●text○「あれ……ちょっと違う？」
+●000014●text●「あれ……ちょっと違う？」
+
+# idx=000015 file=PS2I054A.BIN off=0x0000049B inst=0x0000049B tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place
+○000015●text○「なにか、変なの？」
+●000015●text●「なにか、変なの？」
+
+# idx=000016 file=PS2I054A.BIN off=0x000004CB inst=0x000004CB tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000016●label○IZ07130
+●000016●label●IZ07130
+
+# idx=000017 file=PS2I054A.BIN off=0x000004DA inst=0x000004CB tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07130 name_source=prev_voice_label virtual=true writable=false pair=000018 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000017●name○泉美
+●000017●name●泉美
+
+# idx=000018 file=PS2I054A.BIN off=0x000004DA inst=0x000004DA tag=text source=inline_len8_string len=70 enc=cp932 policy=in_place speaker_idx=000017 name=泉美 name_id=IZ speaker_code=IZ07130 name_source=prev_voice_label pair=000017 confidence=high full_name=泉美
+○000018●text○「ええ～、どーだろー。私、休んでるあいだに、模様がえしちゃったとか？」
+●000018●text●「ええ～、どーだろー。私、休んでるあいだに、模様がえしちゃったとか？」
+
+# idx=000019 file=PS2I054A.BIN off=0x00000571 inst=0x00000571 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000019●label○IZ07140
+●000019●label●IZ07140
+
+# idx=000020 file=PS2I054A.BIN off=0x00000580 inst=0x00000571 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07140 name_source=prev_voice_label virtual=true writable=false pair=000021 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000020●name○泉美
+●000020●name●泉美
+
+# idx=000021 file=PS2I054A.BIN off=0x00000580 inst=0x00000580 tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place speaker_idx=000020 name=泉美 name_id=IZ speaker_code=IZ07140 name_source=prev_voice_label pair=000020 confidence=high full_name=泉美
+○000021●text○「あ……そんなことないか。優輝ちゃんの机\nあそこだし、私の机もだいじょぶだし……\n一緒か……」
+●000021●text●「あ……そんなことないか。優輝ちゃんの机\nあそこだし、私の机もだいじょぶだし……\n一緒か……」
+
+# idx=000022 file=PS2I054A.BIN off=0x00000642 inst=0x00000642 tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place
+○000022●text○一瞬、肌に冷たいものが走る。
+●000022●text●一瞬、肌に冷たいものが走る。
+
+# idx=000023 file=PS2I054A.BIN off=0x0000067A inst=0x0000067A tag=text source=inline_len8_string len=82 enc=cp932 policy=in_place
+○000023●text○この感覚にはおぼえがあった。\nぼくは……無意識のうちに、あの犬の影をさがしていた。
+●000023●text●この感覚にはおぼえがあった。\nぼくは……無意識のうちに、あの犬の影をさがしていた。
+
+# idx=000024 file=PS2I054A.BIN off=0x00000716 inst=0x00000716 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000024●label○IZ07150
+●000024●label●IZ07150
+
+# idx=000025 file=PS2I054A.BIN off=0x00000725 inst=0x00000716 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07150 name_source=prev_voice_label virtual=true writable=false pair=000026 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000025●name○泉美
+●000025●name●泉美
+
+# idx=000026 file=PS2I054A.BIN off=0x00000725 inst=0x00000725 tag=text source=inline_len8_string len=18 enc=cp932 policy=in_place speaker_idx=000025 name=泉美 name_id=IZ speaker_code=IZ07150 name_source=prev_voice_label pair=000025 confidence=high full_name=泉美
+○000026●text○「きゃああああ!!」
+●000026●text●「きゃああああ!!」
+
+# idx=000027 file=PS2I054A.BIN off=0x00000753 inst=0x00000753 tag=text source=inline_len8_string len=66 enc=cp932 policy=in_place
+○000027●text○泉美さんが金切り声をあげた。\nその視線につられ、天井をみあげ……。
+●000027●text●泉美さんが金切り声をあげた。\nその視線につられ、天井をみあげ……。
+
+# idx=000028 file=PS2I054A.BIN off=0x0000080D inst=0x0000080D tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000028●text○窓から、月の光がさしこんでいた。\nそこに、異形の影がのびていた。
+●000028●text●窓から、月の光がさしこんでいた。\nそこに、異形の影がのびていた。
+
+# idx=000029 file=PS2I054A.BIN off=0x0000085A inst=0x0000085A tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000029●label○se-e34
+●000029●label●se-e34
+
+# idx=000030 file=PS2I054A.BIN off=0x00000883 inst=0x00000883 tag=text source=inline_len8_string len=74 enc=cp932 policy=in_place
+○000030●text○どこからか、かすかな音楽が聞こえていた。\n笛の音のような、高くか細い響き。
+●000030●text●どこからか、かすかな音楽が聞こえていた。\n笛の音のような、高くか細い響き。
+
+# idx=000031 file=PS2I054A.BIN off=0x000008E9 inst=0x000008E9 tag=text source=inline_len8_string len=66 enc=cp932 policy=in_place
+○000031●text○メロディもリズムも存在していないのに、なぜか『音楽』を思わせる音。
+●000031●text●メロディもリズムも存在していないのに、なぜか『音楽』を思わせる音。
+
+# idx=000032 file=PS2I054A.BIN off=0x00000947 inst=0x00000947 tag=text source=inline_len8_string len=70 enc=cp932 policy=in_place
+○000032●text○それは、影のたてる音だった。\n影がわずかにゆらぐと同時に音色が変わる。
+●000032●text●それは、影のたてる音だった。\n影がわずかにゆらぐと同時に音色が変わる。
+
+# idx=000033 file=PS2I054A.BIN off=0x000009D7 inst=0x000009D7 tag=text source=inline_len8_string len=82 enc=cp932 policy=in_place
+○000033●text○けれど、そのことに気づいたときには、すでに\n影は消えていた。\nもちろん、笛の音も。
+●000033●text●けれど、そのことに気づいたときには、すでに\n影は消えていた。\nもちろん、笛の音も。
+
+# idx=000034 file=PS2I054A.BIN off=0x00000A8D inst=0x00000A8D tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000034●label○IZ07160
+●000034●label●IZ07160
+
+# idx=000035 file=PS2I054A.BIN off=0x00000A9C inst=0x00000A8D tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07160 name_source=prev_voice_label virtual=true writable=false pair=000036 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000035●name○泉美
+●000035●name●泉美
+
+# idx=000036 file=PS2I054A.BIN off=0x00000A9C inst=0x00000A9C tag=text source=inline_len8_string len=25 enc=cp932 policy=in_place speaker_idx=000035 name=泉美 name_id=IZ speaker_code=IZ07160 name_source=prev_voice_label pair=000035 confidence=high full_name=泉美
+○000036●text○「なに?! なに……今の?!」
+●000036●text●「なに?! なに……今の?!」
+
+# idx=000037 file=PS2I054A.BIN off=0x00000AD1 inst=0x00000AD1 tag=text source=inline_len8_string len=66 enc=cp932 policy=in_place
+○000037●text○泉美さんがすがるような目でぼくを見るけれど、答えられるわけがない。
+●000037●text●泉美さんがすがるような目でぼくを見るけれど、答えられるわけがない。
+
+# idx=000038 file=PS2I054A.BIN off=0x00000B2F inst=0x00000B2F tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000038●text○ただ……あの街の浸食が、ここまで届いたのだという予感はあった。
+●000038●text●ただ……あの街の浸食が、ここまで届いたのだという予感はあった。
+
+# idx=000039 file=PS2I054A.BIN off=0x00000C21 inst=0x00000C21 tag=text source=inline_len8_string len=112 enc=cp932 policy=in_place
+○000039●text○ぼくたちは誰もいない通路を歩いていた。\n役所の中は、もう何年もうち捨てられていたかのように、人の気配がなかった。
+●000039●text●ぼくたちは誰もいない通路を歩いていた。\n役所の中は、もう何年もうち捨てられていたかのように、人の気配がなかった。
+
+# idx=000040 file=PS2I054A.BIN off=0x00000CE2 inst=0x00000CE2 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000040●label○IZ07170
+●000040●label●IZ07170
+
+# idx=000041 file=PS2I054A.BIN off=0x00000CF1 inst=0x00000CE2 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07170 name_source=prev_voice_label virtual=true writable=false pair=000042 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000041●name○泉美
+●000041●name●泉美
+
+# idx=000042 file=PS2I054A.BIN off=0x00000CF1 inst=0x00000CF1 tag=text source=inline_len8_string len=24 enc=cp932 policy=in_place speaker_idx=000041 name=泉美 name_id=IZ speaker_code=IZ07170 name_source=prev_voice_label pair=000041 confidence=high full_name=泉美
+○000042●text○「なんか……出てきそう」
+●000042●text●「なんか……出てきそう」
+
+# idx=000043 file=PS2I054A.BIN off=0x00000D25 inst=0x00000D25 tag=text source=inline_len8_string len=74 enc=cp932 policy=in_place
+○000043●text○泉美さんがおびえているのがわかる。\n今にも、ぼくの上着のすそをつかみそう。
+●000043●text●泉美さんがおびえているのがわかる。\n今にも、ぼくの上着のすそをつかみそう。
+
+# idx=000044 file=PS2I054A.BIN off=0x00000D8B inst=0x00000D8B tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=睦月 name_id=MU confidence=high
+○000044●label○MU00660
+●000044●label●MU00660
+
+# idx=000045 file=PS2I054A.BIN off=0x00000D9A inst=0x00000D8B tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MU speaker_code=MU00660 name_source=prev_voice_label virtual=true writable=false pair=000046 confidence=high full_name=睦月 basis=DEBUG_route_labels_and_MU_dialogue_context
+○000045●name○睦月
+●000045●name●睦月
+
+# idx=000046 file=PS2I054A.BIN off=0x00000D9A inst=0x00000D9A tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place speaker_idx=000045 name=睦月 name_id=MU speaker_code=MU00660 name_source=prev_voice_label pair=000045 confidence=high full_name=睦月
+○000046●text○「……見ませんでした……」
+●000046●text●「……見ませんでした……」
+
+# idx=000047 file=PS2I054A.BIN off=0x00000E05 inst=0x00000E05 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000047●label○IZ07180
+●000047●label●IZ07180
+
+# idx=000048 file=PS2I054A.BIN off=0x00000E14 inst=0x00000E05 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07180 name_source=prev_voice_label virtual=true writable=false pair=000049 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000048●name○泉美
+●000048●name●泉美
+
+# idx=000049 file=PS2I054A.BIN off=0x00000E14 inst=0x00000E14 tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place speaker_idx=000048 name=泉美 name_id=IZ speaker_code=IZ07180 name_source=prev_voice_label pair=000048 confidence=high full_name=泉美
+○000049●text○「きゃあああああ!!」
+●000049●text●「きゃあああああ!!」
+
+# idx=000050 file=PS2I054A.BIN off=0x00000E44 inst=0x00000E44 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000050●text○背後から声をかけられ、泉美さんは（本当に）\n飛びあがった。
+●000050●text●背後から声をかけられ、泉美さんは（本当に）\n飛びあがった。
+
+# idx=000051 file=PS2I054A.BIN off=0x00000E9A inst=0x00000E9A tag=text source=inline_len8_string len=86 enc=cp932 policy=in_place
+○000051●text○ぼくも、ぞくりとした。\nあったことはないけれど、幽霊だったら、こう\nなのかもしれない。
+●000051●text●ぼくも、ぞくりとした。\nあったことはないけれど、幽霊だったら、こう\nなのかもしれない。
+
+# idx=000052 file=PS2I054A.BIN off=0x00000F0C inst=0x00000F0C tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000052●text○そう思えるくらい、小さく、か細い声だった。
+●000052●text●そう思えるくらい、小さく、か細い声だった。
+
+# idx=000053 file=PS2I054A.BIN off=0x00000F87 inst=0x00000F87 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000053●text○でも……ふりむいたとき、目にはいったのは、\nうなだれた少女の姿。
+●000053●text●でも……ふりむいたとき、目にはいったのは、\nうなだれた少女の姿。
+
+# idx=000054 file=PS2I054A.BIN off=0x00000FE3 inst=0x00000FE3 tag=text source=inline_len8_string len=76 enc=cp932 policy=in_place
+○000054●text○……中学の２年生くらい？\n悲しそうにうつむき、悲しさを必死でこらえて\nいる。
+●000054●text●……中学の２年生くらい？\n悲しそうにうつむき、悲しさを必死でこらえて\nいる。
+
+# idx=000055 file=PS2I054A.BIN off=0x0000104B inst=0x0000104B tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place
+○000055●text○少女は、目をあげず、ぼそりとつぶやいた。
+●000055●text●少女は、目をあげず、ぼそりとつぶやいた。
+
+# idx=000056 file=PS2I054A.BIN off=0x0000108F inst=0x0000108F tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=睦月 name_id=MU confidence=high
+○000056●label○MU00670
+●000056●label●MU00670
+
+# idx=000057 file=PS2I054A.BIN off=0x0000109E inst=0x0000108F tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MU speaker_code=MU00670 name_source=prev_voice_label virtual=true writable=false pair=000058 confidence=high full_name=睦月 basis=DEBUG_route_labels_and_MU_dialogue_context
+○000057●name○睦月
+●000057●name●睦月
+
+# idx=000058 file=PS2I054A.BIN off=0x0000109E inst=0x0000109E tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place speaker_idx=000057 name=睦月 name_id=MU speaker_code=MU00670 name_source=prev_voice_label pair=000057 confidence=high full_name=睦月
+○000058●text○「ヘジホッグが……どっか……いっちゃった\nの……」
+●000058●text●「ヘジホッグが……どっか……いっちゃった\nの……」
+
+# idx=000059 file=PS2I054A.BIN off=0x00001121 inst=0x00001121 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000059●label○IZ07190
+●000059●label●IZ07190
+
+# idx=000060 file=PS2I054A.BIN off=0x00001130 inst=0x00001121 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07190 name_source=prev_voice_label virtual=true writable=false pair=000061 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000060●name○泉美
+●000060●name●泉美
+
+# idx=000061 file=PS2I054A.BIN off=0x00001130 inst=0x00001130 tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place speaker_idx=000060 name=泉美 name_id=IZ speaker_code=IZ07190 name_source=prev_voice_label pair=000060 confidence=high full_name=泉美
+○000061●text○「はああ～……びっくりしたあ……。心臓とまるかと思っちゃった」
+●000061●text●「はああ～……びっくりしたあ……。心臓とまるかと思っちゃった」
+
+# idx=000062 file=PS2I054A.BIN off=0x0000118A inst=0x0000118A tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000062●text○泉美さんは大きな胸に手をあて、ためいきを\nついた。
+●000062●text●泉美さんは大きな胸に手をあて、ためいきを\nついた。
+
+# idx=000063 file=PS2I054A.BIN off=0x000011D8 inst=0x000011D8 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000063●text○それから少女に向きなおり、やさしい口調で話しかける。
+●000063●text●それから少女に向きなおり、やさしい口調で話しかける。
+
+# idx=000064 file=PS2I054A.BIN off=0x0000125D inst=0x0000125D tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000064●label○IZ07201
+●000064●label●IZ07201
+
+# idx=000065 file=PS2I054A.BIN off=0x0000126C inst=0x0000125D tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07201 name_source=prev_voice_label virtual=true writable=false pair=000066 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000065●name○泉美
+●000065●name●泉美
+
+# idx=000066 file=PS2I054A.BIN off=0x0000126C inst=0x0000126C tag=text source=inline_len8_string len=104 enc=cp932 policy=in_place speaker_idx=000065 name=泉美 name_id=IZ speaker_code=IZ07201 name_source=prev_voice_label pair=000065 confidence=high full_name=泉美
+○000066●text○「えっと……あなた、どこからはいって来たの？あのね、用事があるんなら、１Ｆの総合案内所に書類があるから」
+●000066●text●「えっと……あなた、どこからはいって来たの？あのね、用事があるんなら、１Ｆの総合案内所に書類があるから」
+
+# idx=000067 file=PS2I054A.BIN off=0x000012F0 inst=0x000012F0 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000067●label○IZ07202
+●000067●label●IZ07202
+
+# idx=000068 file=PS2I054A.BIN off=0x000012FF inst=0x000012F0 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07202 name_source=prev_voice_label virtual=true writable=false pair=000069 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000068●name○泉美
+●000068●name●泉美
+
+# idx=000069 file=PS2I054A.BIN off=0x000012FF inst=0x000012FF tag=text source=inline_len8_string len=86 enc=cp932 policy=in_place speaker_idx=000068 name=泉美 name_id=IZ speaker_code=IZ07202 name_source=prev_voice_label pair=000068 confidence=high full_name=泉美
+○000069●text○「それに記入して、番号札もらえるから、呼ばれたら案内にしたがって窓口へ行ってください」
+●000069●text●「それに記入して、番号札もらえるから、呼ばれたら案内にしたがって窓口へ行ってください」
+
+# idx=000070 file=PS2I054A.BIN off=0x00001371 inst=0x00001371 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000070●label○IZ07203
+●000070●label●IZ07203
+
+# idx=000071 file=PS2I054A.BIN off=0x00001380 inst=0x00001371 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07203 name_source=prev_voice_label virtual=true writable=false pair=000072 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000071●name○泉美
+●000071●name●泉美
+
+# idx=000072 file=PS2I054A.BIN off=0x00001380 inst=0x00001380 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place speaker_idx=000071 name=泉美 name_id=IZ speaker_code=IZ07203 name_source=prev_voice_label pair=000071 confidence=high full_name=泉美
+○000072●text○「受け付けの時間は朝の９時から夕方の４時まで。緊急の対応は……」
+●000072●text●「受け付けの時間は朝の９時から夕方の４時まで。緊急の対応は……」
+
+# idx=000073 file=PS2I054A.BIN off=0x000013DC inst=0x000013DC tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000073●text○泉美さんは、場違いなことに役所の手順を\nていねいに説明する。
+●000073●text●泉美さんは、場違いなことに役所の手順を\nていねいに説明する。
+
+# idx=000074 file=PS2I054A.BIN off=0x00001434 inst=0x00001434 tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place
+○000074●text○少女は、それを聞いているのか、聞こえているのか、ぼつりぼつりと口を開く。
+●000074●text●少女は、それを聞いているのか、聞こえているのか、ぼつりぼつりと口を開く。
+
+# idx=000075 file=PS2I054A.BIN off=0x00001498 inst=0x00001498 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=睦月 name_id=MU confidence=high
+○000075●label○MU00681
+●000075●label●MU00681
+
+# idx=000076 file=PS2I054A.BIN off=0x000014A7 inst=0x00001498 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MU speaker_code=MU00681 name_source=prev_voice_label virtual=true writable=false pair=000077 confidence=high full_name=睦月 basis=DEBUG_route_labels_and_MU_dialogue_context
+○000076●name○睦月
+●000076●name●睦月
+
+# idx=000077 file=PS2I054A.BIN off=0x000014A7 inst=0x000014A7 tag=text source=inline_len8_string len=102 enc=cp932 policy=in_place speaker_idx=000076 name=睦月 name_id=MU speaker_code=MU00681 name_source=prev_voice_label pair=000076 confidence=high full_name=睦月
+○000077●text○「ヘジホッグ……人見知りする子なのに……。\nお姉さんを追いかけて……だから、私……はぐれちゃって……」
+●000077●text●「ヘジホッグ……人見知りする子なのに……。\nお姉さんを追いかけて……だから、私……はぐれちゃって……」
+
+# idx=000078 file=PS2I054A.BIN off=0x00001529 inst=0x00001529 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=睦月 name_id=MU confidence=high
+○000078●label○MU00682
+●000078●label●MU00682
+
+# idx=000079 file=PS2I054A.BIN off=0x00001538 inst=0x00001529 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MU speaker_code=MU00682 name_source=prev_voice_label virtual=true writable=false pair=000080 confidence=high full_name=睦月 basis=DEBUG_route_labels_and_MU_dialogue_context
+○000079●name○睦月
+●000079●name●睦月
+
+# idx=000080 file=PS2I054A.BIN off=0x00001538 inst=0x00001538 tag=text source=inline_len8_string len=110 enc=cp932 policy=in_place speaker_idx=000079 name=睦月 name_id=MU speaker_code=MU00682 name_source=prev_voice_label pair=000079 confidence=high full_name=睦月
+○000080●text○「私のこと、助けてくれようとしてるけど……\nあんまり端までいくと……もどってこれないって……知らないから……」
+●000080●text●「私のこと、助けてくれようとしてるけど……\nあんまり端までいくと……もどってこれないって……知らないから……」
+
+# idx=000081 file=PS2I054A.BIN off=0x000015F7 inst=0x000015F7 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000081●label○IZ07210
+●000081●label●IZ07210
+
+# idx=000082 file=PS2I054A.BIN off=0x00001606 inst=0x000015F7 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07210 name_source=prev_voice_label virtual=true writable=false pair=000083 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000082●name○泉美
+●000082●name●泉美
+
+# idx=000083 file=PS2I054A.BIN off=0x00001606 inst=0x00001606 tag=text source=inline_len8_string len=27 enc=cp932 policy=in_place speaker_idx=000082 name=泉美 name_id=IZ speaker_code=IZ07210 name_source=prev_voice_label pair=000082 confidence=high full_name=泉美
+○000083●text○「え？ あの……なんの話？」
+●000083●text●「え？ あの……なんの話？」
+
+# idx=000084 file=PS2I054A.BIN off=0x0000163D inst=0x0000163D tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place
+○000084●text○ぼくは、泉美さんの手を握る。
+●000084●text●ぼくは、泉美さんの手を握る。
+
+# idx=000085 file=PS2I054A.BIN off=0x00001675 inst=0x00001675 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000085●label○IZ07220
+●000085●label●IZ07220
+
+# idx=000086 file=PS2I054A.BIN off=0x00001684 inst=0x00001675 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07220 name_source=prev_voice_label virtual=true writable=false pair=000087 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000086●name○泉美
+●000086●name●泉美
+
+# idx=000087 file=PS2I054A.BIN off=0x00001684 inst=0x00001684 tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place speaker_idx=000086 name=泉美 name_id=IZ speaker_code=IZ07220 name_source=prev_voice_label pair=000086 confidence=high full_name=泉美
+○000087●text○「やだ……見られてるのに……はずかしいよお」
+●000087●text●「やだ……見られてるのに……はずかしいよお」
+
+# idx=000088 file=PS2I054A.BIN off=0x000016CC inst=0x000016CC tag=text source=inline_len8_string len=70 enc=cp932 policy=in_place
+○000088●text○泉美さんが頬をあからめる。\n勘違いしてるけど、説明する余裕はなかった。
+●000088●text●泉美さんが頬をあからめる。\n勘違いしてるけど、説明する余裕はなかった。
+
+# idx=000089 file=PS2I054A.BIN off=0x00001763 inst=0x00001763 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=睦月 name_id=MU confidence=high
+○000089●label○MU00690
+●000089●label●MU00690
+
+# idx=000090 file=PS2I054A.BIN off=0x00001772 inst=0x00001763 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MU speaker_code=MU00690 name_source=prev_voice_label virtual=true writable=false pair=000091 confidence=high full_name=睦月 basis=DEBUG_route_labels_and_MU_dialogue_context
+○000090●name○睦月
+●000090●name●睦月
+
+# idx=000091 file=PS2I054A.BIN off=0x00001772 inst=0x00001772 tag=text source=inline_len8_string len=108 enc=cp932 policy=in_place speaker_idx=000090 name=睦月 name_id=MU speaker_code=MU00690 name_source=prev_voice_label pair=000090 confidence=high full_name=睦月
+○000091●text○「お姉さんが……みんなこわしちゃうかもしれ\nないから……。ヘジホッグがいないと……私、\n泣いちゃうのに……」
+●000091●text●「お姉さんが……みんなこわしちゃうかもしれ\nないから……。ヘジホッグがいないと……私、\n泣いちゃうのに……」
+
+# idx=000092 file=PS2I054A.BIN off=0x00001841 inst=0x00001841 tag=text source=inline_len8_string len=98 enc=cp932 policy=in_place
+○000092●text○少女はそういって、悲しそうな瞳をあげる。\n弱々しい、彼女の表情。\nそして、その姿はなくなっていた。
+●000092●text●少女はそういって、悲しそうな瞳をあげる。\n弱々しい、彼女の表情。\nそして、その姿はなくなっていた。
+
+# idx=000093 file=PS2I054A.BIN off=0x000018F4 inst=0x000018F4 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000093●label○IZ07230
+●000093●label●IZ07230
+
+# idx=000094 file=PS2I054A.BIN off=0x00001903 inst=0x000018F4 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07230 name_source=prev_voice_label virtual=true writable=false pair=000095 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000094●name○泉美
+●000094●name●泉美
+
+# idx=000095 file=PS2I054A.BIN off=0x00001903 inst=0x00001903 tag=text source=inline_len8_string len=16 enc=cp932 policy=in_place speaker_idx=000094 name=泉美 name_id=IZ speaker_code=IZ07230 name_source=prev_voice_label pair=000094 confidence=high full_name=泉美
+○000095●text○「…………あ？」
+●000095●text●「…………あ？」
+
+# idx=000096 file=PS2I054A.BIN off=0x0000192F inst=0x0000192F tag=text source=inline_len8_string len=80 enc=cp932 policy=in_place
+○000096●text○泉美さんは固まっていた。\n握った手がこわばっている。\n次第に力が戻ってきて……。
+●000096●text●泉美さんは固まっていた。\n握った手がこわばっている。\n次第に力が戻ってきて……。
+
+# idx=000097 file=PS2I054A.BIN off=0x000019E3 inst=0x000019E3 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000097●label○IZ07240
+●000097●label●IZ07240
+
+# idx=000098 file=PS2I054A.BIN off=0x000019F2 inst=0x000019E3 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07240 name_source=prev_voice_label virtual=true writable=false pair=000099 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000098●name○泉美
+●000098●name●泉美
+
+# idx=000099 file=PS2I054A.BIN off=0x000019F2 inst=0x000019F2 tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place speaker_idx=000098 name=泉美 name_id=IZ speaker_code=IZ07240 name_source=prev_voice_label pair=000098 confidence=high full_name=泉美
+○000099●text○「きゃ～あああああああああああ!!」
+●000099●text●「きゃ～あああああああああああ!!」
+
+# idx=000100 file=PS2I054A.BIN off=0x00001A30 inst=0x00001A30 tag=text source=inline_len8_string len=104 enc=cp932 policy=in_place
+○000100●text○役所の壁をビリビリ震わせるような悲鳴だった。そして、泉美さんは泣きべそをかきながら、\n文句をいい始めた。
+●000100●text●役所の壁をビリビリ震わせるような悲鳴だった。そして、泉美さんは泣きべそをかきながら、\n文句をいい始めた。
+
+# idx=000101 file=PS2I054A.BIN off=0x00001AB4 inst=0x00001AB4 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000101●label○IZ07251
+●000101●label●IZ07251
+
+# idx=000102 file=PS2I054A.BIN off=0x00001AC3 inst=0x00001AB4 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07251 name_source=prev_voice_label virtual=true writable=false pair=000103 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000102●name○泉美
+●000102●name●泉美
+
+# idx=000103 file=PS2I054A.BIN off=0x00001AC3 inst=0x00001AC3 tag=text source=inline_len8_string len=106 enc=cp932 policy=in_place speaker_idx=000102 name=泉美 name_id=IZ speaker_code=IZ07251 name_source=prev_voice_label pair=000102 confidence=high full_name=泉美
+○000103●text○「もーやだー。帰りたーい。他のコトならガマンしてもいーけどー、ユーレーとかそーゆーの、生理的にダメなのー」
+●000103●text●「もーやだー。帰りたーい。他のコトならガマンしてもいーけどー、ユーレーとかそーゆーの、生理的にダメなのー」
+
+# idx=000104 file=PS2I054A.BIN off=0x00001B49 inst=0x00001B49 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000104●label○IZ07252
+●000104●label●IZ07252
+
+# idx=000105 file=PS2I054A.BIN off=0x00001B58 inst=0x00001B49 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07252 name_source=prev_voice_label virtual=true writable=false pair=000106 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000105●name○泉美
+●000105●name●泉美
+
+# idx=000106 file=PS2I054A.BIN off=0x00001B58 inst=0x00001B58 tag=text source=inline_len8_string len=108 enc=cp932 policy=in_place speaker_idx=000105 name=泉美 name_id=IZ speaker_code=IZ07252 name_source=prev_voice_label pair=000105 confidence=high full_name=泉美
+○000106●text○「あ～ん、鳥肌たってるよー。気持ちわるい～。もーやだー。ねらわれて死んじゃってもいー\nからー、お家かえる～」
+●000106●text●「あ～ん、鳥肌たってるよー。気持ちわるい～。もーやだー。ねらわれて死んじゃってもいー\nからー、お家かえる～」
+
+# idx=000107 file=PS2I054A.BIN off=0x00001BE0 inst=0x00001BE0 tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place
+○000107●text○ぼくは、どこへ行っても同じじゃないか、と\n思っていた。\n誰もいない街の浸食が大きくなっている。
+●000107●text●ぼくは、どこへ行っても同じじゃないか、と\n思っていた。\n誰もいない街の浸食が大きくなっている。
+
+# idx=000108 file=PS2I054A.BIN off=0x00001C5A inst=0x00001C5A tag=text source=inline_len8_string len=110 enc=cp932 policy=in_place
+○000108●text○今は場所が限られているとしても、街へあふれ\n出すことが予想できた。そうなれば、安全な場所などどこにもなくなる。
+●000108●text●今は場所が限られているとしても、街へあふれ\n出すことが予想できた。そうなれば、安全な場所などどこにもなくなる。
+
+# idx=000109 file=PS2I054A.BIN off=0x00001D11 inst=0x00001D11 tag=text source=inline_len8_string len=24 enc=cp932 policy=in_place
+○000109●text○「泉美さん、でも行こう」
+●000109●text●「泉美さん、でも行こう」
+
+# idx=000110 file=PS2I054A.BIN off=0x00001D7A inst=0x00001D7A tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000110●label○IZ07260
+●000110●label●IZ07260
+
+# idx=000111 file=PS2I054A.BIN off=0x00001D89 inst=0x00001D7A tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07260 name_source=prev_voice_label virtual=true writable=false pair=000112 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000111●name○泉美
+●000111●name●泉美
+
+# idx=000112 file=PS2I054A.BIN off=0x00001D89 inst=0x00001D89 tag=text source=inline_len8_string len=53 enc=cp932 policy=in_place speaker_idx=000111 name=泉美 name_id=IZ speaker_code=IZ07260 name_source=prev_voice_label pair=000111 confidence=high full_name=泉美
+○000112●text○「ええ～っ?! 行くのー。やだ～、もーお家\n帰りたいー」
+●000112●text●「ええ～っ?! 行くのー。やだ～、もーお家\n帰りたいー」
+
+# idx=000113 file=PS2I054A.BIN off=0x00001DDA inst=0x00001DDA tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000113●text○「でも……家で、さっきみたいなことおきたら？」
+●000113●text●「でも……家で、さっきみたいなことおきたら？」
+
+# idx=000114 file=PS2I054A.BIN off=0x00001E59 inst=0x00001E59 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000114●label○IZ07271
+●000114●label●IZ07271
+
+# idx=000115 file=PS2I054A.BIN off=0x00001E68 inst=0x00001E59 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07271 name_source=prev_voice_label virtual=true writable=false pair=000116 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000115●name○泉美
+●000115●name●泉美
+
+# idx=000116 file=PS2I054A.BIN off=0x00001E68 inst=0x00001E68 tag=text source=inline_len8_string len=47 enc=cp932 policy=in_place speaker_idx=000115 name=泉美 name_id=IZ speaker_code=IZ07271 name_source=prev_voice_label pair=000115 confidence=high full_name=泉美
+○000116●text○「やだ!! どーして、そーゆーやなコト\nゆーの?!」
+●000116●text●「やだ!! どーして、そーゆーやなコト\nゆーの?!」
+
+# idx=000117 file=PS2I054A.BIN off=0x00001EB3 inst=0x00001EB3 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000117●label○IZ07272
+●000117●label●IZ07272
+
+# idx=000118 file=PS2I054A.BIN off=0x00001EC2 inst=0x00001EB3 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07272 name_source=prev_voice_label virtual=true writable=false pair=000119 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000118●name○泉美
+●000118●name●泉美
+
+# idx=000119 file=PS2I054A.BIN off=0x00001EC2 inst=0x00001EC2 tag=text source=inline_len8_string len=114 enc=cp932 policy=in_place speaker_idx=000118 name=泉美 name_id=IZ speaker_code=IZ07272 name_source=prev_voice_label pair=000118 confidence=high full_name=泉美
+○000119●text○「あ～ん、やーん。想像しちゃったー。あー、\n寝ようと思ったらーさっきの子がーカーテンの\nすきまからのぞいてるのー」
+●000119●text●「あ～ん、やーん。想像しちゃったー。あー、\n寝ようと思ったらーさっきの子がーカーテンの\nすきまからのぞいてるのー」
+
+# idx=000120 file=PS2I054A.BIN off=0x00001F50 inst=0x00001F50 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000120●label○IZ07273
+●000120●label●IZ07273
+
+# idx=000121 file=PS2I054A.BIN off=0x00001F5F inst=0x00001F50 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07273 name_source=prev_voice_label virtual=true writable=false pair=000122 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000121●name○泉美
+●000121●name●泉美
+
+# idx=000122 file=PS2I054A.BIN off=0x00001F5F inst=0x00001F5F tag=text source=inline_len8_string len=66 enc=cp932 policy=in_place speaker_idx=000121 name=泉美 name_id=IZ speaker_code=IZ07273 name_source=prev_voice_label pair=000121 confidence=high full_name=泉美
+○000122●text○「あーん、もー帰れないー。明るくなったら、\nカーテンとりかえるー」
+●000122●text●「あーん、もー帰れないー。明るくなったら、\nカーテンとりかえるー」
+
+# idx=000123 file=PS2I054A.BIN off=0x00001FBD inst=0x00001FBD tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000123●text○「だから……行こう。ぼくが一緒にいれば、\nだいじょうぶだから」
+●000123●text●「だから……行こう。ぼくが一緒にいれば、\nだいじょうぶだから」
+
+# idx=000124 file=PS2I054A.BIN off=0x0000204C inst=0x0000204C tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000124●label○IZ07280
+●000124●label●IZ07280
+
+# idx=000125 file=PS2I054A.BIN off=0x0000205B inst=0x0000204C tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07280 name_source=prev_voice_label virtual=true writable=false pair=000126 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000125●name○泉美
+●000125●name●泉美
+
+# idx=000126 file=PS2I054A.BIN off=0x0000205B inst=0x0000205B tag=text source=inline_len8_string len=45 enc=cp932 policy=in_place speaker_idx=000125 name=泉美 name_id=IZ speaker_code=IZ07280 name_source=prev_voice_label pair=000125 confidence=high full_name=泉美
+○000126●text○「ホントに？ もう、さっきみたいの……ない？」
+●000126●text●「ホントに？ もう、さっきみたいの……ない？」
+
+# idx=000127 file=PS2I054A.BIN off=0x000020A4 inst=0x000020A4 tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place
+○000127●text○「あっても……ぼくがいるから」
+●000127●text●「あっても……ぼくがいるから」
+
+# idx=000128 file=PS2I054A.BIN off=0x000020DE inst=0x000020DE tag=text source=inline_len8_string len=98 enc=cp932 policy=in_place
+○000128●text○泉美さんは半ベソをかきながら、手をさしだした。つないでくれ、といっている。\nぼくはその手を握った。
+●000128●text●泉美さんは半ベソをかきながら、手をさしだした。つないでくれ、といっている。\nぼくはその手を握った。
+
+# idx=000129 file=PS2I054A.BIN off=0x0000215C inst=0x0000215C tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000129●text○ぼくと、まだメソメソしている泉美さんは、暗い通路を進み始める。
+●000129●text●ぼくと、まだメソメソしている泉美さんは、暗い通路を進み始める。
+
+# idx=000130 file=PS2I054A.BIN off=0x00002257 inst=0x00002257 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000130●text○異常なできごと……がおこっている。\nしかも、ぼくたちのまわりで。
+●000130●text●異常なできごと……がおこっている。\nしかも、ぼくたちのまわりで。
+
+# idx=000131 file=PS2I054A.BIN off=0x000022B3 inst=0x000022B3 tag=text source=inline_len8_string len=80 enc=cp932 policy=in_place
+○000131●text○通路は静まりかえったままだった。\nさっきのできごとなど、おきなかったかのように。
+●000131●text●通路は静まりかえったままだった。\nさっきのできごとなど、おきなかったかのように。
+
+# idx=000132 file=PS2I054A.BIN off=0x0000231F inst=0x0000231F tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000132●text○でも、ぼくたちは確実に、得体の知れない\nなにかに近づいていた。
+●000132●text●でも、ぼくたちは確実に、得体の知れない\nなにかに近づいていた。
+
+# idx=000133 file=PS2I054A.BIN off=0x000023AE inst=0x000023AE tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000133●label○IZ07290
+●000133●label●IZ07290
+
+# idx=000134 file=PS2I054A.BIN off=0x000023BD inst=0x000023AE tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07290 name_source=prev_voice_label virtual=true writable=false pair=000135 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000134●name○泉美
+●000134●name●泉美
+
+# idx=000135 file=PS2I054A.BIN off=0x000023BD inst=0x000023BD tag=text source=inline_len8_string len=18 enc=cp932 policy=in_place speaker_idx=000134 name=泉美 name_id=IZ speaker_code=IZ07290 name_source=prev_voice_label pair=000134 confidence=high full_name=泉美
+○000135●text○「あれ……なに？」
+●000135●text●「あれ……なに？」
+
+# idx=000136 file=PS2I054A.BIN off=0x000023EB inst=0x000023EB tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000136●text○泉美さんがなにかを見つけた。\n暗い廊下の先に目をこらすと……。
+●000136●text●泉美さんがなにかを見つけた。\n暗い廊下の先に目をこらすと……。
+
+# idx=000137 file=PS2I054A.BIN off=0x0000248D inst=0x0000248D tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000137●text○子ネコくらいの大きさの……きゃしゃな塊が\n転がっていた。
+●000137●text●子ネコくらいの大きさの……きゃしゃな塊が\n転がっていた。
+
+# idx=000138 file=PS2I054A.BIN off=0x000024E1 inst=0x000024E1 tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000138●text○糸の切れた操り人形が無造作に捨てられている、と最初は思った。
+●000138●text●糸の切れた操り人形が無造作に捨てられている、と最初は思った。
+
+# idx=000139 file=PS2I054A.BIN off=0x00002539 inst=0x00002539 tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place
+○000139●text○けれど、見たことのない生き物が死んでいる、\nという印象がすごく強かった。
+●000139●text●けれど、見たことのない生き物が死んでいる、\nという印象がすごく強かった。
+
+# idx=000140 file=PS2I054A.BIN off=0x000025E5 inst=0x000025E5 tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000140●text○泉美さんがおそるおそる、その小さな影に近づく。
+●000140●text●泉美さんがおそるおそる、その小さな影に近づく。
+
+# idx=000141 file=PS2I054A.BIN off=0x0000262F inst=0x0000262F tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000141●label○IZ07300
+●000141●label●IZ07300
+
+# idx=000142 file=PS2I054A.BIN off=0x0000263E inst=0x0000262F tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07300 name_source=prev_voice_label virtual=true writable=false pair=000143 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000142●name○泉美
+●000142●name●泉美
+
+# idx=000143 file=PS2I054A.BIN off=0x0000263E inst=0x0000263E tag=text source=inline_len8_string len=22 enc=cp932 policy=in_place speaker_idx=000142 name=泉美 name_id=IZ speaker_code=IZ07300 name_source=prev_voice_label pair=000142 confidence=high full_name=泉美
+○000143●text○「これ……いきもの？」
+●000143●text●「これ……いきもの？」
+
+# idx=000144 file=PS2I054A.BIN off=0x00002661 inst=0x00002661 tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000144●label○se-31
+●000144●label●se-31
+
+# idx=000145 file=PS2I054A.BIN off=0x000026D1 inst=0x000026D1 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000145●label○IZ07310
+●000145●label●IZ07310
+
+# idx=000146 file=PS2I054A.BIN off=0x000026E0 inst=0x000026D1 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07310 name_source=prev_voice_label virtual=true writable=false pair=000147 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000146●name○泉美
+●000146●name●泉美
+
+# idx=000147 file=PS2I054A.BIN off=0x000026E0 inst=0x000026E0 tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place speaker_idx=000146 name=泉美 name_id=IZ speaker_code=IZ07310 name_source=prev_voice_label pair=000146 confidence=high full_name=泉美
+○000147●text○「きゃっ?!」
+●000147●text●「きゃっ?!」
+
+# idx=000148 file=PS2I054A.BIN off=0x00002748 inst=0x00002748 tag=text source=inline_len8_string len=84 enc=cp932 policy=in_place
+○000148●text○暗い廊下の先から飛んで来たあかがね色の矢が、泉美さんのスカートを壁に突き刺していた。
+●000148●text●暗い廊下の先から飛んで来たあかがね色の矢が、泉美さんのスカートを壁に突き刺していた。
+
+# idx=000149 file=PS2I054A.BIN off=0x000027B8 inst=0x000027B8 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000149●label○IZ07320
+●000149●label●IZ07320
+
+# idx=000150 file=PS2I054A.BIN off=0x000027C7 inst=0x000027B8 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07320 name_source=prev_voice_label virtual=true writable=false pair=000151 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000150●name○泉美
+●000150●name●泉美
+
+# idx=000151 file=PS2I054A.BIN off=0x000027C7 inst=0x000027C7 tag=text source=inline_len8_string len=51 enc=cp932 policy=in_place speaker_idx=000150 name=泉美 name_id=IZ speaker_code=IZ07320 name_source=prev_voice_label pair=000150 confidence=high full_name=泉美
+○000151●text○「やだ、なにこれ?! あん、スカートやぶけ\nちゃう!!」
+●000151●text●「やだ、なにこれ?! あん、スカートやぶけ\nちゃう!!」
+
+# idx=000152 file=PS2I054A.BIN off=0x00002816 inst=0x00002816 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=BU name_id=BU confidence=unresolved
+○000152●label○BU00010
+●000152●label●BU00010
+
+# idx=000153 file=PS2I054A.BIN off=0x00002825 inst=0x00002816 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=BU speaker_code=BU00010 name_source=prev_voice_label virtual=true writable=false pair=000154 confidence=unresolved full_name=BU basis=prefix_detected;_exact_entity_not_proven
+○000153●name○BU
+●000153●name●BU
+
+# idx=000154 file=PS2I054A.BIN off=0x00002825 inst=0x00002825 tag=text source=inline_len8_string len=22 enc=cp932 policy=in_place speaker_idx=000153 name=BU name_id=BU speaker_code=BU00010 name_source=prev_voice_label pair=000153 confidence=unresolved full_name=BU
+○000154●text○「なんか、いたっスよ」
+●000154●text●「なんか、いたっスよ」
+
+# idx=000155 file=PS2I054A.BIN off=0x00002857 inst=0x00002857 tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place
+○000155●text○廊下の奥から、下卑た男の声がする。\nぺたんぺたんという足音と、杖をつくような音が近づいてくる。
+●000155●text●廊下の奥から、下卑た男の声がする。\nぺたんぺたんという足音と、杖をつくような音が近づいてくる。
+
+# idx=000156 file=PS2I054A.BIN off=0x000028D1 inst=0x000028D1 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000156●label○IZ07330
+●000156●label●IZ07330
+
+# idx=000157 file=PS2I054A.BIN off=0x000028E0 inst=0x000028D1 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07330 name_source=prev_voice_label virtual=true writable=false pair=000158 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000157●name○泉美
+●000157●name●泉美
+
+# idx=000158 file=PS2I054A.BIN off=0x000028E0 inst=0x000028E0 tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place speaker_idx=000157 name=泉美 name_id=IZ speaker_code=IZ07330 name_source=prev_voice_label pair=000157 confidence=high full_name=泉美
+○000158●text○「あ～ん、穴あいてるー。ひっどーい、お気に\nいりだったのにー」
+●000158●text●「あ～ん、穴あいてるー。ひっどーい、お気に\nいりだったのにー」
+
+# idx=000159 file=PS2I054A.BIN off=0x0000298A inst=0x0000298A tag=text source=inline_len8_string len=132 enc=cp932 policy=in_place
+○000159●text○泉美さんがスカートを引きはがしたのとほぼ同時に、薄気味の悪い、役所の通路には似つかわしくない男たちが、ぼくたちを見つけて足をとめた。
+●000159●text●泉美さんがスカートを引きはがしたのとほぼ同時に、薄気味の悪い、役所の通路には似つかわしくない男たちが、ぼくたちを見つけて足をとめた。
+
+# idx=000160 file=PS2I054A.BIN off=0x00002A2A inst=0x00002A2A tag=text source=inline_len8_string len=120 enc=cp932 policy=in_place
+○000160●text○アタマはモヒカン刈り、ごっついゴーグルで目を覆った白くむっちりした男が、大きなボウガンの鋭い矢先をぼくたちに向けていた。
+●000160●text●アタマはモヒカン刈り、ごっついゴーグルで目を覆った白くむっちりした男が、大きなボウガンの鋭い矢先をぼくたちに向けていた。
+
+# idx=000161 file=PS2I054A.BIN off=0x00002ABE inst=0x00002ABE tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=BU name_id=BU confidence=unresolved
+○000161●label○BU00020
+●000161●label●BU00020
+
+# idx=000162 file=PS2I054A.BIN off=0x00002ACD inst=0x00002ABE tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=BU speaker_code=BU00020 name_source=prev_voice_label virtual=true writable=false pair=000163 confidence=unresolved full_name=BU basis=prefix_detected;_exact_entity_not_proven
+○000162●name○BU
+●000162●name●BU
+
+# idx=000163 file=PS2I054A.BIN off=0x00002ACD inst=0x00002ACD tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place speaker_idx=000162 name=BU name_id=BU speaker_code=BU00020 name_source=prev_voice_label pair=000162 confidence=unresolved full_name=BU
+○000163●text○「タイショー、なんすか、こいつらー？」
+●000163●text●「タイショー、なんすか、こいつらー？」
+
+# idx=000164 file=PS2I054A.BIN off=0x00002B0F inst=0x00002B0F tag=text source=inline_len8_string len=114 enc=cp932 policy=in_place
+○000164●text○モヒカン＆ゴーグル男に『大将』と呼ばれた\n中年男は、ふらふらと虚ろな視線をさまよわせ、２～３テンポ遅れて返事する。
+●000164●text●モヒカン＆ゴーグル男に『大将』と呼ばれた\n中年男は、ふらふらと虚ろな視線をさまよわせ、２～３テンポ遅れて返事する。
+
+# idx=000165 file=PS2I054A.BIN off=0x00002B9D inst=0x00002B9D tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=TS name_id=TS confidence=unresolved
+○000165●label○TS00010
+●000165●label●TS00010
+
+# idx=000166 file=PS2I054A.BIN off=0x00002BAC inst=0x00002B9D tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=TS speaker_code=TS00010 name_source=prev_voice_label virtual=true writable=false pair=000167 confidence=unresolved full_name=TS basis=prefix_detected;_exact_entity_not_proven
+○000166●name○TS
+●000166●name●TS
+
+# idx=000167 file=PS2I054A.BIN off=0x00002BAC inst=0x00002BAC tag=text source=inline_len8_string len=86 enc=cp932 policy=in_place speaker_idx=000166 name=TS name_id=TS speaker_code=TS00010 name_source=prev_voice_label pair=000166 confidence=unresolved full_name=TS
+○000167●text○「……あー、あれだ、雑虫。標本箱とかはいってくるやつ。全然めずらしくない。つまんねー」
+●000167●text●「……あー、あれだ、雑虫。標本箱とかはいってくるやつ。全然めずらしくない。つまんねー」
+
+# idx=000168 file=PS2I054A.BIN off=0x00002C1E inst=0x00002C1E tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place
+○000168●text○泉美さんが、ぼくの後ろに隠れてつぶやく。
+●000168●text●泉美さんが、ぼくの後ろに隠れてつぶやく。
+
+# idx=000169 file=PS2I054A.BIN off=0x00002C97 inst=0x00002C97 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000169●label○IZ07340
+●000169●label●IZ07340
+
+# idx=000170 file=PS2I054A.BIN off=0x00002CA6 inst=0x00002C97 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07340 name_source=prev_voice_label virtual=true writable=false pair=000171 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000170●name○泉美
+●000170●name●泉美
+
+# idx=000171 file=PS2I054A.BIN off=0x00002CA6 inst=0x00002CA6 tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place speaker_idx=000170 name=泉美 name_id=IZ speaker_code=IZ07340 name_source=prev_voice_label pair=000170 confidence=high full_name=泉美
+○000171●text○「なに……この人たち。……すっごく\nヘンタイっぽ～い」
+●000171●text●「なに……この人たち。……すっごく\nヘンタイっぽ～い」
+
+# idx=000172 file=PS2I054A.BIN off=0x00002CF8 inst=0x00002CF8 tag=text source=inline_len8_string len=104 enc=cp932 policy=in_place
+○000172●text○……変態とゆーより、どこか常軌を逸している。狂気……では、まだおとなしすぎる、生理的な\n嫌悪感があった。
+●000172●text●……変態とゆーより、どこか常軌を逸している。狂気……では、まだおとなしすぎる、生理的な\n嫌悪感があった。
+
+# idx=000173 file=PS2I054A.BIN off=0x00002D7C inst=0x00002D7C tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000173●text○同じことばを話しているのに、絶対に意志の\n疎通ができないのでは。
+●000173●text●同じことばを話しているのに、絶対に意志の\n疎通ができないのでは。
+
+# idx=000174 file=PS2I054A.BIN off=0x00002DD8 inst=0x00002DD8 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000174●text○ぼくの想像は、モヒカン＆ゴーグル男のことばで裏づけられた。
+●000174●text●ぼくの想像は、モヒカン＆ゴーグル男のことばで裏づけられた。
+
+# idx=000175 file=PS2I054A.BIN off=0x00002E2E inst=0x00002E2E tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=BU name_id=BU confidence=unresolved
+○000175●label○BU00030
+●000175●label●BU00030
+
+# idx=000176 file=PS2I054A.BIN off=0x00002E3D inst=0x00002E2E tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=BU speaker_code=BU00030 name_source=prev_voice_label virtual=true writable=false pair=000177 confidence=unresolved full_name=BU basis=prefix_detected;_exact_entity_not_proven
+○000176●name○BU
+●000176●name●BU
+
+# idx=000177 file=PS2I054A.BIN off=0x00002E3D inst=0x00002E3D tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place speaker_idx=000176 name=BU name_id=BU speaker_code=BU00030 name_source=prev_voice_label pair=000176 confidence=unresolved full_name=BU
+○000177●text○「雑虫スか。じゃ、撃っちゃっていっスね？」
+●000177●text●「雑虫スか。じゃ、撃っちゃっていっスね？」
+
+# idx=000178 file=PS2I054A.BIN off=0x00002E83 inst=0x00002E83 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=TS name_id=TS confidence=unresolved
+○000178●label○TS00020
+●000178●label●TS00020
+
+# idx=000179 file=PS2I054A.BIN off=0x00002E92 inst=0x00002E83 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=TS speaker_code=TS00020 name_source=prev_voice_label virtual=true writable=false pair=000180 confidence=unresolved full_name=TS basis=prefix_detected;_exact_entity_not_proven
+○000179●name○TS
+●000179●name●TS
+
+# idx=000180 file=PS2I054A.BIN off=0x00002E92 inst=0x00002E92 tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place speaker_idx=000179 name=TS name_id=TS speaker_code=TS00020 name_source=prev_voice_label pair=000179 confidence=unresolved full_name=TS
+○000180●text○「あー、いーんじゃねーのー？」
+●000180●text●「あー、いーんじゃねーのー？」
+
+# idx=000181 file=PS2I054A.BIN off=0x00002ECC inst=0x00002ECC tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=BU name_id=BU confidence=unresolved
+○000181●label○BU00040
+●000181●label●BU00040
+
+# idx=000182 file=PS2I054A.BIN off=0x00002EDB inst=0x00002ECC tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=BU speaker_code=BU00040 name_source=prev_voice_label virtual=true writable=false pair=000183 confidence=unresolved full_name=BU basis=prefix_detected;_exact_entity_not_proven
+○000182●name○BU
+●000182●name●BU
+
+# idx=000183 file=PS2I054A.BIN off=0x00002EDB inst=0x00002EDB tag=text source=inline_len8_string len=22 enc=cp932 policy=in_place speaker_idx=000182 name=BU name_id=BU speaker_code=BU00040 name_source=prev_voice_label pair=000182 confidence=unresolved full_name=BU
+○000183●text○「じゃ、遠慮なく……」
+●000183●text●「じゃ、遠慮なく……」
+
+# idx=000184 file=PS2I054A.BIN off=0x00002F0D inst=0x00002F0D tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000184●text○モヒカン＆ゴーグル男が、ボウガンを構えたままほんの少し近づいた。
+●000184●text●モヒカン＆ゴーグル男が、ボウガンを構えたままほんの少し近づいた。
+
+# idx=000185 file=PS2I054A.BIN off=0x00002F69 inst=0x00002F69 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000185●label○IZ07350
+●000185●label●IZ07350
+
+# idx=000186 file=PS2I054A.BIN off=0x00002F78 inst=0x00002F69 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07350 name_source=prev_voice_label virtual=true writable=false pair=000187 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000186●name○泉美
+●000186●name●泉美
+
+# idx=000187 file=PS2I054A.BIN off=0x00002F78 inst=0x00002F78 tag=text source=inline_len8_string len=21 enc=cp932 policy=in_place speaker_idx=000186 name=泉美 name_id=IZ speaker_code=IZ07350 name_source=prev_voice_label pair=000186 confidence=high full_name=泉美
+○000187●text○「……えっ?! えっ!!」
+●000187●text●「……えっ?! えっ!!」
+
+# idx=000188 file=PS2I054A.BIN off=0x00003025 inst=0x00003025 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=BU name_id=BU confidence=unresolved
+○000188●label○BU00050
+●000188●label●BU00050
+
+# idx=000189 file=PS2I054A.BIN off=0x00003034 inst=0x00003025 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=BU speaker_code=BU00050 name_source=prev_voice_label virtual=true writable=false pair=000190 confidence=unresolved full_name=BU basis=prefix_detected;_exact_entity_not_proven
+○000189●name○BU
+●000189●name●BU
+
+# idx=000190 file=PS2I054A.BIN off=0x00003034 inst=0x00003034 tag=text source=inline_len8_string len=74 enc=cp932 policy=in_place speaker_idx=000189 name=BU name_id=BU speaker_code=BU00050 name_source=prev_voice_label pair=000189 confidence=unresolved full_name=BU
+○000190●text○「タイショー、２匹いるけど、つがいっスよね。♂と♀、どっち先がいっスか？」
+●000190●text●「タイショー、２匹いるけど、つがいっスよね。♂と♀、どっち先がいっスか？」
+
+# idx=000191 file=PS2I054A.BIN off=0x0000309A inst=0x0000309A tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=TS name_id=TS confidence=unresolved
+○000191●label○TS00030
+●000191●label●TS00030
+
+# idx=000192 file=PS2I054A.BIN off=0x000030A9 inst=0x0000309A tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=TS speaker_code=TS00030 name_source=prev_voice_label virtual=true writable=false pair=000193 confidence=unresolved full_name=TS basis=prefix_detected;_exact_entity_not_proven
+○000192●name○TS
+●000192●name●TS
+
+# idx=000193 file=PS2I054A.BIN off=0x000030A9 inst=0x000030A9 tag=text source=inline_len8_string len=36 enc=cp932 policy=in_place speaker_idx=000192 name=TS name_id=TS speaker_code=TS00030 name_source=prev_voice_label pair=000192 confidence=unresolved full_name=TS
+○000193●text○「あ～。好きな方でいいよ、そんなの」
+●000193●text●「あ～。好きな方でいいよ、そんなの」
+
+# idx=000194 file=PS2I054A.BIN off=0x000030E9 inst=0x000030E9 tag=text source=inline_len8_string len=74 enc=cp932 policy=in_place
+○000194●text○モヒカンゴーグル男の照準が、ぼくと泉美さんのあいだをふらふらと揺れている。
+●000194●text●モヒカンゴーグル男の照準が、ぼくと泉美さんのあいだをふらふらと揺れている。
+
+# idx=000195 file=PS2I054A.BIN off=0x0000313B inst=0x0000313B tag=text source=inline_len8_string len=16 enc=cp932 policy=in_place
+○000195●text○泉美さんを逃がす
+●000195●text●泉美さんを逃がす
+
+# idx=000196 file=PS2I054A.BIN off=0x0000315B inst=0x0000315B tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place
+○000196●text○モヒカンゴーグルに飛びかかる
+●000196●text●モヒカンゴーグルに飛びかかる
+
+# idx=000197 file=PS2I054A.BIN off=0x000031EA inst=0x000031EA tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place
+○000197●text○「泉美さん、逃げて」
+●000197●text●「泉美さん、逃げて」
+
+# idx=000198 file=PS2I054A.BIN off=0x0000321A inst=0x0000321A tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000198●label○IZ07360
+●000198●label●IZ07360
+
+# idx=000199 file=PS2I054A.BIN off=0x00003229 inst=0x0000321A tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07360 name_source=prev_voice_label virtual=true writable=false pair=000200 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000199●name○泉美
+●000199●name●泉美
+
+# idx=000200 file=PS2I054A.BIN off=0x00003229 inst=0x00003229 tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place speaker_idx=000199 name=泉美 name_id=IZ speaker_code=IZ07360 name_source=prev_voice_label pair=000199 confidence=high full_name=泉美
+○000200●text○「でも……」
+●000200●text●「でも……」
+
+# idx=000201 file=PS2I054A.BIN off=0x00003251 inst=0x00003251 tag=text source=inline_len8_string len=67 enc=cp932 policy=in_place
+○000201●text○「逃げて!! こいつら、なにするかわからない\nから。泉美さんだけでも」
+●000201●text●「逃げて!! こいつら、なにするかわからない\nから。泉美さんだけでも」
+
+# idx=000202 file=PS2I054A.BIN off=0x000032B0 inst=0x000032B0 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000202●label○IZ07370
+●000202●label●IZ07370
+
+# idx=000203 file=PS2I054A.BIN off=0x000032BF inst=0x000032B0 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07370 name_source=prev_voice_label virtual=true writable=false pair=000204 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000203●name○泉美
+●000203●name●泉美
+
+# idx=000204 file=PS2I054A.BIN off=0x000032BF inst=0x000032BF tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place speaker_idx=000203 name=泉美 name_id=IZ speaker_code=IZ07370 name_source=prev_voice_label pair=000203 confidence=high full_name=泉美
+○000204●text○「でも……でも……ケガしたらどーするの?!」
+●000204●text●「でも……でも……ケガしたらどーするの?!」
+
+# idx=000205 file=PS2I054A.BIN off=0x00003344 inst=0x00003344 tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000205●text○「泉美さん、ぼくが気をそらすから、その\nあいだに逃げて」
+●000205●text●「泉美さん、ぼくが気をそらすから、その\nあいだに逃げて」
+
+# idx=000206 file=PS2I054A.BIN off=0x00003398 inst=0x00003398 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000206●label○IZ07380
+●000206●label●IZ07380
+
+# idx=000207 file=PS2I054A.BIN off=0x000033A7 inst=0x00003398 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07380 name_source=prev_voice_label virtual=true writable=false pair=000208 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000207●name○泉美
+●000207●name●泉美
+
+# idx=000208 file=PS2I054A.BIN off=0x000033A7 inst=0x000033A7 tag=text source=inline_len8_string len=17 enc=cp932 policy=in_place speaker_idx=000207 name=泉美 name_id=IZ speaker_code=IZ07380 name_source=prev_voice_label pair=000207 confidence=high full_name=泉美
+○000208●text○「えっ?! えっ!!」
+●000208●text●「えっ?! えっ!!」
+
+# idx=000209 file=PS2I054A.BIN off=0x000033D4 inst=0x000033D4 tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000209●text○ただ逃げただけでは、ボウガンの矢のスピードにかなうわけがない。
+●000209●text●ただ逃げただけでは、ボウガンの矢のスピードにかなうわけがない。
+
+# idx=000210 file=PS2I054A.BIN off=0x0000342E inst=0x0000342E tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000210●text○なら、ぼくが気をそらしているうちに、泉美さんだけでも……。
+●000210●text●なら、ぼくが気をそらしているうちに、泉美さんだけでも……。
+
+# idx=000211 file=PS2I054A.BIN off=0x00003484 inst=0x00003484 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000211●label○IZ07390
+●000211●label●IZ07390
+
+# idx=000212 file=PS2I054A.BIN off=0x00003493 inst=0x00003484 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07390 name_source=prev_voice_label virtual=true writable=false pair=000213 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000212●name○泉美
+●000212●name●泉美
+
+# idx=000213 file=PS2I054A.BIN off=0x00003493 inst=0x00003493 tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place speaker_idx=000212 name=泉美 name_id=IZ speaker_code=IZ07390 name_source=prev_voice_label pair=000212 confidence=high full_name=泉美
+○000213●text○「でも……でも……そんなのできない……」
+●000213●text●「でも……でも……そんなのできない……」
+
+# idx=000214 file=PS2I054A.BIN off=0x000034D7 inst=0x000034D7 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000214●text○「そんなこと、いわないで」
+●000214●text●「そんなこと、いわないで」
+
+# idx=000215 file=PS2I054A.BIN off=0x0000350D inst=0x0000350D tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=BU name_id=BU confidence=unresolved
+○000215●label○BU00060
+●000215●label●BU00060
+
+# idx=000216 file=PS2I054A.BIN off=0x0000351C inst=0x0000350D tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=BU speaker_code=BU00060 name_source=prev_voice_label virtual=true writable=false pair=000217 confidence=unresolved full_name=BU basis=prefix_detected;_exact_entity_not_proven
+○000216●name○BU
+●000216●name●BU
+
+# idx=000217 file=PS2I054A.BIN off=0x0000351C inst=0x0000351C tag=text source=inline_len8_string len=36 enc=cp932 policy=in_place speaker_idx=000216 name=BU name_id=BU speaker_code=BU00060 name_source=prev_voice_label pair=000216 confidence=unresolved full_name=BU
+○000217●text○「タイショー、なんスか、こいつらー」
+●000217●text●「タイショー、なんスか、こいつらー」
+
+# idx=000218 file=PS2I054A.BIN off=0x0000355C inst=0x0000355C tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=TS name_id=TS confidence=unresolved
+○000218●label○TS00040
+●000218●label●TS00040
+
+# idx=000219 file=PS2I054A.BIN off=0x0000356B inst=0x0000355C tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=TS speaker_code=TS00040 name_source=prev_voice_label virtual=true writable=false pair=000220 confidence=unresolved full_name=TS basis=prefix_detected;_exact_entity_not_proven
+○000219●name○TS
+●000219●name●TS
+
+# idx=000220 file=PS2I054A.BIN off=0x0000356B inst=0x0000356B tag=text source=inline_len8_string len=76 enc=cp932 policy=in_place speaker_idx=000219 name=TS name_id=TS speaker_code=TS00040 name_source=prev_voice_label pair=000219 confidence=unresolved full_name=TS
+○000220●text○「ああ～、おい、気ィつけろよー。毒とかある\nからなー。噛まれるとはれるぞー」
+●000220●text●「ああ～、おい、気ィつけろよー。毒とかある\nからなー。噛まれるとはれるぞー」
+
+# idx=000221 file=PS2I054A.BIN off=0x000035D3 inst=0x000035D3 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=BU name_id=BU confidence=unresolved
+○000221●label○BU00070
+●000221●label●BU00070
+
+# idx=000222 file=PS2I054A.BIN off=0x000035E2 inst=0x000035D3 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=BU speaker_code=BU00070 name_source=prev_voice_label virtual=true writable=false pair=000223 confidence=unresolved full_name=BU basis=prefix_detected;_exact_entity_not_proven
+○000222●name○BU
+●000222●name●BU
+
+# idx=000223 file=PS2I054A.BIN off=0x000035E2 inst=0x000035E2 tag=text source=inline_len8_string len=21 enc=cp932 policy=in_place speaker_idx=000222 name=BU name_id=BU speaker_code=BU00070 name_source=prev_voice_label pair=000222 confidence=unresolved full_name=BU
+○000223●text○「あっ?! そっスか!!」
+●000223●text●「あっ?! そっスか!!」
+
+# idx=000224 file=PS2I054A.BIN off=0x00003613 inst=0x00003613 tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000224●text○モヒ＆ゴーグルは、ほんの少し後ろにさがる。\nぼくたちの動きに対応できるように。
+●000224●text●モヒ＆ゴーグルは、ほんの少し後ろにさがる。\nぼくたちの動きに対応できるように。
+
+# idx=000225 file=PS2I054A.BIN off=0x0000367D inst=0x0000367D tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=BU name_id=BU confidence=unresolved
+○000225●label○BU00080
+●000225●label●BU00080
+
+# idx=000226 file=PS2I054A.BIN off=0x0000368C inst=0x0000367D tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=BU speaker_code=BU00080 name_source=prev_voice_label virtual=true writable=false pair=000227 confidence=unresolved full_name=BU basis=prefix_detected;_exact_entity_not_proven
+○000226●name○BU
+●000226●name●BU
+
+# idx=000227 file=PS2I054A.BIN off=0x0000368C inst=0x0000368C tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place speaker_idx=000226 name=BU name_id=BU speaker_code=BU00080 name_source=prev_voice_label pair=000226 confidence=unresolved full_name=BU
+○000227●text○「大将、♀、先のほーがいっスよねえ。逃がし\nたら、コッ子うんで、ふえるし……」
+●000227●text●「大将、♀、先のほーがいっスよねえ。逃がし\nたら、コッ子うんで、ふえるし……」
+
+# idx=000228 file=PS2I054A.BIN off=0x000036F6 inst=0x000036F6 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=TS name_id=TS confidence=unresolved
+○000228●label○TS00050
+●000228●label●TS00050
+
+# idx=000229 file=PS2I054A.BIN off=0x00003705 inst=0x000036F6 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=TS speaker_code=TS00050 name_source=prev_voice_label virtual=true writable=false pair=000230 confidence=unresolved full_name=TS basis=prefix_detected;_exact_entity_not_proven
+○000229●name○TS
+●000229●name●TS
+
+# idx=000230 file=PS2I054A.BIN off=0x00003705 inst=0x00003705 tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place speaker_idx=000229 name=TS name_id=TS speaker_code=TS00050 name_source=prev_voice_label pair=000229 confidence=unresolved full_name=TS
+○000230●text○「あー、どっちでもいーって」
+●000230●text●「あー、どっちでもいーって」
+
+# idx=000231 file=PS2I054A.BIN off=0x0000373D inst=0x0000373D tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000231●text○ボウガンの照準が、泉美さんに向けられた。\nぼくは、泉美さんをかばって前に出る。
+●000231●text●ボウガンの照準が、泉美さんに向けられた。\nぼくは、泉美さんをかばって前に出る。
+
+# idx=000232 file=PS2I054A.BIN off=0x000037A7 inst=0x000037A7 tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place
+○000232●text○「泉美さん、逃げて」
+●000232●text●「泉美さん、逃げて」
+
+# idx=000233 file=PS2I054A.BIN off=0x000037D7 inst=0x000037D7 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000233●label○IZ07400
+●000233●label●IZ07400
+
+# idx=000234 file=PS2I054A.BIN off=0x000037E6 inst=0x000037D7 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07400 name_source=prev_voice_label virtual=true writable=false pair=000235 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000234●name○泉美
+●000234●name●泉美
+
+# idx=000235 file=PS2I054A.BIN off=0x000037E6 inst=0x000037E6 tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place speaker_idx=000234 name=泉美 name_id=IZ speaker_code=IZ07400 name_source=prev_voice_label pair=000234 confidence=high full_name=泉美
+○000235●text○「でも……できないよ、そんなの!!」
+●000235●text●「でも……できないよ、そんなの!!」
+
+# idx=000236 file=PS2I054A.BIN off=0x00003824 inst=0x00003824 tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place
+○000236●text○こうなったら、できることは少なかった。ぼくが気をそらしている隙に、泉美さんには\n逃げてもらう。
+●000236●text●こうなったら、できることは少なかった。ぼくが気をそらしている隙に、泉美さんには\n逃げてもらう。
+
+# idx=000237 file=PS2I054A.BIN off=0x0000389E inst=0x0000389E tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000237●text○そのためにも、泉美さんにはわかってもらいた\nかった。
+●000237●text●そのためにも、泉美さんにはわかってもらいた\nかった。
+
+# idx=000238 file=PS2I054A.BIN off=0x000038EE inst=0x000038EE tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000238●text○「泉美さんだけでも、無事で逃げてくれなきゃ」
+●000238●text●「泉美さんだけでも、無事で逃げてくれなきゃ」
+
+# idx=000239 file=PS2I054A.BIN off=0x00003936 inst=0x00003936 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000239●label○IZ07410
+●000239●label●IZ07410
+
+# idx=000240 file=PS2I054A.BIN off=0x00003945 inst=0x00003936 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07410 name_source=prev_voice_label virtual=true writable=false pair=000241 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000240●name○泉美
+●000240●name●泉美
+
+# idx=000241 file=PS2I054A.BIN off=0x00003945 inst=0x00003945 tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place speaker_idx=000240 name=泉美 name_id=IZ speaker_code=IZ07410 name_source=prev_voice_label pair=000240 confidence=high full_name=泉美
+○000241●text○「だって……ひとりになんか、できない!!」
+●000241●text●「だって……ひとりになんか、できない!!」
+
+# idx=000242 file=PS2I054A.BIN off=0x00003989 inst=0x00003989 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000242●text○モヒ＆ゴーグルの、ひきがねにかかった指が\n動いた。
+●000242●text●モヒ＆ゴーグルの、ひきがねにかかった指が\n動いた。
+
+# idx=000243 file=PS2I054A.BIN off=0x000039D7 inst=0x000039D7 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=BU name_id=BU confidence=unresolved
+○000243●label○BU00090
+●000243●label●BU00090
+
+# idx=000244 file=PS2I054A.BIN off=0x000039E6 inst=0x000039D7 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=BU speaker_code=BU00090 name_source=prev_voice_label virtual=true writable=false pair=000245 confidence=unresolved full_name=BU basis=prefix_detected;_exact_entity_not_proven
+○000244●name○BU
+●000244●name●BU
+
+# idx=000245 file=PS2I054A.BIN off=0x000039E6 inst=0x000039E6 tag=text source=inline_len8_string len=70 enc=cp932 policy=in_place speaker_idx=000244 name=BU name_id=BU speaker_code=BU00090 name_source=prev_voice_label pair=000244 confidence=unresolved full_name=BU
+○000245●text○「タイショー、２匹いっぺんにしとめたら、\nオレってうまい方スかねえ？」
+●000245●text●「タイショー、２匹いっぺんにしとめたら、\nオレってうまい方スかねえ？」
+
+# idx=000246 file=PS2I054A.BIN off=0x00003A39 inst=0x00003A39 tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000246●label○se-26
+●000246●label●se-26
+
+# idx=000247 file=PS2I054A.BIN off=0x00003A8F inst=0x00003A8F tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=BU name_id=BU confidence=unresolved
+○000247●label○BU00100
+●000247●label●BU00100
+
+# idx=000248 file=PS2I054A.BIN off=0x00003A9E inst=0x00003A8F tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=BU speaker_code=BU00100 name_source=prev_voice_label virtual=true writable=false pair=000249 confidence=unresolved full_name=BU basis=prefix_detected;_exact_entity_not_proven
+○000248●name○BU
+●000248●name●BU
+
+# idx=000249 file=PS2I054A.BIN off=0x00003A9E inst=0x00003A9E tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place speaker_idx=000248 name=BU name_id=BU speaker_code=BU00100 name_source=prev_voice_label pair=000248 confidence=unresolved full_name=BU
+○000249●text○「ふがっ?!」
+●000249●text●「ふがっ?!」
+
+# idx=000250 file=PS2I054A.BIN off=0x00003AC6 inst=0x00003AC6 tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000250●text○背後から鳴り響いた銃声に、ぼくたちはふり返る。
+●000250●text●背後から鳴り響いた銃声に、ぼくたちはふり返る。
+
+# idx=000251 file=PS2I054A.BIN off=0x00003B3E inst=0x00003B3E tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000251●text○そこにいたのは……薫子さんと優輝ちゃんだった。
+●000251●text●そこにいたのは……薫子さんと優輝ちゃんだった。
+
+# idx=000252 file=PS2I054A.BIN off=0x00003B88 inst=0x00003B88 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=薫子 name_id=KO confidence=medium
+○000252●label○KO00780
+●000252●label●KO00780
+
+# idx=000253 file=PS2I054A.BIN off=0x00003B97 inst=0x00003B88 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KO speaker_code=KO00780 name_source=prev_voice_label virtual=true writable=false pair=000254 confidence=medium full_name=薫子 basis=YU_lines_address_薫子さん;_KO_response_style_and_context
+○000253●name○薫子
+●000253●name●薫子
+
+# idx=000254 file=PS2I054A.BIN off=0x00003B97 inst=0x00003B97 tag=text source=inline_len8_string len=51 enc=cp932 policy=in_place speaker_idx=000253 name=薫子 name_id=KO speaker_code=KO00780 name_source=prev_voice_label pair=000253 confidence=medium full_name=薫子
+○000254●text○「丸ちゃん、逃げて!! もうひとり残って\nいますわ!!」
+●000254●text●「丸ちゃん、逃げて!! もうひとり残って\nいますわ!!」
+
+# idx=000255 file=PS2I054A.BIN off=0x00003C49 inst=0x00003C49 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000255●label○Y00700
+●000255●label●Y00700
+
+# idx=000256 file=PS2I054A.BIN off=0x00003C57 inst=0x00003C57 tag=text source=inline_len8_string len=80 enc=cp932 policy=in_place
+○000256●text○「すっげー。ホントに撃ったよ、このオバはん。あ～、やだやだ。殺人事件の犯人だよ」
+●000256●text●「すっげー。ホントに撃ったよ、このオバはん。あ～、やだやだ。殺人事件の犯人だよ」
+
+# idx=000257 file=PS2I054A.BIN off=0x00003CC3 inst=0x00003CC3 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000257●label○IZ07420
+●000257●label●IZ07420
+
+# idx=000258 file=PS2I054A.BIN off=0x00003CD2 inst=0x00003CC3 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07420 name_source=prev_voice_label virtual=true writable=false pair=000259 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000258●name○泉美
+●000258●name●泉美
+
+# idx=000259 file=PS2I054A.BIN off=0x00003CD2 inst=0x00003CD2 tag=text source=inline_len8_string len=39 enc=cp932 policy=in_place speaker_idx=000258 name=泉美 name_id=IZ speaker_code=IZ07420 name_source=prev_voice_label pair=000258 confidence=high full_name=泉美
+○000259●text○「…………薫子さん?! 帰らなかったの?!」
+●000259●text●「…………薫子さん?! 帰らなかったの?!」
+
+# idx=000260 file=PS2I054A.BIN off=0x00003D15 inst=0x00003D15 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=薫子 name_id=KO confidence=medium
+○000260●label○KO00790
+●000260●label●KO00790
+
+# idx=000261 file=PS2I054A.BIN off=0x00003D24 inst=0x00003D15 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KO speaker_code=KO00790 name_source=prev_voice_label virtual=true writable=false pair=000262 confidence=medium full_name=薫子 basis=YU_lines_address_薫子さん;_KO_response_style_and_context
+○000261●name○薫子
+●000261●name●薫子
+
+# idx=000262 file=PS2I054A.BIN off=0x00003D24 inst=0x00003D24 tag=text source=inline_len8_string len=97 enc=cp932 policy=in_place speaker_idx=000261 name=薫子 name_id=KO speaker_code=KO00790 name_source=prev_voice_label pair=000261 confidence=medium full_name=薫子
+○000262●text○「丸ちゃんたち、おいて帰るわけにはいきま\nせんわ!! ……優輝ちゃん、今なにかおっしゃい\nました？」
+●000262●text●「丸ちゃんたち、おいて帰るわけにはいきま\nせんわ!! ……優輝ちゃん、今なにかおっしゃい\nました？」
+
+# idx=000263 file=PS2I054A.BIN off=0x00003DD6 inst=0x00003DD6 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000263●label○Y00711
+●000263●label●Y00711
+
+# idx=000264 file=PS2I054A.BIN off=0x00003DE4 inst=0x00003DE4 tag=text source=inline_len8_string len=33 enc=cp932 policy=in_place
+○000264●text○「……えっ?! あ……。えっと……」
+●000264●text●「……えっ?! あ……。えっと……」
+
+# idx=000265 file=PS2I054A.BIN off=0x00003E21 inst=0x00003E21 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000265●label○Y00712
+●000265●label●Y00712
+
+# idx=000266 file=PS2I054A.BIN off=0x00003E2F inst=0x00003E2F tag=text source=inline_len8_string len=116 enc=cp932 policy=in_place
+○000266●text○「薫子さん、すごーい。うまーい。やっぱー、\nゲーセンとかでレンシューするのかなーって。\nあと、カラス狙ったりとかー」
+●000266●text●「薫子さん、すごーい。うまーい。やっぱー、\nゲーセンとかでレンシューするのかなーって。\nあと、カラス狙ったりとかー」
+
+# idx=000267 file=PS2I054A.BIN off=0x00003EBF inst=0x00003EBF tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=薫子 name_id=KO confidence=medium
+○000267●label○KO00800
+●000267●label●KO00800
+
+# idx=000268 file=PS2I054A.BIN off=0x00003ECE inst=0x00003EBF tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KO speaker_code=KO00800 name_source=prev_voice_label virtual=true writable=false pair=000269 confidence=medium full_name=薫子 basis=YU_lines_address_薫子さん;_KO_response_style_and_context
+○000268●name○薫子
+●000268●name●薫子
+
+# idx=000269 file=PS2I054A.BIN off=0x00003ECE inst=0x00003ECE tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place speaker_idx=000268 name=薫子 name_id=KO speaker_code=KO00800 name_source=prev_voice_label pair=000268 confidence=medium full_name=薫子
+○000269●text○「国体の準決勝なら出場経験ありますわ」
+●000269●text●「国体の準決勝なら出場経験ありますわ」
+
+# idx=000270 file=PS2I054A.BIN off=0x00003F10 inst=0x00003F10 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=薫子 name_id=KO confidence=medium
+○000270●label○KO00810
+●000270●label●KO00810
+
+# idx=000271 file=PS2I054A.BIN off=0x00003F1F inst=0x00003F10 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KO speaker_code=KO00810 name_source=prev_voice_label virtual=true writable=false pair=000272 confidence=medium full_name=薫子 basis=YU_lines_address_薫子さん;_KO_response_style_and_context
+○000271●name○薫子
+●000271●name●薫子
+
+# idx=000272 file=PS2I054A.BIN off=0x00003F1F inst=0x00003F1F tag=text source=inline_len8_string len=77 enc=cp932 policy=in_place speaker_idx=000271 name=薫子 name_id=KO speaker_code=KO00810 name_source=prev_voice_label pair=000271 confidence=medium full_name=薫子
+○000272●text○「そこの方!! 武器をすてていただきますわ。\n正当防衛ですのよ。私、本気ですわ」
+●000272●text●「そこの方!! 武器をすてていただきますわ。\n正当防衛ですのよ。私、本気ですわ」
+
+# idx=000273 file=PS2I054A.BIN off=0x0000401E inst=0x0000401E tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=TS name_id=TS confidence=unresolved
+○000273●label○TS00060
+●000273●label●TS00060
+
+# idx=000274 file=PS2I054A.BIN off=0x0000402D inst=0x0000401E tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=TS speaker_code=TS00060 name_source=prev_voice_label virtual=true writable=false pair=000275 confidence=unresolved full_name=TS basis=prefix_detected;_exact_entity_not_proven
+○000274●name○TS
+●000274●name●TS
+
+# idx=000275 file=PS2I054A.BIN off=0x0000402D inst=0x0000402D tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place speaker_idx=000274 name=TS name_id=TS speaker_code=TS00060 name_source=prev_voice_label pair=000274 confidence=unresolved full_name=TS
+○000275●text○「ブタくんよぉ……なに寝てんだよお。おきろ\nよな、このバカ」
+●000275●text●「ブタくんよぉ……なに寝てんだよお。おきろ\nよな、このバカ」
+
+# idx=000276 file=PS2I054A.BIN off=0x00004085 inst=0x00004085 tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000276●text○大将は、松葉杖で額を撃ち抜かれた『ブタくん』をつつく。
+●000276●text●大将は、松葉杖で額を撃ち抜かれた『ブタくん』をつつく。
+
+# idx=000277 file=PS2I054A.BIN off=0x0000410C inst=0x0000410C tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000277●text○それを合図にしたように、ブタくんはむっくりと起きあがった。
+●000277●text●それを合図にしたように、ブタくんはむっくりと起きあがった。
+
+# idx=000278 file=PS2I054A.BIN off=0x00004162 inst=0x00004162 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000278●label○IZ07430
+●000278●label●IZ07430
+
+# idx=000279 file=PS2I054A.BIN off=0x00004171 inst=0x00004162 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07430 name_source=prev_voice_label virtual=true writable=false pair=000280 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000279●name○泉美
+●000279●name●泉美
+
+# idx=000280 file=PS2I054A.BIN off=0x00004171 inst=0x00004171 tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place speaker_idx=000279 name=泉美 name_id=IZ speaker_code=IZ07430 name_source=prev_voice_label pair=000279 confidence=high full_name=泉美
+○000280●text○「きゃっ!!」
+●000280●text●「きゃっ!!」
+
+# idx=000281 file=PS2I054A.BIN off=0x00004199 inst=0x00004199 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=BU name_id=BU confidence=unresolved
+○000281●label○BU00110
+●000281●label●BU00110
+
+# idx=000282 file=PS2I054A.BIN off=0x000041A8 inst=0x00004199 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=BU speaker_code=BU00110 name_source=prev_voice_label virtual=true writable=false pair=000283 confidence=unresolved full_name=BU basis=prefix_detected;_exact_entity_not_proven
+○000282●name○BU
+●000282●name●BU
+
+# idx=000283 file=PS2I054A.BIN off=0x000041A8 inst=0x000041A8 tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place speaker_idx=000282 name=BU name_id=BU speaker_code=BU00110 name_source=prev_voice_label pair=000282 confidence=unresolved full_name=BU
+○000283●text○「タイショー……アタマわれるみたいに痛いっス」
+●000283●text●「タイショー……アタマわれるみたいに痛いっス」
+
+# idx=000284 file=PS2I054A.BIN off=0x000041F2 inst=0x000041F2 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=TS name_id=TS confidence=unresolved
+○000284●label○TS00070
+●000284●label●TS00070
+
+# idx=000285 file=PS2I054A.BIN off=0x00004201 inst=0x000041F2 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=TS speaker_code=TS00070 name_source=prev_voice_label virtual=true writable=false pair=000286 confidence=unresolved full_name=TS basis=prefix_detected;_exact_entity_not_proven
+○000285●name○TS
+●000285●name●TS
+
+# idx=000286 file=PS2I054A.BIN off=0x00004201 inst=0x00004201 tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place speaker_idx=000285 name=TS name_id=TS speaker_code=TS00070 name_source=prev_voice_label pair=000285 confidence=unresolved full_name=TS
+○000286●text○「だからよ、いっつもいってるだろ。お前、\n寝過ぎなんだって」
+●000286●text●「だからよ、いっつもいってるだろ。お前、\n寝過ぎなんだって」
+
+# idx=000287 file=PS2I054A.BIN off=0x00004259 inst=0x00004259 tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000287●text○ぼくたちは額をさするブタくんに息をのんだ。
+●000287●text●ぼくたちは額をさするブタくんに息をのんだ。
+
+# idx=000288 file=PS2I054A.BIN off=0x0000429F inst=0x0000429F tag=text source=inline_len8_string len=98 enc=cp932 policy=in_place
+○000288●text○ゴーグルがはずれてしまったブタくん。\nその『目』のあるはずの場所に、ぽっかりと黒い穴が開いていた。
+●000288●text●ゴーグルがはずれてしまったブタくん。\nその『目』のあるはずの場所に、ぽっかりと黒い穴が開いていた。
+
+# idx=000289 file=PS2I054A.BIN off=0x000043D5 inst=0x000043D5 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000289●label○Y00720
+●000289●label●Y00720
+
+# idx=000290 file=PS2I054A.BIN off=0x000043E3 inst=0x000043E3 tag=text source=inline_len8_string len=24 enc=cp932 policy=in_place
+○000290●text○「うわ～、すっげー変態」
+●000290●text●「うわ～、すっげー変態」
+
+# idx=000291 file=PS2I054A.BIN off=0x00004417 inst=0x00004417 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=薫子 name_id=KO confidence=medium
+○000291●label○KO00820
+●000291●label●KO00820
+
+# idx=000292 file=PS2I054A.BIN off=0x00004426 inst=0x00004417 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KO speaker_code=KO00820 name_source=prev_voice_label virtual=true writable=false pair=000293 confidence=medium full_name=薫子 basis=YU_lines_address_薫子さん;_KO_response_style_and_context
+○000292●name○薫子
+●000292●name●薫子
+
+# idx=000293 file=PS2I054A.BIN off=0x00004426 inst=0x00004426 tag=text source=inline_len8_string len=59 enc=cp932 policy=in_place speaker_idx=000292 name=薫子 name_id=KO speaker_code=KO00820 name_source=prev_voice_label pair=000292 confidence=medium full_name=薫子
+○000293●text○「丸ちゃん、逃げて!! ここは私たちが\nなんとかしますから!!」
+●000293●text●「丸ちゃん、逃げて!! ここは私たちが\nなんとかしますから!!」
+
+# idx=000294 file=PS2I054A.BIN off=0x000044B2 inst=0x000044B2 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000294●label○IZ07440
+●000294●label●IZ07440
+
+# idx=000295 file=PS2I054A.BIN off=0x000044C1 inst=0x000044B2 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07440 name_source=prev_voice_label virtual=true writable=false pair=000296 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000295●name○泉美
+●000295●name●泉美
+
+# idx=000296 file=PS2I054A.BIN off=0x000044C1 inst=0x000044C1 tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place speaker_idx=000295 name=泉美 name_id=IZ speaker_code=IZ07440 name_source=prev_voice_label pair=000295 confidence=high full_name=泉美
+○000296●text○「でも……」
+●000296●text●「でも……」
+
+# idx=000297 file=PS2I054A.BIN off=0x000044E9 inst=0x000044E9 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=薫子 name_id=KO confidence=medium
+○000297●label○KO00831
+●000297●label●KO00831
+
+# idx=000298 file=PS2I054A.BIN off=0x000044F8 inst=0x000044E9 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KO speaker_code=KO00831 name_source=prev_voice_label virtual=true writable=false pair=000299 confidence=medium full_name=薫子 basis=YU_lines_address_薫子さん;_KO_response_style_and_context
+○000298●name○薫子
+●000298●name●薫子
+
+# idx=000299 file=PS2I054A.BIN off=0x000044F8 inst=0x000044F8 tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place speaker_idx=000298 name=薫子 name_id=KO speaker_code=KO00831 name_source=prev_voice_label pair=000298 confidence=medium full_name=薫子
+○000299●text○「私、先程、冬木さんと電話でお話しましたの。冬木さんも、丸ちゃんたちに会いたがっていましたわ」
+●000299●text●「私、先程、冬木さんと電話でお話しましたの。冬木さんも、丸ちゃんたちに会いたがっていましたわ」
+
+# idx=000300 file=PS2I054A.BIN off=0x00004572 inst=0x00004572 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=薫子 name_id=KO confidence=medium
+○000300●label○KO00832
+●000300●label●KO00832
+
+# idx=000301 file=PS2I054A.BIN off=0x00004581 inst=0x00004572 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KO speaker_code=KO00832 name_source=prev_voice_label virtual=true writable=false pair=000302 confidence=medium full_name=薫子 basis=YU_lines_address_薫子さん;_KO_response_style_and_context
+○000301●name○薫子
+●000301●name●薫子
+
+# idx=000302 file=PS2I054A.BIN off=0x00004581 inst=0x00004581 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place speaker_idx=000301 name=薫子 name_id=KO speaker_code=KO00832 name_source=prev_voice_label pair=000301 confidence=medium full_name=薫子
+○000302●text○「時間に余裕はありませんのよ。だから、\nはやく!!」
+●000302●text●「時間に余裕はありませんのよ。だから、\nはやく!!」
+
+# idx=000303 file=PS2I054A.BIN off=0x000045CF inst=0x000045CF tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000303●label○Y00730
+●000303●label●Y00730
+
+# idx=000304 file=PS2I054A.BIN off=0x000045DD inst=0x000045DD tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000304●text○「あの～、薫子さ～ん……」
+●000304●text●「あの～、薫子さ～ん……」
+
+# idx=000305 file=PS2I054A.BIN off=0x00004613 inst=0x00004613 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=薫子 name_id=KO confidence=medium
+○000305●label○KO00840
+●000305●label●KO00840
+
+# idx=000306 file=PS2I054A.BIN off=0x00004622 inst=0x00004613 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KO speaker_code=KO00840 name_source=prev_voice_label virtual=true writable=false pair=000307 confidence=medium full_name=薫子 basis=YU_lines_address_薫子さん;_KO_response_style_and_context
+○000306●name○薫子
+●000306●name●薫子
+
+# idx=000307 file=PS2I054A.BIN off=0x00004622 inst=0x00004622 tag=text source=inline_len8_string len=16 enc=cp932 policy=in_place speaker_idx=000306 name=薫子 name_id=KO speaker_code=KO00840 name_source=prev_voice_label pair=000306 confidence=medium full_name=薫子
+○000307●text○「なんですの?!」
+●000307●text●「なんですの?!」
+
+# idx=000308 file=PS2I054A.BIN off=0x0000464E inst=0x0000464E tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000308●label○Y00741
+●000308●label●Y00741
+
+# idx=000309 file=PS2I054A.BIN off=0x0000465C inst=0x0000465C tag=text source=inline_len8_string len=106 enc=cp932 policy=in_place
+○000309●text○「おことばなんですけど～、さっき～薫子さんがいったー『私たち』の中にはー、私もはいって\nるんでしょーか？」
+●000309●text●「おことばなんですけど～、さっき～薫子さんがいったー『私たち』の中にはー、私もはいって\nるんでしょーか？」
+
+# idx=000310 file=PS2I054A.BIN off=0x000046E2 inst=0x000046E2 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000310●label○Y00742
+●000310●label●Y00742
+
+# idx=000311 file=PS2I054A.BIN off=0x000046F0 inst=0x000046F0 tag=text source=inline_len8_string len=74 enc=cp932 policy=in_place
+○000311●text○「どっちかってゆーと、私も丸と一緒のほーが\nいーかなーとか思うんだけどー」
+●000311●text●「どっちかってゆーと、私も丸と一緒のほーが\nいーかなーとか思うんだけどー」
+
+# idx=000312 file=PS2I054A.BIN off=0x00004756 inst=0x00004756 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=薫子 name_id=KO confidence=medium
+○000312●label○KO00850
+●000312●label●KO00850
+
+# idx=000313 file=PS2I054A.BIN off=0x00004765 inst=0x00004756 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KO speaker_code=KO00850 name_source=prev_voice_label virtual=true writable=false pair=000314 confidence=medium full_name=薫子 basis=YU_lines_address_薫子さん;_KO_response_style_and_context
+○000313●name○薫子
+●000313●name●薫子
+
+# idx=000314 file=PS2I054A.BIN off=0x00004765 inst=0x00004765 tag=text source=inline_len8_string len=98 enc=cp932 policy=in_place speaker_idx=000313 name=薫子 name_id=KO speaker_code=KO00850 name_source=prev_voice_label pair=000313 confidence=medium full_name=薫子
+○000314●text○「ダメですわ!! 優輝ちゃんはこっちです\nのよ!! そうじゃないと、私がひとりになって\nしまいますわ!!」
+●000314●text●「ダメですわ!! 優輝ちゃんはこっちです\nのよ!! そうじゃないと、私がひとりになって\nしまいますわ!!」
+
+# idx=000315 file=PS2I054A.BIN off=0x000047E3 inst=0x000047E3 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000315●label○IZ07450
+●000315●label●IZ07450
+
+# idx=000316 file=PS2I054A.BIN off=0x000047F2 inst=0x000047E3 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07450 name_source=prev_voice_label virtual=true writable=false pair=000317 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000316●name○泉美
+●000316●name●泉美
+
+# idx=000317 file=PS2I054A.BIN off=0x000047F2 inst=0x000047F2 tag=text source=inline_len8_string len=24 enc=cp932 policy=in_place speaker_idx=000316 name=泉美 name_id=IZ speaker_code=IZ07450 name_source=prev_voice_label pair=000316 confidence=high full_name=泉美
+○000317●text○「でも……薫子さん……」
+●000317●text●「でも……薫子さん……」
+
+# idx=000318 file=PS2I054A.BIN off=0x00004826 inst=0x00004826 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=薫子 name_id=KO confidence=medium
+○000318●label○KO00860
+●000318●label●KO00860
+
+# idx=000319 file=PS2I054A.BIN off=0x00004835 inst=0x00004826 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KO speaker_code=KO00860 name_source=prev_voice_label virtual=true writable=false pair=000320 confidence=medium full_name=薫子 basis=YU_lines_address_薫子さん;_KO_response_style_and_context
+○000319●name○薫子
+●000319●name●薫子
+
+# idx=000320 file=PS2I054A.BIN off=0x00004835 inst=0x00004835 tag=text source=inline_len8_string len=59 enc=cp932 policy=in_place speaker_idx=000319 name=薫子 name_id=KO speaker_code=KO00860 name_source=prev_voice_label pair=000319 confidence=medium full_name=薫子
+○000320●text○「はやく!! 冬木さんが、みんなおしえて\nくださいますのよ!!」
+●000320●text●「はやく!! 冬木さんが、みんなおしえて\nくださいますのよ!!」
+
+# idx=000321 file=PS2I054A.BIN off=0x0000488C inst=0x0000488C tag=text source=inline_len8_string len=22 enc=cp932 policy=in_place
+○000321●text○「泉美さん、行こう!!」
+●000321●text●「泉美さん、行こう!!」
+
+# idx=000322 file=PS2I054A.BIN off=0x000048BE inst=0x000048BE tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000322●label○IZ07460
+●000322●label●IZ07460
+
+# idx=000323 file=PS2I054A.BIN off=0x000048CD inst=0x000048BE tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07460 name_source=prev_voice_label virtual=true writable=false pair=000324 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000323●name○泉美
+●000323●name●泉美
+
+# idx=000324 file=PS2I054A.BIN off=0x000048CD inst=0x000048CD tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place speaker_idx=000323 name=泉美 name_id=IZ speaker_code=IZ07460 name_source=prev_voice_label pair=000323 confidence=high full_name=泉美
+○000324●text○「でも……私たちだけ……」
+●000324●text●「でも……私たちだけ……」
+
+# idx=000325 file=PS2I054A.BIN off=0x00004903 inst=0x00004903 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=薫子 name_id=KO confidence=medium
+○000325●label○KO00870
+●000325●label●KO00870
+
+# idx=000326 file=PS2I054A.BIN off=0x00004912 inst=0x00004903 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KO speaker_code=KO00870 name_source=prev_voice_label virtual=true writable=false pair=000327 confidence=medium full_name=薫子 basis=YU_lines_address_薫子さん;_KO_response_style_and_context
+○000326●name○薫子
+●000326●name●薫子
+
+# idx=000327 file=PS2I054A.BIN off=0x00004912 inst=0x00004912 tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place speaker_idx=000326 name=薫子 name_id=KO speaker_code=KO00870 name_source=prev_voice_label pair=000326 confidence=medium full_name=薫子
+○000327●text○「そんなのは、気になさらないで!!」
+●000327●text●「そんなのは、気になさらないで!!」
+
+# idx=000328 file=PS2I054A.BIN off=0x00004985 inst=0x00004985 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000328●label○Y00750
+●000328●label●Y00750
+
+# idx=000329 file=PS2I054A.BIN off=0x00004993 inst=0x00004993 tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000329●text○「うわ～、気にしてほしーけどなー、私的には～」
+●000329●text●「うわ～、気にしてほしーけどなー、私的には～」
+
+# idx=000330 file=PS2I054A.BIN off=0x000049DD inst=0x000049DD tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place
+○000330●text○「泉美さん!!」
+●000330●text●「泉美さん!!」
+
+# idx=000331 file=PS2I054A.BIN off=0x00004A07 inst=0x00004A07 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000331●label○IZ07470
+●000331●label●IZ07470
+
+# idx=000332 file=PS2I054A.BIN off=0x00004A16 inst=0x00004A07 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07470 name_source=prev_voice_label virtual=true writable=false pair=000333 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000332●name○泉美
+●000332●name●泉美
+
+# idx=000333 file=PS2I054A.BIN off=0x00004A16 inst=0x00004A16 tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place speaker_idx=000332 name=泉美 name_id=IZ speaker_code=IZ07470 name_source=prev_voice_label pair=000332 confidence=high full_name=泉美
+○000333●text○「う……うん」
+●000333●text●「う……うん」
+
+# idx=000334 file=PS2I054A.BIN off=0x00004A8E inst=0x00004A8E tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000334●text○ぼくと泉美さんは、薫子さんたちを残して、駆けだした。
+●000334●text●ぼくと泉美さんは、薫子さんたちを残して、駆けだした。
+
+# idx=000335 file=PS2I054A.BIN off=0x00004ADE inst=0x00004ADE tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=薫子 name_id=KO confidence=medium
+○000335●label○KO00880
+●000335●label●KO00880
+
+# idx=000336 file=PS2I054A.BIN off=0x00004AED inst=0x00004ADE tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KO speaker_code=KO00880 name_source=prev_voice_label virtual=true writable=false pair=000337 confidence=medium full_name=薫子 basis=YU_lines_address_薫子さん;_KO_response_style_and_context
+○000336●name○薫子
+●000336●name●薫子
+
+# idx=000337 file=PS2I054A.BIN off=0x00004AED inst=0x00004AED tag=text source=inline_len8_string len=37 enc=cp932 policy=in_place speaker_idx=000336 name=薫子 name_id=KO speaker_code=KO00880 name_source=prev_voice_label pair=000336 confidence=medium full_name=薫子
+○000337●text○「冬木さんを!! さがすんですのよっ!!」
+●000337●text●「冬木さんを!! さがすんですのよっ!!」
+
+# idx=000338 file=PS2I054A.BIN off=0x00004B2E inst=0x00004B2E tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000338●text○暗い廊下の向こうで、薫子さんが叫んだ。\nそして……。
+●000338●text●暗い廊下の向こうで、薫子さんが叫んだ。\nそして……。
+
+# idx=000339 file=PS2I054A.BIN off=0x00004BAF inst=0x00004BAF tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000339●label○se-26
+●000339●label●se-26
+
+# idx=000340 file=PS2I054A.BIN off=0x00004BDB inst=0x00004BDB tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000340●label○PS2I055a.bin
+●000340●label●PS2I055a.bin
+

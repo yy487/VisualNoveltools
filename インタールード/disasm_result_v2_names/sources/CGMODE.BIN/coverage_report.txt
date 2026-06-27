@@ -1,0 +1,9 @@
+file: CGMODE.BIN
+byte_size: 2640
+coverage: 100.00%
+status: OK
+records: 1365
+text_entries: 0
+zero_mutation_roundtrip: PASS
+original_sha256: 77dd6577dd9151cc30d1abf6c59e66fe3e4c7d125e5fe0ab96e18728f5d2e143
+rebuilt_sha256: 77dd6577dd9151cc30d1abf6c59e66fe3e4c7d125e5fe0ab96e18728f5d2e143

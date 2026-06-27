@@ -1,0 +1,68 @@
+# DSAT export for PS2A066A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2A066A.BIN off=0x00000054 inst=0x00000054 tag=text source=inline_len8_string len=98 enc=cp932 policy=in_place
+○000001●text○それは……大きく静かな空間だった。\n窓から、外の建造物が見えていた。\nけれど、人影はどこにもない。
+●000001●text●それは……大きく静かな空間だった。\n窓から、外の建造物が見えていた。\nけれど、人影はどこにもない。
+
+# idx=000002 file=PS2A066A.BIN off=0x000000D2 inst=0x000000D2 tag=text source=inline_len8_string len=24 enc=cp932 policy=in_place
+○000002●text○静止した時間だけがある。
+●000002●text●静止した時間だけがある。
+
+# idx=000003 file=PS2A066A.BIN off=0x00000106 inst=0x00000106 tag=text source=inline_len8_string len=92 enc=cp932 policy=in_place
+○000003●text○ぼくは、その静けさに慰霊所を思い浮かべる。\nある時間を切り取り、その思い出を保存する\n場所。
+●000003●text●ぼくは、その静けさに慰霊所を思い浮かべる。\nある時間を切り取り、その思い出を保存する\n場所。
+
+# idx=000004 file=PS2A066A.BIN off=0x0000017E inst=0x0000017E tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000004●text○中央にそびえたつなにかの台座は、南米の\nピラミッドににていた。
+●000004●text●中央にそびえたつなにかの台座は、南米の\nピラミッドににていた。
+
+# idx=000005 file=PS2A066A.BIN off=0x00000206 inst=0x00000206 tag=text source=inline_len8_string len=84 enc=cp932 policy=in_place
+○000005●text○その頂上は、やわらかくあたたかい光に照らされ\nている。\n階段が、頂上へ向かっている。
+●000005●text●その頂上は、やわらかくあたたかい光に照らされ\nている。\n階段が、頂上へ向かっている。
+
+# idx=000006 file=PS2A066A.BIN off=0x00000276 inst=0x00000276 tag=text source=inline_len8_string len=82 enc=cp932 policy=in_place
+○000006●text○神殿、なのかもしれない。\n頂上に最も大切ななにかを祭っている。\nそのなにかは……。
+●000006●text●神殿、なのかもしれない。\n頂上に最も大切ななにかを祭っている。\nそのなにかは……。
+
+# idx=000007 file=PS2A066A.BIN off=0x000002E4 inst=0x000002E4 tag=text source=inline_len8_string len=116 enc=cp932 policy=in_place
+○000007●text○ぼくは、階段を一歩一歩のぼり始めた。\n本当の答えが、待っているのだと思った。\nさがしていたものが、そこで待っている。
+●000007●text●ぼくは、階段を一歩一歩のぼり始めた。\n本当の答えが、待っているのだと思った。\nさがしていたものが、そこで待っている。
+
+# idx=000008 file=PS2A066A.BIN off=0x00000374 inst=0x00000374 tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place
+○000008●text○綾が求めていた安らぎの場所が。
+●000008●text●綾が求めていた安らぎの場所が。
+
+# idx=000009 file=PS2A066A.BIN off=0x000003AE inst=0x000003AE tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000009●text○通路のふたりの語った守るべき『世界の記憶』が。
+●000009●text●通路のふたりの語った守るべき『世界の記憶』が。
+
+# idx=000010 file=PS2A066A.BIN off=0x000003F8 inst=0x000003F8 tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place
+○000010●text○ぼくが、踏みこんだ毎日ではない場所が。
+●000010●text●ぼくが、踏みこんだ毎日ではない場所が。
+
+# idx=000011 file=PS2A066A.BIN off=0x0000043A inst=0x0000043A tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000011●text○世界は異なる場所と接している。\n世界は確率として存在している。
+●000011●text●世界は異なる場所と接している。\n世界は確率として存在している。
+
+# idx=000012 file=PS2A066A.BIN off=0x00000494 inst=0x00000494 tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place
+○000012●text○世界は……人の心に生じた幻でしかない。
+●000012●text●世界は……人の心に生じた幻でしかない。
+
+# idx=000013 file=PS2A066A.BIN off=0x000004D6 inst=0x000004D6 tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000013●text○頂上で、なにが待っているのかわからなかった。
+●000013●text●頂上で、なにが待っているのかわからなかった。
+
+# idx=000014 file=PS2A066A.BIN off=0x0000051E inst=0x0000051E tag=text source=inline_len8_string len=70 enc=cp932 policy=in_place
+○000014●text○けれど……ぼくと綾の出会いをきっかけとした\n物語が終わろうとしている。
+●000014●text●けれど……ぼくと綾の出会いをきっかけとした\n物語が終わろうとしている。
+
+# idx=000015 file=PS2A066A.BIN off=0x00000580 inst=0x00000580 tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place
+○000015●text○それだけは……確かなのだと思った。
+●000015●text●それだけは……確かなのだと思った。
+
+# idx=000016 file=PS2A066A.BIN off=0x000005F6 inst=0x000005F6 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000016●label○PS2A067a.bin
+●000016●label●PS2A067a.bin
+

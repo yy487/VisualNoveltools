@@ -1,0 +1,31 @@
+{
+  "file": "PS2A053A.BIN",
+  "resolution_status": "resolved_with_virtual_speaker_pairs",
+  "pairing_rule": "preceding 80-string voice id matching /^[A-Z]{2}\\d{5}[A-Za-z]?T?$/ paired with following quoted text",
+  "entities": [
+    {
+      "name_id": "FU",
+      "display_name": "冬木",
+      "full_name": "冬木",
+      "confidence": "medium",
+      "occurrences": 9,
+      "basis": "FU lines mention 三枝先生; nearby text identifies 冬木"
+    },
+    {
+      "name_id": "MI",
+      "display_name": "三枝先生",
+      "full_name": "三枝先生",
+      "confidence": "medium",
+      "occurrences": 2,
+      "basis": "MI scene centered on 三枝先生 and 睦月"
+    },
+    {
+      "name_id": "MU",
+      "display_name": "睦月",
+      "full_name": "睦月",
+      "confidence": "high",
+      "occurrences": 33,
+      "basis": "DEBUG route labels and MU dialogue context"
+    }
+  ]
+}

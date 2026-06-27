@@ -1,0 +1,32 @@
+# DSAT export for PS2I006A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2I006A.BIN off=0x00000053 inst=0x00000053 tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place
+○000001●text○しまった、迎えに来いっていわれてたのに。
+●000001●text●しまった、迎えに来いっていわれてたのに。
+
+# idx=000002 file=PS2I006A.BIN off=0x00000097 inst=0x00000097 tag=text source=inline_len8_string len=106 enc=cp932 policy=in_place
+○000002●text○なんだか余計なことを考えてブラブラしてたら\n……ずいぶん遅刻してしまった。\nさすがに、玉はもう帰っていた。
+●000002●text●なんだか余計なことを考えてブラブラしてたら\n……ずいぶん遅刻してしまった。\nさすがに、玉はもう帰っていた。
+
+# idx=000003 file=PS2I006A.BIN off=0x0000011D inst=0x0000011D tag=text source=inline_len8_string len=88 enc=cp932 policy=in_place
+○000003●text○うわ～、どうしよう。\nすっごい怒ってるんだろーな。\nあいつが怒るとメンドーくさいんだよ。
+●000003●text●うわ～、どうしよう。\nすっごい怒ってるんだろーな。\nあいつが怒るとメンドーくさいんだよ。
+
+# idx=000004 file=PS2I006A.BIN off=0x00000191 inst=0x00000191 tag=text source=inline_len8_string len=90 enc=cp932 policy=in_place
+○000004●text○自分は遅刻の常習魔のくせに、人の遅刻には\n厳しいから。\nあ～……泣くほどグズるぞ、きっと。
+●000004●text●自分は遅刻の常習魔のくせに、人の遅刻には\n厳しいから。\nあ～……泣くほどグズるぞ、きっと。
+
+# idx=000005 file=PS2I006A.BIN off=0x00000207 inst=0x00000207 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000005●text○ふう……。\n明日の朝のことを考えると、気持ちが暗くなって\nいく。
+●000005●text●ふう……。\n明日の朝のことを考えると、気持ちが暗くなって\nいく。
+
+# idx=000006 file=PS2I006A.BIN off=0x00000263 inst=0x00000263 tag=text source=inline_len8_string len=16 enc=cp932 policy=in_place
+○000006●text○まいったな……。
+●000006●text●まいったな……。
+
+# idx=000007 file=PS2I006A.BIN off=0x000002D3 inst=0x000002D3 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000007●label○PS2F002a.bin
+●000007●label●PS2F002a.bin
+

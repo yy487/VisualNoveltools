@@ -1,0 +1,188 @@
+# DSAT export for PS2I044A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2I044A.BIN off=0x00000053 inst=0x00000053 tag=text source=inline_len8_string len=120 enc=cp932 policy=in_place
+○000001●text○泉美さんとは全然連絡がとれないままだった。\nなにごともないと信じたいけれど、周囲で異常なことがおきているのは確かだった。
+●000001●text●泉美さんとは全然連絡がとれないままだった。\nなにごともないと信じたいけれど、周囲で異常なことがおきているのは確かだった。
+
+# idx=000002 file=PS2I044A.BIN off=0x000000E7 inst=0x000000E7 tag=text source=inline_len8_string len=100 enc=cp932 policy=in_place
+○000002●text○泉美さん、へんにおとなぶる人だから、ぼくに\n内緒でかってなことしてるんじゃないか。\nそんな気がする。
+●000002●text●泉美さん、へんにおとなぶる人だから、ぼくに\n内緒でかってなことしてるんじゃないか。\nそんな気がする。
+
+# idx=000003 file=PS2I044A.BIN off=0x00000194 inst=0x00000194 tag=text source=inline_len8_string len=108 enc=cp932 policy=in_place
+○000003●text○ぼくはひとりで、例の地下カジノへ向かった。\n杉浦さんと連絡をとることができれば、なにかがわかるかもしれない。
+●000003●text●ぼくはひとりで、例の地下カジノへ向かった。\n杉浦さんと連絡をとることができれば、なにかがわかるかもしれない。
+
+# idx=000004 file=PS2I044A.BIN off=0x0000021C inst=0x0000021C tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000004●text○もちろん……あそこへ入れてもらえるとしたら、の話なのだけれど。
+●000004●text●もちろん……あそこへ入れてもらえるとしたら、の話なのだけれど。
+
+# idx=000005 file=PS2I044A.BIN off=0x000002A3 inst=0x000002A3 tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000005●text○ぼくは鉄の扉の前に立つ。\n杉浦さんにいわれたように、監視カメラに顔を\n向ける。
+●000005●text●ぼくは鉄の扉の前に立つ。\n杉浦さんにいわれたように、監視カメラに顔を\n向ける。
+
+# idx=000006 file=PS2I044A.BIN off=0x0000030D inst=0x0000030D tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place
+○000006●text○「以前、杉浦さんと来たのだけれど……」
+●000006●text●「以前、杉浦さんと来たのだけれど……」
+
+# idx=000007 file=PS2I044A.BIN off=0x0000034F inst=0x0000034F tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place
+○000007●text○そういって、しばらく待った。
+●000007●text●そういって、しばらく待った。
+
+# idx=000008 file=PS2I044A.BIN off=0x00000387 inst=0x00000387 tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place
+○000008●text○けれど、扉はぴくりとも動かない。
+●000008●text●けれど、扉はぴくりとも動かない。
+
+# idx=000009 file=PS2I044A.BIN off=0x000003C3 inst=0x000003C3 tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000009●text○「バーテンダーの……そう、池田さんに用事が\nあるんだ」
+●000009●text●「バーテンダーの……そう、池田さんに用事が\nあるんだ」
+
+# idx=000010 file=PS2I044A.BIN off=0x00000406 inst=0x00000406 tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000010●label○se-11
+●000010●label●se-11
+
+# idx=000011 file=PS2I044A.BIN off=0x0000042E inst=0x0000042E tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000011●text○しばらくたって、扉は複雑な音をたてる。\nそして、ゆっくり開いた。
+●000011●text●しばらくたって、扉は複雑な音をたてる。\nそして、ゆっくり開いた。
+
+# idx=000012 file=PS2I044A.BIN off=0x000004C7 inst=0x000004C7 tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000012●label○se-17
+●000012●label●se-17
+
+# idx=000013 file=PS2I044A.BIN off=0x000004EF inst=0x000004EF tag=text source=inline_len8_string len=124 enc=cp932 policy=in_place
+○000013●text○ぼくは周囲のできごとに目を向けないように\nしながら、奥のカウンター・バーへ向かう。\n池田さんは、無表情にグラスを磨いていた。
+●000013●text●ぼくは周囲のできごとに目を向けないように\nしながら、奥のカウンター・バーへ向かう。\n池田さんは、無表情にグラスを磨いていた。
+
+# idx=000014 file=PS2I044A.BIN off=0x00000587 inst=0x00000587 tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000014●text○「あの……」
+●000014●text●「あの……」
+
+# idx=000015 file=PS2I044A.BIN off=0x000005E0 inst=0x000005E0 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000015●label○SE-S87
+●000015●label●SE-S87
+
+# idx=000016 file=PS2I044A.BIN off=0x00000609 inst=0x00000609 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=IK name_id=IK confidence=unresolved
+○000016●label○IK00070
+●000016●label●IK00070
+
+# idx=000017 file=PS2I044A.BIN off=0x00000618 inst=0x00000609 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IK speaker_code=IK00070 name_source=prev_voice_label virtual=true writable=false pair=000018 confidence=unresolved full_name=IK basis=prefix_detected;_exact_entity_not_proven
+○000017●name○IK
+●000017●name●IK
+
+# idx=000018 file=PS2I044A.BIN off=0x00000618 inst=0x00000618 tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place speaker_idx=000017 name=IK name_id=IK speaker_code=IK00070 name_source=prev_voice_label pair=000017 confidence=unresolved full_name=IK
+○000018●text○「こどもに来られると迷惑なの。ここは\n紳士淑女の社交場だから」
+●000018●text●「こどもに来られると迷惑なの。ここは\n紳士淑女の社交場だから」
+
+# idx=000019 file=PS2I044A.BIN off=0x0000067E inst=0x0000067E tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place
+○000019●text○「杉浦さんと……会えなくって……」
+●000019●text●「杉浦さんと……会えなくって……」
+
+# idx=000020 file=PS2I044A.BIN off=0x000006BC inst=0x000006BC tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=IK name_id=IK confidence=unresolved
+○000020●label○IK00080
+●000020●label●IK00080
+
+# idx=000021 file=PS2I044A.BIN off=0x000006CB inst=0x000006BC tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IK speaker_code=IK00080 name_source=prev_voice_label virtual=true writable=false pair=000022 confidence=unresolved full_name=IK basis=prefix_detected;_exact_entity_not_proven
+○000021●name○IK
+●000021●name●IK
+
+# idx=000022 file=PS2I044A.BIN off=0x000006CB inst=0x000006CB tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place speaker_idx=000021 name=IK name_id=IK speaker_code=IK00080 name_source=prev_voice_label pair=000021 confidence=unresolved full_name=IK
+○000022●text○「そう……。もし会えたら、いっておいて\nちょうだい。手を引きなさいって」
+●000022●text●「そう……。もし会えたら、いっておいて\nちょうだい。手を引きなさいって」
+
+# idx=000023 file=PS2I044A.BIN off=0x0000072F inst=0x0000072F tag=text source=inline_len8_string len=92 enc=cp932 policy=in_place
+○000023●text○池田さんの態度は、前回とまるで違う。\n冷たい、完璧な無表情。\nぼくを視野にいれてはくれない。
+●000023●text●池田さんの態度は、前回とまるで違う。\n冷たい、完璧な無表情。\nぼくを視野にいれてはくれない。
+
+# idx=000024 file=PS2I044A.BIN off=0x000007A7 inst=0x000007A7 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=IK name_id=IK confidence=unresolved
+○000024●label○IK00090
+●000024●label●IK00090
+
+# idx=000025 file=PS2I044A.BIN off=0x000007B6 inst=0x000007A7 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IK speaker_code=IK00090 name_source=prev_voice_label virtual=true writable=false pair=000026 confidence=unresolved full_name=IK basis=prefix_detected;_exact_entity_not_proven
+○000025●name○IK
+●000025●name●IK
+
+# idx=000026 file=PS2I044A.BIN off=0x000007B6 inst=0x000007B6 tag=text source=inline_len8_string len=100 enc=cp932 policy=in_place speaker_idx=000025 name=IK name_id=IK speaker_code=IK00090 name_source=prev_voice_label pair=000025 confidence=unresolved full_name=IK
+○000026●text○「あの街はね、お金にならないのよ。それだけ\nじゃない。あんまり掘り返すと、いろんなことがまずくなる」
+●000026●text●「あの街はね、お金にならないのよ。それだけ\nじゃない。あんまり掘り返すと、いろんなことがまずくなる」
+
+# idx=000027 file=PS2I044A.BIN off=0x00000836 inst=0x00000836 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=IK name_id=IK confidence=unresolved
+○000027●label○IK00101
+●000027●label●IK00101
+
+# idx=000028 file=PS2I044A.BIN off=0x00000845 inst=0x00000836 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IK speaker_code=IK00101 name_source=prev_voice_label virtual=true writable=false pair=000029 confidence=unresolved full_name=IK basis=prefix_detected;_exact_entity_not_proven
+○000028●name○IK
+●000028●name●IK
+
+# idx=000029 file=PS2I044A.BIN off=0x00000845 inst=0x00000845 tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place speaker_idx=000028 name=IK name_id=IK speaker_code=IK00101 name_source=prev_voice_label pair=000028 confidence=unresolved full_name=IK
+○000029●text○「ふぅ……」
+●000029●text●「ふぅ……」
+
+# idx=000030 file=PS2I044A.BIN off=0x0000085E inst=0x0000085E tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000030●label○SE-S87
+●000030●label●SE-S87
+
+# idx=000031 file=PS2I044A.BIN off=0x00000887 inst=0x00000887 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=IK name_id=IK confidence=unresolved
+○000031●label○IK00102
+●000031●label●IK00102
+
+# idx=000032 file=PS2I044A.BIN off=0x00000896 inst=0x00000887 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IK speaker_code=IK00102 name_source=prev_voice_label virtual=true writable=false pair=000033 confidence=unresolved full_name=IK basis=prefix_detected;_exact_entity_not_proven
+○000032●name○IK
+●000032●name●IK
+
+# idx=000033 file=PS2I044A.BIN off=0x00000896 inst=0x00000896 tag=text source=inline_len8_string len=128 enc=cp932 policy=in_place speaker_idx=000032 name=IK name_id=IK speaker_code=IK00102 name_source=prev_voice_label pair=000032 confidence=unresolved full_name=IK
+○000033●text○「私たち大人はね、なくしちゃいけないものが\nたくさんあるの。そのためにはね、イカサマだと知ってても乗らなきゃいけない場合もある」
+●000033●text●「私たち大人はね、なくしちゃいけないものが\nたくさんあるの。そのためにはね、イカサマだと知ってても乗らなきゃいけない場合もある」
+
+# idx=000034 file=PS2I044A.BIN off=0x0000093E inst=0x0000093E tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place
+○000034●text○池田さんはグラスを磨く手をとめた。
+●000034●text●池田さんはグラスを磨く手をとめた。
+
+# idx=000035 file=PS2I044A.BIN off=0x0000097C inst=0x0000097C tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=IK name_id=IK confidence=unresolved
+○000035●label○IK00110
+●000035●label●IK00110
+
+# idx=000036 file=PS2I044A.BIN off=0x0000098B inst=0x0000097C tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IK speaker_code=IK00110 name_source=prev_voice_label virtual=true writable=false pair=000037 confidence=unresolved full_name=IK basis=prefix_detected;_exact_entity_not_proven
+○000036●name○IK
+●000036●name●IK
+
+# idx=000037 file=PS2I044A.BIN off=0x0000098B inst=0x0000098B tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place speaker_idx=000036 name=IK name_id=IK speaker_code=IK00110 name_source=prev_voice_label pair=000036 confidence=unresolved full_name=IK
+○000037●text○「わかった。じゃ、そーゆーこと」
+●000037●text●「わかった。じゃ、そーゆーこと」
+
+# idx=000038 file=PS2I044A.BIN off=0x000009C7 inst=0x000009C7 tag=text source=inline_len8_string len=24 enc=cp932 policy=in_place
+○000038●text○グラス磨きがまた始まる。
+●000038●text●グラス磨きがまた始まる。
+
+# idx=000039 file=PS2I044A.BIN off=0x000009FB inst=0x000009FB tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=IK name_id=IK confidence=unresolved
+○000039●label○IK00120
+●000039●label●IK00120
+
+# idx=000040 file=PS2I044A.BIN off=0x00000A0A inst=0x000009FB tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IK speaker_code=IK00120 name_source=prev_voice_label virtual=true writable=false pair=000041 confidence=unresolved full_name=IK basis=prefix_detected;_exact_entity_not_proven
+○000040●name○IK
+●000040●name●IK
+
+# idx=000041 file=PS2I044A.BIN off=0x00000A0A inst=0x00000A0A tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place speaker_idx=000040 name=IK name_id=IK speaker_code=IK00120 name_source=prev_voice_label pair=000040 confidence=unresolved full_name=IK
+○000041●text○「さっさと帰んなさい。放り出される前にね」
+●000041●text●「さっさと帰んなさい。放り出される前にね」
+
+# idx=000042 file=PS2I044A.BIN off=0x00000A84 inst=0x00000A84 tag=text source=inline_len8_string len=90 enc=cp932 policy=in_place
+○000042●text○ぼくは、突き刺さるような視線を感じた。\n誰も見ていないようで、みんながぼくを注目している。
+●000042●text●ぼくは、突き刺さるような視線を感じた。\n誰も見ていないようで、みんながぼくを注目している。
+
+# idx=000043 file=PS2I044A.BIN off=0x00000AFA inst=0x00000AFA tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000043●text○ぼくは、ここでは異物なのだ。\nいるだけで、みんなが落ちつかなくなる。
+●000043●text●ぼくは、ここでは異物なのだ。\nいるだけで、みんなが落ちつかなくなる。
+
+# idx=000044 file=PS2I044A.BIN off=0x00000B5A inst=0x00000B5A tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000044●text○それは……\n商売には決してプラスに働かないのだろう。
+●000044●text●それは……\n商売には決してプラスに働かないのだろう。
+
+# idx=000045 file=PS2I044A.BIN off=0x00000BAA inst=0x00000BAA tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000045●text○ぼくは池田さんに頭をさげ、地下カジノを\n後にする。
+●000045●text●ぼくは池田さんに頭をさげ、地下カジノを\n後にする。
+
+# idx=000046 file=PS2I044A.BIN off=0x00000C3C inst=0x00000C3C tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000046●label○PS2I049a.bin
+●000046●label●PS2I049a.bin
+

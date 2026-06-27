@@ -1,0 +1,12 @@
+Full disassembly / zero-mutation smoke report
+====================================================
+input_zip: output_script.zip
+files_processed: 203
+total_input_bytes: 2747039
+total_text_entries: 41251
+coverage_all_100: True
+roundtrip_pass: 203/203
+
+Method: conservative typed VM-bytecode lexical disassembly. Every byte is represented by an instruction/atom raw_bytes field; repack concatenates those raw_bytes without mutation.
+MESSAGES.BIN is modeled as a fixed 64 KiB 16-bit metadata/index region followed by a CP932 null-terminated string pool.
+Opcode semantics were not guessed beyond visible atom classes (WORD_00XX, IMM8/16, LEN8_STRING, FF sentinel, opaque raw).

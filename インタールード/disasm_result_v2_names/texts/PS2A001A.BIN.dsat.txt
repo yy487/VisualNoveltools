@@ -1,0 +1,400 @@
+# DSAT export for PS2A001A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2A001A.BIN off=0x00000031 inst=0x00000031 tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000001●label○se-04
+●000001●label●se-04
+
+# idx=000002 file=PS2A001A.BIN off=0x000000E8 inst=0x000000E8 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000002●label○MT10100T
+●000002●label●MT10100T
+
+# idx=000003 file=PS2A001A.BIN off=0x000000F8 inst=0x000000E8 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT10100T name_source=prev_voice_label virtual=true writable=false pair=000004 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000003●name○玉
+●000003●name●玉
+
+# idx=000004 file=PS2A001A.BIN off=0x000000F8 inst=0x000000F8 tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place speaker_idx=000003 name=玉 name_id=MT speaker_code=MT10100T name_source=prev_voice_label pair=000003 confidence=high full_name=玉城麻衣子
+○000004●text○「ね～、なつやすみどするの～？」
+●000004●text●「ね～、なつやすみどするの～？」
+
+# idx=000005 file=PS2A001A.BIN off=0x00000134 inst=0x00000134 tag=text source=inline_len8_string len=36 enc=cp932 policy=in_place
+○000005●text○玉の、なにも考えてない声が聞こえた。
+●000005●text●玉の、なにも考えてない声が聞こえた。
+
+# idx=000006 file=PS2A001A.BIN off=0x000001A8 inst=0x000001A8 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000006●label○KT01190T
+●000006●label●KT01190T
+
+# idx=000007 file=PS2A001A.BIN off=0x000001B8 inst=0x000001A8 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT01190T name_source=prev_voice_label virtual=true writable=false pair=000008 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000007●name○千佳
+●000007●name●千佳
+
+# idx=000008 file=PS2A001A.BIN off=0x000001B8 inst=0x000001B8 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place speaker_idx=000007 name=千佳 name_id=KT speaker_code=KT01190T name_source=prev_voice_label pair=000007 confidence=medium full_name=木村千佳
+○000008●text○「玉ちゃん、気がはやーい」
+●000008●text●「玉ちゃん、気がはやーい」
+
+# idx=000009 file=PS2A001A.BIN off=0x00000223 inst=0x00000223 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000009●label○MT10110T
+●000009●label●MT10110T
+
+# idx=000010 file=PS2A001A.BIN off=0x00000233 inst=0x00000223 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT10110T name_source=prev_voice_label virtual=true writable=false pair=000011 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000010●name○玉
+●000010●name●玉
+
+# idx=000011 file=PS2A001A.BIN off=0x00000233 inst=0x00000233 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place speaker_idx=000010 name=玉 name_id=MT speaker_code=MT10110T name_source=prev_voice_label pair=000010 confidence=high full_name=玉城麻衣子
+○000011●text○「ジュンビしとかないとシッパイしちゃう\nもんね～」
+●000011●text●「ジュンビしとかないとシッパイしちゃう\nもんね～」
+
+# idx=000012 file=PS2A001A.BIN off=0x000002B5 inst=0x000002B5 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000012●label○HF00910T
+●000012●label●HF00910T
+
+# idx=000013 file=PS2A001A.BIN off=0x000002C5 inst=0x000002B5 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF00910T name_source=prev_voice_label virtual=true writable=false pair=000014 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000013●name○遥
+●000013●name●遥
+
+# idx=000014 file=PS2A001A.BIN off=0x000002C5 inst=0x000002C5 tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place speaker_idx=000013 name=遥 name_id=HF speaker_code=HF00910T name_source=prev_voice_label pair=000013 confidence=medium full_name=藤之辺遥
+○000014●text○「遊ぶことしか考えてないのな」
+●000014●text●「遊ぶことしか考えてないのな」
+
+# idx=000015 file=PS2A001A.BIN off=0x00000334 inst=0x00000334 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000015●label○MT10120T
+●000015●label●MT10120T
+
+# idx=000016 file=PS2A001A.BIN off=0x00000344 inst=0x00000334 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT10120T name_source=prev_voice_label virtual=true writable=false pair=000017 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000016●name○玉
+●000016●name●玉
+
+# idx=000017 file=PS2A001A.BIN off=0x00000344 inst=0x00000344 tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place speaker_idx=000016 name=玉 name_id=MT speaker_code=MT10120T name_source=prev_voice_label pair=000016 confidence=high full_name=玉城麻衣子
+○000017●text○「だ～ってあそぶのドキドキするじゃ～ん。\nドキドキながいとうれしーよー」
+●000017●text●「だ～ってあそぶのドキドキするじゃ～ん。\nドキドキながいとうれしーよー」
+
+# idx=000018 file=PS2A001A.BIN off=0x000003A8 inst=0x000003A8 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000018●text○授業の合間、玉はいつも通り藤之辺や木村と\n話してる。
+●000018●text●授業の合間、玉はいつも通り藤之辺や木村と\n話してる。
+
+# idx=000019 file=PS2A001A.BIN off=0x000003F8 inst=0x000003F8 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000019●text○玉も一緒にいたんだけれど、気づかなかったん\nだよな。
+●000019●text●玉も一緒にいたんだけれど、気づかなかったん\nだよな。
+
+# idx=000020 file=PS2A001A.BIN off=0x00000448 inst=0x00000448 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000020●text○まあ、玉の場合はいろんなことに気づかないから仕方ないとして……。
+●000020●text●まあ、玉の場合はいろんなことに気づかないから仕方ないとして……。
+
+# idx=000021 file=PS2A001A.BIN off=0x0000050D inst=0x0000050D tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000021●label○MT10130T
+●000021●label●MT10130T
+
+# idx=000022 file=PS2A001A.BIN off=0x0000051D inst=0x0000050D tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT10130T name_source=prev_voice_label virtual=true writable=false pair=000023 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000022●name○玉
+●000022●name●玉
+
+# idx=000023 file=PS2A001A.BIN off=0x0000051D inst=0x0000051D tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place speaker_idx=000022 name=玉 name_id=MT speaker_code=MT10130T name_source=prev_voice_label pair=000022 confidence=high full_name=玉城麻衣子
+○000023●text○「むぅ。どした～？」
+●000023●text●「むぅ。どした～？」
+
+# idx=000024 file=PS2A001A.BIN off=0x0000054D inst=0x0000054D tag=text source=inline_len8_string len=21 enc=cp932 policy=in_place
+○000024●text○「ん？ なんでもない」
+●000024●text●「ん？ なんでもない」
+
+# idx=000025 file=PS2A001A.BIN off=0x000005B3 inst=0x000005B3 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000025●label○MT10140T
+●000025●label●MT10140T
+
+# idx=000026 file=PS2A001A.BIN off=0x000005C3 inst=0x000005B3 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT10140T name_source=prev_voice_label virtual=true writable=false pair=000027 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000026●name○玉
+●000026●name●玉
+
+# idx=000027 file=PS2A001A.BIN off=0x000005C3 inst=0x000005C3 tag=text source=inline_len8_string len=10 enc=cp932 policy=in_place speaker_idx=000026 name=玉 name_id=MT speaker_code=MT10140T name_source=prev_voice_label pair=000026 confidence=high full_name=玉城麻衣子
+○000027●text○「ふ～ん」
+●000027●text●「ふ～ん」
+
+# idx=000028 file=PS2A001A.BIN off=0x000005E9 inst=0x000005E9 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000028●text○玉はちょっと首をかしげる。
+●000028●text●玉はちょっと首をかしげる。
+
+# idx=000029 file=PS2A001A.BIN off=0x00000654 inst=0x00000654 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000029●label○MT10150T
+●000029●label●MT10150T
+
+# idx=000030 file=PS2A001A.BIN off=0x00000664 inst=0x00000654 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT10150T name_source=prev_voice_label virtual=true writable=false pair=000031 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000030●name○玉
+●000030●name●玉
+
+# idx=000031 file=PS2A001A.BIN off=0x00000664 inst=0x00000664 tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place speaker_idx=000030 name=玉 name_id=MT speaker_code=MT10150T name_source=prev_voice_label pair=000030 confidence=high full_name=玉城麻衣子
+○000031●text○「なつやすみ、どこいきた～い？」
+●000031●text●「なつやすみ、どこいきた～い？」
+
+# idx=000032 file=PS2A001A.BIN off=0x000006A0 inst=0x000006A0 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000032●text○「そんな先のこといわれても、まだ全然考えて\nないからなあ」
+●000032●text●「そんな先のこといわれても、まだ全然考えて\nないからなあ」
+
+# idx=000033 file=PS2A001A.BIN off=0x0000072B inst=0x0000072B tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000033●label○MT10160T
+●000033●label●MT10160T
+
+# idx=000034 file=PS2A001A.BIN off=0x0000073B inst=0x0000072B tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT10160T name_source=prev_voice_label virtual=true writable=false pair=000035 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000034●name○玉
+●000034●name●玉
+
+# idx=000035 file=PS2A001A.BIN off=0x0000073B inst=0x0000073B tag=text source=inline_len8_string len=98 enc=cp932 policy=in_place speaker_idx=000034 name=玉 name_id=MT speaker_code=MT10160T name_source=prev_voice_label pair=000034 confidence=high full_name=玉城麻衣子
+○000035●text○「えー、そんなのつまんな。マイなんかねー\nたのしーことかんがえてないと、しんじゃうかも\nしんなー」
+●000035●text●「えー、そんなのつまんな。マイなんかねー\nたのしーことかんがえてないと、しんじゃうかも\nしんなー」
+
+# idx=000036 file=PS2A001A.BIN off=0x000007B9 inst=0x000007B9 tag=text source=inline_len8_string len=75 enc=cp932 policy=in_place
+○000036●text○「お前、そんなことよりよお、昨日レイディに\n呼ばれたろ？ ヘーキだったか？」
+●000036●text●「お前、そんなことよりよお、昨日レイディに\n呼ばれたろ？ ヘーキだったか？」
+
+# idx=000037 file=PS2A001A.BIN off=0x00000855 inst=0x00000855 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000037●label○MT10170T
+●000037●label●MT10170T
+
+# idx=000038 file=PS2A001A.BIN off=0x00000865 inst=0x00000855 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT10170T name_source=prev_voice_label virtual=true writable=false pair=000039 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000038●name○玉
+●000038●name●玉
+
+# idx=000039 file=PS2A001A.BIN off=0x00000865 inst=0x00000865 tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place speaker_idx=000038 name=玉 name_id=MT speaker_code=MT10170T name_source=prev_voice_label pair=000038 confidence=high full_name=玉城麻衣子
+○000039●text○「ヘーキだよ」
+●000039●text●「ヘーキだよ」
+
+# idx=000040 file=PS2A001A.BIN off=0x0000088F inst=0x0000088F tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000040●text○ホントかよ。
+●000040●text●ホントかよ。
+
+# idx=000041 file=PS2A001A.BIN off=0x000008EC inst=0x000008EC tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000041●label○MT10190T
+●000041●label●MT10190T
+
+# idx=000042 file=PS2A001A.BIN off=0x000008FC inst=0x000008EC tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT10190T name_source=prev_voice_label virtual=true writable=false pair=000043 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000042●name○玉
+●000042●name●玉
+
+# idx=000043 file=PS2A001A.BIN off=0x000008FC inst=0x000008FC tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place speaker_idx=000042 name=玉 name_id=MT speaker_code=MT10190T name_source=prev_voice_label pair=000042 confidence=high full_name=玉城麻衣子
+○000043●text○「あのさーマイねーバイトしよーかとおもてる～」
+●000043●text●「あのさーマイねーバイトしよーかとおもてる～」
+
+# idx=000044 file=PS2A001A.BIN off=0x00000946 inst=0x00000946 tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000044●text○「なんで？」
+●000044●text●「なんで？」
+
+# idx=000045 file=PS2A001A.BIN off=0x0000096E inst=0x0000096E tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000045●label○MT10200T
+●000045●label●MT10200T
+
+# idx=000046 file=PS2A001A.BIN off=0x0000097E inst=0x0000096E tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT10200T name_source=prev_voice_label virtual=true writable=false pair=000047 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000046●name○玉
+●000046●name●玉
+
+# idx=000047 file=PS2A001A.BIN off=0x0000097E inst=0x0000097E tag=text source=inline_len8_string len=76 enc=cp932 policy=in_place speaker_idx=000046 name=玉 name_id=MT speaker_code=MT10200T name_source=prev_voice_label pair=000046 confidence=high full_name=玉城麻衣子
+○000047●text○「おこづかいたりなすぎー。かわいーふくとか\nほしーのにーぜーんぜんかえなー」
+●000047●text●「おこづかいたりなすぎー。かわいーふくとか\nほしーのにーぜーんぜんかえなー」
+
+# idx=000048 file=PS2A001A.BIN off=0x000009E6 inst=0x000009E6 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000048●text○「お前、無駄づかいしすぎ」
+●000048●text●「お前、無駄づかいしすぎ」
+
+# idx=000049 file=PS2A001A.BIN off=0x00000A51 inst=0x00000A51 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000049●label○MT10210T
+●000049●label●MT10210T
+
+# idx=000050 file=PS2A001A.BIN off=0x00000A61 inst=0x00000A51 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT10210T name_source=prev_voice_label virtual=true writable=false pair=000051 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000050●name○玉
+●000050●name●玉
+
+# idx=000051 file=PS2A001A.BIN off=0x00000A61 inst=0x00000A61 tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place speaker_idx=000050 name=玉 name_id=MT speaker_code=MT10210T name_source=prev_voice_label pair=000050 confidence=high full_name=玉城麻衣子
+○000051●text○「えー、そかなあ？」
+●000051●text●「えー、そかなあ？」
+
+# idx=000052 file=PS2A001A.BIN off=0x00000A91 inst=0x00000A91 tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place
+○000052●text○「それに、おばさん、ゆるしてくれる？」
+●000052●text●「それに、おばさん、ゆるしてくれる？」
+
+# idx=000053 file=PS2A001A.BIN off=0x00000AD3 inst=0x00000AD3 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000053●label○MT10220T
+●000053●label●MT10220T
+
+# idx=000054 file=PS2A001A.BIN off=0x00000AE3 inst=0x00000AD3 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT10220T name_source=prev_voice_label virtual=true writable=false pair=000055 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000054●name○玉
+●000054●name●玉
+
+# idx=000055 file=PS2A001A.BIN off=0x00000AE3 inst=0x00000AE3 tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place speaker_idx=000054 name=玉 name_id=MT speaker_code=MT10220T name_source=prev_voice_label pair=000054 confidence=high full_name=玉城麻衣子
+○000055●text○「なんで？」
+●000055●text●「なんで？」
+
+# idx=000056 file=PS2A001A.BIN off=0x00000B0B inst=0x00000B0B tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place
+○000056●text○「成績悪すぎんだろ。留年とかしそーだし」
+●000056●text●「成績悪すぎんだろ。留年とかしそーだし」
+
+# idx=000057 file=PS2A001A.BIN off=0x00000B84 inst=0x00000B84 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000057●label○MT10230T
+●000057●label●MT10230T
+
+# idx=000058 file=PS2A001A.BIN off=0x00000B94 inst=0x00000B84 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT10230T name_source=prev_voice_label virtual=true writable=false pair=000059 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000058●name○玉
+●000058●name●玉
+
+# idx=000059 file=PS2A001A.BIN off=0x00000B94 inst=0x00000B94 tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place speaker_idx=000058 name=玉 name_id=MT speaker_code=MT10230T name_source=prev_voice_label pair=000058 confidence=high full_name=玉城麻衣子
+○000059●text○「あ、しそーしそー。でもヘーキだよーきっとー」
+●000059●text●「あ、しそーしそー。でもヘーキだよーきっとー」
+
+# idx=000060 file=PS2A001A.BIN off=0x00000BDE inst=0x00000BDE tag=text source=inline_len8_string len=8 enc=cp932 policy=in_place
+○000060●text○うわー。
+●000060●text●うわー。
+
+# idx=000061 file=PS2A001A.BIN off=0x00000C02 inst=0x00000C02 tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000061●text○「その根拠のない自信はどっから来るわけ？」
+●000061●text●「その根拠のない自信はどっから来るわけ？」
+
+# idx=000062 file=PS2A001A.BIN off=0x00000C89 inst=0x00000C89 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000062●label○MT10240T
+●000062●label●MT10240T
+
+# idx=000063 file=PS2A001A.BIN off=0x00000C99 inst=0x00000C89 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT10240T name_source=prev_voice_label virtual=true writable=false pair=000064 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000063●name○玉
+●000063●name●玉
+
+# idx=000064 file=PS2A001A.BIN off=0x00000C99 inst=0x00000C99 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place speaker_idx=000063 name=玉 name_id=MT speaker_code=MT10240T name_source=prev_voice_label pair=000063 confidence=high full_name=玉城麻衣子
+○000064●text○「しらなー。でもヘーキー」
+●000064●text●「しらなー。でもヘーキー」
+
+# idx=000065 file=PS2A001A.BIN off=0x00000CC0 inst=0x00000CC0 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000065●label○SE-S10
+●000065●label●SE-S10
+
+# idx=000066 file=PS2A001A.BIN off=0x00000D4B inst=0x00000D4B tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=レイディ name_id=NA confidence=medium
+○000066●label○NA00015
+●000066●label●NA00015
+
+# idx=000067 file=PS2A001A.BIN off=0x00000D5A inst=0x00000D4B tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=NA speaker_code=NA00015 name_source=prev_voice_label virtual=true writable=false pair=000068 confidence=medium full_name=担任のレイディ basis=NA_teacher-like_classroom_lines;_narration_names_レイディ
+○000067●name○レイディ
+●000067●name●レイディ
+
+# idx=000068 file=PS2A001A.BIN off=0x00000D5A inst=0x00000D5A tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place speaker_idx=000067 name=レイディ name_id=NA speaker_code=NA00015 name_source=prev_voice_label pair=000067 confidence=medium full_name=担任のレイディ
+○000068●text○「玉城さん、仲良しなのは放課後に」
+●000068●text●「玉城さん、仲良しなのは放課後に」
+
+# idx=000069 file=PS2A001A.BIN off=0x00000DA4 inst=0x00000DA4 tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place
+○000069●text○ウワサをすれば……のことば通り、扉が開いて\n担任のレイディが入ってくる。
+●000069●text●ウワサをすれば……のことば通り、扉が開いて\n担任のレイディが入ってくる。
+
+# idx=000070 file=PS2A001A.BIN off=0x00000E3D inst=0x00000E3D tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000070●label○MT00670
+●000070●label●MT00670
+
+# idx=000071 file=PS2A001A.BIN off=0x00000E4C inst=0x00000E3D tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT00670 name_source=prev_voice_label virtual=true writable=false pair=000072 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000071●name○玉
+●000071●name●玉
+
+# idx=000072 file=PS2A001A.BIN off=0x00000E4C inst=0x00000E4C tag=text source=inline_len8_string len=10 enc=cp932 policy=in_place speaker_idx=000071 name=玉 name_id=MT speaker_code=MT00670 name_source=prev_voice_label pair=000071 confidence=high full_name=玉城麻衣子
+○000072●text○「ふぁ～」
+●000072●text●「ふぁ～」
+
+# idx=000073 file=PS2A001A.BIN off=0x00000EA7 inst=0x00000EA7 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=レイディ name_id=NA confidence=medium
+○000073●label○NA00021
+●000073●label●NA00021
+
+# idx=000074 file=PS2A001A.BIN off=0x00000EB6 inst=0x00000EA7 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=NA speaker_code=NA00021 name_source=prev_voice_label virtual=true writable=false pair=000075 confidence=medium full_name=担任のレイディ basis=NA_teacher-like_classroom_lines;_narration_names_レイディ
+○000074●name○レイディ
+●000074●name●レイディ
+
+# idx=000075 file=PS2A001A.BIN off=0x00000EB6 inst=0x00000EB6 tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place speaker_idx=000074 name=レイディ name_id=NA speaker_code=NA00021 name_source=prev_voice_label pair=000074 confidence=medium full_name=担任のレイディ
+○000075●text○「それから……呼ばれたら、きちんと職員室まで来るようにしてください」
+●000075●text●「それから……呼ばれたら、きちんと職員室まで来るようにしてください」
+
+# idx=000076 file=PS2A001A.BIN off=0x00000F11 inst=0x00000F11 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=レイディ name_id=NA confidence=medium
+○000076●label○NA00022
+●000076●label●NA00022
+
+# idx=000077 file=PS2A001A.BIN off=0x00000F20 inst=0x00000F11 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=NA speaker_code=NA00022 name_source=prev_voice_label virtual=true writable=false pair=000078 confidence=medium full_name=担任のレイディ basis=NA_teacher-like_classroom_lines;_narration_names_レイディ
+○000077●name○レイディ
+●000077●name●レイディ
+
+# idx=000078 file=PS2A001A.BIN off=0x00000F20 inst=0x00000F20 tag=text source=inline_len8_string len=74 enc=cp932 policy=in_place speaker_idx=000077 name=レイディ name_id=NA speaker_code=NA00022 name_source=prev_voice_label pair=000077 confidence=medium full_name=担任のレイディ
+○000078●text○「今度同じことがあったら、お家の方に来て\nいただかなければなりませんから」
+●000078●text●「今度同じことがあったら、お家の方に来て\nいただかなければなりませんから」
+
+# idx=000079 file=PS2A001A.BIN off=0x00000F86 inst=0x00000F86 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000079●label○MT00680
+●000079●label●MT00680
+
+# idx=000080 file=PS2A001A.BIN off=0x00000F95 inst=0x00000F86 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT00680 name_source=prev_voice_label virtual=true writable=false pair=000081 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000080●name○玉
+●000080●name●玉
+
+# idx=000081 file=PS2A001A.BIN off=0x00000F95 inst=0x00000F95 tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place speaker_idx=000080 name=玉 name_id=MT speaker_code=MT00680 name_source=prev_voice_label pair=000080 confidence=high full_name=玉城麻衣子
+○000081●text○「ふ～うぁ～」
+●000081●text●「ふ～うぁ～」
+
+# idx=000082 file=PS2A001A.BIN off=0x00000FB0 inst=0x00000FB0 tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000082●label○se-04
+●000082●label●se-04
+
+# idx=000083 file=PS2A001A.BIN off=0x0000100C inst=0x0000100C tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place
+○000083●text○玉は慌てて着席する。
+●000083●text●玉は慌てて着席する。
+
+# idx=000084 file=PS2A001A.BIN off=0x00001039 inst=0x00001039 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000084●label○SE-S17
+●000084●label●SE-S17
+
+# idx=000085 file=PS2A001A.BIN off=0x00001089 inst=0x00001089 tag=text source=inline_len8_string len=82 enc=cp932 policy=in_place
+○000085●text○レイディはいつものように神経質そうな表情で\n教室を見回す。\n机の上には、紙のたば。
+●000085●text●レイディはいつものように神経質そうな表情で\n教室を見回す。\n机の上には、紙のたば。
+
+# idx=000086 file=PS2A001A.BIN off=0x000010F7 inst=0x000010F7 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=レイディ name_id=NA confidence=medium
+○000086●label○NA00030
+●000086●label●NA00030
+
+# idx=000087 file=PS2A001A.BIN off=0x00001106 inst=0x000010F7 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=NA speaker_code=NA00030 name_source=prev_voice_label virtual=true writable=false pair=000088 confidence=medium full_name=担任のレイディ basis=NA_teacher-like_classroom_lines;_narration_names_レイディ
+○000087●name○レイディ
+●000087●name●レイディ
+
+# idx=000088 file=PS2A001A.BIN off=0x00001106 inst=0x00001106 tag=text source=inline_len8_string len=82 enc=cp932 policy=in_place speaker_idx=000087 name=レイディ name_id=NA speaker_code=NA00030 name_source=prev_voice_label pair=000087 confidence=medium full_name=担任のレイディ
+○000088●text○「では小テストを始めます。再来週の中間テスト、本日の分も試験範囲に含まれています」
+●000088●text●「では小テストを始めます。再来週の中間テスト、本日の分も試験範囲に含まれています」
+
+# idx=000089 file=PS2A001A.BIN off=0x000011BC inst=0x000011BC tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=EX name_id=EX confidence=unresolved
+○000089●label○EX28010
+●000089●label●EX28010
+
+# idx=000090 file=PS2A001A.BIN off=0x000011CB inst=0x000011BC tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=EX speaker_code=EX28010 name_source=prev_voice_label virtual=true writable=false pair=000091 confidence=unresolved full_name=EX basis=prefix_detected;_no_mapping
+○000090●name○EX
+●000090●name●EX
+
+# idx=000091 file=PS2A001A.BIN off=0x000011CB inst=0x000011CB tag=text source=inline_len8_string len=16 enc=cp932 policy=in_place speaker_idx=000090 name=EX name_id=EX speaker_code=EX28010 name_source=prev_voice_label pair=000090 confidence=unresolved full_name=EX
+○000091●text○「……はあ～あ」
+●000091●text●「……はあ～あ」
+
+# idx=000092 file=PS2A001A.BIN off=0x000011F7 inst=0x000011F7 tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000092●text○教室中からクラスメートのためいきが聞こえる。
+●000092●text●教室中からクラスメートのためいきが聞こえる。
+
+# idx=000093 file=PS2A001A.BIN off=0x0000126C inst=0x0000126C tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000093●text○そうなんだ。\n不幸ってのは、突然襲って来るものなんだ。
+●000093●text●そうなんだ。\n不幸ってのは、突然襲って来るものなんだ。
+
+# idx=000094 file=PS2A001A.BIN off=0x000012BE inst=0x000012BE tag=text source=inline_len8_string len=100 enc=cp932 policy=in_place
+○000094●text○受験までは時間があるけれど、一応の進学校だし。緩んではいるけれど、みんなそれなりの本気ではあるから。
+●000094●text●受験までは時間があるけれど、一応の進学校だし。緩んではいるけれど、みんなそれなりの本気ではあるから。
+
+# idx=000095 file=PS2A001A.BIN off=0x0000133E inst=0x0000133E tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place
+○000095●text○それはもちろん、ぼくも同じで。
+●000095●text●それはもちろん、ぼくも同じで。
+
+# idx=000096 file=PS2A001A.BIN off=0x000013A0 inst=0x000013A0 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000096●label○se-e33
+●000096●label●se-e33
+
+# idx=000097 file=PS2A001A.BIN off=0x000013C2 inst=0x000013C2 tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place
+○000097●text○『彼女』も……
+●000097●text●『彼女』も……
+
+# idx=000098 file=PS2A001A.BIN off=0x000013EC inst=0x000013EC tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000098●text○ホームで出会った『彼女』も……\n一緒なんだろうか。
+●000098●text●ホームで出会った『彼女』も……\n一緒なんだろうか。
+
+# idx=000099 file=PS2A001A.BIN off=0x0000145F inst=0x0000145F tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000099●label○PS2T005a.bin
+●000099●label●PS2T005a.bin
+

@@ -1,0 +1,51 @@
+{
+  "$schema": "local://schemas/ir_compact.schema.json",
+  "schema_version": "1.1.0-conservative",
+  "binary_metadata": {
+    "filename": "PS2A067A.BIN",
+    "byte_size": 3884,
+    "cryptography": {
+      "has_layer": false,
+      "layer_stack": []
+    },
+    "checksum": {
+      "crc32": "5F074F97",
+      "md5": "0157cd4841969bcf499ad64b6d12f59e",
+      "sha256": "8e85606599485b46356f6a4a7b31b3668da93cb174c37f3c5dccbd51e5783707"
+    },
+    "source_zip": {
+      "zip_crc32": "5F074F97",
+      "compress_size": 1659,
+      "file_size": 3884
+    }
+  },
+  "plugin": {
+    "plugin_id": "generic_ps2_vm_lexical",
+    "confidence": "medium"
+  },
+  "subresources": {
+    "region_map": "region_map.json",
+    "instructions": "instructions.jsonl",
+    "text_entries": "text_entries.jsonl",
+    "name_map": "name_map.json",
+    "human_disassembly": "disassembly.asm"
+  },
+  "coverage": {
+    "coverage_percent": 100.0,
+    "status": "OK",
+    "records": 873
+  },
+  "compilation_strategy": {
+    "relocation_allowed": false,
+    "alignment_requirement": 1,
+    "string_padding_mode": "preserve_original_raw_bytes",
+    "reconstruction_mode": "concatenate_instruction_raw_bytes"
+  },
+  "roundtrip": {
+    "zero_mutation": true,
+    "rebuilt_sha256": "8e85606599485b46356f6a4a7b31b3668da93cb174c37f3c5dccbd51e5783707"
+  },
+  "notes": [
+    "This is a full conservative lexical disassembly. Unknown VM semantics are intentionally kept as opaque atoms while preserving every original byte."
+  ]
+}

@@ -1,0 +1,9 @@
+file: PS2A099C.BIN
+byte_size: 1110
+coverage: 100.00%
+status: OK
+records: 392
+text_entries: 19
+zero_mutation_roundtrip: PASS
+original_sha256: 808d7ce1ec73445cf02f94e2d799e8873fa8a744c929abdf34fb8a71e8f0be60
+rebuilt_sha256: 808d7ce1ec73445cf02f94e2d799e8873fa8a744c929abdf34fb8a71e8f0be60

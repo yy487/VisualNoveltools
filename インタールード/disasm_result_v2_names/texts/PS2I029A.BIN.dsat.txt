@@ -1,0 +1,108 @@
+# DSAT export for PS2I029A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2I029A.BIN off=0x00000053 inst=0x00000053 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000001●label○MT13520T
+●000001●label●MT13520T
+
+# idx=000002 file=PS2I029A.BIN off=0x00000063 inst=0x00000053 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT13520T name_source=prev_voice_label virtual=true writable=false pair=000003 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000002●name○玉
+●000002●name●玉
+
+# idx=000003 file=PS2I029A.BIN off=0x00000063 inst=0x00000063 tag=text source=inline_len8_string len=22 enc=cp932 policy=in_place speaker_idx=000002 name=玉 name_id=MT speaker_code=MT13520T name_source=prev_voice_label pair=000002 confidence=high full_name=玉城麻衣子
+○000003●text○「けけっ。バッカみて」
+●000003●text●「けけっ。バッカみて」
+
+# idx=000004 file=PS2I029A.BIN off=0x00000095 inst=0x00000095 tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place
+○000004●text○聞き慣れた声にぼくは顔をあげた。
+●000004●text●聞き慣れた声にぼくは顔をあげた。
+
+# idx=000005 file=PS2I029A.BIN off=0x000000D1 inst=0x000000D1 tag=text source=inline_len8_string len=70 enc=cp932 policy=in_place
+○000005●text○間違いない。\nだって……\nもう10年以上、ほとんど毎日聞かされてる声だ。
+●000005●text●間違いない。\nだって……\nもう10年以上、ほとんど毎日聞かされてる声だ。
+
+# idx=000006 file=PS2I029A.BIN off=0x00000161 inst=0x00000161 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000006●label○MT13530T
+●000006●label●MT13530T
+
+# idx=000007 file=PS2I029A.BIN off=0x00000171 inst=0x00000161 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT13530T name_source=prev_voice_label virtual=true writable=false pair=000008 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000007●name○玉
+●000007●name●玉
+
+# idx=000008 file=PS2I029A.BIN off=0x00000171 inst=0x00000171 tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place speaker_idx=000007 name=玉 name_id=MT speaker_code=MT13530T name_source=prev_voice_label pair=000007 confidence=high full_name=玉城麻衣子
+○000008●text○「そーんなこといったってー、マイ、バカじゃ\nないから～」
+●000008●text●「そーんなこといったってー、マイ、バカじゃ\nないから～」
+
+# idx=000009 file=PS2I029A.BIN off=0x000001C5 inst=0x000001C5 tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place
+○000009●text○玉が歩いていた。\nこんな時間に。
+●000009●text●玉が歩いていた。\nこんな時間に。
+
+# idx=000010 file=PS2I029A.BIN off=0x00000201 inst=0x00000201 tag=text source=inline_len8_string len=84 enc=cp932 policy=in_place
+○000010●text○バイトはとっくに終わっているはずだし、ぼくの知っている玉は眠くなってるよーな時間だ。
+●000010●text●バイトはとっくに終わっているはずだし、ぼくの知っている玉は眠くなってるよーな時間だ。
+
+# idx=000011 file=PS2I029A.BIN off=0x00000271 inst=0x00000271 tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place
+○000011●text○しかも一緒に歩いてる連中は、以前の玉なら
+●000011●text●しかも一緒に歩いてる連中は、以前の玉なら
+
+# idx=000012 file=PS2I029A.BIN off=0x000002B5 inst=0x000002B5 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000012●label○MT13540T
+●000012●label●MT13540T
+
+# idx=000013 file=PS2I029A.BIN off=0x000002C5 inst=0x000002B5 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT13540T name_source=prev_voice_label virtual=true writable=false pair=000014 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000013●name○玉
+●000013●name●玉
+
+# idx=000014 file=PS2I029A.BIN off=0x000002C5 inst=0x000002C5 tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place speaker_idx=000013 name=玉 name_id=MT speaker_code=MT13540T name_source=prev_voice_label pair=000013 confidence=high full_name=玉城麻衣子
+○000014●text○「げー、フリョーだあ。アッタマわるそー」
+●000014●text●「げー、フリョーだあ。アッタマわるそー」
+
+# idx=000015 file=PS2I029A.BIN off=0x00000309 inst=0x00000309 tag=text source=inline_len8_string len=70 enc=cp932 policy=in_place
+○000015●text○といいそうな感じ。\n見たことのない表情と笑顔で目の前を通りすぎていく。
+●000015●text●といいそうな感じ。\n見たことのない表情と笑顔で目の前を通りすぎていく。
+
+# idx=000016 file=PS2I029A.BIN off=0x0000036B inst=0x0000036B tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000016●text○声をかけようかと思ったけれど、そんな雰囲気\nではなかった。
+●000016●text●声をかけようかと思ったけれど、そんな雰囲気\nではなかった。
+
+# idx=000017 file=PS2I029A.BIN off=0x000003C1 inst=0x000003C1 tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000017●text○ぼくは通りすぎていく玉の後ろ姿をただ見送る\nだけだった。
+●000017●text●ぼくは通りすぎていく玉の後ろ姿をただ見送る\nだけだった。
+
+# idx=000018 file=PS2I029A.BIN off=0x00000495 inst=0x00000495 tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000018●text○ぼくは待ちあわせの場所へと向かう。\nでも、今の光景が頭をはなれない。
+●000018●text●ぼくは待ちあわせの場所へと向かう。\nでも、今の光景が頭をはなれない。
+
+# idx=000019 file=PS2I029A.BIN off=0x000004F5 inst=0x000004F5 tag=text source=inline_len8_string len=96 enc=cp932 policy=in_place
+○000019●text○あれは……確かに玉だった。\nなんてゆーのか、ブラック玉とか、玉の暗黒面\nとか、そーゆーのだった。
+●000019●text●あれは……確かに玉だった。\nなんてゆーのか、ブラック玉とか、玉の暗黒面\nとか、そーゆーのだった。
+
+# idx=000020 file=PS2I029A.BIN off=0x00000571 inst=0x00000571 tag=text source=inline_len8_string len=80 enc=cp932 policy=in_place
+○000020●text○玉に……あんな面があるなんて思わなかった。\n確かに単純なヤツだけど、まさか……。
+●000020●text●玉に……あんな面があるなんて思わなかった。\n確かに単純なヤツだけど、まさか……。
+
+# idx=000021 file=PS2I029A.BIN off=0x000005DD inst=0x000005DD tag=text source=inline_len8_string len=74 enc=cp932 policy=in_place
+○000021●text○え、ぼくはどうすればいい？\nしまった……藤之辺たちの話ってこれだったのか。
+●000021●text●え、ぼくはどうすればいい？\nしまった……藤之辺たちの話ってこれだったのか。
+
+# idx=000022 file=PS2I029A.BIN off=0x00000643 inst=0x00000643 tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000022●text○うわ……どーしよー。\nほっといても平気なのか？
+●000022●text●うわ……どーしよー。\nほっといても平気なのか？
+
+# idx=000023 file=PS2I029A.BIN off=0x0000068D inst=0x0000068D tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000023●text○まあ、唯一の救いは、藤之辺が知ってるって\nことだよな。
+●000023●text●まあ、唯一の救いは、藤之辺が知ってるって\nことだよな。
+
+# idx=000024 file=PS2I029A.BIN off=0x000006DF inst=0x000006DF tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000024●text○藤之辺は、一線越えよーとしたら、ひっぱたいてでもとめるだろーし。
+●000024●text●藤之辺は、一線越えよーとしたら、ひっぱたいてでもとめるだろーし。
+
+# idx=000025 file=PS2I029A.BIN off=0x0000073B inst=0x0000073B tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000025●text○でも……それでも他人任せみたいで……。\n気にはなるんだ。
+●000025●text●でも……それでも他人任せみたいで……。\n気にはなるんだ。
+
+# idx=000026 file=PS2I029A.BIN off=0x00000793 inst=0x00000793 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000026●label○PS2I030a.bin
+●000026●label●PS2I030a.bin
+

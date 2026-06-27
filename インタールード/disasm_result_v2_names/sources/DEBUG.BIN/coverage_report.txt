@@ -1,0 +1,9 @@
+file: DEBUG.BIN
+byte_size: 29691
+coverage: 100.00%
+status: OK
+records: 14121
+text_entries: 554
+zero_mutation_roundtrip: PASS
+original_sha256: 7663089047cf89fe08bdd4510f142a81682bc480a911bf556e8fd1e8cb6d52a9
+rebuilt_sha256: 7663089047cf89fe08bdd4510f142a81682bc480a911bf556e8fd1e8cb6d52a9

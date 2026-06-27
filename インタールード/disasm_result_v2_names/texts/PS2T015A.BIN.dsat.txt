@@ -1,0 +1,48 @@
+# DSAT export for PS2T015A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2T015A.BIN off=0x00000044 inst=0x00000044 tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000001●label○se-04
+●000001●label●se-04
+
+# idx=000002 file=PS2T015A.BIN off=0x00000077 inst=0x00000077 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000002●label○PS2I011a.bin
+●000002●label●PS2I011a.bin
+
+# idx=000003 file=PS2T015A.BIN off=0x000000FF inst=0x000000FF tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=レイディ name_id=NA confidence=medium
+○000003●label○NA00121
+●000003●label●NA00121
+
+# idx=000004 file=PS2T015A.BIN off=0x0000010E inst=0x000000FF tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=NA speaker_code=NA00121 name_source=prev_voice_label virtual=true writable=false pair=000005 confidence=medium full_name=担任のレイディ basis=NA_teacher-like_classroom_lines;_narration_names_レイディ
+○000004●name○レイディ
+●000004●name●レイディ
+
+# idx=000005 file=PS2T015A.BIN off=0x0000010E inst=0x0000010E tag=text source=inline_len8_string len=84 enc=cp932 policy=in_place speaker_idx=000004 name=レイディ name_id=NA speaker_code=NA00121 name_source=prev_voice_label pair=000004 confidence=medium full_name=担任のレイディ
+○000005●text○「今日は以上です。本日の分も中間テストの範囲に含まれます。復習を忘れないでください」
+●000005●text●「今日は以上です。本日の分も中間テストの範囲に含まれます。復習を忘れないでください」
+
+# idx=000006 file=PS2T015A.BIN off=0x0000017E inst=0x0000017E tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=レイディ name_id=NA confidence=medium
+○000006●label○NA00122
+●000006●label●NA00122
+
+# idx=000007 file=PS2T015A.BIN off=0x0000018D inst=0x0000017E tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=NA speaker_code=NA00122 name_source=prev_voice_label virtual=true writable=false pair=000008 confidence=medium full_name=担任のレイディ basis=NA_teacher-like_classroom_lines;_narration_names_レイディ
+○000007●name○レイディ
+●000007●name●レイディ
+
+# idx=000008 file=PS2T015A.BIN off=0x0000018D inst=0x0000018D tag=text source=inline_len8_string len=100 enc=cp932 policy=in_place speaker_idx=000007 name=レイディ name_id=NA speaker_code=NA00122 name_source=prev_voice_label pair=000007 confidence=medium full_name=担任のレイディ
+○000008●text○「放課後６時までは教室の使用も許可されて\nいますので、充分にテストに備えられるように\nしてください」
+●000008●text●「放課後６時までは教室の使用も許可されて\nいますので、充分にテストに備えられるように\nしてください」
+
+# idx=000009 file=PS2T015A.BIN off=0x0000027E inst=0x0000027E tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000009●label○PS2A011a.bin
+●000009●label●PS2A011a.bin
+
+# idx=000010 file=PS2T015A.BIN off=0x000002BD inst=0x000002BD tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000010●label○PS2T016a.bin
+●000010●label●PS2T016a.bin
+
+# idx=000011 file=PS2T015A.BIN off=0x000002E2 inst=0x000002E2 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000011●label○PS2A011a.bin
+●000011●label●PS2A011a.bin
+

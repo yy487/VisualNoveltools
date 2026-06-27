@@ -1,0 +1,472 @@
+# DSAT export for PS2A027A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2A027A.BIN off=0x00000032 inst=0x00000032 tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000001●label○se-04
+●000001●label●se-04
+
+# idx=000002 file=PS2A027A.BIN off=0x000000E9 inst=0x000000E9 tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000002●text○帰りじたくをしていると、玉がにこにこと\n近よってきた。
+●000002●text●帰りじたくをしていると、玉がにこにこと\n近よってきた。
+
+# idx=000003 file=PS2A027A.BIN off=0x0000013B inst=0x0000013B tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000003●label○MT17590T
+●000003●label●MT17590T
+
+# idx=000004 file=PS2A027A.BIN off=0x0000014B inst=0x0000013B tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT17590T name_source=prev_voice_label virtual=true writable=false pair=000005 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000004●name○玉
+●000004●name●玉
+
+# idx=000005 file=PS2A027A.BIN off=0x0000014B inst=0x0000014B tag=text source=inline_len8_string len=18 enc=cp932 policy=in_place speaker_idx=000004 name=玉 name_id=MT speaker_code=MT17590T name_source=prev_voice_label pair=000004 confidence=high full_name=玉城麻衣子
+○000005●text○「どーこいくー？」
+●000005●text●「どーこいくー？」
+
+# idx=000006 file=PS2A027A.BIN off=0x00000179 inst=0x00000179 tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place
+○000006●text○と、玉は放課後遊びモード炸裂中。
+●000006●text●と、玉は放課後遊びモード炸裂中。
+
+# idx=000007 file=PS2A027A.BIN off=0x000001C1 inst=0x000001C1 tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place
+○000007●text○「ん、図書館。玉も行くか？」
+●000007●text●「ん、図書館。玉も行くか？」
+
+# idx=000008 file=PS2A027A.BIN off=0x0000022E inst=0x0000022E tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000008●label○MT17600T
+●000008●label●MT17600T
+
+# idx=000009 file=PS2A027A.BIN off=0x0000023E inst=0x0000022E tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT17600T name_source=prev_voice_label virtual=true writable=false pair=000010 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000009●name○玉
+●000009●name●玉
+
+# idx=000010 file=PS2A027A.BIN off=0x0000023E inst=0x0000023E tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place speaker_idx=000009 name=玉 name_id=MT speaker_code=MT17600T name_source=prev_voice_label pair=000009 confidence=high full_name=玉城麻衣子
+○000010●text○「いかなーい。アタマいたくなっちゃうから\nいやー」
+●000010●text●「いかなーい。アタマいたくなっちゃうから\nいやー」
+
+# idx=000011 file=PS2A027A.BIN off=0x000002C0 inst=0x000002C0 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000011●label○KT02960T
+●000011●label●KT02960T
+
+# idx=000012 file=PS2A027A.BIN off=0x000002D0 inst=0x000002C0 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT02960T name_source=prev_voice_label virtual=true writable=false pair=000013 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000012●name○千佳
+●000012●name●千佳
+
+# idx=000013 file=PS2A027A.BIN off=0x000002D0 inst=0x000002D0 tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place speaker_idx=000012 name=千佳 name_id=KT speaker_code=KT02960T name_source=prev_voice_label pair=000012 confidence=medium full_name=木村千佳
+○000013●text○「玉ちゃん、本とか読まないのー？」
+●000013●text●「玉ちゃん、本とか読まないのー？」
+
+# idx=000014 file=PS2A027A.BIN off=0x00000343 inst=0x00000343 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000014●label○MT17610T
+●000014●label●MT17610T
+
+# idx=000015 file=PS2A027A.BIN off=0x00000353 inst=0x00000343 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT17610T name_source=prev_voice_label virtual=true writable=false pair=000016 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000015●name○玉
+●000015●name●玉
+
+# idx=000016 file=PS2A027A.BIN off=0x00000353 inst=0x00000353 tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place speaker_idx=000015 name=玉 name_id=MT speaker_code=MT17610T name_source=prev_voice_label pair=000015 confidence=high full_name=玉城麻衣子
+○000016●text○「よまなーい。マンガよむー。ほんいらなーい」
+●000016●text●「よまなーい。マンガよむー。ほんいらなーい」
+
+# idx=000017 file=PS2A027A.BIN off=0x000003CF inst=0x000003CF tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000017●label○KT02970T
+●000017●label●KT02970T
+
+# idx=000018 file=PS2A027A.BIN off=0x000003DF inst=0x000003CF tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT02970T name_source=prev_voice_label virtual=true writable=false pair=000019 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000018●name○千佳
+●000018●name●千佳
+
+# idx=000019 file=PS2A027A.BIN off=0x000003DF inst=0x000003DF tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place speaker_idx=000018 name=千佳 name_id=KT speaker_code=KT02970T name_source=prev_voice_label pair=000018 confidence=medium full_name=木村千佳
+○000019●text○「遥ちゃん、本好きだよねー」
+●000019●text●「遥ちゃん、本好きだよねー」
+
+# idx=000020 file=PS2A027A.BIN off=0x0000044B inst=0x0000044B tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000020●label○HF02900T
+●000020●label●HF02900T
+
+# idx=000021 file=PS2A027A.BIN off=0x0000045B inst=0x0000044B tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF02900T name_source=prev_voice_label virtual=true writable=false pair=000022 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000021●name○遥
+●000021●name●遥
+
+# idx=000022 file=PS2A027A.BIN off=0x0000045B inst=0x0000045B tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place speaker_idx=000021 name=遥 name_id=HF speaker_code=HF02900T name_source=prev_voice_label pair=000021 confidence=medium full_name=藤之辺遥
+○000022●text○「まあ好きな方かな」
+●000022●text●「まあ好きな方かな」
+
+# idx=000023 file=PS2A027A.BIN off=0x000004C0 inst=0x000004C0 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000023●label○MT17620T
+●000023●label●MT17620T
+
+# idx=000024 file=PS2A027A.BIN off=0x000004D0 inst=0x000004C0 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT17620T name_source=prev_voice_label virtual=true writable=false pair=000025 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000024●name○玉
+●000024●name●玉
+
+# idx=000025 file=PS2A027A.BIN off=0x000004D0 inst=0x000004D0 tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place speaker_idx=000024 name=玉 name_id=MT speaker_code=MT17620T name_source=prev_voice_label pair=000024 confidence=high full_name=玉城麻衣子
+○000025●text○「ほんとかよむとはるさんみたいにむつかしく\nなっちゃうからよまなーいー」
+●000025●text●「ほんとかよむとはるさんみたいにむつかしく\nなっちゃうからよまなーいー」
+
+# idx=000026 file=PS2A027A.BIN off=0x00000568 inst=0x00000568 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000026●label○HF02910T
+●000026●label●HF02910T
+
+# idx=000027 file=PS2A027A.BIN off=0x00000578 inst=0x00000568 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF02910T name_source=prev_voice_label virtual=true writable=false pair=000028 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000027●name○遥
+●000027●name●遥
+
+# idx=000028 file=PS2A027A.BIN off=0x00000578 inst=0x00000578 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place speaker_idx=000027 name=遥 name_id=HF speaker_code=HF02910T name_source=prev_voice_label pair=000027 confidence=medium full_name=藤之辺遥
+○000028●text○「バカ玉は少しくらい読め」
+●000028●text●「バカ玉は少しくらい読め」
+
+# idx=000029 file=PS2A027A.BIN off=0x000005E3 inst=0x000005E3 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000029●label○MT17630T
+●000029●label●MT17630T
+
+# idx=000030 file=PS2A027A.BIN off=0x000005F3 inst=0x000005E3 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT17630T name_source=prev_voice_label virtual=true writable=false pair=000031 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000030●name○玉
+●000030●name●玉
+
+# idx=000031 file=PS2A027A.BIN off=0x000005F3 inst=0x000005F3 tag=text source=inline_len8_string len=18 enc=cp932 policy=in_place speaker_idx=000030 name=玉 name_id=MT speaker_code=MT17630T name_source=prev_voice_label pair=000030 confidence=high full_name=玉城麻衣子
+○000031●text○「よまないよーだ」
+●000031●text●「よまないよーだ」
+
+# idx=000032 file=PS2A027A.BIN off=0x000006EF inst=0x000006EF tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place
+○000032●text○ぼくは、楽しげな三人を残して教室を出た。
+●000032●text●ぼくは、楽しげな三人を残して教室を出た。
+
+# idx=000033 file=PS2A027A.BIN off=0x00000733 inst=0x00000733 tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place
+○000033●text○少し手間のかかりそうな調べものだった。\nそれに……もしかすると、何かがわかるのかも\nしれない。
+●000033●text●少し手間のかかりそうな調べものだった。\nそれに……もしかすると、何かがわかるのかも\nしれない。
+
+# idx=000034 file=PS2A027A.BIN off=0x000007AD inst=0x000007AD tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000034●text○そんな予感に、少しでもはやく、と気持ちが\n焦っていた。
+●000034●text●そんな予感に、少しでもはやく、と気持ちが\n焦っていた。
+
+# idx=000035 file=PS2A027A.BIN off=0x00000838 inst=0x00000838 tag=text source=inline_len8_string len=90 enc=cp932 policy=in_place
+○000035●text○静かな図書館は思っていたより人がいた。\n机を占領している受験生。\n調べ物をしている会社員。
+●000035●text●静かな図書館は思っていたより人がいた。\n机を占領している受験生。\n調べ物をしている会社員。
+
+# idx=000036 file=PS2A027A.BIN off=0x000008AE inst=0x000008AE tag=text source=inline_len8_string len=122 enc=cp932 policy=in_place
+○000036●text○ぼくはカウンセラーのことを考えないよう、\nイワノビッチのいったことばに意識を集中させる。\nカメラは見えない場所を写す機械。
+●000036●text●ぼくはカウンセラーのことを考えないよう、\nイワノビッチのいったことばに意識を集中させる。\nカメラは見えない場所を写す機械。
+
+# idx=000037 file=PS2A027A.BIN off=0x00000944 inst=0x00000944 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000037●text○いくつかの本を開いて『妖精写真』の記述を\n見つける。
+●000037●text●いくつかの本を開いて『妖精写真』の記述を\n見つける。
+
+# idx=000038 file=PS2A027A.BIN off=0x00000994 inst=0x00000994 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000038●text○シャーロック・ホームズの作者が信じた妖精の\n写真。
+●000038●text●シャーロック・ホームズの作者が信じた妖精の\n写真。
+
+# idx=000039 file=PS2A027A.BIN off=0x000009E2 inst=0x000009E2 tag=text source=inline_len8_string len=106 enc=cp932 policy=in_place
+○000039●text○少女の前で楽しげに踊る小さな妖精。\nどう見てもトリック写真。\nでも……この写真を信じた時代が確かにあった。
+●000039●text●少女の前で楽しげに踊る小さな妖精。\nどう見てもトリック写真。\nでも……この写真を信じた時代が確かにあった。
+
+# idx=000040 file=PS2A027A.BIN off=0x00000A68 inst=0x00000A68 tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place
+○000040●text○ある時代には、人の目には見えない世界が\nこの世界と重なって存在していた。
+●000040●text●ある時代には、人の目には見えない世界が\nこの世界と重なって存在していた。
+
+# idx=000041 file=PS2A027A.BIN off=0x00000ACC inst=0x00000ACC tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000041●text○ラジオさえ人の耳には聞こえない『死者の声』をとらえる機械だった。
+●000041●text●ラジオさえ人の耳には聞こえない『死者の声』をとらえる機械だった。
+
+# idx=000042 file=PS2A027A.BIN off=0x00000B28 inst=0x00000B28 tag=text source=inline_len8_string len=80 enc=cp932 policy=in_place
+○000042●text○目にするものがすべてではない世界。\n重なりあう、厚い層となった世界という考え方。
+●000042●text●目にするものがすべてではない世界。\n重なりあう、厚い層となった世界という考え方。
+
+# idx=000043 file=PS2A027A.BIN off=0x00000B94 inst=0x00000B94 tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000043●text○それは古代から近代まで、忘れられることなく\n流れる思想だった。
+●000043●text●それは古代から近代まで、忘れられることなく\n流れる思想だった。
+
+# idx=000044 file=PS2A027A.BIN off=0x00000BEE inst=0x00000BEE tag=text source=inline_len8_string len=82 enc=cp932 policy=in_place
+○000044●text○重なりあっているのに、ふれあうことができない。そんな世界のイメージ。\nそれは……。
+●000044●text●重なりあっているのに、ふれあうことができない。そんな世界のイメージ。\nそれは……。
+
+# idx=000045 file=PS2A027A.BIN off=0x00000C8C inst=0x00000C8C tag=text source=inline_len8_string len=36 enc=cp932 policy=in_place
+○000045●text○『彼女』の世界、のことかもしれない。
+●000045●text●『彼女』の世界、のことかもしれない。
+
+# idx=000046 file=PS2A027A.BIN off=0x00000CCC inst=0x00000CCC tag=text source=inline_len8_string len=76 enc=cp932 policy=in_place
+○000046●text○ぼくは、次々に本を開く。\n世界は、ぼくたちが目にする以外の顔を持って\nいる。
+●000046●text●ぼくは、次々に本を開く。\n世界は、ぼくたちが目にする以外の顔を持って\nいる。
+
+# idx=000047 file=PS2A027A.BIN off=0x00000D34 inst=0x00000D34 tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000047●text○それは隠されているため、見るためには智慧が\n必要だった。
+●000047●text●それは隠されているため、見るためには智慧が\n必要だった。
+
+# idx=000048 file=PS2A027A.BIN off=0x00000D88 inst=0x00000D88 tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000048●text○ここではないどこか。\n驚くほど、多くの人たちが、そんな世界を\n探し続けていた。
+●000048●text●ここではないどこか。\n驚くほど、多くの人たちが、そんな世界を\n探し続けていた。
+
+# idx=000049 file=PS2A027A.BIN off=0x00000DF2 inst=0x00000DF2 tag=text source=inline_len8_string len=90 enc=cp932 policy=in_place
+○000049●text○ぼくはそんな人たちの難解な、ときには非常識でときにはあまりにおかしい記述に目を通し続けた。
+●000049●text●ぼくはそんな人たちの難解な、ときには非常識でときにはあまりにおかしい記述に目を通し続けた。
+
+# idx=000050 file=PS2A027A.BIN off=0x00000EE8 inst=0x00000EE8 tag=text source=inline_len8_string len=36 enc=cp932 policy=in_place
+○000050●text○窓の外はいつのまにか暗くなっていた。
+●000050●text●窓の外はいつのまにか暗くなっていた。
+
+# idx=000051 file=PS2A027A.BIN off=0x00000F28 inst=0x00000F28 tag=text source=inline_len8_string len=82 enc=cp932 policy=in_place
+○000051●text○館内から、人の姿が消えていた。\nカウンターの中にいるはずの係員さえ見当たら\nない。
+●000051●text●館内から、人の姿が消えていた。\nカウンターの中にいるはずの係員さえ見当たら\nない。
+
+# idx=000052 file=PS2A027A.BIN off=0x00000F96 inst=0x00000F96 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000052●text○デジタルの時計は、意味のない記号を表示して\nいた。
+●000052●text●デジタルの時計は、意味のない記号を表示して\nいた。
+
+# idx=000053 file=PS2A027A.BIN off=0x00000FE4 inst=0x00000FE4 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000053●text○静まり返った館内は、空気が凍りついたように\n思えた。
+●000053●text●静まり返った館内は、空気が凍りついたように\n思えた。
+
+# idx=000054 file=PS2A027A.BIN off=0x00001034 inst=0x00001034 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000054●text○また……あれが始まった。\nぼくたちの世界が、揺らいでいる。
+●000054●text●また……あれが始まった。\nぼくたちの世界が、揺らいでいる。
+
+# idx=000055 file=PS2A027A.BIN off=0x0000108A inst=0x0000108A tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place
+○000055●text○『彼女』の場所が……近づいている。
+●000055●text●『彼女』の場所が……近づいている。
+
+# idx=000056 file=PS2A027A.BIN off=0x000010C8 inst=0x000010C8 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000056●text○それとも、『彼女』自身が？
+●000056●text●それとも、『彼女』自身が？
+
+# idx=000057 file=PS2A027A.BIN off=0x000010EA inst=0x000010EA tag=text source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000057●text○探してみる
+●000057●text●探してみる
+
+# idx=000058 file=PS2A027A.BIN off=0x00001104 inst=0x00001104 tag=text source=inline_len8_string len=4 enc=cp932 policy=in_place
+○000058●text○待つ
+●000058●text●待つ
+
+# idx=000059 file=PS2A027A.BIN off=0x0000114D inst=0x0000114D tag=text source=inline_len8_string len=66 enc=cp932 policy=in_place
+○000059●text○ぼくは、読んでいた本を閉じ、棚に戻す。\n図書館の中をゆっくり歩く。
+●000059●text●ぼくは、読んでいた本を閉じ、棚に戻す。\n図書館の中をゆっくり歩く。
+
+# idx=000060 file=PS2A027A.BIN off=0x000011AB inst=0x000011AB tag=text source=inline_len8_string len=76 enc=cp932 policy=in_place
+○000060●text○焦ることはなかった。\n向こうが近づいてくるのなら、ぼくはそれを\n待てばいい。
+●000060●text●焦ることはなかった。\n向こうが近づいてくるのなら、ぼくはそれを\n待てばいい。
+
+# idx=000061 file=PS2A027A.BIN off=0x00001213 inst=0x00001213 tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000061●text○ぼくは……空気の中に『彼女』の気配をさがす。
+●000061●text●ぼくは……空気の中に『彼女』の気配をさがす。
+
+# idx=000062 file=PS2A027A.BIN off=0x0000125B inst=0x0000125B tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place
+○000062●text○最初は無人のホーム。
+●000062●text●最初は無人のホーム。
+
+# idx=000063 file=PS2A027A.BIN off=0x0000128B inst=0x0000128B tag=text source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000063●text○次は、影。
+●000063●text●次は、影。
+
+# idx=000064 file=PS2A027A.BIN off=0x000012B1 inst=0x000012B1 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000064●text○『彼女』とぼくは、どこかでリンクしている\nはずだ。
+●000064●text●『彼女』とぼくは、どこかでリンクしている\nはずだ。
+
+# idx=000065 file=PS2A027A.BIN off=0x000012FF inst=0x000012FF tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000065●text○理由はわからない。\n理由があるのかさえ、わからない。
+●000065●text●理由はわからない。\n理由があるのかさえ、わからない。
+
+# idx=000066 file=PS2A027A.BIN off=0x0000134F inst=0x0000134F tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000066●text○でも、ぼくは『彼女』を見つけることができると信じていた。
+●000066●text●でも、ぼくは『彼女』を見つけることができると信じていた。
+
+# idx=000067 file=PS2A027A.BIN off=0x000013A3 inst=0x000013A3 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000067●text○なにも起きない。\nけど、『彼女』の……気配を感じる。
+●000067●text●なにも起きない。\nけど、『彼女』の……気配を感じる。
+
+# idx=000068 file=PS2A027A.BIN off=0x000013F3 inst=0x000013F3 tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place
+○000068●text○そのとき、遠くで物音が聞こえた。
+●000068●text●そのとき、遠くで物音が聞こえた。
+
+# idx=000069 file=PS2A027A.BIN off=0x0000142C inst=0x0000142C tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000069●label○se-e28
+●000069●label●se-e28
+
+# idx=000070 file=PS2A027A.BIN off=0x00001455 inst=0x00001455 tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place
+○000070●text○足音だった。\n誰かが駆けてくる。
+●000070●text●足音だった。\n誰かが駆けてくる。
+
+# idx=000071 file=PS2A027A.BIN off=0x00001491 inst=0x00001491 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000071●text○図書館には、人が走り続けられるような\nスペースはなかった。
+●000071●text●図書館には、人が走り続けられるような\nスペースはなかった。
+
+# idx=000072 file=PS2A027A.BIN off=0x000014E7 inst=0x000014E7 tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place
+○000072●text○じゃあ、この足音は。
+●000072●text●じゃあ、この足音は。
+
+# idx=000073 file=PS2A027A.BIN off=0x00001517 inst=0x00001517 tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place
+○000073●text○足音が近づいてくる。\nでも、どこから？
+●000073●text●足音が近づいてくる。\nでも、どこから？
+
+# idx=000074 file=PS2A027A.BIN off=0x00001559 inst=0x00001559 tag=text source=inline_len8_string len=74 enc=cp932 policy=in_place
+○000074●text○次第に足音は大きくなっていく。\nぼくは、『彼女』の姿をさがす。\nそして……
+●000074●text●次第に足音は大きくなっていく。\nぼくは、『彼女』の姿をさがす。\nそして……
+
+# idx=000075 file=PS2A027A.BIN off=0x000015CB inst=0x000015CB tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place
+○000075●text○足音は突然、消えてしまった。
+●000075●text●足音は突然、消えてしまった。
+
+# idx=000076 file=PS2A027A.BIN off=0x00001603 inst=0x00001603 tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000076●text○本当なら、『彼女』の姿を目にしてもいい\nくらいの距離で、足音は消えてしまった。
+●000076●text●本当なら、『彼女』の姿を目にしてもいい\nくらいの距離で、足音は消えてしまった。
+
+# idx=000077 file=PS2A027A.BIN off=0x0000166D inst=0x0000166D tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000077●text○それと同時に、辺りを覆っていた気配が消失する。
+●000077●text●それと同時に、辺りを覆っていた気配が消失する。
+
+# idx=000078 file=PS2A027A.BIN off=0x000016B7 inst=0x000016B7 tag=text source=inline_len8_string len=108 enc=cp932 policy=in_place
+○000078●text○空気は重さを失い、本のページをめくるかすかな紙音が聞こえた。\nデジタル時計は……無機質な数字を表示していた。
+●000078●text●空気は重さを失い、本のページをめくるかすかな紙音が聞こえた。\nデジタル時計は……無機質な数字を表示していた。
+
+# idx=000079 file=PS2A027A.BIN off=0x0000173F inst=0x0000173F tag=text source=inline_len8_string len=82 enc=cp932 policy=in_place
+○000079●text○ぼくは大きく息をはく。\n本を書棚に戻そうとしていた係員が不審そうな\n表情を向ける。
+●000079●text●ぼくは大きく息をはく。\n本を書棚に戻そうとしていた係員が不審そうな\n表情を向ける。
+
+# idx=000080 file=PS2A027A.BIN off=0x000017AD inst=0x000017AD tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000080●text○ほんのすぐそばまで来ていたのに。\nどこかですれ違ってしまった。
+●000080●text●ほんのすぐそばまで来ていたのに。\nどこかですれ違ってしまった。
+
+# idx=000081 file=PS2A027A.BIN off=0x00001807 inst=0x00001807 tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000081●text○でも……もう迷わなくてよかった。\nぼくは、『彼女』を……
+●000081●text●でも……もう迷わなくてよかった。\nぼくは、『彼女』を……
+
+# idx=000082 file=PS2A027A.BIN off=0x0000185B inst=0x0000185B tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000082●text○必ず見つけ出すことができる。\nそれを確信できたから。
+●000082●text●必ず見つけ出すことができる。\nそれを確信できたから。
+
+# idx=000083 file=PS2A027A.BIN off=0x000018BC inst=0x000018BC tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000083●text○図書館前の小道はまぶしい月の光にあふれていた。
+●000083●text●図書館前の小道はまぶしい月の光にあふれていた。
+
+# idx=000084 file=PS2A027A.BIN off=0x00001906 inst=0x00001906 tag=text source=inline_len8_string len=86 enc=cp932 policy=in_place
+○000084●text○車も人影もない静かな宵闇。\n本に書かれていた『ありえない場所』は身近に\n存在していた。
+●000084●text●車も人影もない静かな宵闇。\n本に書かれていた『ありえない場所』は身近に\n存在していた。
+
+# idx=000085 file=PS2A027A.BIN off=0x00001978 inst=0x00001978 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000085●text○すべてが凍結した瞬間。\n通りを曲がって自転車が通り過ぎる。
+●000085●text●すべてが凍結した瞬間。\n通りを曲がって自転車が通り過ぎる。
+
+# idx=000086 file=PS2A027A.BIN off=0x000019CB inst=0x000019CB tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000086●label○se-15
+●000086●label●se-15
+
+# idx=000087 file=PS2A027A.BIN off=0x00001A34 inst=0x00001A34 tag=text source=inline_len8_string len=124 enc=cp932 policy=in_place
+○000087●text○静かな館内にガラスの割れる音が響きわたる。\n慌てて、みおろすと割れた窓ガラスの前に、\nひとりの少女が呆然とたちつくしている。
+●000087●text●静かな館内にガラスの割れる音が響きわたる。\n慌てて、みおろすと割れた窓ガラスの前に、\nひとりの少女が呆然とたちつくしている。
+
+# idx=000088 file=PS2A027A.BIN off=0x00001ACC inst=0x00001ACC tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000088●text○彼女は砕け散ったガラスの破片に取り囲まれ、\n困惑している。
+●000088●text●彼女は砕け散ったガラスの破片に取り囲まれ、\n困惑している。
+
+# idx=000089 file=PS2A027A.BIN off=0x00001B22 inst=0x00001B22 tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000089●text○館員は姿を見せない。\nケガでもしてたら、どうするつもりなんだ。
+●000089●text●館員は姿を見せない。\nケガでもしてたら、どうするつもりなんだ。
+
+# idx=000090 file=PS2A027A.BIN off=0x00001BB6 inst=0x00001BB6 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000090●text○ぼくは少女に駆け寄る。\n見たことのない中学の制服。
+●000090●text●ぼくは少女に駆け寄る。\n見たことのない中学の制服。
+
+# idx=000091 file=PS2A027A.BIN off=0x00001C04 inst=0x00001C04 tag=text source=inline_len8_string len=80 enc=cp932 policy=in_place
+○000091●text○透き通るような、肌の白さ。\n声をかけただけでも消えてしまいそうに\nはかなかった。
+●000091●text●透き通るような、肌の白さ。\n声をかけただけでも消えてしまいそうに\nはかなかった。
+
+# idx=000092 file=PS2A027A.BIN off=0x00001C70 inst=0x00001C70 tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place
+○000092●text○そんな印象の中学生。
+●000092●text●そんな印象の中学生。
+
+# idx=000093 file=PS2A027A.BIN off=0x00001CA0 inst=0x00001CA0 tag=text source=inline_len8_string len=24 enc=cp932 policy=in_place
+○000093●text○「だいじょうぶだった？」
+●000093●text●「だいじょうぶだった？」
+
+# idx=000094 file=PS2A027A.BIN off=0x00001CD4 inst=0x00001CD4 tag=text source=inline_len8_string len=84 enc=cp932 policy=in_place
+○000094●text○うつむいたままガラスの破片を凝視している彼女。ぼくの声は届いていないかのようだった。
+●000094●text●うつむいたままガラスの破片を凝視している彼女。ぼくの声は届いていないかのようだった。
+
+# idx=000095 file=PS2A027A.BIN off=0x00001D41 inst=0x00001D41 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000095●label○SE-S25
+●000095●label●SE-S25
+
+# idx=000096 file=PS2A027A.BIN off=0x00001D6A inst=0x00001D6A tag=text source=inline_len8_string len=96 enc=cp932 policy=in_place
+○000096●text○靴の下でガラスのかけらが割れる。\nその音に彼女は顔をあげ、はじめてぼくがそばにいるのに気づいた。
+●000096●text●靴の下でガラスのかけらが割れる。\nその音に彼女は顔をあげ、はじめてぼくがそばにいるのに気づいた。
+
+# idx=000097 file=PS2A027A.BIN off=0x00001DF2 inst=0x00001DF2 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000097●text○ほんのわずかな時間だけ、彼女の目がぼくを\nとらえた。
+●000097●text●ほんのわずかな時間だけ、彼女の目がぼくを\nとらえた。
+
+# idx=000098 file=PS2A027A.BIN off=0x00001E42 inst=0x00001E42 tag=text source=inline_len8_string len=80 enc=cp932 policy=in_place
+○000098●text○寂しそうな目だと思った。\nひとりぼっちでいることにとまどっているのかもしれない。
+●000098●text●寂しそうな目だと思った。\nひとりぼっちでいることにとまどっているのかもしれない。
+
+# idx=000099 file=PS2A027A.BIN off=0x00001EAE inst=0x00001EAE tag=text source=inline_len8_string len=22 enc=cp932 policy=in_place
+○000099●text○「ケガとかしてない？」
+●000099●text●「ケガとかしてない？」
+
+# idx=000100 file=PS2A027A.BIN off=0x00001EE0 inst=0x00001EE0 tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place
+○000100●text○彼女は首を横にふる。
+●000100●text●彼女は首を横にふる。
+
+# idx=000101 file=PS2A027A.BIN off=0x00001F10 inst=0x00001F10 tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000101●text○「でも、どうして誰も来ないんだろう。このままにしとくとあぶないよな」
+●000101●text●「でも、どうして誰も来ないんだろう。このままにしとくとあぶないよな」
+
+# idx=000102 file=PS2A027A.BIN off=0x00001F9E inst=0x00001F9E tag=text source=inline_len8_string len=100 enc=cp932 policy=in_place
+○000102●text○ぼくは彼女からガラスの割れた窓へ目を向ける。そこにはなにもなかった。\n窓枠の中には暗闇だけがあった。
+●000102●text●ぼくは彼女からガラスの割れた窓へ目を向ける。そこにはなにもなかった。\n窓枠の中には暗闇だけがあった。
+
+# idx=000103 file=PS2A027A.BIN off=0x0000201E inst=0x0000201E tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000103●text○左右の窓には月に照らされた外の風景があるのに、そこだけ漆黒の闇が広がっている。
+●000103●text●左右の窓には月に照らされた外の風景があるのに、そこだけ漆黒の闇が広がっている。
+
+# idx=000104 file=PS2A027A.BIN off=0x00002088 inst=0x00002088 tag=text source=inline_len8_string len=22 enc=cp932 policy=in_place
+○000104●text○「……なんだ、これ？」
+●000104●text●「……なんだ、これ？」
+
+# idx=000105 file=PS2A027A.BIN off=0x000020BA inst=0x000020BA tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place
+○000105●text○ぼくの疑問に彼女は口を開く。
+●000105●text●ぼくの疑問に彼女は口を開く。
+
+# idx=000106 file=PS2A027A.BIN off=0x000020F2 inst=0x000020F2 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=睦月 name_id=MU confidence=high
+○000106●label○MU00010
+●000106●label●MU00010
+
+# idx=000107 file=PS2A027A.BIN off=0x00002101 inst=0x000020F2 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MU speaker_code=MU00010 name_source=prev_voice_label virtual=true writable=false pair=000108 confidence=high full_name=睦月 basis=DEBUG_route_labels_and_MU_dialogue_context
+○000107●name○睦月
+●000107●name●睦月
+
+# idx=000108 file=PS2A027A.BIN off=0x00002101 inst=0x00002101 tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place speaker_idx=000107 name=睦月 name_id=MU speaker_code=MU00010 name_source=prev_voice_label pair=000107 confidence=high full_name=睦月
+○000108●text○「お姉ちゃんがいたから、こわくなって……」
+●000108●text●「お姉ちゃんがいたから、こわくなって……」
+
+# idx=000109 file=PS2A027A.BIN off=0x00002147 inst=0x00002147 tag=text source=inline_len8_string len=16 enc=cp932 policy=in_place
+○000109●text○「お姉ちゃん？」
+●000109●text●「お姉ちゃん？」
+
+# idx=000110 file=PS2A027A.BIN off=0x00002173 inst=0x00002173 tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place
+○000110●text○どこまでも広がる暗闇から目を彼女に移す。
+●000110●text●どこまでも広がる暗闇から目を彼女に移す。
+
+# idx=000111 file=PS2A027A.BIN off=0x000021E5 inst=0x000021E5 tag=text source=inline_len8_string len=100 enc=cp932 policy=in_place
+○000111●text○何かがおかしい。\n彼女の足もとに散らばるガラスの破片。\nそこにばらばらになった外の風景が映っている。
+●000111●text●何かがおかしい。\n彼女の足もとに散らばるガラスの破片。\nそこにばらばらになった外の風景が映っている。
+
+# idx=000112 file=PS2A027A.BIN off=0x00002265 inst=0x00002265 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000112●text○月を背景にした街。\nガラスの中で、人影が動いていた。
+●000112●text●月を背景にした街。\nガラスの中で、人影が動いていた。
+
+# idx=000113 file=PS2A027A.BIN off=0x000022B5 inst=0x000022B5 tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000113●text○ぼくは、その人影が『彼女』だと直観した。\nホームで出会った『彼女』。
+●000113●text●ぼくは、その人影が『彼女』だと直観した。\nホームで出会った『彼女』。
+
+# idx=000114 file=PS2A027A.BIN off=0x0000231C inst=0x0000231C tag=text source=inline_len8_string len=88 enc=cp932 policy=in_place
+○000114●text○気づくと少女の姿はどこにもなかった。\nぼくは砕け散った街の中に呆然と立ち尽くして\nいた。
+●000114●text●気づくと少女の姿はどこにもなかった。\nぼくは砕け散った街の中に呆然と立ち尽くして\nいた。
+
+# idx=000115 file=PS2A027A.BIN off=0x00002390 inst=0x00002390 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000115●text○それはあまりに美しく、幻想的で、はかない光景だった。
+●000115●text●それはあまりに美しく、幻想的で、はかない光景だった。
+
+# idx=000116 file=PS2A027A.BIN off=0x000023E0 inst=0x000023E0 tag=text source=inline_len8_string len=92 enc=cp932 policy=in_place
+○000116●text○こんな瞬間が現実であるわけがない。\nわかっていても、ぼくはその光景から目を\nはなせずにいた。
+●000116●text●こんな瞬間が現実であるわけがない。\nわかっていても、ぼくはその光景から目を\nはなせずにいた。
+
+# idx=000117 file=PS2A027A.BIN off=0x0000249C inst=0x0000249C tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000117●label○PS2A028a.bin
+●000117●label●PS2A028a.bin
+

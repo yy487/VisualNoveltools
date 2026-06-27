@@ -1,0 +1,9 @@
+file: PS2T008A.BIN
+byte_size: 7795
+coverage: 100.00%
+status: OK
+records: 2235
+text_entries: 101
+zero_mutation_roundtrip: PASS
+original_sha256: 825e93e6fda652f3cc78b7cd4c89a8e1638457608c2725e4a9c2ed83da585481
+rebuilt_sha256: 825e93e6fda652f3cc78b7cd4c89a8e1638457608c2725e4a9c2ed83da585481

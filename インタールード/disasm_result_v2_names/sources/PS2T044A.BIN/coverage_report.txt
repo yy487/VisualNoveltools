@@ -1,0 +1,9 @@
+file: PS2T044A.BIN
+byte_size: 6791
+coverage: 100.00%
+status: OK
+records: 2216
+text_entries: 93
+zero_mutation_roundtrip: PASS
+original_sha256: ca36d86c326ccd7d4eeca43fc79a419aa49adda2e723daacc876214defe0ccd5
+rebuilt_sha256: ca36d86c326ccd7d4eeca43fc79a419aa49adda2e723daacc876214defe0ccd5

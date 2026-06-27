@@ -1,0 +1,712 @@
+# DSAT export for PS2T011A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2T011A.BIN off=0x00000044 inst=0x00000044 tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000001●label○se-04
+●000001●label●se-04
+
+# idx=000002 file=PS2T011A.BIN off=0x0000006C inst=0x0000006C tag=text source=inline_len8_string len=66 enc=cp932 policy=in_place
+○000002●text○そして、運命の放課後はやってきた。\n不可能を可能にするための時間。
+●000002●text●そして、運命の放課後はやってきた。\n不可能を可能にするための時間。
+
+# idx=000003 file=PS2T011A.BIN off=0x00000159 inst=0x00000159 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000003●label○MT01460
+●000003●label●MT01460
+
+# idx=000004 file=PS2T011A.BIN off=0x00000168 inst=0x00000159 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT01460 name_source=prev_voice_label virtual=true writable=false pair=000005 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000004●name○玉
+●000004●name●玉
+
+# idx=000005 file=PS2T011A.BIN off=0x00000168 inst=0x00000168 tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place speaker_idx=000004 name=玉 name_id=MT speaker_code=MT01460 name_source=prev_voice_label pair=000004 confidence=high full_name=玉城麻衣子
+○000005●text○「むぅ～、やっぱりすんのー」
+●000005●text●「むぅ～、やっぱりすんのー」
+
+# idx=000006 file=PS2T011A.BIN off=0x000001A0 inst=0x000001A0 tag=text source=inline_len8_string len=98 enc=cp932 policy=in_place
+○000006●text○玉はさっさと逃げてしまうだろうと想像していた\nのだけれど、藤之辺たちががっつりキャッチして\nいた。
+●000006●text●玉はさっさと逃げてしまうだろうと想像していた\nのだけれど、藤之辺たちががっつりキャッチして\nいた。
+
+# idx=000007 file=PS2T011A.BIN off=0x0000021E inst=0x0000021E tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000007●label○HF00490
+●000007●label●HF00490
+
+# idx=000008 file=PS2T011A.BIN off=0x0000022D inst=0x0000021E tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF00490 name_source=prev_voice_label virtual=true writable=false pair=000009 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000008●name○遥
+●000008●name●遥
+
+# idx=000009 file=PS2T011A.BIN off=0x0000022D inst=0x0000022D tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place speaker_idx=000008 name=遥 name_id=HF speaker_code=HF00490 name_source=prev_voice_label pair=000008 confidence=medium full_name=藤之辺遥
+○000009●text○「あきらめろ」
+●000009●text●「あきらめろ」
+
+# idx=000010 file=PS2T011A.BIN off=0x0000028B inst=0x0000028B tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place
+○000010●text○木村は、ぼくを心配そうに見つめる。
+●000010●text●木村は、ぼくを心配そうに見つめる。
+
+# idx=000011 file=PS2T011A.BIN off=0x000002C9 inst=0x000002C9 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000011●label○KT00730
+●000011●label●KT00730
+
+# idx=000012 file=PS2T011A.BIN off=0x000002D8 inst=0x000002C9 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT00730 name_source=prev_voice_label virtual=true writable=false pair=000013 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000012●name○千佳
+●000012●name●千佳
+
+# idx=000013 file=PS2T011A.BIN off=0x000002D8 inst=0x000002D8 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place speaker_idx=000012 name=千佳 name_id=KT speaker_code=KT00730 name_source=prev_voice_label pair=000012 confidence=medium full_name=木村千佳
+○000013●text○「あのね、玉ちゃんね、がんばるから、\nやさしくおしえてあげてね」
+●000013●text●「あのね、玉ちゃんね、がんばるから、\nやさしくおしえてあげてね」
+
+# idx=000014 file=PS2T011A.BIN off=0x000003B0 inst=0x000003B0 tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place
+○000014●text○藤之辺が、使い古した教科書を開く。
+●000014●text●藤之辺が、使い古した教科書を開く。
+
+# idx=000015 file=PS2T011A.BIN off=0x000003EE inst=0x000003EE tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000015●label○HF00500
+●000015●label●HF00500
+
+# idx=000016 file=PS2T011A.BIN off=0x000003FD inst=0x000003EE tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF00500 name_source=prev_voice_label virtual=true writable=false pair=000017 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000016●name○遥
+●000016●name●遥
+
+# idx=000017 file=PS2T011A.BIN off=0x000003FD inst=0x000003FD tag=text source=inline_len8_string len=104 enc=cp932 policy=in_place speaker_idx=000016 name=遥 name_id=HF speaker_code=HF00500 name_source=prev_voice_label pair=000016 confidence=medium full_name=藤之辺遥
+○000017●text○「ちょっとさかのぼってやった方がいい。たぶんこーなるだろーと思ったから、１年のときの\n教科書持って来た」
+●000017●text●「ちょっとさかのぼってやった方がいい。たぶんこーなるだろーと思ったから、１年のときの\n教科書持って来た」
+
+# idx=000018 file=PS2T011A.BIN off=0x00000481 inst=0x00000481 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000018●label○KT00740
+●000018●label●KT00740
+
+# idx=000019 file=PS2T011A.BIN off=0x00000490 inst=0x00000481 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT00740 name_source=prev_voice_label virtual=true writable=false pair=000020 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000019●name○千佳
+●000019●name●千佳
+
+# idx=000020 file=PS2T011A.BIN off=0x00000490 inst=0x00000490 tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place speaker_idx=000019 name=千佳 name_id=KT speaker_code=KT00740 name_source=prev_voice_label pair=000019 confidence=medium full_name=木村千佳
+○000020●text○「すごーい、遥ちゃん、頭いー」
+●000020●text●「すごーい、遥ちゃん、頭いー」
+
+# idx=000021 file=PS2T011A.BIN off=0x000004CA inst=0x000004CA tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000021●label○HF00510
+●000021●label●HF00510
+
+# idx=000022 file=PS2T011A.BIN off=0x000004D9 inst=0x000004CA tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF00510 name_source=prev_voice_label virtual=true writable=false pair=000023 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000022●name○遥
+●000022●name●遥
+
+# idx=000023 file=PS2T011A.BIN off=0x000004D9 inst=0x000004D9 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place speaker_idx=000022 name=遥 name_id=HF speaker_code=HF00510 name_source=prev_voice_label pair=000022 confidence=medium full_name=藤之辺遥
+○000023●text○「やらせる気があるなら、こっちも本気じゃ\nないと」
+●000023●text●「やらせる気があるなら、こっちも本気じゃ\nないと」
+
+# idx=000024 file=PS2T011A.BIN off=0x00000527 inst=0x00000527 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000024●label○KT00750
+●000024●label●KT00750
+
+# idx=000025 file=PS2T011A.BIN off=0x00000536 inst=0x00000527 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT00750 name_source=prev_voice_label virtual=true writable=false pair=000026 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000025●name○千佳
+●000025●name●千佳
+
+# idx=000026 file=PS2T011A.BIN off=0x00000536 inst=0x00000536 tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place speaker_idx=000025 name=千佳 name_id=KT speaker_code=KT00750 name_source=prev_voice_label pair=000025 confidence=medium full_name=木村千佳
+○000026●text○「あー、遥ちゃんの教科書ボロボロー。いっぱい勉強してるよねー」
+●000026●text●「あー、遥ちゃんの教科書ボロボロー。いっぱい勉強してるよねー」
+
+# idx=000027 file=PS2T011A.BIN off=0x00000590 inst=0x00000590 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000027●label○HF00520
+●000027●label●HF00520
+
+# idx=000028 file=PS2T011A.BIN off=0x0000059F inst=0x00000590 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF00520 name_source=prev_voice_label virtual=true writable=false pair=000029 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000028●name○遥
+●000028●name●遥
+
+# idx=000029 file=PS2T011A.BIN off=0x0000059F inst=0x0000059F tag=text source=inline_len8_string len=22 enc=cp932 policy=in_place speaker_idx=000028 name=遥 name_id=HF speaker_code=HF00520 name_source=prev_voice_label pair=000028 confidence=medium full_name=藤之辺遥
+○000029●text○「別に……フツーだよ」
+●000029●text●「別に……フツーだよ」
+
+# idx=000030 file=PS2T011A.BIN off=0x000005D1 inst=0x000005D1 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000030●label○KT00760
+●000030●label●KT00760
+
+# idx=000031 file=PS2T011A.BIN off=0x000005E0 inst=0x000005D1 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT00760 name_source=prev_voice_label virtual=true writable=false pair=000032 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000031●name○千佳
+●000031●name●千佳
+
+# idx=000032 file=PS2T011A.BIN off=0x000005E0 inst=0x000005E0 tag=text source=inline_len8_string len=108 enc=cp932 policy=in_place speaker_idx=000031 name=千佳 name_id=KT speaker_code=KT00760 name_source=prev_voice_label pair=000031 confidence=medium full_name=木村千佳
+○000032●text○「あのねー、１年の時、遥ちゃんすごかったん\nだよー。クラス委員してー陸上部やってーでも\n成績１番だったしー」
+●000032●text●「あのねー、１年の時、遥ちゃんすごかったん\nだよー。クラス委員してー陸上部やってーでも\n成績１番だったしー」
+
+# idx=000033 file=PS2T011A.BIN off=0x00000668 inst=0x00000668 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000033●label○HF00530
+●000033●label●HF00530
+
+# idx=000034 file=PS2T011A.BIN off=0x00000677 inst=0x00000668 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF00530 name_source=prev_voice_label virtual=true writable=false pair=000035 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000034●name○遥
+●000034●name●遥
+
+# idx=000035 file=PS2T011A.BIN off=0x00000677 inst=0x00000677 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place speaker_idx=000034 name=遥 name_id=HF speaker_code=HF00530 name_source=prev_voice_label pair=000034 confidence=medium full_name=藤之辺遥
+○000035●text○「千佳……いいよ、その話」
+●000035●text●「千佳……いいよ、その話」
+
+# idx=000036 file=PS2T011A.BIN off=0x000006AD inst=0x000006AD tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000036●label○KT00770
+●000036●label●KT00770
+
+# idx=000037 file=PS2T011A.BIN off=0x000006BC inst=0x000006AD tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT00770 name_source=prev_voice_label virtual=true writable=false pair=000038 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000037●name○千佳
+●000037●name●千佳
+
+# idx=000038 file=PS2T011A.BIN off=0x000006BC inst=0x000006BC tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place speaker_idx=000037 name=千佳 name_id=KT speaker_code=KT00770 name_source=prev_voice_label pair=000037 confidence=medium full_name=木村千佳
+○000038●text○「あ……うん」
+●000038●text●「あ……うん」
+
+# idx=000039 file=PS2T011A.BIN off=0x000006E6 inst=0x000006E6 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000039●label○HF00540
+●000039●label●HF00540
+
+# idx=000040 file=PS2T011A.BIN off=0x000006F5 inst=0x000006E6 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF00540 name_source=prev_voice_label virtual=true writable=false pair=000041 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000040●name○遥
+●000040●name●遥
+
+# idx=000041 file=PS2T011A.BIN off=0x000006F5 inst=0x000006F5 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place speaker_idx=000040 name=遥 name_id=HF speaker_code=HF00540 name_source=prev_voice_label pair=000040 confidence=medium full_name=藤之辺遥
+○000041●text○「たぶん、このあたりはもうわかってないと思うから」
+●000041●text●「たぶん、このあたりはもうわかってないと思うから」
+
+# idx=000042 file=PS2T011A.BIN off=0x00000743 inst=0x00000743 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000042●text○藤之辺がゆびさしたのは、教科書のほとんど頭のほう。
+●000042●text●藤之辺がゆびさしたのは、教科書のほとんど頭のほう。
+
+# idx=000043 file=PS2T011A.BIN off=0x00000791 inst=0x00000791 tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place
+○000043●text○「あ……やな予感はしてたんだ」
+●000043●text●「あ……やな予感はしてたんだ」
+
+# idx=000044 file=PS2T011A.BIN off=0x000007CB inst=0x000007CB tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place
+○000044●text○藤之辺は、当然といった表情でうなずく。
+●000044●text●藤之辺は、当然といった表情でうなずく。
+
+# idx=000045 file=PS2T011A.BIN off=0x0000086E inst=0x0000086E tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000045●label○HF00550
+●000045●label●HF00550
+
+# idx=000046 file=PS2T011A.BIN off=0x0000087D inst=0x0000086E tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF00550 name_source=prev_voice_label virtual=true writable=false pair=000047 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000046●name○遥
+●000046●name●遥
+
+# idx=000047 file=PS2T011A.BIN off=0x0000087D inst=0x0000087D tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place speaker_idx=000046 name=遥 name_id=HF speaker_code=HF00550 name_source=prev_voice_label pair=000046 confidence=medium full_name=藤之辺遥
+○000047●text○「やっぱ、最初っからじゃないかな……」
+●000047●text●「やっぱ、最初っからじゃないかな……」
+
+# idx=000048 file=PS2T011A.BIN off=0x000008BF inst=0x000008BF tag=text source=inline_len8_string len=16 enc=cp932 policy=in_place
+○000048●text○「本当の最初ね」
+●000048●text●「本当の最初ね」
+
+# idx=000049 file=PS2T011A.BIN off=0x000008EB inst=0x000008EB tag=text source=inline_len8_string len=108 enc=cp932 policy=in_place
+○000049●text○藤之辺や木村と相談した結果、本当に１年のド頭。場合によっては中学の範囲からやりなおさせるとゆーことになった。
+●000049●text●藤之辺や木村と相談した結果、本当に１年のド頭。場合によっては中学の範囲からやりなおさせるとゆーことになった。
+
+# idx=000050 file=PS2T011A.BIN off=0x00000973 inst=0x00000973 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000050●text○うすうす気づいてはいたけれど、想像以上に\n難事業だ。
+●000050●text●うすうす気づいてはいたけれど、想像以上に\n難事業だ。
+
+# idx=000051 file=PS2T011A.BIN off=0x000009C3 inst=0x000009C3 tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place
+○000051●text○アイツ今までなにしてたわけ……。
+●000051●text●アイツ今までなにしてたわけ……。
+
+# idx=000052 file=PS2T011A.BIN off=0x000009FF inst=0x000009FF tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000052●text○ああ、遊んでたのか。\n考えるまでもないことだ。
+●000052●text●ああ、遊んでたのか。\n考えるまでもないことだ。
+
+# idx=000053 file=PS2T011A.BIN off=0x00000A49 inst=0x00000A49 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000053●label○HF00560
+●000053●label●HF00560
+
+# idx=000054 file=PS2T011A.BIN off=0x00000A58 inst=0x00000A49 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF00560 name_source=prev_voice_label virtual=true writable=false pair=000055 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000054●name○遥
+●000054●name●遥
+
+# idx=000055 file=PS2T011A.BIN off=0x00000A58 inst=0x00000A58 tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place speaker_idx=000054 name=遥 name_id=HF speaker_code=HF00560 name_source=prev_voice_label pair=000054 confidence=medium full_name=藤之辺遥
+○000055●text○「大変だと思うけど、がんばって」
+●000055●text●「大変だと思うけど、がんばって」
+
+# idx=000056 file=PS2T011A.BIN off=0x00000AC8 inst=0x00000AC8 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000056●label○KT00780
+●000056●label●KT00780
+
+# idx=000057 file=PS2T011A.BIN off=0x00000AD7 inst=0x00000AC8 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT00780 name_source=prev_voice_label virtual=true writable=false pair=000058 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000057●name○千佳
+●000057●name●千佳
+
+# idx=000058 file=PS2T011A.BIN off=0x00000AD7 inst=0x00000AD7 tag=text source=inline_len8_string len=83 enc=cp932 policy=in_place speaker_idx=000057 name=千佳 name_id=KT speaker_code=KT00780 name_source=prev_voice_label pair=000057 confidence=medium full_name=木村千佳
+○000058●text○「玉ちゃんもおしえてもらえるから、うれしーよねー、きっとー。ねえ？ 玉ちゃーん……」
+●000058●text●「玉ちゃんもおしえてもらえるから、うれしーよねー、きっとー。ねえ？ 玉ちゃーん……」
+
+# idx=000059 file=PS2T011A.BIN off=0x00000B94 inst=0x00000B94 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000059●label○KT00790
+●000059●label●KT00790
+
+# idx=000060 file=PS2T011A.BIN off=0x00000BA3 inst=0x00000B94 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT00790 name_source=prev_voice_label virtual=true writable=false pair=000061 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000060●name○千佳
+●000060●name●千佳
+
+# idx=000061 file=PS2T011A.BIN off=0x00000BA3 inst=0x00000BA3 tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place speaker_idx=000060 name=千佳 name_id=KT speaker_code=KT00790 name_source=prev_voice_label pair=000060 confidence=medium full_name=木村千佳
+○000061●text○「……あれ？」
+●000061●text●「……あれ？」
+
+# idx=000062 file=PS2T011A.BIN off=0x00000BCD inst=0x00000BCD tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000062●text○玉が……いないな。\nだって、さっきまでそこに。
+●000062●text●玉が……いないな。\nだって、さっきまでそこに。
+
+# idx=000063 file=PS2T011A.BIN off=0x00000C4B inst=0x00000C4B tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000063●label○HF00570
+●000063●label●HF00570
+
+# idx=000064 file=PS2T011A.BIN off=0x00000C5A inst=0x00000C4B tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF00570 name_source=prev_voice_label virtual=true writable=false pair=000065 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000064●name○遥
+●000064●name●遥
+
+# idx=000065 file=PS2T011A.BIN off=0x00000C5A inst=0x00000C5A tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place speaker_idx=000064 name=遥 name_id=HF speaker_code=HF00570 name_source=prev_voice_label pair=000064 confidence=medium full_name=藤之辺遥
+○000065●text○「……あの…バカ女」
+●000065●text●「……あの…バカ女」
+
+# idx=000066 file=PS2T011A.BIN off=0x00000D06 inst=0x00000D06 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000066●label○KT00800
+●000066●label●KT00800
+
+# idx=000067 file=PS2T011A.BIN off=0x00000D15 inst=0x00000D06 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT00800 name_source=prev_voice_label virtual=true writable=false pair=000068 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000067●name○千佳
+●000067●name●千佳
+
+# idx=000068 file=PS2T011A.BIN off=0x00000D15 inst=0x00000D15 tag=text source=inline_len8_string len=29 enc=cp932 policy=in_place speaker_idx=000067 name=千佳 name_id=KT speaker_code=KT00800 name_source=prev_voice_label pair=000067 confidence=medium full_name=木村千佳
+○000068●text○「あっ!! 玉ちゃん、あそこ!!」
+●000068●text●「あっ!! 玉ちゃん、あそこ!!」
+
+# idx=000069 file=PS2T011A.BIN off=0x00000D79 inst=0x00000D79 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000069●label○se-e33
+●000069●label●se-e33
+
+# idx=000070 file=PS2T011A.BIN off=0x00000DA2 inst=0x00000DA2 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000070●label○MT01470
+●000070●label●MT01470
+
+# idx=000071 file=PS2T011A.BIN off=0x00000DB1 inst=0x00000DA2 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT01470 name_source=prev_voice_label virtual=true writable=false pair=000072 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000071●name○玉
+●000071●name●玉
+
+# idx=000072 file=PS2T011A.BIN off=0x00000DB1 inst=0x00000DB1 tag=text source=inline_len8_string len=8 enc=cp932 policy=in_place speaker_idx=000071 name=玉 name_id=MT speaker_code=MT01470 name_source=prev_voice_label pair=000071 confidence=high full_name=玉城麻衣子
+○000072●text○「むぅ」
+●000072●text●「むぅ」
+
+# idx=000073 file=PS2T011A.BIN off=0x00000E03 inst=0x00000E03 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000073●label○MT01480
+●000073●label●MT01480
+
+# idx=000074 file=PS2T011A.BIN off=0x00000E12 inst=0x00000E03 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT01480 name_source=prev_voice_label virtual=true writable=false pair=000075 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000074●name○玉
+●000074●name●玉
+
+# idx=000075 file=PS2T011A.BIN off=0x00000E12 inst=0x00000E12 tag=text source=inline_len8_string len=10 enc=cp932 policy=in_place speaker_idx=000074 name=玉 name_id=MT speaker_code=MT01480 name_source=prev_voice_label pair=000074 confidence=high full_name=玉城麻衣子
+○000075●text○「にやり」
+●000075●text●「にやり」
+
+# idx=000076 file=PS2T011A.BIN off=0x00000E57 inst=0x00000E57 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000076●label○se-e29
+●000076●label●se-e29
+
+# idx=000077 file=PS2T011A.BIN off=0x00000EA2 inst=0x00000EA2 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000077●label○MT01490
+●000077●label●MT01490
+
+# idx=000078 file=PS2T011A.BIN off=0x00000EB1 inst=0x00000EA2 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT01490 name_source=prev_voice_label virtual=true writable=false pair=000079 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000078●name○玉
+●000078●name●玉
+
+# idx=000079 file=PS2T011A.BIN off=0x00000EB1 inst=0x00000EB1 tag=text source=inline_len8_string len=18 enc=cp932 policy=in_place speaker_idx=000078 name=玉 name_id=MT speaker_code=MT01490 name_source=prev_voice_label pair=000078 confidence=high full_name=玉城麻衣子
+○000079●text○「だーーーーっ!!」
+●000079●text●「だーーーーっ!!」
+
+# idx=000080 file=PS2T011A.BIN off=0x00000EDF inst=0x00000EDF tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000080●label○KT00810
+●000080●label●KT00810
+
+# idx=000081 file=PS2T011A.BIN off=0x00000EEE inst=0x00000EDF tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT00810 name_source=prev_voice_label virtual=true writable=false pair=000082 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000081●name○千佳
+●000081●name●千佳
+
+# idx=000082 file=PS2T011A.BIN off=0x00000EEE inst=0x00000EEE tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place speaker_idx=000081 name=千佳 name_id=KT speaker_code=KT00810 name_source=prev_voice_label pair=000081 confidence=medium full_name=木村千佳
+○000082●text○「あっ、玉ちゃん?!」
+●000082●text●「あっ、玉ちゃん?!」
+
+# idx=000083 file=PS2T011A.BIN off=0x00000F2A inst=0x00000F2A tag=text source=inline_len8_string len=36 enc=cp932 policy=in_place
+○000083●text○「……口で『にやり』ってゆーなよな」
+●000083●text●「……口で『にやり』ってゆーなよな」
+
+# idx=000084 file=PS2T011A.BIN off=0x00000F56 inst=0x00000F56 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000084●label○HF00580
+●000084●label●HF00580
+
+# idx=000085 file=PS2T011A.BIN off=0x00000F65 inst=0x00000F65 tag=text source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000085●text○追いかける
+●000085●text●追いかける
+
+# idx=000086 file=PS2T011A.BIN off=0x00000F7F inst=0x00000F7F tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000086●text○逃がしてやる
+●000086●text●逃がしてやる
+
+# idx=000087 file=PS2T011A.BIN off=0x00001044 inst=0x00001044 tag=text source=inline_len8_string len=108 enc=cp932 policy=in_place
+○000087●text○そうか、こーくるつもりだったか。\n油断していたわけじゃないけど、これくらいは\n予想できなきゃいけなかったな。
+●000087●text●そうか、こーくるつもりだったか。\n油断していたわけじゃないけど、これくらいは\n予想できなきゃいけなかったな。
+
+# idx=000088 file=PS2T011A.BIN off=0x000010CC inst=0x000010CC tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000088●label○KT00820
+●000088●label●KT00820
+
+# idx=000089 file=PS2T011A.BIN off=0x000010DB inst=0x000010CC tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT00820 name_source=prev_voice_label virtual=true writable=false pair=000090 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000089●name○千佳
+●000089●name●千佳
+
+# idx=000090 file=PS2T011A.BIN off=0x000010DB inst=0x000010DB tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place speaker_idx=000089 name=千佳 name_id=KT speaker_code=KT00820 name_source=prev_voice_label pair=000089 confidence=medium full_name=木村千佳
+○000090●text○「玉ちゃん、逃げちゃったー」
+●000090●text●「玉ちゃん、逃げちゃったー」
+
+# idx=000091 file=PS2T011A.BIN off=0x00001113 inst=0x00001113 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000091●label○HF00590
+●000091●label●HF00590
+
+# idx=000092 file=PS2T011A.BIN off=0x00001122 inst=0x00001113 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF00590 name_source=prev_voice_label virtual=true writable=false pair=000093 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000092●name○遥
+●000092●name●遥
+
+# idx=000093 file=PS2T011A.BIN off=0x00001122 inst=0x00001122 tag=text source=inline_len8_string len=18 enc=cp932 policy=in_place speaker_idx=000092 name=遥 name_id=HF speaker_code=HF00590 name_source=prev_voice_label pair=000092 confidence=medium full_name=藤之辺遥
+○000093●text○「……どーする？」
+●000093●text●「……どーする？」
+
+# idx=000094 file=PS2T011A.BIN off=0x00001184 inst=0x00001184 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000094●label○KT00830
+●000094●label●KT00830
+
+# idx=000095 file=PS2T011A.BIN off=0x00001193 inst=0x00001184 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT00830 name_source=prev_voice_label virtual=true writable=false pair=000096 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000095●name○千佳
+●000095●name●千佳
+
+# idx=000096 file=PS2T011A.BIN off=0x00001193 inst=0x00001193 tag=text source=inline_len8_string len=16 enc=cp932 policy=in_place speaker_idx=000095 name=千佳 name_id=KT speaker_code=KT00830 name_source=prev_voice_label pair=000095 confidence=medium full_name=木村千佳
+○000096●text○「どーしよー？」
+●000096●text●「どーしよー？」
+
+# idx=000097 file=PS2T011A.BIN off=0x000011BF inst=0x000011BF tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000097●label○HF00600
+●000097●label●HF00600
+
+# idx=000098 file=PS2T011A.BIN off=0x000011CE inst=0x000011BF tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF00600 name_source=prev_voice_label virtual=true writable=false pair=000099 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000098●name○遥
+●000098●name●遥
+
+# idx=000099 file=PS2T011A.BIN off=0x000011CE inst=0x000011CE tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place speaker_idx=000098 name=遥 name_id=HF speaker_code=HF00600 name_source=prev_voice_label pair=000098 confidence=medium full_name=藤之辺遥
+○000099●text○「追いかけるんなら、いそがないと。あのバカ、逃げ足だけははやいんだから」
+●000099●text●「追いかけるんなら、いそがないと。あのバカ、逃げ足だけははやいんだから」
+
+# idx=000100 file=PS2T011A.BIN off=0x00001232 inst=0x00001232 tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place
+○000100●text○「いや……大丈夫じゃないかな」
+●000100●text●「いや……大丈夫じゃないかな」
+
+# idx=000101 file=PS2T011A.BIN off=0x000012A0 inst=0x000012A0 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000101●label○HF00610
+●000101●label●HF00610
+
+# idx=000102 file=PS2T011A.BIN off=0x000012AF inst=0x000012A0 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF00610 name_source=prev_voice_label virtual=true writable=false pair=000103 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000102●name○遥
+●000102●name●遥
+
+# idx=000103 file=PS2T011A.BIN off=0x000012AF inst=0x000012AF tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place speaker_idx=000102 name=遥 name_id=HF speaker_code=HF00610 name_source=prev_voice_label pair=000102 confidence=medium full_name=藤之辺遥
+○000103●text○「どーして？」
+●000103●text●「どーして？」
+
+# idx=000104 file=PS2T011A.BIN off=0x000012D9 inst=0x000012D9 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000104●label○KT00840
+●000104●label●KT00840
+
+# idx=000105 file=PS2T011A.BIN off=0x000012E8 inst=0x000012D9 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT00840 name_source=prev_voice_label virtual=true writable=false pair=000106 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000105●name○千佳
+●000105●name●千佳
+
+# idx=000106 file=PS2T011A.BIN off=0x000012E8 inst=0x000012E8 tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place speaker_idx=000105 name=千佳 name_id=KT speaker_code=KT00840 name_source=prev_voice_label pair=000105 confidence=medium full_name=木村千佳
+○000106●text○「え～、だって、玉ちゃん、どっか行っちゃうー」
+●000106●text●「え～、だって、玉ちゃん、どっか行っちゃうー」
+
+# idx=000107 file=PS2T011A.BIN off=0x00001332 inst=0x00001332 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000107●text○「玉の考えることくらい……だいたい\n想像つくしね」
+●000107●text●「玉の考えることくらい……だいたい\n想像つくしね」
+
+# idx=000108 file=PS2T011A.BIN off=0x000013B4 inst=0x000013B4 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000108●label○KT00850
+●000108●label●KT00850
+
+# idx=000109 file=PS2T011A.BIN off=0x000013C3 inst=0x000013B4 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT00850 name_source=prev_voice_label virtual=true writable=false pair=000110 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000109●name○千佳
+●000109●name●千佳
+
+# idx=000110 file=PS2T011A.BIN off=0x000013C3 inst=0x000013C3 tag=text source=inline_len8_string len=16 enc=cp932 policy=in_place speaker_idx=000109 name=千佳 name_id=KT speaker_code=KT00850 name_source=prev_voice_label pair=000109 confidence=medium full_name=木村千佳
+○000110●text○「すごーーい!!」
+●000110●text●「すごーーい!!」
+
+# idx=000111 file=PS2T011A.BIN off=0x00001423 inst=0x00001423 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000111●label○HF00620
+●000111●label●HF00620
+
+# idx=000112 file=PS2T011A.BIN off=0x00001432 inst=0x00001423 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF00620 name_source=prev_voice_label virtual=true writable=false pair=000113 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000112●name○遥
+●000112●name●遥
+
+# idx=000113 file=PS2T011A.BIN off=0x00001432 inst=0x00001432 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place speaker_idx=000112 name=遥 name_id=HF speaker_code=HF00620 name_source=prev_voice_label pair=000112 confidence=medium full_name=藤之辺遥
+○000113●text○「……玉がなんか考えてるってゆーのが驚き\nだけどね」
+●000113●text●「……玉がなんか考えてるってゆーのが驚き\nだけどね」
+
+# idx=000114 file=PS2T011A.BIN off=0x00001482 inst=0x00001482 tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place
+○000114●text○まあ、藤之辺の指摘も、もっともなんだが。
+●000114●text●まあ、藤之辺の指摘も、もっともなんだが。
+
+# idx=000115 file=PS2T011A.BIN off=0x000014B2 inst=0x000014B2 tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place
+○000115●text○まず食堂だろう
+●000115●text●まず食堂だろう
+
+# idx=000116 file=PS2T011A.BIN off=0x000014D0 inst=0x000014D0 tag=text source=inline_len8_string len=16 enc=cp932 policy=in_place
+○000116●text○玄関へいかなきゃ
+●000116●text●玄関へいかなきゃ
+
+# idx=000117 file=PS2T011A.BIN off=0x000015C6 inst=0x000015C6 tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000117●text○放課後の食堂。\n……誰もいない。\n……あれ？
+●000117●text●放課後の食堂。\n……誰もいない。\n……あれ？
+
+# idx=000118 file=PS2T011A.BIN off=0x00001642 inst=0x00001642 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000118●label○KT00860
+●000118●label●KT00860
+
+# idx=000119 file=PS2T011A.BIN off=0x00001651 inst=0x00001642 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT00860 name_source=prev_voice_label virtual=true writable=false pair=000120 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000119●name○千佳
+●000119●name●千佳
+
+# idx=000120 file=PS2T011A.BIN off=0x00001651 inst=0x00001651 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place speaker_idx=000119 name=千佳 name_id=KT speaker_code=KT00860 name_source=prev_voice_label pair=000119 confidence=medium full_name=木村千佳
+○000120●text○「……玉ちゃん、いないね」
+●000120●text●「……玉ちゃん、いないね」
+
+# idx=000121 file=PS2T011A.BIN off=0x00001687 inst=0x00001687 tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000121●text○「……あれ……絶対、イチゴ牛乳のんでるんだと思ったんだけどなあ……」
+●000121●text●「……あれ……絶対、イチゴ牛乳のんでるんだと思ったんだけどなあ……」
+
+# idx=000122 file=PS2T011A.BIN off=0x0000171B inst=0x0000171B tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000122●label○HF00630
+●000122●label●HF00630
+
+# idx=000123 file=PS2T011A.BIN off=0x0000172A inst=0x0000171B tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF00630 name_source=prev_voice_label virtual=true writable=false pair=000124 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000123●name○遥
+●000123●name●遥
+
+# idx=000124 file=PS2T011A.BIN off=0x0000172A inst=0x0000172A tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place speaker_idx=000123 name=遥 name_id=HF speaker_code=HF00630 name_source=prev_voice_label pair=000123 confidence=medium full_name=藤之辺遥
+○000124●text○「……バカ」
+●000124●text●「……バカ」
+
+# idx=000125 file=PS2T011A.BIN off=0x00001752 inst=0x00001752 tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place
+○000125●text○ま、玄関もあるしね。
+●000125●text●ま、玄関もあるしね。
+
+# idx=000126 file=PS2T011A.BIN off=0x00001793 inst=0x00001793 tag=text source=inline_len8_string len=70 enc=cp932 policy=in_place
+○000126●text○不思議がるふたりをつれて廊下を歩く。\n不審に思う気持ちはわかるけれど。
+●000126●text●不思議がるふたりをつれて廊下を歩く。\n不審に思う気持ちはわかるけれど。
+
+# idx=000127 file=PS2T011A.BIN off=0x000017F5 inst=0x000017F5 tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place
+○000127●text○まあ、だいじょーぶでしょう。\n案の定、
+●000127●text●まあ、だいじょーぶでしょう。\n案の定、
+
+# idx=000128 file=PS2T011A.BIN off=0x00001840 inst=0x00001840 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000128●label○PS2A006a.bin
+●000128●label●PS2A006a.bin
+
+# idx=000129 file=PS2T011A.BIN off=0x00001909 inst=0x00001909 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000129●label○MT01500
+●000129●label●MT01500
+
+# idx=000130 file=PS2T011A.BIN off=0x00001918 inst=0x00001909 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT01500 name_source=prev_voice_label virtual=true writable=false pair=000131 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000130●name○玉
+●000130●name●玉
+
+# idx=000131 file=PS2T011A.BIN off=0x00001918 inst=0x00001918 tag=text source=inline_len8_string len=35 enc=cp932 policy=in_place speaker_idx=000130 name=玉 name_id=MT speaker_code=MT01500 name_source=prev_voice_label pair=000130 confidence=high full_name=玉城麻衣子
+○000131●text○「かーえるかえる♪ げっこげこー♪」
+●000131●text●「かーえるかえる♪ げっこげこー♪」
+
+# idx=000132 file=PS2T011A.BIN off=0x00001957 inst=0x00001957 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000132●text○どこからともなく、気のぬけたはな歌が聞こえてきた。
+●000132●text●どこからともなく、気のぬけたはな歌が聞こえてきた。
+
+# idx=000133 file=PS2T011A.BIN off=0x000019D3 inst=0x000019D3 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000133●label○MT01510
+●000133●label●MT01510
+
+# idx=000134 file=PS2T011A.BIN off=0x000019E2 inst=0x000019D3 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT01510 name_source=prev_voice_label virtual=true writable=false pair=000135 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000134●name○玉
+●000134●name●玉
+
+# idx=000135 file=PS2T011A.BIN off=0x000019E2 inst=0x000019E2 tag=text source=inline_len8_string len=35 enc=cp932 policy=in_place speaker_idx=000134 name=玉 name_id=MT speaker_code=MT01510 name_source=prev_voice_label pair=000134 confidence=high full_name=玉城麻衣子
+○000135●text○「け～むしけむし♪ むっしむし～♪」
+●000135●text●「け～むしけむし♪ むっしむし～♪」
+
+# idx=000136 file=PS2T011A.BIN off=0x00001A21 inst=0x00001A21 tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place
+○000136●text○玉は不器用な手つきで靴をはこうとしていた。\nぼくたちが近づいているのに、全然気づいて\nいない。
+●000136●text●玉は不器用な手つきで靴をはこうとしていた。\nぼくたちが近づいているのに、全然気づいて\nいない。
+
+# idx=000137 file=PS2T011A.BIN off=0x00001A9B inst=0x00001A9B tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000137●text○……とゆーより、なぜ逃げてたのかもおぼえて\nないかもしれない。
+●000137●text●……とゆーより、なぜ逃げてたのかもおぼえて\nないかもしれない。
+
+# idx=000138 file=PS2T011A.BIN off=0x00001AF5 inst=0x00001AF5 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000138●label○KT00870
+●000138●label●KT00870
+
+# idx=000139 file=PS2T011A.BIN off=0x00001B04 inst=0x00001AF5 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT00870 name_source=prev_voice_label virtual=true writable=false pair=000140 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000139●name○千佳
+●000139●name●千佳
+
+# idx=000140 file=PS2T011A.BIN off=0x00001B04 inst=0x00001B04 tag=text source=inline_len8_string len=18 enc=cp932 policy=in_place speaker_idx=000139 name=千佳 name_id=KT speaker_code=KT00870 name_source=prev_voice_label pair=000139 confidence=medium full_name=木村千佳
+○000140●text○「あ……玉ちゃん」
+●000140●text●「あ……玉ちゃん」
+
+# idx=000141 file=PS2T011A.BIN off=0x00001B32 inst=0x00001B32 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000141●label○MT01520
+●000141●label●MT01520
+
+# idx=000142 file=PS2T011A.BIN off=0x00001B41 inst=0x00001B32 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT01520 name_source=prev_voice_label virtual=true writable=false pair=000143 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000142●name○玉
+●000142●name●玉
+
+# idx=000143 file=PS2T011A.BIN off=0x00001B41 inst=0x00001B41 tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place speaker_idx=000142 name=玉 name_id=MT speaker_code=MT01520 name_source=prev_voice_label pair=000142 confidence=high full_name=玉城麻衣子
+○000143●text○「……ん～？」
+●000143●text●「……ん～？」
+
+# idx=000144 file=PS2T011A.BIN off=0x00001B99 inst=0x00001B99 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000144●label○MT01530
+●000144●label●MT01530
+
+# idx=000145 file=PS2T011A.BIN off=0x00001BA8 inst=0x00001B99 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT01530 name_source=prev_voice_label virtual=true writable=false pair=000146 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000145●name○玉
+●000145●name●玉
+
+# idx=000146 file=PS2T011A.BIN off=0x00001BA8 inst=0x00001BA8 tag=text source=inline_len8_string len=10 enc=cp932 policy=in_place speaker_idx=000145 name=玉 name_id=MT speaker_code=MT01530 name_source=prev_voice_label pair=000145 confidence=high full_name=玉城麻衣子
+○000146●text○「あれ？」
+●000146●text●「あれ？」
+
+# idx=000147 file=PS2T011A.BIN off=0x00001C1E inst=0x00001C1E tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place
+○000147●text○玉が反射で逃げ出す前に、えり首をつかむ。
+●000147●text●玉が反射で逃げ出す前に、えり首をつかむ。
+
+# idx=000148 file=PS2T011A.BIN off=0x00001C84 inst=0x00001C84 tag=text source=inline_len8_string len=82 enc=cp932 policy=in_place
+○000148●text○じたばたしても許してやらない。\nここで逃がしちゃうのは、玉のためにも\nならないし。
+●000148●text●じたばたしても許してやらない。\nここで逃がしちゃうのは、玉のためにも\nならないし。
+
+# idx=000149 file=PS2T011A.BIN off=0x00001CF2 inst=0x00001CF2 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000149●label○MT01540
+●000149●label●MT01540
+
+# idx=000150 file=PS2T011A.BIN off=0x00001D01 inst=0x00001CF2 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT01540 name_source=prev_voice_label virtual=true writable=false pair=000151 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000150●name○玉
+●000150●name●玉
+
+# idx=000151 file=PS2T011A.BIN off=0x00001D01 inst=0x00001D01 tag=text source=inline_len8_string len=110 enc=cp932 policy=in_place speaker_idx=000150 name=玉 name_id=MT speaker_code=MT01540 name_source=prev_voice_label pair=000150 confidence=high full_name=玉城麻衣子
+○000151●text○「あーやだーはーなーせー!! ベンキョー\nやーだー!! マイ、アイスたべいーくー!!\n……ん～、アイスたべた～いー？」
+●000151●text●「あーやだーはーなーせー!! ベンキョー\nやーだー!! マイ、アイスたべいーくー!!\n……ん～、アイスたべた～いー？」
+
+# idx=000152 file=PS2T011A.BIN off=0x00001D8B inst=0x00001D8B tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place
+○000152●text○「だめ、勉強」
+●000152●text●「だめ、勉強」
+
+# idx=000153 file=PS2T011A.BIN off=0x00001DB5 inst=0x00001DB5 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000153●label○MT01550
+●000153●label●MT01550
+
+# idx=000154 file=PS2T011A.BIN off=0x00001DC4 inst=0x00001DB5 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT01550 name_source=prev_voice_label virtual=true writable=false pair=000155 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000154●name○玉
+●000154●name●玉
+
+# idx=000155 file=PS2T011A.BIN off=0x00001DC4 inst=0x00001DC4 tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place speaker_idx=000154 name=玉 name_id=MT speaker_code=MT01550 name_source=prev_voice_label pair=000154 confidence=high full_name=玉城麻衣子
+○000155●text○「むぅ～……」
+●000155●text●「むぅ～……」
+
+# idx=000156 file=PS2T011A.BIN off=0x00001E6A inst=0x00001E6A tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000156●text○逃げても無理とようやく理解したのか、玉は\nおとなしくなった。
+●000156●text●逃げても無理とようやく理解したのか、玉は\nおとなしくなった。
+
+# idx=000157 file=PS2T011A.BIN off=0x00001EC2 inst=0x00001EC2 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000157●text○もちろん、こちらが油断すれば逃げ出すのだろうけど。
+●000157●text●もちろん、こちらが油断すれば逃げ出すのだろうけど。
+
+# idx=000158 file=PS2T011A.BIN off=0x00001F10 inst=0x00001F10 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000158●label○MT01560
+●000158●label●MT01560
+
+# idx=000159 file=PS2T011A.BIN off=0x00001F1F inst=0x00001F10 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT01560 name_source=prev_voice_label virtual=true writable=false pair=000160 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000159●name○玉
+●000159●name●玉
+
+# idx=000160 file=PS2T011A.BIN off=0x00001F1F inst=0x00001F1F tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place speaker_idx=000159 name=玉 name_id=MT speaker_code=MT01560 name_source=prev_voice_label pair=000159 confidence=high full_name=玉城麻衣子
+○000160●text○「むぅ～……つかまったぁ……」
+●000160●text●「むぅ～……つかまったぁ……」
+
+# idx=000161 file=PS2T011A.BIN off=0x00001F59 inst=0x00001F59 tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place
+○000161●text○木村が不思議そうな目でぼくを見ている。
+●000161●text●木村が不思議そうな目でぼくを見ている。
+
+# idx=000162 file=PS2T011A.BIN off=0x00001F9B inst=0x00001F9B tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000162●label○KT00880
+●000162●label●KT00880
+
+# idx=000163 file=PS2T011A.BIN off=0x00001FAA inst=0x00001F9B tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT00880 name_source=prev_voice_label virtual=true writable=false pair=000164 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000163●name○千佳
+●000163●name●千佳
+
+# idx=000164 file=PS2T011A.BIN off=0x00001FAA inst=0x00001FAA tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place speaker_idx=000163 name=千佳 name_id=KT speaker_code=KT00880 name_source=prev_voice_label pair=000163 confidence=medium full_name=木村千佳
+○000164●text○「でもぉ……どーして玉ちゃん玄関ってわかったのー？」
+●000164●text●「でもぉ……どーして玉ちゃん玄関ってわかったのー？」
+
+# idx=000165 file=PS2T011A.BIN off=0x00001FFA inst=0x00001FFA tag=text source=inline_len8_string len=133 enc=cp932 policy=in_place
+○000165●text○「ああ……それ？ 玉はねえ、追いかけられると\n必死で逃げるんだけど、追いかけてる相手の姿が見えなくなると、安心しちゃう性質があるんだ」
+●000165●text●「ああ……それ？ 玉はねえ、追いかけられると\n必死で逃げるんだけど、追いかけてる相手の姿が見えなくなると、安心しちゃう性質があるんだ」
+
+# idx=000166 file=PS2T011A.BIN off=0x000020D0 inst=0x000020D0 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000166●label○MT01570
+●000166●label●MT01570
+
+# idx=000167 file=PS2T011A.BIN off=0x000020DF inst=0x000020D0 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT01570 name_source=prev_voice_label virtual=true writable=false pair=000168 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000167●name○玉
+●000167●name●玉
+
+# idx=000168 file=PS2T011A.BIN off=0x000020DF inst=0x000020DF tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place speaker_idx=000167 name=玉 name_id=MT speaker_code=MT01570 name_source=prev_voice_label pair=000167 confidence=high full_name=玉城麻衣子
+○000168●text○「ふ～～ん」
+●000168●text●「ふ～～ん」
+
+# idx=000169 file=PS2T011A.BIN off=0x00002107 inst=0x00002107 tag=text source=inline_len8_string len=102 enc=cp932 policy=in_place
+○000169●text○「だから、ちっちゃいころから、かくれんぼとか鬼ごっこが下手でねえ。鬼が見えないとすぐ油断しちゃうんだ」
+●000169●text●「だから、ちっちゃいころから、かくれんぼとか鬼ごっこが下手でねえ。鬼が見えないとすぐ油断しちゃうんだ」
+
+# idx=000170 file=PS2T011A.BIN off=0x000021BD inst=0x000021BD tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000170●label○KT00890
+●000170●label●KT00890
+
+# idx=000171 file=PS2T011A.BIN off=0x000021CC inst=0x000021BD tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT00890 name_source=prev_voice_label virtual=true writable=false pair=000172 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000171●name○千佳
+●000171●name●千佳
+
+# idx=000172 file=PS2T011A.BIN off=0x000021CC inst=0x000021CC tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place speaker_idx=000171 name=千佳 name_id=KT speaker_code=KT00890 name_source=prev_voice_label pair=000171 confidence=medium full_name=木村千佳
+○000172●text○「すご～い、玉ちゃんて、森の動物みた～い」
+●000172●text●「すご～い、玉ちゃんて、森の動物みた～い」
+
+# idx=000173 file=PS2T011A.BIN off=0x00002246 inst=0x00002246 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000173●label○HF00640
+●000173●label●HF00640
+
+# idx=000174 file=PS2T011A.BIN off=0x00002255 inst=0x00002246 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF00640 name_source=prev_voice_label virtual=true writable=false pair=000175 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000174●name○遥
+●000174●name●遥
+
+# idx=000175 file=PS2T011A.BIN off=0x00002255 inst=0x00002255 tag=text source=inline_len8_string len=22 enc=cp932 policy=in_place speaker_idx=000174 name=遥 name_id=HF speaker_code=HF00640 name_source=prev_voice_label pair=000174 confidence=medium full_name=藤之辺遥
+○000175●text○「……動物以下かもな」
+●000175●text●「……動物以下かもな」
+
+# idx=000176 file=PS2T011A.BIN off=0x00002287 inst=0x00002287 tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000176●text○それについては、肯定も否定もしないでおこう。
+●000176●text●それについては、肯定も否定もしないでおこう。
+
+# idx=000177 file=PS2T011A.BIN off=0x00002368 inst=0x00002368 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000177●label○PS2T012a.bin
+●000177●label●PS2T012a.bin
+

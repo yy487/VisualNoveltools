@@ -1,0 +1,28 @@
+# DSAT export for PS2T038A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2T038A.BIN off=0x00000054 inst=0x00000054 tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place
+○000001●text○そして、ついに……その日がやってきた。
+●000001●text●そして、ついに……その日がやってきた。
+
+# idx=000002 file=PS2T038A.BIN off=0x00000096 inst=0x00000096 tag=text source=inline_len8_string len=123 enc=cp932 policy=in_place
+○000002●text○球技大会は、幸いなことに晴れの日だった。\n基本的にはダルい学校行事だけれど、教室で\n椅子に縛りつけられてるよりは100倍まし。
+●000002●text●球技大会は、幸いなことに晴れの日だった。\n基本的にはダルい学校行事だけれど、教室で\n椅子に縛りつけられてるよりは100倍まし。
+
+# idx=000003 file=PS2T038A.BIN off=0x0000012D inst=0x0000012D tag=text source=inline_len8_string len=76 enc=cp932 policy=in_place
+○000003●text○でも、男子ソフトボールは１回戦で終わって\nしまった。\n朝１の試合だったのに。
+●000003●text●でも、男子ソフトボールは１回戦で終わって\nしまった。\n朝１の試合だったのに。
+
+# idx=000004 file=PS2T038A.BIN off=0x00000195 inst=0x00000195 tag=text source=inline_len8_string len=114 enc=cp932 policy=in_place
+○000004●text○そういえば……ちょうど玉のバレーの時間。\n軽い……胸騒ぎを感じる。\nとんでもないこと……おきてなきゃいいんだけど。
+●000004●text●そういえば……ちょうど玉のバレーの時間。\n軽い……胸騒ぎを感じる。\nとんでもないこと……おきてなきゃいいんだけど。
+
+# idx=000005 file=PS2T038A.BIN off=0x00000223 inst=0x00000223 tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000005●text○ぼくは、ほんの少し早足で、体育館へ向かった。
+●000005●text●ぼくは、ほんの少し早足で、体育館へ向かった。
+
+# idx=000006 file=PS2T038A.BIN off=0x00000263 inst=0x00000263 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000006●label○PS2T039a.bin
+●000006●label●PS2T039a.bin
+

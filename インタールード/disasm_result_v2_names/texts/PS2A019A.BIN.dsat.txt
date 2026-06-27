@@ -1,0 +1,104 @@
+# DSAT export for PS2A019A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2A019A.BIN off=0x00000053 inst=0x00000053 tag=text source=inline_len8_string len=82 enc=cp932 policy=in_place
+○000001●text○夕暮れが近づいている。\n廊下に人影はなかった。\n校内は凍りついたように静かだった。
+●000001●text●夕暮れが近づいている。\n廊下に人影はなかった。\n校内は凍りついたように静かだった。
+
+# idx=000002 file=PS2A019A.BIN off=0x000000C1 inst=0x000000C1 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000002●text○角を曲がったとき、廊下の向こうに白衣の人影があった。
+●000002●text●角を曲がったとき、廊下の向こうに白衣の人影があった。
+
+# idx=000003 file=PS2A019A.BIN off=0x00000111 inst=0x00000111 tag=text source=inline_len8_string len=74 enc=cp932 policy=in_place
+○000003●text○カウンセラーだった。\n廊下でタバコを吸っている。\nぼくには気づいていない。
+●000003●text●カウンセラーだった。\n廊下でタバコを吸っている。\nぼくには気づいていない。
+
+# idx=000004 file=PS2A019A.BIN off=0x00000177 inst=0x00000177 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000004●text○というよりも興味がないのか、目に入って\nいないか。
+●000004●text●というよりも興味がないのか、目に入って\nいないか。
+
+# idx=000005 file=PS2A019A.BIN off=0x000001E4 inst=0x000001E4 tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000005●label○se-44
+●000005●label●se-44
+
+# idx=000006 file=PS2A019A.BIN off=0x0000020C inst=0x0000020C tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place
+○000006●text○立ち去ろうと思った瞬間、カウンセラーは\nタバコを投げ捨てた。\nそして、ハイヒールでふみにじる。
+●000006●text●立ち去ろうと思った瞬間、カウンセラーは\nタバコを投げ捨てた。\nそして、ハイヒールでふみにじる。
+
+# idx=000007 file=PS2A019A.BIN off=0x00000292 inst=0x00000292 tag=text source=inline_len8_string len=86 enc=cp932 policy=in_place
+○000007●text○火を消しているのかとも思ったが、明らかに違う。タバコは離れた場所で赤い炎を輝かせてる。
+●000007●text●火を消しているのかとも思ったが、明らかに違う。タバコは離れた場所で赤い炎を輝かせてる。
+
+# idx=000008 file=PS2A019A.BIN off=0x000002F5 inst=0x000002F5 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000008●label○SE-S22
+●000008●label●SE-S22
+
+# idx=000009 file=PS2A019A.BIN off=0x0000031E inst=0x0000031E tag=text source=inline_len8_string len=98 enc=cp932 policy=in_place
+○000009●text○彼女は、影の中のなにかを踏みつけているように見えた。\nヒールのかかとが、小さななにかを踏みつぶす。
+●000009●text●彼女は、影の中のなにかを踏みつけているように見えた。\nヒールのかかとが、小さななにかを踏みつぶす。
+
+# idx=000010 file=PS2A019A.BIN off=0x0000039C inst=0x0000039C tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=カウンセラー name_id=TA confidence=medium
+○000010●label○TA00105
+●000010●label●TA00105
+
+# idx=000011 file=PS2A019A.BIN off=0x000003AB inst=0x0000039C tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=TA speaker_code=TA00105 name_source=prev_voice_label virtual=true writable=false pair=000012 confidence=medium full_name=カウンセラー basis=TA_lines_occur_in_counseling-room_scene
+○000011●name○カウンセラー
+●000011●name●カウンセラー
+
+# idx=000012 file=PS2A019A.BIN off=0x000003AB inst=0x000003AB tag=text source=inline_len8_string len=24 enc=cp932 policy=in_place speaker_idx=000011 name=カウンセラー name_id=TA speaker_code=TA00105 name_source=prev_voice_label pair=000011 confidence=medium full_name=カウンセラー
+○000012●text○「はっはっはっはっはっ」
+●000012●text●「はっはっはっはっはっ」
+
+# idx=000013 file=PS2A019A.BIN off=0x000003DF inst=0x000003DF tag=text source=inline_len8_string len=104 enc=cp932 policy=in_place
+○000013●text○足もとでふみつけられたなにかがうごめく。\nハイヒールが小さななにかをふみにじる。\n小さな悲鳴があがった。
+●000013●text●足もとでふみつけられたなにかがうごめく。\nハイヒールが小さななにかをふみにじる。\n小さな悲鳴があがった。
+
+# idx=000014 file=PS2A019A.BIN off=0x00000463 inst=0x00000463 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000014●text○かすかな悲鳴を、カウンセラーの笑い声が\nかき消す。
+●000014●text●かすかな悲鳴を、カウンセラーの笑い声が\nかき消す。
+
+# idx=000015 file=PS2A019A.BIN off=0x000004BD inst=0x000004BD tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000015●text○ぼくは、見てはいけないものを見てしまったと\n気づく。
+●000015●text●ぼくは、見てはいけないものを見てしまったと\n気づく。
+
+# idx=000016 file=PS2A019A.BIN off=0x0000050D inst=0x0000050D tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000016●text○急いで立ち去らなければ。\nいやな感触で、胸が重かった。
+●000016●text●急いで立ち去らなければ。\nいやな感触で、胸が重かった。
+
+# idx=000017 file=PS2A019A.BIN off=0x0000055F inst=0x0000055F tag=text source=inline_len8_string len=108 enc=cp932 policy=in_place
+○000017●text○わずかに吐き気をおぼえた。\nぼくは今、圧倒的な暴力を目にしていた。\n一方が一方を完璧に踏みつけ、踏みにじる。
+●000017●text●わずかに吐き気をおぼえた。\nぼくは今、圧倒的な暴力を目にしていた。\n一方が一方を完璧に踏みつけ、踏みにじる。
+
+# idx=000018 file=PS2A019A.BIN off=0x000005E7 inst=0x000005E7 tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000018●text○完全に片道だけしか存在しない暴力。\nそれは、想像することさえ困難な悪意だった。
+●000018●text●完全に片道だけしか存在しない暴力。\nそれは、想像することさえ困難な悪意だった。
+
+# idx=000019 file=PS2A019A.BIN off=0x0000067E inst=0x0000067E tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=カウンセラー name_id=TA confidence=medium
+○000019●label○TA00115
+●000019●label●TA00115
+
+# idx=000020 file=PS2A019A.BIN off=0x0000068D inst=0x0000067E tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=TA speaker_code=TA00115 name_source=prev_voice_label virtual=true writable=false pair=000021 confidence=medium full_name=カウンセラー basis=TA_lines_occur_in_counseling-room_scene
+○000020●name○カウンセラー
+●000020●name●カウンセラー
+
+# idx=000021 file=PS2A019A.BIN off=0x0000068D inst=0x0000068D tag=text source=inline_len8_string len=24 enc=cp932 policy=in_place speaker_idx=000020 name=カウンセラー name_id=TA speaker_code=TA00115 name_source=prev_voice_label pair=000020 confidence=medium full_name=カウンセラー
+○000021●text○「はっはっはっはっはっ」
+●000021●text●「はっはっはっはっはっ」
+
+# idx=000022 file=PS2A019A.BIN off=0x000006C1 inst=0x000006C1 tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000022●text○冷たい廊下にカウンセラーの常軌を逸した\n笑い声が響いていた。
+●000022●text●冷たい廊下にカウンセラーの常軌を逸した\n笑い声が響いていた。
+
+# idx=000023 file=PS2A019A.BIN off=0x00000719 inst=0x00000719 tag=text source=inline_len8_string len=76 enc=cp932 policy=in_place
+○000023●text○ぼくはほんの一瞬でもはやく、その場を\nはなれたかった。\n遠くへ行きたかった。
+●000023●text●ぼくはほんの一瞬でもはやく、その場を\nはなれたかった。\n遠くへ行きたかった。
+
+# idx=000024 file=PS2A019A.BIN off=0x00000781 inst=0x00000781 tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000024●text○少なくとも、カウンセラーの笑い声が聞こえなくなるところまで。
+●000024●text●少なくとも、カウンセラーの笑い声が聞こえなくなるところまで。
+
+# idx=000025 file=PS2A019A.BIN off=0x0000081D inst=0x0000081D tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000025●label○PS2A022a.bin
+●000025●label●PS2A022a.bin
+

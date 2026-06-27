@@ -1,0 +1,8 @@
+# DSAT export for PS2A012A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2A012A.BIN off=0x00000057 inst=0x00000057 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000001●label○PS2A013a.bin
+●000001●label●PS2A013a.bin
+

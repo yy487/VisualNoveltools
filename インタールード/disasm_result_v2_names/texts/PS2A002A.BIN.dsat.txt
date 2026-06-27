@@ -1,0 +1,144 @@
+# DSAT export for PS2A002A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2A002A.BIN off=0x00000053 inst=0x00000053 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000001●text○普段は気づかないけれど、街ではいろんなことが\n起きている。
+●000001●text●普段は気づかないけれど、街ではいろんなことが\n起きている。
+
+# idx=000002 file=PS2A002A.BIN off=0x000000A9 inst=0x000000A9 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000002●text○ぼくはそんなことを考える。
+●000002●text●ぼくはそんなことを考える。
+
+# idx=000003 file=PS2A002A.BIN off=0x000000DF inst=0x000000DF tag=text source=inline_len8_string len=88 enc=cp932 policy=in_place
+○000003●text○さっきのこともそう。\nぼくたちは、大抵の場合、自分に関係のある\nことにしか目を向けない。
+●000003●text●さっきのこともそう。\nぼくたちは、大抵の場合、自分に関係のある\nことにしか目を向けない。
+
+# idx=000004 file=PS2A002A.BIN off=0x00000153 inst=0x00000153 tag=text source=inline_len8_string len=120 enc=cp932 policy=in_place
+○000004●text○まあ、玉なんかみたいに関係あろうとなかろうと、ありとあらゆることに余計な興味を向け続ける\nヤツもいることはいるんだけど。
+●000004●text●まあ、玉なんかみたいに関係あろうとなかろうと、ありとあらゆることに余計な興味を向け続ける\nヤツもいることはいるんだけど。
+
+# idx=000005 file=PS2A002A.BIN off=0x000001E7 inst=0x000001E7 tag=text source=inline_len8_string len=76 enc=cp932 policy=in_place
+○000005●text○大抵の場合は、だ。\nそうすると、街の多くの部分を見ないですごす\nことになる。
+●000005●text●大抵の場合は、だ。\nそうすると、街の多くの部分を見ないですごす\nことになる。
+
+# idx=000006 file=PS2A002A.BIN off=0x0000024F inst=0x0000024F tag=text source=inline_len8_string len=18 enc=cp932 policy=in_place
+○000006●text○誰かがいっていた。
+●000006●text●誰かがいっていた。
+
+# idx=000007 file=PS2A002A.BIN off=0x0000027D inst=0x0000027D tag=text source=inline_len8_string len=96 enc=cp932 policy=in_place
+○000007●text○ぼくたちの世界は暴力に満ちあふれている。\nただ、それは目につかないよう隠されている\nだけだ、と。
+●000007●text●ぼくたちの世界は暴力に満ちあふれている。\nただ、それは目につかないよう隠されている\nだけだ、と。
+
+# idx=000008 file=PS2A002A.BIN off=0x000002F9 inst=0x000002F9 tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000008●text○そう、ぼくたちが見ているこの場所は、見ているままの姿ではない。
+●000008●text●そう、ぼくたちが見ているこの場所は、見ているままの姿ではない。
+
+# idx=000009 file=PS2A002A.BIN off=0x00000353 inst=0x00000353 tag=text source=inline_len8_string len=108 enc=cp932 policy=in_place
+○000009●text○こどものときには想像することもできなかった。\nあの頃は、目にするものがすべてだったから\n（玉は今でもそう）。
+●000009●text●こどものときには想像することもできなかった。\nあの頃は、目にするものがすべてだったから\n（玉は今でもそう）。
+
+# idx=000010 file=PS2A002A.BIN off=0x000003DB inst=0x000003DB tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000010●text○でも、見ているものにそれ以上の意味があると\nしたら。
+●000010●text●でも、見ているものにそれ以上の意味があると\nしたら。
+
+# idx=000011 file=PS2A002A.BIN off=0x0000042B inst=0x0000042B tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000011●text○理解できず、想像することさえ不可能な\nことがらにふれ続けるとしたら。
+●000011●text●理解できず、想像することさえ不可能な\nことがらにふれ続けるとしたら。
+
+# idx=000012 file=PS2A002A.BIN off=0x0000048B inst=0x0000048B tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000012●text○それは、かなりハードな毎日になるのだろう、\nとも思う。
+●000012●text●それは、かなりハードな毎日になるのだろう、\nとも思う。
+
+# idx=000013 file=PS2A002A.BIN off=0x000004DD inst=0x000004DD tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000013●text○もちろん、そんなことにならないのは知っていた。
+●000013●text●もちろん、そんなことにならないのは知っていた。
+
+# idx=000014 file=PS2A002A.BIN off=0x00000527 inst=0x00000527 tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place
+○000014●text○大人になるということは、そんな理解できない\nさまざまな事柄と妥協し、慣れるということ\nだから。
+●000014●text●大人になるということは、そんな理解できない\nさまざまな事柄と妥協し、慣れるということ\nだから。
+
+# idx=000015 file=PS2A002A.BIN off=0x000005A1 inst=0x000005A1 tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000015●text○そう考えると、玉は一生こどものままなわけ\nだけど、アレは例外。
+●000015●text●そう考えると、玉は一生こどものままなわけ\nだけど、アレは例外。
+
+# idx=000016 file=PS2A002A.BIN off=0x000005FB inst=0x000005FB tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000016●text○あいつは慣れることを極端に嫌うから。\nでも、普通の人間は、慣れなきゃいけない。
+●000016●text●あいつは慣れることを極端に嫌うから。\nでも、普通の人間は、慣れなきゃいけない。
+
+# idx=000017 file=PS2A002A.BIN off=0x00000665 inst=0x00000665 tag=text source=inline_len8_string len=98 enc=cp932 policy=in_place
+○000017●text○毎日がいつでも新鮮なら、それはそれでいいこと\nなのだろうけど、時間がいくらあっても足りなく\nなる。
+●000017●text●毎日がいつでも新鮮なら、それはそれでいいこと\nなのだろうけど、時間がいくらあっても足りなく\nなる。
+
+# idx=000018 file=PS2A002A.BIN off=0x000006E3 inst=0x000006E3 tag=text source=inline_len8_string len=70 enc=cp932 policy=in_place
+○000018●text○ぼくらは、毎日をきちんと過ごすために、目を\nつぶらなきゃいけなくなる。
+●000018●text●ぼくらは、毎日をきちんと過ごすために、目を\nつぶらなきゃいけなくなる。
+
+# idx=000019 file=PS2A002A.BIN off=0x00000745 inst=0x00000745 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000019●text○それは、仕方のないことだ。
+●000019●text●それは、仕方のないことだ。
+
+# idx=000020 file=PS2A002A.BIN off=0x0000077B inst=0x0000077B tag=text source=inline_len8_string len=102 enc=cp932 policy=in_place
+○000020●text○学校……という場所が、ぼくたちに慣れることを\n教えてくれる。\nそして、ぼくたちは社会に出て行くのだし。
+●000020●text●学校……という場所が、ぼくたちに慣れることを\n教えてくれる。\nそして、ぼくたちは社会に出て行くのだし。
+
+# idx=000021 file=PS2A002A.BIN off=0x000007FD inst=0x000007FD tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000021●text○ぼくはそう考えていたし、ぼく以外の連中も\n薄々は勘づいている。
+●000021●text●ぼくはそう考えていたし、ぼく以外の連中も\n薄々は勘づいている。
+
+# idx=000022 file=PS2A002A.BIN off=0x00000857 inst=0x00000857 tag=text source=inline_len8_string len=88 enc=cp932 policy=in_place
+○000022●text○もちろん、ぼく以外の連中に玉は含まれない\n（ま、念のため）。\nずっと……そう思ってきた。
+●000022●text●もちろん、ぼく以外の連中に玉は含まれない\n（ま、念のため）。\nずっと……そう思ってきた。
+
+# idx=000023 file=PS2A002A.BIN off=0x000008E7 inst=0x000008E7 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000023●label○se-e33
+●000023●label●se-e33
+
+# idx=000024 file=PS2A002A.BIN off=0x0000091C inst=0x0000091C tag=text source=inline_len8_string len=110 enc=cp932 policy=in_place
+○000024●text○だけど、その考えが、あの朝、揺らいだ。\nあまりに異質な瞬間だった。\n混雑しているはずのホームが無人になり……。
+●000024●text●だけど、その考えが、あの朝、揺らいだ。\nあまりに異質な瞬間だった。\n混雑しているはずのホームが無人になり……。
+
+# idx=000025 file=PS2A002A.BIN off=0x000009A6 inst=0x000009A6 tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000025●text○幻というには、あまりに鮮明すぎる光景だった。
+●000025●text●幻というには、あまりに鮮明すぎる光景だった。
+
+# idx=000026 file=PS2A002A.BIN off=0x000009EE inst=0x000009EE tag=text source=inline_len8_string len=98 enc=cp932 policy=in_place
+○000026●text○ぼくは彼女から目をはなすことができなくなった。\nそして、単語帳から目をあげた彼女が、ぼくを\n見た。
+●000026●text●ぼくは彼女から目をはなすことができなくなった。\nそして、単語帳から目をあげた彼女が、ぼくを\n見た。
+
+# idx=000027 file=PS2A002A.BIN off=0x00000A6C inst=0x00000A6C tag=text source=inline_len8_string len=118 enc=cp932 policy=in_place
+○000027●text○彼女の瞳の奥に、ぼくはなにかを見た、と思った。\nそれは、ぼくたちの毎日の中では見つけることの\nできない、なにかだった。
+●000027●text●彼女の瞳の奥に、ぼくはなにかを見た、と思った。\nそれは、ぼくたちの毎日の中では見つけることの\nできない、なにかだった。
+
+# idx=000028 file=PS2A002A.BIN off=0x00000AFE inst=0x00000AFE tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000028●text○彼女は、なぜ……あんな目をしていたのだろう。
+●000028●text●彼女は、なぜ……あんな目をしていたのだろう。
+
+# idx=000029 file=PS2A002A.BIN off=0x00000B46 inst=0x00000B46 tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000029●text○それが気になった。\n彼女はなにを……考えていたのだろう。
+●000029●text●それが気になった。\n彼女はなにを……考えていたのだろう。
+
+# idx=000030 file=PS2A002A.BIN off=0x00000B9A inst=0x00000B9A tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000030●text○毎日の裏側に、彼女の瞳が隠されているのだと\nしたら……。
+●000030●text●毎日の裏側に、彼女の瞳が隠されているのだと\nしたら……。
+
+# idx=000031 file=PS2A002A.BIN off=0x00000BEE inst=0x00000BEE tag=text source=inline_len8_string len=102 enc=cp932 policy=in_place
+○000031●text○それに慣れることなど、できそうになかった。\n彼女の瞳は、それくらい強い意志をひめている\nように思えた。
+●000031●text●それに慣れることなど、できそうになかった。\n彼女の瞳は、それくらい強い意志をひめている\nように思えた。
+
+# idx=000032 file=PS2A002A.BIN off=0x00000C70 inst=0x00000C70 tag=text source=inline_len8_string len=122 enc=cp932 policy=in_place
+○000032●text○そんなことを考えながら、ぼくは街を歩き続けた。無駄なことかもしれないけれど、それなりに\n気持ちが落ちついていくのを感じる。
+●000032●text●そんなことを考えながら、ぼくは街を歩き続けた。無駄なことかもしれないけれど、それなりに\n気持ちが落ちついていくのを感じる。
+
+# idx=000033 file=PS2A002A.BIN off=0x00000D06 inst=0x00000D06 tag=text source=inline_len8_string len=48 enc=cp932 policy=in_place
+○000033●text○もう少し歩こう。\n今度は頭をからっぽにして……。
+●000033●text●もう少し歩こう。\n今度は頭をからっぽにして……。
+
+# idx=000034 file=PS2A002A.BIN off=0x00000DA2 inst=0x00000DA2 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000034●label○PS2T010a.bin
+●000034●label●PS2T010a.bin
+
+# idx=000035 file=PS2A002A.BIN off=0x00000DC7 inst=0x00000DC7 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000035●label○PS2F002a.bin
+●000035●label●PS2F002a.bin
+

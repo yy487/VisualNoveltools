@@ -1,0 +1,31 @@
+{
+  "file": "PS2I008A.BIN",
+  "resolution_status": "resolved_with_virtual_speaker_pairs",
+  "pairing_rule": "preceding 80-string voice id matching /^[A-Z]{2}\\d{5}[A-Za-z]?T?$/ paired with following quoted text",
+  "entities": [
+    {
+      "name_id": "EX",
+      "display_name": "EX",
+      "full_name": "EX",
+      "confidence": "unresolved",
+      "occurrences": 3,
+      "basis": "prefix detected; no mapping"
+    },
+    {
+      "name_id": "IZ",
+      "display_name": "泉美",
+      "full_name": "泉美",
+      "confidence": "high",
+      "occurrences": 57,
+      "basis": "DEBUG route labels: 泉美シナリオ"
+    },
+    {
+      "name_id": "KO",
+      "display_name": "薫子",
+      "full_name": "薫子",
+      "confidence": "medium",
+      "occurrences": 5,
+      "basis": "YU lines address 薫子さん; KO response style and context"
+    }
+  ]
+}

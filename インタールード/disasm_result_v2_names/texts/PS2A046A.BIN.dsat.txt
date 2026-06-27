@@ -1,0 +1,1020 @@
+# DSAT export for PS2A046A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2A046A.BIN off=0x00000053 inst=0x00000053 tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000001●text○空いっぱいの月が街を見おろしていた。\n人々はそれぞれの想いを抱いて行き来する。
+●000001●text●空いっぱいの月が街を見おろしていた。\n人々はそれぞれの想いを抱いて行き来する。
+
+# idx=000002 file=PS2A046A.BIN off=0x000000BD inst=0x000000BD tag=text source=inline_len8_string len=96 enc=cp932 policy=in_place
+○000002●text○誰も自分の足もとを疑ってはいない。\n明日が来ることを無条件に信じている。\nそれが当たり前だった。
+●000002●text●誰も自分の足もとを疑ってはいない。\n明日が来ることを無条件に信じている。\nそれが当たり前だった。
+
+# idx=000003 file=PS2A046A.BIN off=0x00000139 inst=0x00000139 tag=text source=inline_len8_string len=82 enc=cp932 policy=in_place
+○000003●text○だからこそ希望が持て、やりなおすことも可能になる。\nけれど、とぼくは空を見あげた。
+●000003●text●だからこそ希望が持て、やりなおすことも可能になる。\nけれど、とぼくは空を見あげた。
+
+# idx=000004 file=PS2A046A.BIN off=0x000001A7 inst=0x000001A7 tag=text source=inline_len8_string len=84 enc=cp932 policy=in_place
+○000004●text○夜空に溶けこんだ月の輪郭は淡く輝いていた。\nその光景にすら、違和感をおぼえてしまう。
+●000004●text●夜空に溶けこんだ月の輪郭は淡く輝いていた。\nその光景にすら、違和感をおぼえてしまう。
+
+# idx=000005 file=PS2A046A.BIN off=0x00000217 inst=0x00000217 tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place
+○000005●text○目に映るものすべてが幻かもしれない。\nそれを知ってしまった今、自分にさえ疑問を\n感じてしまう。
+●000005●text●目に映るものすべてが幻かもしれない。\nそれを知ってしまった今、自分にさえ疑問を\n感じてしまう。
+
+# idx=000006 file=PS2A046A.BIN off=0x00000291 inst=0x00000291 tag=text source=inline_len8_string len=88 enc=cp932 policy=in_place
+○000006●text○ぼくは……自分の頭で考えているのか？\n他人がそう考えさせていると、どうして\nいいきれる？
+●000006●text●ぼくは……自分の頭で考えているのか？\n他人がそう考えさせていると、どうして\nいいきれる？
+
+# idx=000007 file=PS2A046A.BIN off=0x00000305 inst=0x00000305 tag=text source=inline_len8_string len=88 enc=cp932 policy=in_place
+○000007●text○ぼくは、自分の足もとを見おろした。\n黒くのびた影に安堵を感じ、そのことに衝撃を\nうけた。
+●000007●text●ぼくは、自分の足もとを見おろした。\n黒くのびた影に安堵を感じ、そのことに衝撃を\nうけた。
+
+# idx=000008 file=PS2A046A.BIN off=0x00000379 inst=0x00000379 tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000008●text○自分の影を確認し続けなければならない不安。\nそんな中で生きて行けるのだろうか。
+●000008●text●自分の影を確認し続けなければならない不安。\nそんな中で生きて行けるのだろうか。
+
+# idx=000009 file=PS2A046A.BIN off=0x00000413 inst=0x00000413 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000009●text○すべては、あのホームで綾を見かけたときに\n始まった。
+●000009●text●すべては、あのホームで綾を見かけたときに\n始まった。
+
+# idx=000010 file=PS2A046A.BIN off=0x00000463 inst=0x00000463 tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place
+○000010●text○綾。\n彼女がすべての始まりだった。
+●000010●text●綾。\n彼女がすべての始まりだった。
+
+# idx=000011 file=PS2A046A.BIN off=0x000004A1 inst=0x000004A1 tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000011●text○彼女こそが世界の均衡を崩す鍵。\n彼女によって、世界は終わりを告げる。
+●000011●text●彼女こそが世界の均衡を崩す鍵。\n彼女によって、世界は終わりを告げる。
+
+# idx=000012 file=PS2A046A.BIN off=0x00000501 inst=0x00000501 tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place
+○000012●text○……と、カウンセラーはいった。\nでも。
+●000012●text●……と、カウンセラーはいった。\nでも。
+
+# idx=000013 file=PS2A046A.BIN off=0x00000543 inst=0x00000543 tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000013●text○ぼくは彼女の瞳を思い出す。\n彼女の瞳が映した光景を思い出した。
+●000013●text●ぼくは彼女の瞳を思い出す。\n彼女の瞳が映した光景を思い出した。
+
+# idx=000014 file=PS2A046A.BIN off=0x0000059D inst=0x0000059D tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000014●text○彼女は、なにかを信じているように思えた。\nそう。\nとても強く、信じているのだ。
+●000014●text●彼女は、なにかを信じているように思えた。\nそう。\nとても強く、信じているのだ。
+
+# idx=000015 file=PS2A046A.BIN off=0x00000607 inst=0x00000607 tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000015●text○そうか。\nだから彼女は、あの朝、無人のホームで単語帳を見ていたのか。
+●000015●text●そうか。\nだから彼女は、あの朝、無人のホームで単語帳を見ていたのか。
+
+# idx=000016 file=PS2A046A.BIN off=0x00000667 inst=0x00000667 tag=text source=inline_len8_string len=92 enc=cp932 policy=in_place
+○000016●text○彼女は……自分の毎日を守ろうとしている。\nそれは、自分がなにをしているか知っている\nからだ。
+●000016●text●彼女は……自分の毎日を守ろうとしている。\nそれは、自分がなにをしているか知っている\nからだ。
+
+# idx=000017 file=PS2A046A.BIN off=0x000006DF inst=0x000006DF tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000017●text○なにがおかしく、なにが正しいのか理解して\nいるんだ。
+●000017●text●なにがおかしく、なにが正しいのか理解して\nいるんだ。
+
+# idx=000018 file=PS2A046A.BIN off=0x0000072F inst=0x0000072F tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place
+○000018●text○ならば、ぼくは……綾をさがそう。
+●000018●text●ならば、ぼくは……綾をさがそう。
+
+# idx=000019 file=PS2A046A.BIN off=0x0000076B inst=0x0000076B tag=text source=inline_len8_string len=84 enc=cp932 policy=in_place
+○000019●text○このあやふやな世界の中、たったひとつだけでも信じられるものがある。\nそれが……綾だ。
+●000019●text●このあやふやな世界の中、たったひとつだけでも信じられるものがある。\nそれが……綾だ。
+
+# idx=000020 file=PS2A046A.BIN off=0x000007DB inst=0x000007DB tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000020●text○ぼくは、振り返った。\n今来たばかりの道を戻り始める。\n学校へ行こう。
+●000020●text●ぼくは、振り返った。\n今来たばかりの道を戻り始める。\n学校へ行こう。
+
+# idx=000021 file=PS2A046A.BIN off=0x0000083B inst=0x0000083B tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place
+○000021●text○カウンセラーともう１度話をするべきだ。
+●000021●text●カウンセラーともう１度話をするべきだ。
+
+# idx=000022 file=PS2A046A.BIN off=0x0000087D inst=0x0000087D tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000022●text○カウンセラーは、世界のある一面を説明して\nくれた。
+●000022●text●カウンセラーは、世界のある一面を説明して\nくれた。
+
+# idx=000023 file=PS2A046A.BIN off=0x000008CB inst=0x000008CB tag=text source=inline_len8_string len=48 enc=cp932 policy=in_place
+○000023●text○それは、たぶん正しいことなのだろう。\nでも……。
+●000023●text●それは、たぶん正しいことなのだろう。\nでも……。
+
+# idx=000024 file=PS2A046A.BIN off=0x00000917 inst=0x00000917 tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place
+○000024●text○すべてを話したわけではない。
+●000024●text●すべてを話したわけではない。
+
+# idx=000025 file=PS2A046A.BIN off=0x0000094F inst=0x0000094F tag=text source=inline_len8_string len=86 enc=cp932 policy=in_place
+○000025●text○カウンセラーは、『綾』という存在について\n語った。\nでも、綾はなぜ、を説明していない。
+●000025●text●カウンセラーは、『綾』という存在について\n語った。\nでも、綾はなぜ、を説明していない。
+
+# idx=000026 file=PS2A046A.BIN off=0x000009C1 inst=0x000009C1 tag=text source=inline_len8_string len=80 enc=cp932 policy=in_place
+○000026●text○綾の、信じる目を、説明してはいない。\nぼくは、それを確かめなければいけなかった。
+●000026●text●綾の、信じる目を、説明してはいない。\nぼくは、それを確かめなければいけなかった。
+
+# idx=000027 file=PS2A046A.BIN off=0x00000AA6 inst=0x00000AA6 tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place
+○000027●text○放課後の校舎は静まり返っていた。
+●000027●text●放課後の校舎は静まり返っていた。
+
+# idx=000028 file=PS2A046A.BIN off=0x00000B1B inst=0x00000B1B tag=text source=inline_len8_string len=120 enc=cp932 policy=in_place
+○000028●text○それが当たり前なのだと思っていた。\nけれど今はこの静けささえ、背後に破滅をひそめた沈黙でしかないと気づいてしまっていた。
+●000028●text●それが当たり前なのだと思っていた。\nけれど今はこの静けささえ、背後に破滅をひそめた沈黙でしかないと気づいてしまっていた。
+
+# idx=000029 file=PS2A046A.BIN off=0x00000BA0 inst=0x00000BA0 tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000029●label○se-10
+●000029●label●se-10
+
+# idx=000030 file=PS2A046A.BIN off=0x00000BF5 inst=0x00000BF5 tag=text source=inline_len8_string len=104 enc=cp932 policy=in_place
+○000030●text○ぼくは、カウンセリング室の扉をノックする。\n拳のたてる音が、無人の廊下に響いた。\n部屋からの返事はない。
+●000030●text●ぼくは、カウンセリング室の扉をノックする。\n拳のたてる音が、無人の廊下に響いた。\n部屋からの返事はない。
+
+# idx=000031 file=PS2A046A.BIN off=0x00000C79 inst=0x00000C79 tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000031●text○扉に手をかける。\n鍵はかかっていなかった。
+●000031●text●扉に手をかける。\n鍵はかかっていなかった。
+
+# idx=000032 file=PS2A046A.BIN off=0x00000CBF inst=0x00000CBF tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000032●text○カウンセラーがいなかったとしても、待てば\nよかった。
+●000032●text●カウンセラーがいなかったとしても、待てば\nよかった。
+
+# idx=000033 file=PS2A046A.BIN off=0x00000D0F inst=0x00000D0F tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000033●text○ぼくが待っていることを、彼女は気づいて\nやってくる。
+●000033●text●ぼくが待っていることを、彼女は気づいて\nやってくる。
+
+# idx=000034 file=PS2A046A.BIN off=0x00000D5F inst=0x00000D5F tag=text source=inline_len8_string len=36 enc=cp932 policy=in_place
+○000034●text○それでいい。\nそれ以上はのぞまない。
+●000034●text●それでいい。\nそれ以上はのぞまない。
+
+# idx=000035 file=PS2A046A.BIN off=0x00000D9C inst=0x00000D9C tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000035●label○se-11_
+●000035●label●se-11_
+
+# idx=000036 file=PS2A046A.BIN off=0x00000E06 inst=0x00000E06 tag=text source=inline_len8_string len=80 enc=cp932 policy=in_place
+○000036●text○カウンセリング室の椅子には白衣の女性が座っていた。\n所在なさげにうつむいていた。
+●000036●text●カウンセリング室の椅子には白衣の女性が座っていた。\n所在なさげにうつむいていた。
+
+# idx=000037 file=PS2A046A.BIN off=0x00000E72 inst=0x00000E72 tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000037●text○彼女の足もとの影に、小さな黒いものたちが\nあふれていた。
+●000037●text●彼女の足もとの影に、小さな黒いものたちが\nあふれていた。
+
+# idx=000038 file=PS2A046A.BIN off=0x00000EC6 inst=0x00000EC6 tag=text source=inline_len8_string len=122 enc=cp932 policy=in_place
+○000038●text○影の中から、現実へと抜け出そうとしている。\n何匹もの小鬼が女性のくるぶしにしがみつき、\n闇の中から這いあがろうとしていた。
+●000038●text●影の中から、現実へと抜け出そうとしている。\n何匹もの小鬼が女性のくるぶしにしがみつき、\n闇の中から這いあがろうとしていた。
+
+# idx=000039 file=PS2A046A.BIN off=0x00000F5C inst=0x00000F5C tag=text source=inline_len8_string len=92 enc=cp932 policy=in_place
+○000039●text○しかし、その姿は無数の腕にひきずりこまれ\n影へと消えていく。\nそんなさまが繰り返されていた。
+●000039●text●しかし、その姿は無数の腕にひきずりこまれ\n影へと消えていく。\nそんなさまが繰り返されていた。
+
+# idx=000040 file=PS2A046A.BIN off=0x00000FD4 inst=0x00000FD4 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000040●text○そして、背後から女の子が幸せそうに抱きついていた。
+●000040●text●そして、背後から女の子が幸せそうに抱きついていた。
+
+# idx=000041 file=PS2A046A.BIN off=0x00001022 inst=0x00001022 tag=text source=inline_len8_string len=36 enc=cp932 policy=in_place
+○000041●text○中学生くらい。\n女の子が顔をあげる。
+●000041●text●中学生くらい。\n女の子が顔をあげる。
+
+# idx=000042 file=PS2A046A.BIN off=0x00001090 inst=0x00001090 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=睦月 name_id=MU confidence=high
+○000042●label○MU00020
+●000042●label●MU00020
+
+# idx=000043 file=PS2A046A.BIN off=0x0000109F inst=0x00001090 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MU speaker_code=MU00020 name_source=prev_voice_label virtual=true writable=false pair=000044 confidence=high full_name=睦月 basis=DEBUG_route_labels_and_MU_dialogue_context
+○000043●name○睦月
+●000043●name●睦月
+
+# idx=000044 file=PS2A046A.BIN off=0x0000109F inst=0x0000109F tag=text source=inline_len8_string len=10 enc=cp932 policy=in_place speaker_idx=000043 name=睦月 name_id=MU speaker_code=MU00020 name_source=prev_voice_label pair=000043 confidence=high full_name=睦月
+○000044●text○「あ……」
+●000044●text●「あ……」
+
+# idx=000045 file=PS2A046A.BIN off=0x000010D1 inst=0x000010D1 tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place
+○000045●text○女の子が、ぼくに不安げな表情を向けた。
+●000045●text●女の子が、ぼくに不安げな表情を向けた。
+
+# idx=000046 file=PS2A046A.BIN off=0x00001124 inst=0x00001124 tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000046●text○あの、図書館で出会った子だった。\n彼女はぼくに不安げな表情を向ける。
+●000046●text●あの、図書館で出会った子だった。\n彼女はぼくに不安げな表情を向ける。
+
+# idx=000047 file=PS2A046A.BIN off=0x000011C5 inst=0x000011C5 tag=text source=inline_len8_string len=132 enc=cp932 policy=in_place
+○000047●text○でも、もう女の子の姿はどこにもなかった。\nカウンセリング室には、白衣の女性がいるだけ。影の中からのびていた小さな手もなくなっていた。
+●000047●text●でも、もう女の子の姿はどこにもなかった。\nカウンセリング室には、白衣の女性がいるだけ。影の中からのびていた小さな手もなくなっていた。
+
+# idx=000048 file=PS2A046A.BIN off=0x00001265 inst=0x00001265 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=三枝先生 name_id=MI confidence=medium
+○000048●label○MI00010
+●000048●label●MI00010
+
+# idx=000049 file=PS2A046A.BIN off=0x00001274 inst=0x00001265 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MI speaker_code=MI00010 name_source=prev_voice_label virtual=true writable=false pair=000050 confidence=medium full_name=三枝先生 basis=MI_scene_centered_on_三枝先生_and_睦月
+○000049●name○三枝先生
+●000049●name●三枝先生
+
+# idx=000050 file=PS2A046A.BIN off=0x00001274 inst=0x00001274 tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place speaker_idx=000049 name=三枝先生 name_id=MI speaker_code=MI00010 name_source=prev_voice_label pair=000049 confidence=medium full_name=三枝先生
+○000050●text○「あ……ごめんなさい。ちょっと、うとうと\nしていたみたいで」
+●000050●text●「あ……ごめんなさい。ちょっと、うとうと\nしていたみたいで」
+
+# idx=000051 file=PS2A046A.BIN off=0x000012CC inst=0x000012CC tag=text source=inline_len8_string len=122 enc=cp932 policy=in_place
+○000051●text○白衣の女性は、誰に向かってでもなく話し始める。ぼくに目を向けているのに、ぼくを見ていない。その目には何も映っていなかった。
+●000051●text●白衣の女性は、誰に向かってでもなく話し始める。ぼくに目を向けているのに、ぼくを見ていない。その目には何も映っていなかった。
+
+# idx=000052 file=PS2A046A.BIN off=0x00001390 inst=0x00001390 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=三枝先生 name_id=MI confidence=medium
+○000052●label○MI00020
+●000052●label●MI00020
+
+# idx=000053 file=PS2A046A.BIN off=0x0000139F inst=0x00001390 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MI speaker_code=MI00020 name_source=prev_voice_label virtual=true writable=false pair=000054 confidence=medium full_name=三枝先生 basis=MI_scene_centered_on_三枝先生_and_睦月
+○000053●name○三枝先生
+●000053●name●三枝先生
+
+# idx=000054 file=PS2A046A.BIN off=0x0000139F inst=0x0000139F tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place speaker_idx=000053 name=三枝先生 name_id=MI speaker_code=MI00020 name_source=prev_voice_label pair=000053 confidence=medium full_name=三枝先生
+○000054●text○「睦月が……帰って来たの」
+●000054●text●「睦月が……帰って来たの」
+
+# idx=000055 file=PS2A046A.BIN off=0x000013D5 inst=0x000013D5 tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000055●text○そのことばに力はなかった。ぼくに話しかけているのかと思ったが、違う。
+●000055●text●そのことばに力はなかった。ぼくに話しかけているのかと思ったが、違う。
+
+# idx=000056 file=PS2A046A.BIN off=0x00001435 inst=0x00001435 tag=text source=inline_len8_string len=66 enc=cp932 policy=in_place
+○000056●text○ただ、胸の奥にしまい込んだ悲しみが口から漏れ出しているだけだった。
+●000056●text●ただ、胸の奥にしまい込んだ悲しみが口から漏れ出しているだけだった。
+
+# idx=000057 file=PS2A046A.BIN off=0x00001493 inst=0x00001493 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=三枝先生 name_id=MI confidence=medium
+○000057●label○MI00031
+●000057●label●MI00031
+
+# idx=000058 file=PS2A046A.BIN off=0x000014A2 inst=0x00001493 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MI speaker_code=MI00031 name_source=prev_voice_label virtual=true writable=false pair=000059 confidence=medium full_name=三枝先生 basis=MI_scene_centered_on_三枝先生_and_睦月
+○000058●name○三枝先生
+●000058●name●三枝先生
+
+# idx=000059 file=PS2A046A.BIN off=0x000014A2 inst=0x000014A2 tag=text source=inline_len8_string len=120 enc=cp932 policy=in_place speaker_idx=000058 name=三枝先生 name_id=MI speaker_code=MI00031 name_source=prev_voice_label pair=000058 confidence=medium full_name=三枝先生
+○000059●text○「あの頃みたいに、あの子つまんないこといって私を笑わせようとして、だから……もうそんな\nことしてくれなくていいのにって」
+●000059●text●「あの頃みたいに、あの子つまんないこといって私を笑わせようとして、だから……もうそんな\nことしてくれなくていいのにって」
+
+# idx=000060 file=PS2A046A.BIN off=0x00001536 inst=0x00001536 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=三枝先生 name_id=MI confidence=medium
+○000060●label○MI00032
+●000060●label●MI00032
+
+# idx=000061 file=PS2A046A.BIN off=0x00001545 inst=0x00001536 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MI speaker_code=MI00032 name_source=prev_voice_label virtual=true writable=false pair=000062 confidence=medium full_name=三枝先生 basis=MI_scene_centered_on_三枝先生_and_睦月
+○000061●name○三枝先生
+●000061●name●三枝先生
+
+# idx=000062 file=PS2A046A.BIN off=0x00001545 inst=0x00001545 tag=text source=inline_len8_string len=90 enc=cp932 policy=in_place speaker_idx=000061 name=三枝先生 name_id=MI speaker_code=MI00032 name_source=prev_voice_label pair=000061 confidence=medium full_name=三枝先生
+○000062●text○「つらいっていってくれたら……ひとりは寂しいって泣いてくれたら、私だって一緒に泣けるのに」
+●000062●text●「つらいっていってくれたら……ひとりは寂しいって泣いてくれたら、私だって一緒に泣けるのに」
+
+# idx=000063 file=PS2A046A.BIN off=0x000015BB inst=0x000015BB tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=三枝先生 name_id=MI confidence=medium
+○000063●label○MI00033
+●000063●label●MI00033
+
+# idx=000064 file=PS2A046A.BIN off=0x000015CA inst=0x000015BB tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MI speaker_code=MI00033 name_source=prev_voice_label virtual=true writable=false pair=000065 confidence=medium full_name=三枝先生 basis=MI_scene_centered_on_三枝先生_and_睦月
+○000064●name○三枝先生
+●000064●name●三枝先生
+
+# idx=000065 file=PS2A046A.BIN off=0x000015CA inst=0x000015CA tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place speaker_idx=000064 name=三枝先生 name_id=MI speaker_code=MI00033 name_source=prev_voice_label pair=000064 confidence=medium full_name=三枝先生
+○000065●text○「なのに、あの子……そんなことひとことも\nいわなくって……」
+●000065●text●「なのに、あの子……そんなことひとことも\nいわなくって……」
+
+# idx=000066 file=PS2A046A.BIN off=0x00001622 inst=0x00001622 tag=text source=inline_len8_string len=84 enc=cp932 policy=in_place
+○000066●text○彼女の瞳からは、ボロボロと大粒の涙がこぼれていた。\n影は再びあふれ出そうとうごめく。
+●000066●text●彼女の瞳からは、ボロボロと大粒の涙がこぼれていた。\n影は再びあふれ出そうとうごめく。
+
+# idx=000067 file=PS2A046A.BIN off=0x00001692 inst=0x00001692 tag=text source=inline_len8_string len=76 enc=cp932 policy=in_place
+○000067●text○異常な光景だった。\n悲しさのあまり、自分になにがおきているかさえ気づかない。
+●000067●text●異常な光景だった。\n悲しさのあまり、自分になにがおきているかさえ気づかない。
+
+# idx=000068 file=PS2A046A.BIN off=0x00001706 inst=0x00001706 tag=text source=inline_len8_string len=100 enc=cp932 policy=in_place
+○000068●text○そのとき、ぼくは気づいた。\n図書館の少女……姿を消した中学生は、目の前の女性と面影がそっくりだった。
+●000068●text●そのとき、ぼくは気づいた。\n図書館の少女……姿を消した中学生は、目の前の女性と面影がそっくりだった。
+
+# idx=000069 file=PS2A046A.BIN off=0x00001786 inst=0x00001786 tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000069●text○そして、彼女の印象は、綾とも重なっていた。
+●000069●text●そして、彼女の印象は、綾とも重なっていた。
+
+# idx=000070 file=PS2A046A.BIN off=0x000017FA inst=0x000017FA tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=カウンセラー name_id=TA confidence=medium
+○000070●label○TA00380
+●000070●label●TA00380
+
+# idx=000071 file=PS2A046A.BIN off=0x00001809 inst=0x000017FA tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=TA speaker_code=TA00380 name_source=prev_voice_label virtual=true writable=false pair=000072 confidence=medium full_name=カウンセラー basis=TA_lines_occur_in_counseling-room_scene
+○000071●name○カウンセラー
+●000071●name●カウンセラー
+
+# idx=000072 file=PS2A046A.BIN off=0x00001809 inst=0x00001809 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place speaker_idx=000071 name=カウンセラー name_id=TA speaker_code=TA00380 name_source=prev_voice_label pair=000071 confidence=medium full_name=カウンセラー
+○000072●text○「そんなことをいわれても」
+●000072●text●「そんなことをいわれても」
+
+# idx=000073 file=PS2A046A.BIN off=0x0000186D inst=0x0000186D tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000073●text○と廊下で声がする。\nカウンセラーの声だった。
+●000073●text●と廊下で声がする。\nカウンセラーの声だった。
+
+# idx=000074 file=PS2A046A.BIN off=0x000018B5 inst=0x000018B5 tag=text source=inline_len8_string len=104 enc=cp932 policy=in_place
+○000074●text○いつもの感情を面に出さない、どこか人を見下すようなトーンはどこにもなかった。\nなにかを必死で訴えている。
+●000074●text●いつもの感情を面に出さない、どこか人を見下すようなトーンはどこにもなかった。\nなにかを必死で訴えている。
+
+# idx=000075 file=PS2A046A.BIN off=0x00001939 inst=0x00001939 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=カウンセラー name_id=TA confidence=medium
+○000075●label○TA00390
+●000075●label●TA00390
+
+# idx=000076 file=PS2A046A.BIN off=0x00001948 inst=0x00001939 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=TA speaker_code=TA00390 name_source=prev_voice_label virtual=true writable=false pair=000077 confidence=medium full_name=カウンセラー basis=TA_lines_occur_in_counseling-room_scene
+○000076●name○カウンセラー
+●000076●name●カウンセラー
+
+# idx=000077 file=PS2A046A.BIN off=0x00001948 inst=0x00001948 tag=text source=inline_len8_string len=132 enc=cp932 policy=in_place speaker_idx=000076 name=カウンセラー name_id=TA speaker_code=TA00390 name_source=prev_voice_label pair=000076 confidence=medium full_name=カウンセラー
+○000077●text○「納得できません!! だって、私はどうなるん\nですか?! まだ読んでない本だっていっぱいある\nのに、夏の暑さや冬の寒さも知らずに、私は!!」
+●000077●text●「納得できません!! だって、私はどうなるん\nですか?! まだ読んでない本だっていっぱいある\nのに、夏の暑さや冬の寒さも知らずに、私は!!」
+
+# idx=000078 file=PS2A046A.BIN off=0x000019E8 inst=0x000019E8 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000078●label○FU00250
+●000078●label●FU00250
+
+# idx=000079 file=PS2A046A.BIN off=0x000019F7 inst=0x000019E8 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU00250 name_source=prev_voice_label virtual=true writable=false pair=000080 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000079●name○冬木
+●000079●name●冬木
+
+# idx=000080 file=PS2A046A.BIN off=0x000019F7 inst=0x000019F7 tag=text source=inline_len8_string len=106 enc=cp932 policy=in_place speaker_idx=000079 name=冬木 name_id=FU speaker_code=FU00250 name_source=prev_voice_label pair=000079 confidence=medium full_name=冬木
+○000080●text○「……あなた方のつらさを理解できる、とはいいません。ただ三枝先生の前で、感情的になるのはやめてくださいね」
+●000080●text●「……あなた方のつらさを理解できる、とはいいません。ただ三枝先生の前で、感情的になるのはやめてくださいね」
+
+# idx=000081 file=PS2A046A.BIN off=0x00001A7D inst=0x00001A7D tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000081●text○カウンセラーに男の声がこたえる。\n諭すようなやさしい口調で。
+●000081●text●カウンセラーに男の声がこたえる。\n諭すようなやさしい口調で。
+
+# idx=000082 file=PS2A046A.BIN off=0x00001AE1 inst=0x00001AE1 tag=text source=inline_len8_string len=110 enc=cp932 policy=in_place
+○000082●text○そのやさしさは、なぜか場違いのように思えた。どうしてか、求める者に応えてくれるやさしさ\nとは次元の違うような。
+●000082●text●そのやさしさは、なぜか場違いのように思えた。どうしてか、求める者に応えてくれるやさしさ\nとは次元の違うような。
+
+# idx=000083 file=PS2A046A.BIN off=0x00001B5C inst=0x00001B5C tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000083●label○SE-S35
+●000083●label●SE-S35
+
+# idx=000084 file=PS2A046A.BIN off=0x00001B85 inst=0x00001B85 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=EX name_id=EX confidence=unresolved
+○000084●label○EX18015
+●000084●label●EX18015
+
+# idx=000085 file=PS2A046A.BIN off=0x00001B94 inst=0x00001B85 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=EX speaker_code=EX18015 name_source=prev_voice_label virtual=true writable=false pair=000086 confidence=unresolved full_name=EX basis=prefix_detected;_no_mapping
+○000085●name○EX
+●000085●name●EX
+
+# idx=000086 file=PS2A046A.BIN off=0x00001B94 inst=0x00001B94 tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place speaker_idx=000085 name=EX name_id=EX speaker_code=EX18015 name_source=prev_voice_label pair=000085 confidence=unresolved full_name=EX
+○000086●text○「中尉、これを……」
+●000086●text●「中尉、これを……」
+
+# idx=000087 file=PS2A046A.BIN off=0x00001BC4 inst=0x00001BC4 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=EX name_id=EX confidence=unresolved
+○000087●label○EX17015
+●000087●label●EX17015
+
+# idx=000088 file=PS2A046A.BIN off=0x00001BD3 inst=0x00001BC4 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=EX speaker_code=EX17015 name_source=prev_voice_label virtual=true writable=false pair=000089 confidence=unresolved full_name=EX basis=prefix_detected;_no_mapping
+○000088●name○EX
+●000088●name●EX
+
+# idx=000089 file=PS2A046A.BIN off=0x00001BD3 inst=0x00001BD3 tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place speaker_idx=000088 name=EX name_id=EX speaker_code=EX17015 name_source=prev_voice_label pair=000088 confidence=unresolved full_name=EX
+○000089●text○「あ、これはいかん」
+●000089●text●「あ、これはいかん」
+
+# idx=000090 file=PS2A046A.BIN off=0x00001C03 inst=0x00001C03 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=カウンセラー name_id=TA confidence=medium
+○000090●label○TA00630
+●000090●label●TA00630
+
+# idx=000091 file=PS2A046A.BIN off=0x00001C12 inst=0x00001C03 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=TA speaker_code=TA00630 name_source=prev_voice_label virtual=true writable=false pair=000092 confidence=medium full_name=カウンセラー basis=TA_lines_occur_in_counseling-room_scene
+○000091●name○カウンセラー
+●000091●name●カウンセラー
+
+# idx=000092 file=PS2A046A.BIN off=0x00001C12 inst=0x00001C12 tag=text source=inline_len8_string len=16 enc=cp932 policy=in_place speaker_idx=000091 name=カウンセラー name_id=TA speaker_code=TA00630 name_source=prev_voice_label pair=000091 confidence=medium full_name=カウンセラー
+○000092●text○「どうしたの?!」
+●000092●text●「どうしたの?!」
+
+# idx=000093 file=PS2A046A.BIN off=0x00001C4A inst=0x00001C4A tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000093●text○カウンセラーの声に怒りと焦り、そしてほんの\n少しの恐怖がまじる。
+●000093●text●カウンセラーの声に怒りと焦り、そしてほんの\n少しの恐怖がまじる。
+
+# idx=000094 file=PS2A046A.BIN off=0x00001CA6 inst=0x00001CA6 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000094●label○FU00600T
+●000094●label●FU00600T
+
+# idx=000095 file=PS2A046A.BIN off=0x00001CB6 inst=0x00001CA6 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU00600T name_source=prev_voice_label virtual=true writable=false pair=000096 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000095●name○冬木
+●000095●name●冬木
+
+# idx=000096 file=PS2A046A.BIN off=0x00001CB6 inst=0x00001CB6 tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place speaker_idx=000095 name=冬木 name_id=FU speaker_code=FU00600T name_source=prev_voice_label pair=000095 confidence=medium full_name=冬木
+○000096●text○「大きな声は出さないで。三枝先生がこわがり\nますから」
+●000096●text●「大きな声は出さないで。三枝先生がこわがり\nますから」
+
+# idx=000097 file=PS2A046A.BIN off=0x00001D08 inst=0x00001D08 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=カウンセラー name_id=TA confidence=medium
+○000097●label○TA00640
+●000097●label●TA00640
+
+# idx=000098 file=PS2A046A.BIN off=0x00001D17 inst=0x00001D08 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=TA speaker_code=TA00640 name_source=prev_voice_label virtual=true writable=false pair=000099 confidence=medium full_name=カウンセラー basis=TA_lines_occur_in_counseling-room_scene
+○000098●name○カウンセラー
+●000098●name●カウンセラー
+
+# idx=000099 file=PS2A046A.BIN off=0x00001D17 inst=0x00001D17 tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place speaker_idx=000098 name=カウンセラー name_id=TA speaker_code=TA00640 name_source=prev_voice_label pair=000098 confidence=medium full_name=カウンセラー
+○000099●text○「あ……はい」
+●000099●text●「あ……はい」
+
+# idx=000100 file=PS2A046A.BIN off=0x00001D41 inst=0x00001D41 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=EX name_id=EX confidence=unresolved
+○000100●label○EX17025
+●000100●label●EX17025
+
+# idx=000101 file=PS2A046A.BIN off=0x00001D50 inst=0x00001D41 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=EX speaker_code=EX17025 name_source=prev_voice_label virtual=true writable=false pair=000102 confidence=unresolved full_name=EX basis=prefix_detected;_no_mapping
+○000101●name○EX
+●000101●name●EX
+
+# idx=000102 file=PS2A046A.BIN off=0x00001D50 inst=0x00001D50 tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place speaker_idx=000101 name=EX name_id=EX speaker_code=EX17025 name_source=prev_voice_label pair=000101 confidence=unresolved full_name=EX
+○000102●text○「失礼しました。配慮が足りませんでした」
+●000102●text●「失礼しました。配慮が足りませんでした」
+
+# idx=000103 file=PS2A046A.BIN off=0x00001D94 inst=0x00001D94 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000103●label○FU00610T
+●000103●label●FU00610T
+
+# idx=000104 file=PS2A046A.BIN off=0x00001DA4 inst=0x00001D94 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU00610T name_source=prev_voice_label virtual=true writable=false pair=000105 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000104●name○冬木
+●000104●name●冬木
+
+# idx=000105 file=PS2A046A.BIN off=0x00001DA4 inst=0x00001DA4 tag=text source=inline_len8_string len=24 enc=cp932 policy=in_place speaker_idx=000104 name=冬木 name_id=FU speaker_code=FU00610T name_source=prev_voice_label pair=000104 confidence=medium full_name=冬木
+○000105●text○「で、どうしましたか？」
+●000105●text●「で、どうしましたか？」
+
+# idx=000106 file=PS2A046A.BIN off=0x00001DD8 inst=0x00001DD8 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=EX name_id=EX confidence=unresolved
+○000106●label○EX17035
+●000106●label●EX17035
+
+# idx=000107 file=PS2A046A.BIN off=0x00001DE7 inst=0x00001DD8 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=EX speaker_code=EX17035 name_source=prev_voice_label virtual=true writable=false pair=000108 confidence=unresolved full_name=EX basis=prefix_detected;_no_mapping
+○000107●name○EX
+●000107●name●EX
+
+# idx=000108 file=PS2A046A.BIN off=0x00001DE7 inst=0x00001DE7 tag=text source=inline_len8_string len=102 enc=cp932 policy=in_place speaker_idx=000107 name=EX name_id=EX speaker_code=EX17035 name_source=prev_voice_label pair=000107 confidence=unresolved full_name=EX
+○000108●text○「はい。空間の構築情報がミスリードされているようです。いくつかの数値が無秩序な傾向を\nしめしています」
+●000108●text●「はい。空間の構築情報がミスリードされているようです。いくつかの数値が無秩序な傾向を\nしめしています」
+
+# idx=000109 file=PS2A046A.BIN off=0x00001E69 inst=0x00001E69 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=カウンセラー name_id=TA confidence=medium
+○000109●label○TA00650
+●000109●label●TA00650
+
+# idx=000110 file=PS2A046A.BIN off=0x00001E78 inst=0x00001E69 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=TA speaker_code=TA00650 name_source=prev_voice_label virtual=true writable=false pair=000111 confidence=medium full_name=カウンセラー basis=TA_lines_occur_in_counseling-room_scene
+○000110●name○カウンセラー
+●000110●name●カウンセラー
+
+# idx=000111 file=PS2A046A.BIN off=0x00001E78 inst=0x00001E78 tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place speaker_idx=000110 name=カウンセラー name_id=TA speaker_code=TA00650 name_source=prev_voice_label pair=000110 confidence=medium full_name=カウンセラー
+○000111●text○「ボックスが開きかけているの?!」
+●000111●text●「ボックスが開きかけているの?!」
+
+# idx=000112 file=PS2A046A.BIN off=0x00001EB4 inst=0x00001EB4 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000112●label○FU00620T
+●000112●label●FU00620T
+
+# idx=000113 file=PS2A046A.BIN off=0x00001EC4 inst=0x00001EB4 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU00620T name_source=prev_voice_label virtual=true writable=false pair=000114 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000113●name○冬木
+●000113●name●冬木
+
+# idx=000114 file=PS2A046A.BIN off=0x00001EC4 inst=0x00001EC4 tag=text source=inline_len8_string len=79 enc=cp932 policy=in_place speaker_idx=000113 name=冬木 name_id=FU speaker_code=FU00620T name_source=prev_voice_label pair=000113 confidence=medium full_name=冬木
+○000114●text○「静かに。……そうですか。睦月ちゃんは\nどうです？ ちゃんと夢を見ていますか？」
+●000114●text●「静かに。……そうですか。睦月ちゃんは\nどうです？ ちゃんと夢を見ていますか？」
+
+# idx=000115 file=PS2A046A.BIN off=0x00001F2F inst=0x00001F2F tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place
+○000115●text○男の声が『睦月』という名を呼んだ。\n目の前の女性が、涙の中で呼んだ名を。
+●000115●text●男の声が『睦月』という名を呼んだ。\n目の前の女性が、涙の中で呼んだ名を。
+
+# idx=000116 file=PS2A046A.BIN off=0x00001F93 inst=0x00001F93 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=EX name_id=EX confidence=unresolved
+○000116●label○EX18025
+●000116●label●EX18025
+
+# idx=000117 file=PS2A046A.BIN off=0x00001FA2 inst=0x00001F93 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=EX speaker_code=EX18025 name_source=prev_voice_label virtual=true writable=false pair=000118 confidence=unresolved full_name=EX basis=prefix_detected;_no_mapping
+○000117●name○EX
+●000117●name●EX
+
+# idx=000118 file=PS2A046A.BIN off=0x00001FA2 inst=0x00001FA2 tag=text source=inline_len8_string len=120 enc=cp932 policy=in_place speaker_idx=000117 name=EX name_id=EX speaker_code=EX18025 name_source=prev_voice_label pair=000117 confidence=unresolved full_name=EX
+○000118●text○「少々お待ちください……。いえ、高レベルの\nイケロス期にあります。振幅の度合いによっては、モルペウス期に達する可能性も」
+●000118●text●「少々お待ちください……。いえ、高レベルの\nイケロス期にあります。振幅の度合いによっては、モルペウス期に達する可能性も」
+
+# idx=000119 file=PS2A046A.BIN off=0x00002036 inst=0x00002036 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=カウンセラー name_id=TA confidence=medium
+○000119●label○TA00660
+●000119●label●TA00660
+
+# idx=000120 file=PS2A046A.BIN off=0x00002045 inst=0x00002036 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=TA speaker_code=TA00660 name_source=prev_voice_label virtual=true writable=false pair=000121 confidence=medium full_name=カウンセラー basis=TA_lines_occur_in_counseling-room_scene
+○000120●name○カウンセラー
+●000120●name●カウンセラー
+
+# idx=000121 file=PS2A046A.BIN off=0x00002045 inst=0x00002045 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place speaker_idx=000120 name=カウンセラー name_id=TA speaker_code=TA00660 name_source=prev_voice_label pair=000120 confidence=medium full_name=カウンセラー
+○000121●text○「気づいているんだわ……」
+●000121●text●「気づいているんだわ……」
+
+# idx=000122 file=PS2A046A.BIN off=0x0000207B inst=0x0000207B tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000122●label○FU00630T
+●000122●label●FU00630T
+
+# idx=000123 file=PS2A046A.BIN off=0x0000208B inst=0x0000207B tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU00630T name_source=prev_voice_label virtual=true writable=false pair=000124 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000123●name○冬木
+●000123●name●冬木
+
+# idx=000124 file=PS2A046A.BIN off=0x0000208B inst=0x0000208B tag=text source=inline_len8_string len=108 enc=cp932 policy=in_place speaker_idx=000123 name=冬木 name_id=FU speaker_code=FU00630T name_source=prev_voice_label pair=000123 confidence=medium full_name=冬木
+○000124●text○「そうですか。ぼくは三枝先生をつれて行かな\nければなりませんから、エトナには、きみたちが先に戻ってください」
+●000124●text●「そうですか。ぼくは三枝先生をつれて行かな\nければなりませんから、エトナには、きみたちが先に戻ってください」
+
+# idx=000125 file=PS2A046A.BIN off=0x00002113 inst=0x00002113 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=EX name_id=EX confidence=unresolved
+○000125●label○EX17055
+●000125●label●EX17055
+
+# idx=000126 file=PS2A046A.BIN off=0x00002122 inst=0x00002113 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=EX speaker_code=EX17055 name_source=prev_voice_label virtual=true writable=false pair=000127 confidence=unresolved full_name=EX basis=prefix_detected;_no_mapping
+○000126●name○EX
+●000126●name●EX
+
+# idx=000127 file=PS2A046A.BIN off=0x00002122 inst=0x00002122 tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place speaker_idx=000126 name=EX name_id=EX speaker_code=EX17055 name_source=prev_voice_label pair=000126 confidence=unresolved full_name=EX
+○000127●text○「了解しました。おい、戻るぞ」
+●000127●text●「了解しました。おい、戻るぞ」
+
+# idx=000128 file=PS2A046A.BIN off=0x0000215C inst=0x0000215C tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000128●label○FU00640T
+●000128●label●FU00640T
+
+# idx=000129 file=PS2A046A.BIN off=0x0000216C inst=0x0000215C tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU00640T name_source=prev_voice_label virtual=true writable=false pair=000130 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000129●name○冬木
+●000129●name●冬木
+
+# idx=000130 file=PS2A046A.BIN off=0x0000216C inst=0x0000216C tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place speaker_idx=000129 name=冬木 name_id=FU speaker_code=FU00640T name_source=prev_voice_label pair=000129 confidence=medium full_name=冬木
+○000130●text○「あ、そう。アルゲスに、３Ａでの警戒観測を\n命じます」
+●000130●text●「あ、そう。アルゲスに、３Ａでの警戒観測を\n命じます」
+
+# idx=000131 file=PS2A046A.BIN off=0x000021BE inst=0x000021BE tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=EX name_id=EX confidence=unresolved
+○000131●label○EX17045
+●000131●label●EX17045
+
+# idx=000132 file=PS2A046A.BIN off=0x000021CD inst=0x000021BE tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=EX speaker_code=EX17045 name_source=prev_voice_label virtual=true writable=false pair=000133 confidence=unresolved full_name=EX basis=prefix_detected;_no_mapping
+○000132●name○EX
+●000132●name●EX
+
+# idx=000133 file=PS2A046A.BIN off=0x000021CD inst=0x000021CD tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place speaker_idx=000132 name=EX name_id=EX speaker_code=EX17045 name_source=prev_voice_label pair=000132 confidence=unresolved full_name=EX
+○000133●text○「了解しました。アルゲス・セクションに３Ａ\nでの警戒観測を命じます」
+●000133●text●「了解しました。アルゲス・セクションに３Ａ\nでの警戒観測を命じます」
+
+# idx=000134 file=PS2A046A.BIN off=0x0000222D inst=0x0000222D tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000134●text○くぐもったふたりの声はそれっきり聞こえなく\nなった。
+●000134●text●くぐもったふたりの声はそれっきり聞こえなく\nなった。
+
+# idx=000135 file=PS2A046A.BIN off=0x0000227D inst=0x0000227D tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000135●label○FU00650T
+●000135●label●FU00650T
+
+# idx=000136 file=PS2A046A.BIN off=0x0000228D inst=0x0000227D tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU00650T name_source=prev_voice_label virtual=true writable=false pair=000137 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000136●name○冬木
+●000136●name●冬木
+
+# idx=000137 file=PS2A046A.BIN off=0x0000228D inst=0x0000228D tag=text source=inline_len8_string len=22 enc=cp932 policy=in_place speaker_idx=000136 name=冬木 name_id=FU speaker_code=FU00650T name_source=prev_voice_label pair=000136 confidence=medium full_name=冬木
+○000137●text○「……どうしました？」
+●000137●text●「……どうしました？」
+
+# idx=000138 file=PS2A046A.BIN off=0x000022BF inst=0x000022BF tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place
+○000138●text○男の声がやさしく問いかける。
+●000138●text●男の声がやさしく問いかける。
+
+# idx=000139 file=PS2A046A.BIN off=0x000022F7 inst=0x000022F7 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=カウンセラー name_id=TA confidence=medium
+○000139●label○TA00670
+●000139●label●TA00670
+
+# idx=000140 file=PS2A046A.BIN off=0x00002306 inst=0x000022F7 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=TA speaker_code=TA00670 name_source=prev_voice_label virtual=true writable=false pair=000141 confidence=medium full_name=カウンセラー basis=TA_lines_occur_in_counseling-room_scene
+○000140●name○カウンセラー
+●000140●name●カウンセラー
+
+# idx=000141 file=PS2A046A.BIN off=0x00002306 inst=0x00002306 tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place speaker_idx=000140 name=カウンセラー name_id=TA speaker_code=TA00670 name_source=prev_voice_label pair=000140 confidence=medium full_name=カウンセラー
+○000141●text○「私たちは……消えてしまうんですか？」
+●000141●text●「私たちは……消えてしまうんですか？」
+
+# idx=000142 file=PS2A046A.BIN off=0x00002348 inst=0x00002348 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000142●label○FU00660T
+●000142●label●FU00660T
+
+# idx=000143 file=PS2A046A.BIN off=0x00002358 inst=0x00002348 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU00660T name_source=prev_voice_label virtual=true writable=false pair=000144 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000143●name○冬木
+●000143●name●冬木
+
+# idx=000144 file=PS2A046A.BIN off=0x00002358 inst=0x00002358 tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place speaker_idx=000143 name=冬木 name_id=FU speaker_code=FU00660T name_source=prev_voice_label pair=000143 confidence=medium full_name=冬木
+○000144●text○「そうならないよう、みんなで努力しているわけですから」
+●000144●text●「そうならないよう、みんなで努力しているわけですから」
+
+# idx=000145 file=PS2A046A.BIN off=0x000023AA inst=0x000023AA tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=カウンセラー name_id=TA confidence=medium
+○000145●label○TA00680
+●000145●label●TA00680
+
+# idx=000146 file=PS2A046A.BIN off=0x000023B9 inst=0x000023AA tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=TA speaker_code=TA00680 name_source=prev_voice_label virtual=true writable=false pair=000147 confidence=medium full_name=カウンセラー basis=TA_lines_occur_in_counseling-room_scene
+○000146●name○カウンセラー
+●000146●name●カウンセラー
+
+# idx=000147 file=PS2A046A.BIN off=0x000023B9 inst=0x000023B9 tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place speaker_idx=000146 name=カウンセラー name_id=TA speaker_code=TA00680 name_source=prev_voice_label pair=000146 confidence=medium full_name=カウンセラー
+○000147●text○「……もし、ボックスが開いてしまったら……\n私たちはどうなるんですか？」
+●000147●text●「……もし、ボックスが開いてしまったら……\n私たちはどうなるんですか？」
+
+# idx=000148 file=PS2A046A.BIN off=0x0000241D inst=0x0000241D tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000148●label○FU00670T
+●000148●label●FU00670T
+
+# idx=000149 file=PS2A046A.BIN off=0x0000242D inst=0x0000241D tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU00670T name_source=prev_voice_label virtual=true writable=false pair=000150 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000149●name○冬木
+●000149●name●冬木
+
+# idx=000150 file=PS2A046A.BIN off=0x0000242D inst=0x0000242D tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place speaker_idx=000149 name=冬木 name_id=FU speaker_code=FU00670T name_source=prev_voice_label pair=000149 confidence=medium full_name=冬木
+○000150●text○「わかりません。わからないからこそ、\nぼくたちは今ここにいるのです」
+●000150●text●「わかりません。わからないからこそ、\nぼくたちは今ここにいるのです」
+
+# idx=000151 file=PS2A046A.BIN off=0x0000248D inst=0x0000248D tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=カウンセラー name_id=TA confidence=medium
+○000151●label○TA00690
+●000151●label●TA00690
+
+# idx=000152 file=PS2A046A.BIN off=0x0000249C inst=0x0000248D tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=TA speaker_code=TA00690 name_source=prev_voice_label virtual=true writable=false pair=000153 confidence=medium full_name=カウンセラー basis=TA_lines_occur_in_counseling-room_scene
+○000152●name○カウンセラー
+●000152●name●カウンセラー
+
+# idx=000153 file=PS2A046A.BIN off=0x0000249C inst=0x0000249C tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place speaker_idx=000152 name=カウンセラー name_id=TA speaker_code=TA00690 name_source=prev_voice_label pair=000152 confidence=medium full_name=カウンセラー
+○000153●text○「けれど……」
+●000153●text●「けれど……」
+
+# idx=000154 file=PS2A046A.BIN off=0x000024D2 inst=0x000024D2 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000154●label○FU00680T
+●000154●label●FU00680T
+
+# idx=000155 file=PS2A046A.BIN off=0x000024E2 inst=0x000024D2 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU00680T name_source=prev_voice_label virtual=true writable=false pair=000156 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000155●name○冬木
+●000155●name●冬木
+
+# idx=000156 file=PS2A046A.BIN off=0x000024E2 inst=0x000024E2 tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place speaker_idx=000155 name=冬木 name_id=FU speaker_code=FU00680T name_source=prev_voice_label pair=000155 confidence=medium full_name=冬木
+○000156●text○「お話は後にしましょう。今は三枝先生を連れて帰らなければいけませんから」
+●000156●text●「お話は後にしましょう。今は三枝先生を連れて帰らなければいけませんから」
+
+# idx=000157 file=PS2A046A.BIN off=0x00002537 inst=0x00002537 tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000157●label○se-10
+●000157●label●se-10
+
+# idx=000158 file=PS2A046A.BIN off=0x0000255F inst=0x0000255F tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place
+○000158●text○扉をノックする音。\nとてもていねいに。
+●000158●text●扉をノックする音。\nとてもていねいに。
+
+# idx=000159 file=PS2A046A.BIN off=0x000025A1 inst=0x000025A1 tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000159●text○今、ここにいるべきではない。\n事情がまるでわからないのだから。
+●000159●text●今、ここにいるべきではない。\n事情がまるでわからないのだから。
+
+# idx=000160 file=PS2A046A.BIN off=0x000025FB inst=0x000025FB tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place
+○000160●text○何かが進んでいた。\n理解できない何かが。
+●000160●text●何かが進んでいた。\n理解できない何かが。
+
+# idx=000161 file=PS2A046A.BIN off=0x0000263F inst=0x0000263F tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000161●text○ぼくは、白いカーテンの向こうに身を隠した。
+●000161●text●ぼくは、白いカーテンの向こうに身を隠した。
+
+# idx=000162 file=PS2A046A.BIN off=0x000026B0 inst=0x000026B0 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000162●label○se-11_
+●000162●label●se-11_
+
+# idx=000163 file=PS2A046A.BIN off=0x000026D9 inst=0x000026D9 tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place
+○000163●text○扉の開く音がして複数の人間が入って来た。
+●000163●text●扉の開く音がして複数の人間が入って来た。
+
+# idx=000164 file=PS2A046A.BIN off=0x0000271D inst=0x0000271D tag=text source=inline_len8_string len=110 enc=cp932 policy=in_place
+○000164●text○カウンセラー、彼女と話していた男の他にも\n数人分の気配がした。\n金属が鳴らされる音と、重たい足音が奇妙だった。
+●000164●text●カウンセラー、彼女と話していた男の他にも\n数人分の気配がした。\n金属が鳴らされる音と、重たい足音が奇妙だった。
+
+# idx=000165 file=PS2A046A.BIN off=0x000027A7 inst=0x000027A7 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000165●label○FU00260
+●000165●label●FU00260
+
+# idx=000166 file=PS2A046A.BIN off=0x000027B6 inst=0x000027A7 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU00260 name_source=prev_voice_label virtual=true writable=false pair=000167 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000166●name○冬木
+●000166●name●冬木
+
+# idx=000167 file=PS2A046A.BIN off=0x000027B6 inst=0x000027B6 tag=text source=inline_len8_string len=16 enc=cp932 policy=in_place speaker_idx=000166 name=冬木 name_id=FU speaker_code=FU00260 name_source=prev_voice_label pair=000166 confidence=medium full_name=冬木
+○000167●text○「……三枝先生」
+●000167●text●「……三枝先生」
+
+# idx=000168 file=PS2A046A.BIN off=0x000027E2 inst=0x000027E2 tag=text source=inline_len8_string len=90 enc=cp932 policy=in_place
+○000168●text○と話しかける男の声はやさしかった。\n迷子のこどもに接するような、相手を思いやる\n声だった。
+●000168●text●と話しかける男の声はやさしかった。\n迷子のこどもに接するような、相手を思いやる\n声だった。
+
+# idx=000169 file=PS2A046A.BIN off=0x00002858 inst=0x00002858 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=三枝先生 name_id=MI confidence=medium
+○000169●label○MI00040
+●000169●label●MI00040
+
+# idx=000170 file=PS2A046A.BIN off=0x00002867 inst=0x00002858 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MI speaker_code=MI00040 name_source=prev_voice_label virtual=true writable=false pair=000171 confidence=medium full_name=三枝先生 basis=MI_scene_centered_on_三枝先生_and_睦月
+○000170●name○三枝先生
+●000170●name●三枝先生
+
+# idx=000171 file=PS2A046A.BIN off=0x00002867 inst=0x00002867 tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place speaker_idx=000170 name=三枝先生 name_id=MI speaker_code=MI00040 name_source=prev_voice_label pair=000170 confidence=medium full_name=三枝先生
+○000171●text○「う……ううっ……」
+●000171●text●「う……ううっ……」
+
+# idx=000172 file=PS2A046A.BIN off=0x00002897 inst=0x00002897 tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000172●text○三枝先生と呼ばれた女性は、声をおし殺して\n泣いている。
+●000172●text●三枝先生と呼ばれた女性は、声をおし殺して\n泣いている。
+
+# idx=000173 file=PS2A046A.BIN off=0x000028E9 inst=0x000028E9 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000173●label○FU00270
+●000173●label●FU00270
+
+# idx=000174 file=PS2A046A.BIN off=0x000028F8 inst=0x000028E9 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU00270 name_source=prev_voice_label virtual=true writable=false pair=000175 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000174●name○冬木
+●000174●name●冬木
+
+# idx=000175 file=PS2A046A.BIN off=0x000028F8 inst=0x000028F8 tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place speaker_idx=000174 name=冬木 name_id=FU speaker_code=FU00270 name_source=prev_voice_label pair=000174 confidence=medium full_name=冬木
+○000175●text○「三枝先生、一緒に帰りましょう」
+●000175●text●「三枝先生、一緒に帰りましょう」
+
+# idx=000176 file=PS2A046A.BIN off=0x00002934 inst=0x00002934 tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000176●text○少しの沈黙があり、すすり泣きの声が聞こえた。
+●000176●text●少しの沈黙があり、すすり泣きの声が聞こえた。
+
+# idx=000177 file=PS2A046A.BIN off=0x0000297C inst=0x0000297C tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=三枝先生 name_id=MI confidence=medium
+○000177●label○MI00050
+●000177●label●MI00050
+
+# idx=000178 file=PS2A046A.BIN off=0x0000298B inst=0x0000297C tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MI speaker_code=MI00050 name_source=prev_voice_label virtual=true writable=false pair=000179 confidence=medium full_name=三枝先生 basis=MI_scene_centered_on_三枝先生_and_睦月
+○000178●name○三枝先生
+●000178●name●三枝先生
+
+# idx=000179 file=PS2A046A.BIN off=0x0000298B inst=0x0000298B tag=text source=inline_len8_string len=22 enc=cp932 policy=in_place speaker_idx=000178 name=三枝先生 name_id=MI speaker_code=MI00050 name_source=prev_voice_label pair=000178 confidence=medium full_name=三枝先生
+○000179●text○「ううう……うっ……」
+●000179●text●「ううう……うっ……」
+
+# idx=000180 file=PS2A046A.BIN off=0x000029BD inst=0x000029BD tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000180●label○FU00280
+●000180●label●FU00280
+
+# idx=000181 file=PS2A046A.BIN off=0x000029CC inst=0x000029BD tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU00280 name_source=prev_voice_label virtual=true writable=false pair=000182 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000181●name○冬木
+●000181●name●冬木
+
+# idx=000182 file=PS2A046A.BIN off=0x000029CC inst=0x000029CC tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place speaker_idx=000181 name=冬木 name_id=FU speaker_code=FU00280 name_source=prev_voice_label pair=000181 confidence=medium full_name=冬木
+○000182●text○「先生……冬木です。迎えに来ましたよ」
+●000182●text●「先生……冬木です。迎えに来ましたよ」
+
+# idx=000183 file=PS2A046A.BIN off=0x00002A0E inst=0x00002A0E tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=三枝先生 name_id=MI confidence=medium
+○000183●label○MI00060
+●000183●label●MI00060
+
+# idx=000184 file=PS2A046A.BIN off=0x00002A1D inst=0x00002A0E tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MI speaker_code=MI00060 name_source=prev_voice_label virtual=true writable=false pair=000185 confidence=medium full_name=三枝先生 basis=MI_scene_centered_on_三枝先生_and_睦月
+○000184●name○三枝先生
+●000184●name●三枝先生
+
+# idx=000185 file=PS2A046A.BIN off=0x00002A1D inst=0x00002A1D tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place speaker_idx=000184 name=三枝先生 name_id=MI speaker_code=MI00060 name_source=prev_voice_label pair=000184 confidence=medium full_name=三枝先生
+○000185●text○「ううう……うっ……うっ……」
+●000185●text●「ううう……うっ……うっ……」
+
+# idx=000186 file=PS2A046A.BIN off=0x00002A57 inst=0x00002A57 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000186●text○すすり泣きはしばらく続き、次第に小さくなっていく。
+●000186●text●すすり泣きはしばらく続き、次第に小さくなっていく。
+
+# idx=000187 file=PS2A046A.BIN off=0x00002AA5 inst=0x00002AA5 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000187●label○FU00290
+●000187●label●FU00290
+
+# idx=000188 file=PS2A046A.BIN off=0x00002AB4 inst=0x00002AA5 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU00290 name_source=prev_voice_label virtual=true writable=false pair=000189 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000188●name○冬木
+●000188●name●冬木
+
+# idx=000189 file=PS2A046A.BIN off=0x00002AB4 inst=0x00002AB4 tag=text source=inline_len8_string len=66 enc=cp932 policy=in_place speaker_idx=000188 name=冬木 name_id=FU speaker_code=FU00290 name_source=prev_voice_label pair=000188 confidence=medium full_name=冬木
+○000189●text○「先生、戻りましょう。みんな、先生が帰って\n来るのを待ってますよ」
+●000189●text●「先生、戻りましょう。みんな、先生が帰って\n来るのを待ってますよ」
+
+# idx=000190 file=PS2A046A.BIN off=0x00002B12 inst=0x00002B12 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000190●text○すすり泣きがとだえ、小さくしゃくりあげる声がした。
+●000190●text●すすり泣きがとだえ、小さくしゃくりあげる声がした。
+
+# idx=000191 file=PS2A046A.BIN off=0x00002B60 inst=0x00002B60 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=三枝先生 name_id=MI confidence=medium
+○000191●label○MI00070
+●000191●label●MI00070
+
+# idx=000192 file=PS2A046A.BIN off=0x00002B6F inst=0x00002B60 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MI speaker_code=MI00070 name_source=prev_voice_label virtual=true writable=false pair=000193 confidence=medium full_name=三枝先生 basis=MI_scene_centered_on_三枝先生_and_睦月
+○000192●name○三枝先生
+●000192●name●三枝先生
+
+# idx=000193 file=PS2A046A.BIN off=0x00002B6F inst=0x00002B6F tag=text source=inline_len8_string len=22 enc=cp932 policy=in_place speaker_idx=000192 name=三枝先生 name_id=MI speaker_code=MI00070 name_source=prev_voice_label pair=000192 confidence=medium full_name=三枝先生
+○000193●text○「……冬木……さん？」
+●000193●text●「……冬木……さん？」
+
+# idx=000194 file=PS2A046A.BIN off=0x00002BA1 inst=0x00002BA1 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000194●label○FU00300
+●000194●label●FU00300
+
+# idx=000195 file=PS2A046A.BIN off=0x00002BB0 inst=0x00002BA1 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU00300 name_source=prev_voice_label virtual=true writable=false pair=000196 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000195●name○冬木
+●000195●name●冬木
+
+# idx=000196 file=PS2A046A.BIN off=0x00002BB0 inst=0x00002BB0 tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place speaker_idx=000195 name=冬木 name_id=FU speaker_code=FU00300 name_source=prev_voice_label pair=000195 confidence=medium full_name=冬木
+○000196●text○「そうです、冬木です。みんな先生のこと心配\nしてたんですよ」
+●000196●text●「そうです、冬木です。みんな先生のこと心配\nしてたんですよ」
+
+# idx=000197 file=PS2A046A.BIN off=0x00002C08 inst=0x00002C08 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=三枝先生 name_id=MI confidence=medium
+○000197●label○MI00080
+●000197●label●MI00080
+
+# idx=000198 file=PS2A046A.BIN off=0x00002C17 inst=0x00002C08 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MI speaker_code=MI00080 name_source=prev_voice_label virtual=true writable=false pair=000199 confidence=medium full_name=三枝先生 basis=MI_scene_centered_on_三枝先生_and_睦月
+○000198●name○三枝先生
+●000198●name●三枝先生
+
+# idx=000199 file=PS2A046A.BIN off=0x00002C17 inst=0x00002C17 tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place speaker_idx=000198 name=三枝先生 name_id=MI speaker_code=MI00080 name_source=prev_voice_label pair=000198 confidence=medium full_name=三枝先生
+○000199●text○「……ごめんなさい。あの子に…会えるような\n気が……したから」
+●000199●text●「……ごめんなさい。あの子に…会えるような\n気が……したから」
+
+# idx=000200 file=PS2A046A.BIN off=0x00002C71 inst=0x00002C71 tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000200●text○ぼくはカーテンの隙間から、そっとのぞいた。
+●000200●text●ぼくはカーテンの隙間から、そっとのぞいた。
+
+# idx=000201 file=PS2A046A.BIN off=0x00002CB7 inst=0x00002CB7 tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000201●text○三枝先生と呼ばれた女性は相変わらず椅子に腰をかけたまま。
+●000201●text●三枝先生と呼ばれた女性は相変わらず椅子に腰をかけたまま。
+
+# idx=000202 file=PS2A046A.BIN off=0x00002D0B inst=0x00002D0B tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000202●text○冬木という男は、背広姿で端正な顔だちをして\nいた。
+●000202●text●冬木という男は、背広姿で端正な顔だちをして\nいた。
+
+# idx=000203 file=PS2A046A.BIN off=0x00002D59 inst=0x00002D59 tag=text source=inline_len8_string len=70 enc=cp932 policy=in_place
+○000203●text○やさしそうな微笑みが、彼のことばが偽りでは\nないことをあらわしている。
+●000203●text●やさしそうな微笑みが、彼のことばが偽りでは\nないことをあらわしている。
+
+# idx=000204 file=PS2A046A.BIN off=0x00002DBB inst=0x00002DBB tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000204●text○カウンセラーは不機嫌そうな表情で唇をかみしめ、うつむいていた。
+●000204●text●カウンセラーは不機嫌そうな表情で唇をかみしめ、うつむいていた。
+
+# idx=000205 file=PS2A046A.BIN off=0x00002E15 inst=0x00002E15 tag=text source=inline_len8_string len=80 enc=cp932 policy=in_place
+○000205●text○廊下には……なにか、大きなものがあった。\n金属のすりあわされるかすかな音が……。
+●000205●text●廊下には……なにか、大きなものがあった。\n金属のすりあわされるかすかな音が……。
+
+# idx=000206 file=PS2A046A.BIN off=0x00002EC2 inst=0x00002EC2 tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place
+○000206●text○そのとき視界の隅で何かが動いた。
+●000206●text●そのとき視界の隅で何かが動いた。
+
+# idx=000207 file=PS2A046A.BIN off=0x00002EFE inst=0x00002EFE tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000207●text○影が集まって形を得たとも、影の中から\n湧きあがったとも思えた。
+●000207●text●影が集まって形を得たとも、影の中から\n湧きあがったとも思えた。
+
+# idx=000208 file=PS2A046A.BIN off=0x00002F64 inst=0x00002F64 tag=text source=inline_len8_string len=70 enc=cp932 policy=in_place
+○000208●text○実体感の無いかたまりが、次第に形を見せ\nはじめる。\n気づいたとき……。
+●000208●text●実体感の無いかたまりが、次第に形を見せ\nはじめる。\n気づいたとき……。
+
+# idx=000209 file=PS2A046A.BIN off=0x00002FE5 inst=0x00002FE5 tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000209●label○se-36
+●000209●label●se-36
+
+# idx=000210 file=PS2A046A.BIN off=0x0000300D inst=0x0000300D tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000210●text○足もとの影で黒いものが動いた。\nそれはぼくの視線に気づいて、威嚇の声をあげた。
+●000210●text●足もとの影で黒いものが動いた。\nそれはぼくの視線に気づいて、威嚇の声をあげた。
+
+# idx=000211 file=PS2A046A.BIN off=0x00003077 inst=0x00003077 tag=text source=inline_len8_string len=92 enc=cp932 policy=in_place
+○000211●text○カーテンの向こうに緊張がはしる。\n彼らもこの存在に気づいた。\n隠れる場所はどこにもなかった。
+●000211●text●カーテンの向こうに緊張がはしる。\n彼らもこの存在に気づいた。\n隠れる場所はどこにもなかった。
+
+# idx=000212 file=PS2A046A.BIN off=0x000030EC inst=0x000030EC tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000212●label○SE-S08
+●000212●label●SE-S08
+
+# idx=000213 file=PS2A046A.BIN off=0x00003115 inst=0x00003115 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000213●text○重たい足音が近づいてくる。
+●000213●text●重たい足音が近づいてくる。
+
+# idx=000214 file=PS2A046A.BIN off=0x00003148 inst=0x00003148 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000214●label○se-e25
+●000214●label●se-e25
+
+# idx=000215 file=PS2A046A.BIN off=0x00003190 inst=0x00003190 tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000215●label○se-31
+●000215●label●se-31
+
+# idx=000216 file=PS2A046A.BIN off=0x000031DA inst=0x000031DA tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000216●text○カーテンがめくられ、黒いものが床へとくし刺しになる。
+●000216●text●カーテンがめくられ、黒いものが床へとくし刺しになる。
+
+# idx=000217 file=PS2A046A.BIN off=0x0000322A inst=0x0000322A tag=text source=inline_len8_string len=82 enc=cp932 policy=in_place
+○000217●text○胴体を矢で貫かれ、自由を失った黒いものは\n小さく鳴きながら逃げようともがいていた。
+●000217●text●胴体を矢で貫かれ、自由を失った黒いものは\n小さく鳴きながら逃げようともがいていた。
+
+# idx=000218 file=PS2A046A.BIN off=0x00003298 inst=0x00003298 tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000218●text○ぼくはそれから目をそらすことができなかった。
+●000218●text●ぼくはそれから目をそらすことができなかった。
+
+# idx=000219 file=PS2A046A.BIN off=0x000032E0 inst=0x000032E0 tag=text source=inline_len8_string len=106 enc=cp932 policy=in_place
+○000219●text○影の中に気配を感じたものが、今、ここに姿を\nあらわしていた。\n闇と混じりあった体を、苦痛でくねらせている。
+●000219●text●影の中に気配を感じたものが、今、ここに姿を\nあらわしていた。\n闇と混じりあった体を、苦痛でくねらせている。
+
+# idx=000220 file=PS2A046A.BIN off=0x00003366 inst=0x00003366 tag=text source=inline_len8_string len=22 enc=cp932 policy=in_place
+○000220●text○それは……妖精だった。
+●000220●text●それは……妖精だった。
+
+# idx=000221 file=PS2A046A.BIN off=0x00003398 inst=0x00003398 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000221●text○カウンセラーもそういってはいたが、ある種の\n比喩だと思っていた。
+●000221●text●カウンセラーもそういってはいたが、ある種の\n比喩だと思っていた。
+
+# idx=000222 file=PS2A046A.BIN off=0x000033F4 inst=0x000033F4 tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000222●text○妖精などという存在がありえるとは思えなかった。
+●000222●text●妖精などという存在がありえるとは思えなかった。
+
+# idx=000223 file=PS2A046A.BIN off=0x0000343E inst=0x0000343E tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000223●text○けれど、月明かりに照らされたそれは、確かに\n妖精だった。
+●000223●text●けれど、月明かりに照らされたそれは、確かに\n妖精だった。
+
+# idx=000224 file=PS2A046A.BIN off=0x00003492 inst=0x00003492 tag=text source=inline_len8_string len=36 enc=cp932 policy=in_place
+○000224●text○ぼくは……まずい!!\nカウンセラーは?!
+●000224●text●ぼくは……まずい!!\nカウンセラーは?!
+
+# idx=000225 file=PS2A046A.BIN off=0x000034FF inst=0x000034FF tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000225●text○目をあげると、ふたりの男の姿が一瞬見えた。
+●000225●text●目をあげると、ふたりの男の姿が一瞬見えた。
+
+# idx=000226 file=PS2A046A.BIN off=0x00003595 inst=0x00003595 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=BU name_id=BU confidence=unresolved
+○000226●label○BU00120
+●000226●label●BU00120
+
+# idx=000227 file=PS2A046A.BIN off=0x000035A4 inst=0x00003595 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=BU speaker_code=BU00120 name_source=prev_voice_label virtual=true writable=false pair=000228 confidence=unresolved full_name=BU basis=prefix_detected;_exact_entity_not_proven
+○000227●name○BU
+●000227●name●BU
+
+# idx=000228 file=PS2A046A.BIN off=0x000035A4 inst=0x000035A4 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place speaker_idx=000227 name=BU name_id=BU speaker_code=BU00120 name_source=prev_voice_label pair=000227 confidence=unresolved full_name=BU
+○000228●text○「どーすか、タイショー。１発っすよー。オレ、\nうまいっすよねー」
+●000228●text●「どーすか、タイショー。１発っすよー。オレ、\nうまいっすよねー」
+
+# idx=000229 file=PS2A046A.BIN off=0x00003600 inst=0x00003600 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=TS name_id=TS confidence=unresolved
+○000229●label○TS00080
+●000229●label●TS00080
+
+# idx=000230 file=PS2A046A.BIN off=0x0000360F inst=0x00003600 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=TS speaker_code=TS00080 name_source=prev_voice_label virtual=true writable=false pair=000231 confidence=unresolved full_name=TS basis=prefix_detected;_exact_entity_not_proven
+○000230●name○TS
+●000230●name●TS
+
+# idx=000231 file=PS2A046A.BIN off=0x0000360F inst=0x0000360F tag=text source=inline_len8_string len=22 enc=cp932 policy=in_place speaker_idx=000230 name=TS name_id=TS speaker_code=TS00080 name_source=prev_voice_label pair=000230 confidence=unresolved full_name=TS
+○000231●text○「フツーだよ、バ～カ」
+●000231●text●「フツーだよ、バ～カ」
+
+# idx=000232 file=PS2A046A.BIN off=0x00003641 inst=0x00003641 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=BU name_id=BU confidence=unresolved
+○000232●label○BU00130
+●000232●label●BU00130
+
+# idx=000233 file=PS2A046A.BIN off=0x00003650 inst=0x00003641 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=BU speaker_code=BU00130 name_source=prev_voice_label virtual=true writable=false pair=000234 confidence=unresolved full_name=BU basis=prefix_detected;_exact_entity_not_proven
+○000233●name○BU
+●000233●name●BU
+
+# idx=000234 file=PS2A046A.BIN off=0x00003650 inst=0x00003650 tag=text source=inline_len8_string len=36 enc=cp932 policy=in_place speaker_idx=000233 name=BU name_id=BU speaker_code=BU00130 name_source=prev_voice_label pair=000233 confidence=unresolved full_name=BU
+○000234●text○「そっすかー、うまいと思うけどなー」
+●000234●text●「そっすかー、うまいと思うけどなー」
+
+# idx=000235 file=PS2A046A.BIN off=0x000036DE inst=0x000036DE tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=TS name_id=TS confidence=unresolved
+○000235●label○TS00090
+●000235●label●TS00090
+
+# idx=000236 file=PS2A046A.BIN off=0x000036ED inst=0x000036ED tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000236●text○そして、狂ったような笑い声が辺りを満たす。
+●000236●text●そして、狂ったような笑い声が辺りを満たす。
+
+# idx=000237 file=PS2A046A.BIN off=0x00003733 inst=0x00003733 tag=text source=inline_len8_string len=76 enc=cp932 policy=in_place
+○000237●text○男達は姿を消していた。\n足もとからくしざしになったはずの妖精も\n消えていた。
+●000237●text●男達は姿を消していた。\n足もとからくしざしになったはずの妖精も\n消えていた。
+
+# idx=000238 file=PS2A046A.BIN off=0x0000379B inst=0x0000379B tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000238●text○ぼくは、ひとりきりだった。
+●000238●text●ぼくは、ひとりきりだった。
+
+# idx=000239 file=PS2A046A.BIN off=0x000037D1 inst=0x000037D1 tag=text source=inline_len8_string len=100 enc=cp932 policy=in_place
+○000239●text○そこはカウンセリング室ではなかった。\n夜の街だった。\n冷たい月の光と、真っ黒な影が街を２分していた。
+●000239●text●そこはカウンセリング室ではなかった。\n夜の街だった。\n冷たい月の光と、真っ黒な影が街を２分していた。
+
+# idx=000240 file=PS2A046A.BIN off=0x00003851 inst=0x00003851 tag=text source=inline_len8_string len=110 enc=cp932 policy=in_place
+○000240●text○人影はなく、建物に明かりはともっていない。\n道には車１台走っていない。\n誰もいない静かな、静か過ぎる街だった。
+●000240●text●人影はなく、建物に明かりはともっていない。\n道には車１台走っていない。\n誰もいない静かな、静か過ぎる街だった。
+
+# idx=000241 file=PS2A046A.BIN off=0x000038CC inst=0x000038CC tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000241●label○se-12
+●000241●label●se-12
+
+# idx=000242 file=PS2A046A.BIN off=0x000038F4 inst=0x000038F4 tag=text source=inline_len8_string len=106 enc=cp932 policy=in_place
+○000242●text○遠くで何か獣の吠える声が聞こえた。\nぼくは……どこにいるんだ。\n手の届くような近さで月が明るく輝いていた。
+●000242●text●遠くで何か獣の吠える声が聞こえた。\nぼくは……どこにいるんだ。\n手の届くような近さで月が明るく輝いていた。
+
+# idx=000243 file=PS2A046A.BIN off=0x0000397A inst=0x0000397A tag=text source=inline_len8_string len=24 enc=cp932 policy=in_place
+○000243●text○ぼくは、どこにいるんだ？
+●000243●text●ぼくは、どこにいるんだ？
+
+# idx=000244 file=PS2A046A.BIN off=0x000039AE inst=0x000039AE tag=text source=inline_len8_string len=74 enc=cp932 policy=in_place
+○000244●text○けれど、不思議と混乱はなかった。\n自分でも意外に思えるほど落ちついていた。
+●000244●text●けれど、不思議と混乱はなかった。\n自分でも意外に思えるほど落ちついていた。
+
+# idx=000245 file=PS2A046A.BIN off=0x00003A14 inst=0x00003A14 tag=text source=inline_len8_string len=86 enc=cp932 policy=in_place
+○000245●text○もう１度辺りを見回した。\nどこかはりつめた印象があった。\n月影の中で何かが動いていた。
+●000245●text●もう１度辺りを見回した。\nどこかはりつめた印象があった。\n月影の中で何かが動いていた。
+
+# idx=000246 file=PS2A046A.BIN off=0x00003A83 inst=0x00003A83 tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000246●label○se-36
+●000246●label●se-36
+
+# idx=000247 file=PS2A046A.BIN off=0x00003AAB inst=0x00003AAB tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000247●text○影の中で妖精が、威嚇するような声をあげる。
+●000247●text●影の中で妖精が、威嚇するような声をあげる。
+
+# idx=000248 file=PS2A046A.BIN off=0x00003AF1 inst=0x00003AF1 tag=text source=inline_len8_string len=74 enc=cp932 policy=in_place
+○000248●text○ぼくは理解した。\nここはぼくのいた場所ではない。\nここではぼくが侵入者だ。
+●000248●text●ぼくは理解した。\nここはぼくのいた場所ではない。\nここではぼくが侵入者だ。
+
+# idx=000249 file=PS2A046A.BIN off=0x00003B57 inst=0x00003B57 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000249●text○次第に暗さを増していく影。
+●000249●text●次第に暗さを増していく影。
+
+# idx=000250 file=PS2A046A.BIN off=0x00003B8D inst=0x00003B8D tag=text source=inline_len8_string len=96 enc=cp932 policy=in_place
+○000250●text○その闇を見つめていると胸の中が重苦しくなる。いつまでも、ここにつったっているわけには\nいかない。
+●000250●text●その闇を見つめていると胸の中が重苦しくなる。いつまでも、ここにつったっているわけには\nいかない。
+
+# idx=000251 file=PS2A046A.BIN off=0x00003C09 inst=0x00003C09 tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000251●text○カウンセラーはいったはずだ。\n彼女もきみを捜しているはずだから、と。
+●000251●text●カウンセラーはいったはずだ。\n彼女もきみを捜しているはずだから、と。
+
+# idx=000252 file=PS2A046A.BIN off=0x00003C69 inst=0x00003C69 tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place
+○000252●text○彼女……\n綾はここにいるのか。
+●000252●text●彼女……\n綾はここにいるのか。
+
+# idx=000253 file=PS2A046A.BIN off=0x00003CA3 inst=0x00003CA3 tag=text source=inline_len8_string len=116 enc=cp932 policy=in_place
+○000253●text○ぼくは息苦しいほどの闇を抜けて、歩き始める。どこへ行けばいいのか見当がつかない。\nでも……始めなければいけなかった。
+●000253●text●ぼくは息苦しいほどの闇を抜けて、歩き始める。どこへ行けばいいのか見当がつかない。\nでも……始めなければいけなかった。
+
+# idx=000254 file=PS2A046A.BIN off=0x00003D83 inst=0x00003D83 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000254●label○PS2A047a.bin
+●000254●label●PS2A047a.bin
+

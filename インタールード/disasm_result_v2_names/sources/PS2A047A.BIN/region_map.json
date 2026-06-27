@@ -1,0 +1,16 @@
+{
+  "file": "PS2A047A.BIN",
+  "byte_size": 30314,
+  "coverage_percent": 100.0,
+  "coverage_status": "OK",
+  "regions": [
+    {
+      "id": "r0000",
+      "type": "instruction_stream",
+      "start": "0x00000000",
+      "end": "0x0000766A",
+      "size": 30314,
+      "description": "Conservative typed VM-bytecode atom stream; ambiguous semantics retained as opaque atoms."
+    }
+  ]
+}

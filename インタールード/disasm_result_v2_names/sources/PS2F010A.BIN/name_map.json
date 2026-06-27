@@ -1,0 +1,39 @@
+{
+  "file": "PS2F010A.BIN",
+  "resolution_status": "resolved_with_virtual_speaker_pairs",
+  "pairing_rule": "preceding 80-string voice id matching /^[A-Z]{2}\\d{5}[A-Za-z]?T?$/ paired with following quoted text",
+  "entities": [
+    {
+      "name_id": "GT",
+      "display_name": "玉城弟",
+      "full_name": "玉城麻衣子の弟",
+      "confidence": "medium",
+      "occurrences": 2,
+      "basis": "GT lines address 姉ちゃん/麻衣子"
+    },
+    {
+      "name_id": "HT",
+      "display_name": "玉城母",
+      "full_name": "玉城麻衣子の母",
+      "confidence": "medium",
+      "occurrences": 2,
+      "basis": "HT lines address 麻衣子 as family member"
+    },
+    {
+      "name_id": "KT",
+      "display_name": "千佳",
+      "full_name": "木村千佳",
+      "confidence": "medium",
+      "occurrences": 1,
+      "basis": "KT lines address 玉/遥; narration identifies 木村 nearby"
+    },
+    {
+      "name_id": "MT",
+      "display_name": "玉",
+      "full_name": "玉城麻衣子",
+      "confidence": "high",
+      "occurrences": 30,
+      "basis": "route/debug labels and repeated MT dialogue by 玉/麻衣子"
+    }
+  ]
+}

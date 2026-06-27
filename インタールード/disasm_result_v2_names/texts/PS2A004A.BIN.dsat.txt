@@ -1,0 +1,108 @@
+# DSAT export for PS2A004A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2A004A.BIN off=0x00000043 inst=0x00000043 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000001●label○se-e33
+●000001●label●se-e33
+
+# idx=000002 file=PS2A004A.BIN off=0x00000065 inst=0x00000065 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000002●text○どうしてぼくは、こんなに彼女のことを気に\nしてるんだろう。
+●000002●text●どうしてぼくは、こんなに彼女のことを気に\nしてるんだろう。
+
+# idx=000003 file=PS2A004A.BIN off=0x000000BB inst=0x000000BB tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000003●text○幻だとわかってるはずなのに。\nほんの一瞬の錯覚だと理解しているのに。
+●000003●text●幻だとわかってるはずなのに。\nほんの一瞬の錯覚だと理解しているのに。
+
+# idx=000004 file=PS2A004A.BIN off=0x0000011B inst=0x0000011B tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place
+○000004●text○でも……あの雰囲気が気にかかっていた。
+●000004●text●でも……あの雰囲気が気にかかっていた。
+
+# idx=000005 file=PS2A004A.BIN off=0x0000015D inst=0x0000015D tag=text source=inline_len8_string len=80 enc=cp932 policy=in_place
+○000005●text○誰もいない朝のホーム。\nたしかに、早朝とかだと人影がまばらなことは\nあるけれど。
+●000005●text●誰もいない朝のホーム。\nたしかに、早朝とかだと人影がまばらなことは\nあるけれど。
+
+# idx=000006 file=PS2A004A.BIN off=0x000001C9 inst=0x000001C9 tag=text source=inline_len8_string len=74 enc=cp932 policy=in_place
+○000006●text○それとは気配がまるで違っていた。\nすべてが静止した瞬間。\n凍りついた空気。
+●000006●text●それとは気配がまるで違っていた。\nすべてが静止した瞬間。\n凍りついた空気。
+
+# idx=000007 file=PS2A004A.BIN off=0x0000022F inst=0x0000022F tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place
+○000007●text○鳥は鳴かず、風もふかない朝。
+●000007●text●鳥は鳴かず、風もふかない朝。
+
+# idx=000008 file=PS2A004A.BIN off=0x00000267 inst=0x00000267 tag=text source=inline_len8_string len=104 enc=cp932 policy=in_place
+○000008●text○日ざしこそ朝の光だけれど、すがすがしさは\n感じられなかった。\n空虚さと冷たさだけが、辺りを満たしていた。
+●000008●text●日ざしこそ朝の光だけれど、すがすがしさは\n感じられなかった。\n空虚さと冷たさだけが、辺りを満たしていた。
+
+# idx=000009 file=PS2A004A.BIN off=0x000002EB inst=0x000002EB tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000009●text○なんだったんだろう。\nいや、錯覚だったんだ。\nそう、思ってる。
+●000009●text●なんだったんだろう。\nいや、錯覚だったんだ。\nそう、思ってる。
+
+# idx=000010 file=PS2A004A.BIN off=0x00000362 inst=0x00000362 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000010●label○se-e33
+●000010●label●se-e33
+
+# idx=000011 file=PS2A004A.BIN off=0x00000384 inst=0x00000384 tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place
+○000011●text○でも……。\nなら、なぜ、ぼくはこんなに彼女のことばかり\n考えているのか。
+●000011●text●でも……。\nなら、なぜ、ぼくはこんなに彼女のことばかり\n考えているのか。
+
+# idx=000012 file=PS2A004A.BIN off=0x000003E8 inst=0x000003E8 tag=text source=inline_len8_string len=16 enc=cp932 policy=in_place
+○000012●text○気になっていた。
+●000012●text●気になっていた。
+
+# idx=000013 file=PS2A004A.BIN off=0x00000414 inst=0x00000414 tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000013●text○あの、冷たい場所で彼女は、なにを考えていたの\nだろう。
+●000013●text●あの、冷たい場所で彼女は、なにを考えていたの\nだろう。
+
+# idx=000014 file=PS2A004A.BIN off=0x00000466 inst=0x00000466 tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place
+○000014●text○彼女はいったい……。
+●000014●text●彼女はいったい……。
+
+# idx=000015 file=PS2A004A.BIN off=0x00000496 inst=0x00000496 tag=text source=inline_len8_string len=18 enc=cp932 policy=in_place
+○000015●text○誰だったんだろう？
+●000015●text●誰だったんだろう？
+
+# idx=000016 file=PS2A004A.BIN off=0x000004C4 inst=0x000004C4 tag=text source=inline_len8_string len=102 enc=cp932 policy=in_place
+○000016●text○悩んでいても、仕方がないか。\n考えても結論が出ないのなら…………\n錯覚に結論があればの話だけれど……。
+●000016●text●悩んでいても、仕方がないか。\n考えても結論が出ないのなら…………\n錯覚に結論があればの話だけれど……。
+
+# idx=000017 file=PS2A004A.BIN off=0x00000546 inst=0x00000546 tag=text source=inline_len8_string len=80 enc=cp932 policy=in_place
+○000017●text○なにか行動してみるしかないわけだ。\nなにもしないでいるよりは、ずっと健全だろう。
+●000017●text●なにか行動してみるしかないわけだ。\nなにもしないでいるよりは、ずっと健全だろう。
+
+# idx=000018 file=PS2A004A.BIN off=0x0000061F inst=0x0000061F tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000018●text○ぼくは、図書館にそなえつけてあるパソコンで\n近郊の学校を調べた。
+●000018●text●ぼくは、図書館にそなえつけてあるパソコンで\n近郊の学校を調べた。
+
+# idx=000019 file=PS2A004A.BIN off=0x0000067B inst=0x0000067B tag=text source=inline_len8_string len=88 enc=cp932 policy=in_place
+○000019●text○わかっていることといえば、彼女の制服だけ。\n学校案内とか見れば、それくらいの調べはつく。
+●000019●text●わかっていることといえば、彼女の制服だけ。\n学校案内とか見れば、それくらいの調べはつく。
+
+# idx=000020 file=PS2A004A.BIN off=0x0000070B inst=0x0000070B tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000020●label○se-e33
+●000020●label●se-e33
+
+# idx=000021 file=PS2A004A.BIN off=0x0000072D inst=0x0000072D tag=text source=inline_len8_string len=110 enc=cp932 policy=in_place
+○000021●text○ずいぶん、遠回りな気もした。\nでも、わかっているのは、彼女の制服だけ。\nなら、できることはそれくらいしかない。
+●000021●text●ずいぶん、遠回りな気もした。\nでも、わかっているのは、彼女の制服だけ。\nなら、できることはそれくらいしかない。
+
+# idx=000022 file=PS2A004A.BIN off=0x000007B7 inst=0x000007B7 tag=text source=inline_len8_string len=84 enc=cp932 policy=in_place
+○000022●text○検索をかけただけで、少しうんざりする。\n知ってるところを除外しても、まだ大量にある。
+●000022●text●検索をかけただけで、少しうんざりする。\n知ってるところを除外しても、まだ大量にある。
+
+# idx=000023 file=PS2A004A.BIN off=0x00000827 inst=0x00000827 tag=text source=inline_len8_string len=92 enc=cp932 policy=in_place
+○000023●text○正直な話、メンドーくさい、と思った。けれど、同じところをグルグル回り続けている\nよりはまし。
+●000023●text●正直な話、メンドーくさい、と思った。けれど、同じところをグルグル回り続けている\nよりはまし。
+
+# idx=000024 file=PS2A004A.BIN off=0x0000089F inst=0x0000089F tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place
+○000024●text○覚悟を決めて、ぼくはカーソルを動かす。
+●000024●text●覚悟を決めて、ぼくはカーソルを動かす。
+
+# idx=000025 file=PS2A004A.BIN off=0x000008E8 inst=0x000008E8 tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000025●text○まず最初は、なじみのない私立の女子校から……。
+●000025●text●まず最初は、なじみのない私立の女子校から……。
+
+# idx=000026 file=PS2A004A.BIN off=0x0000096A inst=0x0000096A tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000026●label○PS2A005a.bin
+●000026●label●PS2A005a.bin
+

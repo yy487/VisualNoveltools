@@ -1,0 +1,796 @@
+# DSAT export for PS2I057A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2I057A.BIN off=0x00000053 inst=0x00000053 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000001●text○ぼくたちは管制室の壁面、ガラスの裂け目に\n近づいた。
+●000001●text●ぼくたちは管制室の壁面、ガラスの裂け目に\n近づいた。
+
+# idx=000002 file=PS2I057A.BIN off=0x000000A3 inst=0x000000A3 tag=text source=inline_len8_string len=90 enc=cp932 policy=in_place
+○000002●text○不思議な光景だった。\n周囲のガラスは外の光景を映しているのに、\n裂け目の中は真っ暗だった。
+●000002●text●不思議な光景だった。\n周囲のガラスは外の光景を映しているのに、\n裂け目の中は真っ暗だった。
+
+# idx=000003 file=PS2I057A.BIN off=0x00000119 inst=0x00000119 tag=text source=inline_len8_string len=116 enc=cp932 policy=in_place
+○000003●text○冬木さんは、『綾』がこの裂け目を通りすぎて\n行ったとおしえてくれた。\nその後を追って、影の犬もここを抜けて行ったと。
+●000003●text●冬木さんは、『綾』がこの裂け目を通りすぎて\n行ったとおしえてくれた。\nその後を追って、影の犬もここを抜けて行ったと。
+
+# idx=000004 file=PS2I057A.BIN off=0x000001A9 inst=0x000001A9 tag=text source=inline_len8_string len=112 enc=cp932 policy=in_place
+○000004●text○冬木さんは正直に話してくれたと思う。\nすべてを話してくれたわけではないが、少なく\nとも嘘をついてはいないだろう。
+●000004●text●冬木さんは正直に話してくれたと思う。\nすべてを話してくれたわけではないが、少なく\nとも嘘をついてはいないだろう。
+
+# idx=000005 file=PS2I057A.BIN off=0x00000235 inst=0x00000235 tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000005●text○『綾』……。
+●000005●text●『綾』……。
+
+# idx=000006 file=PS2I057A.BIN off=0x0000025D inst=0x0000025D tag=text source=inline_len8_string len=130 enc=cp932 policy=in_place
+○000006●text○あの朝のホームに始まった、ぼくの…ぼくと\n泉美さんの物語が終わりを迎えるためには、\n『綾』と彼女の街のあいだにけじめが必要だった。
+●000006●text●あの朝のホームに始まった、ぼくの…ぼくと\n泉美さんの物語が終わりを迎えるためには、\n『綾』と彼女の街のあいだにけじめが必要だった。
+
+# idx=000007 file=PS2I057A.BIN off=0x000002FB inst=0x000002FB tag=text source=inline_len8_string len=16 enc=cp932 policy=in_place
+○000007●text○「……泉美さん」
+●000007●text●「……泉美さん」
+
+# idx=000008 file=PS2I057A.BIN off=0x00000327 inst=0x00000327 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000008●text○ぼくは、泉美さんに声をかけた。\n泉美さんは、おずおずとうなずく。
+●000008●text●ぼくは、泉美さんに声をかけた。\n泉美さんは、おずおずとうなずく。
+
+# idx=000009 file=PS2I057A.BIN off=0x00000383 inst=0x00000383 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000009●label○IZ07840
+●000009●label●IZ07840
+
+# idx=000010 file=PS2I057A.BIN off=0x00000392 inst=0x00000383 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07840 name_source=prev_voice_label virtual=true writable=false pair=000011 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000010●name○泉美
+●000010●name●泉美
+
+# idx=000011 file=PS2I057A.BIN off=0x00000392 inst=0x00000392 tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place speaker_idx=000010 name=泉美 name_id=IZ speaker_code=IZ07840 name_source=prev_voice_label pair=000010 confidence=high full_name=泉美
+○000011●text○「う……うん」
+●000011●text●「う……うん」
+
+# idx=000012 file=PS2I057A.BIN off=0x00000408 inst=0x00000408 tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000012●text○ぼくたちは腰をかがめ、裂け目をくぐり抜けた。
+●000012●text●ぼくたちは腰をかがめ、裂け目をくぐり抜けた。
+
+# idx=000013 file=PS2I057A.BIN off=0x00000450 inst=0x00000450 tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000013●text○なにが起きるのか、考えもしなかった。\nただ、ここで逃げるわけにはいかなかった。
+●000013●text●なにが起きるのか、考えもしなかった。\nただ、ここで逃げるわけにはいかなかった。
+
+# idx=000014 file=PS2I057A.BIN off=0x000004BA inst=0x000004BA tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000014●text○ぼくと泉美さんは、最後まで見届ける義務がある、と思った。
+●000014●text●ぼくと泉美さんは、最後まで見届ける義務がある、と思った。
+
+# idx=000015 file=PS2I057A.BIN off=0x0000050E inst=0x0000050E tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000015●text○そして、ぼくも泉美さんも、物語の終わりを\n知りたかった。
+●000015●text●そして、ぼくも泉美さんも、物語の終わりを\n知りたかった。
+
+# idx=000016 file=PS2I057A.BIN off=0x00000562 inst=0x00000562 tag=text source=inline_len8_string len=102 enc=cp932 policy=in_place
+○000016●text○ぼくたちをめぐりあわせ、互いが１番大切な人だと気づくようになった。\n……その原因を知っておきたかった。
+●000016●text●ぼくたちをめぐりあわせ、互いが１番大切な人だと気づくようになった。\n……その原因を知っておきたかった。
+
+# idx=000017 file=PS2I057A.BIN off=0x00000664 inst=0x00000664 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000017●text○まぶしかった。\nまばゆい光が、ぼくらを包んでいた。
+●000017●text●まぶしかった。\nまばゆい光が、ぼくらを包んでいた。
+
+# idx=000018 file=PS2I057A.BIN off=0x000006B2 inst=0x000006B2 tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000018●text○闇に閉ざされた管制室から、ぼくたちは光の中に投げこまれていた。
+●000018●text●闇に閉ざされた管制室から、ぼくたちは光の中に投げこまれていた。
+
+# idx=000019 file=PS2I057A.BIN off=0x0000070C inst=0x0000070C tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000019●text○その光に目が慣れるまで、目を開けることが\nできないほどだった。
+●000019●text●その光に目が慣れるまで、目を開けることが\nできないほどだった。
+
+# idx=000020 file=PS2I057A.BIN off=0x00000766 inst=0x00000766 tag=text source=inline_len8_string len=76 enc=cp932 policy=in_place
+○000020●text○そして、瞳が光を受けいれるようになり……。\nおそるおそる目を開けたとき……。
+●000020●text●そして、瞳が光を受けいれるようになり……。\nおそるおそる目を開けたとき……。
+
+# idx=000021 file=PS2I057A.BIN off=0x0000080F inst=0x0000080F tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000021●label○IZ07850
+●000021●label●IZ07850
+
+# idx=000022 file=PS2I057A.BIN off=0x0000081E inst=0x0000080F tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07850 name_source=prev_voice_label virtual=true writable=false pair=000023 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000022●name○泉美
+●000022●name●泉美
+
+# idx=000023 file=PS2I057A.BIN off=0x0000081E inst=0x0000081E tag=text source=inline_len8_string len=41 enc=cp932 policy=in_place speaker_idx=000022 name=泉美 name_id=IZ speaker_code=IZ07850 name_source=prev_voice_label pair=000022 confidence=high full_name=泉美
+○000023●text○「えぇ～っ?! なにこれー、すごくきれいー」
+●000023●text●「えぇ～っ?! なにこれー、すごくきれいー」
+
+# idx=000024 file=PS2I057A.BIN off=0x00000891 inst=0x00000891 tag=text source=inline_len8_string len=90 enc=cp932 policy=in_place
+○000024●text○そこは……桜の園だった。\n桜の木は１本も見えなかったけれど……。\nそうとしかいえなかった。
+●000024●text●そこは……桜の園だった。\n桜の木は１本も見えなかったけれど……。\nそうとしかいえなかった。
+
+# idx=000025 file=PS2I057A.BIN off=0x00000907 inst=0x00000907 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000025●text○桜の花びらが舞い散る。\n足もとは何層にも重なった桜のじゅうたん。
+●000025●text●桜の花びらが舞い散る。\n足もとは何層にも重なった桜のじゅうたん。
+
+# idx=000026 file=PS2I057A.BIN off=0x00000963 inst=0x00000963 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000026●text○空はどこまでも深く、太陽も月も星も見えな\nかった。
+●000026●text●空はどこまでも深く、太陽も月も星も見えな\nかった。
+
+# idx=000027 file=PS2I057A.BIN off=0x000009B1 inst=0x000009B1 tag=text source=inline_len8_string len=106 enc=cp932 policy=in_place
+○000027●text○ぼくたちは市庁舎の中にいるはずだった。\n時間はすでに深夜をすぎていた。\nもちろん、桜の季節は終わっていた。
+●000027●text●ぼくたちは市庁舎の中にいるはずだった。\n時間はすでに深夜をすぎていた。\nもちろん、桜の季節は終わっていた。
+
+# idx=000028 file=PS2I057A.BIN off=0x00000A65 inst=0x00000A65 tag=text source=inline_len8_string len=104 enc=cp932 policy=in_place
+○000028●text○けれど、そこは見渡す限り、桜吹雪の海だった。非現実的な明るさと広さ。\n視界のすべてが薄紅色に輝いている。
+●000028●text●けれど、そこは見渡す限り、桜吹雪の海だった。非現実的な明るさと広さ。\n視界のすべてが薄紅色に輝いている。
+
+# idx=000029 file=PS2I057A.BIN off=0x00000AE9 inst=0x00000AE9 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000029●text○ここが、どこか……ということにもう意味など\n存在していなかった。
+●000029●text●ここが、どこか……ということにもう意味など\n存在していなかった。
+
+# idx=000030 file=PS2I057A.BIN off=0x00000B45 inst=0x00000B45 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000030●text○ただ、ここは桜の園であり、それ以上でも\n以下でもなかった。
+●000030●text●ただ、ここは桜の園であり、それ以上でも\n以下でもなかった。
+
+# idx=000031 file=PS2I057A.BIN off=0x00000B9B inst=0x00000B9B tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000031●text○ぼくたちは、その世界にただ、圧倒されるしか\nなかった。
+●000031●text●ぼくたちは、その世界にただ、圧倒されるしか\nなかった。
+
+# idx=000032 file=PS2I057A.BIN off=0x00000BED inst=0x00000BED tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000032●label○IZ07860
+●000032●label●IZ07860
+
+# idx=000033 file=PS2I057A.BIN off=0x00000BFC inst=0x00000BED tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07860 name_source=prev_voice_label virtual=true writable=false pair=000034 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000033●name○泉美
+●000033●name●泉美
+
+# idx=000034 file=PS2I057A.BIN off=0x00000BFC inst=0x00000BFC tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place speaker_idx=000033 name=泉美 name_id=IZ speaker_code=IZ07860 name_source=prev_voice_label pair=000033 confidence=high full_name=泉美
+○000034●text○「あそこに……誰かいるっ?!」
+●000034●text●「あそこに……誰かいるっ?!」
+
+# idx=000035 file=PS2I057A.BIN off=0x00000C34 inst=0x00000C34 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000035●text○泉美さんが、舞い散る桜の花びらの向こうに\n何かを見つけた。
+●000035●text●泉美さんが、舞い散る桜の花びらの向こうに\n何かを見つけた。
+
+# idx=000036 file=PS2I057A.BIN off=0x00000CB8 inst=0x00000CB8 tag=text source=inline_len8_string len=22 enc=cp932 policy=in_place
+○000036●text○視界を遮る薄紅色の霧。
+●000036●text●視界を遮る薄紅色の霧。
+
+# idx=000037 file=PS2I057A.BIN off=0x00000CEA inst=0x00000CEA tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place
+○000037●text○その先に彼女……『綾』がいた。
+●000037●text●その先に彼女……『綾』がいた。
+
+# idx=000038 file=PS2I057A.BIN off=0x00000D24 inst=0x00000D24 tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place
+○000038●text○綾は、あの影と対峙していた。
+●000038●text●綾は、あの影と対峙していた。
+
+# idx=000039 file=PS2I057A.BIN off=0x00000D5C inst=0x00000D5C tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000039●text○影は犬の姿を脱ぎ捨て、あらん限りの憎しみを\n綾に向けていた。
+●000039●text●影は犬の姿を脱ぎ捨て、あらん限りの憎しみを\n綾に向けていた。
+
+# idx=000040 file=PS2I057A.BIN off=0x00000DB4 inst=0x00000DB4 tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000040●text○そして、綾は弓に矢をつがえ、無表情に影を\n見つめていた。
+●000040●text●そして、綾は弓に矢をつがえ、無表情に影を\n見つめていた。
+
+# idx=000041 file=PS2I057A.BIN off=0x00000DF9 inst=0x00000DF9 tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000041●label○se-28
+●000041●label●se-28
+
+# idx=000042 file=PS2I057A.BIN off=0x00000E4F inst=0x00000E4F tag=text source=inline_len8_string len=92 enc=cp932 policy=in_place
+○000042●text○怒りの声とともに影は色彩を変えていく。\n現実につなぎとめていた鎖を断ち切り、綾に襲いかかる。
+●000042●text●怒りの声とともに影は色彩を変えていく。\n現実につなぎとめていた鎖を断ち切り、綾に襲いかかる。
+
+# idx=000043 file=PS2I057A.BIN off=0x00000EC7 inst=0x00000EC7 tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000043●text○綾は、そのあふれるばかりの憎悪を叩きつけ\nられても、表情を微塵もかえなかった。
+●000043●text●綾は、そのあふれるばかりの憎悪を叩きつけ\nられても、表情を微塵もかえなかった。
+
+# idx=000044 file=PS2I057A.BIN off=0x00000F31 inst=0x00000F31 tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000044●text○怒りの圧力が、彼女の全身に襲いかかり、\n髪の毛が激しく踊る。
+●000044●text●怒りの圧力が、彼女の全身に襲いかかり、\n髪の毛が激しく踊る。
+
+# idx=000045 file=PS2I057A.BIN off=0x00000F86 inst=0x00000F86 tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000045●label○se-30
+●000045●label●se-30
+
+# idx=000046 file=PS2I057A.BIN off=0x00000FAE inst=0x00000FAE tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place
+○000046●text○そして、矢は無慈悲にはなたれた。
+●000046●text●そして、矢は無慈悲にはなたれた。
+
+# idx=000047 file=PS2I057A.BIN off=0x00000FEA inst=0x00000FEA tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000047●label○IZ07870
+●000047●label●IZ07870
+
+# idx=000048 file=PS2I057A.BIN off=0x00000FF9 inst=0x00000FEA tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07870 name_source=prev_voice_label virtual=true writable=false pair=000049 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000048●name○泉美
+●000048●name●泉美
+
+# idx=000049 file=PS2I057A.BIN off=0x00000FF9 inst=0x00000FF9 tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place speaker_idx=000048 name=泉美 name_id=IZ speaker_code=IZ07870 name_source=prev_voice_label pair=000048 confidence=high full_name=泉美
+○000049●text○「きゃあっ!!」
+●000049●text●「きゃあっ!!」
+
+# idx=000050 file=PS2I057A.BIN off=0x00001023 inst=0x00001023 tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place
+○000050●text○泉美さんの悲鳴が遠くで聞こえた。
+●000050●text●泉美さんの悲鳴が遠くで聞こえた。
+
+# idx=000051 file=PS2I057A.BIN off=0x0000107E inst=0x0000107E tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000051●label○se-e12
+●000051●label●se-e12
+
+# idx=000052 file=PS2I057A.BIN off=0x000010A7 inst=0x000010A7 tag=text source=inline_len8_string len=22 enc=cp932 policy=in_place
+○000052●text○一瞬のできごとだった。
+●000052●text●一瞬のできごとだった。
+
+# idx=000053 file=PS2I057A.BIN off=0x000010D9 inst=0x000010D9 tag=text source=inline_len8_string len=96 enc=cp932 policy=in_place
+○000053●text○彼女……綾にとって、それはすでに終わったことだったのかもしれない。\nそれほど簡単に決着はついた。
+●000053●text●彼女……綾にとって、それはすでに終わったことだったのかもしれない。\nそれほど簡単に決着はついた。
+
+# idx=000054 file=PS2I057A.BIN off=0x00001152 inst=0x00001152 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000054●label○se-e12
+●000054●label●se-e12
+
+# idx=000055 file=PS2I057A.BIN off=0x0000117B inst=0x0000117B tag=text source=inline_len8_string len=98 enc=cp932 policy=in_place
+○000055●text○犬の影は彼女の足もとにくずれおちる。\n変化し続けていた影は、次第に色彩を失い……\nそして、消えた。
+●000055●text●犬の影は彼女の足もとにくずれおちる。\n変化し続けていた影は、次第に色彩を失い……\nそして、消えた。
+
+# idx=000056 file=PS2I057A.BIN off=0x000011F9 inst=0x000011F9 tag=text source=inline_len8_string len=98 enc=cp932 policy=in_place
+○000056●text○最後まで残っていたのは、影が発し続けた憎悪の気配だったが……。\nそれも、すぐに薄れ、消えて行った。
+●000056●text●最後まで残っていたのは、影が発し続けた憎悪の気配だったが……。\nそれも、すぐに薄れ、消えて行った。
+
+# idx=000057 file=PS2I057A.BIN off=0x00001277 inst=0x00001277 tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000057●text○犬の影を見おろす綾は仮面のように、一切の\n表情を浮かべていなかった。
+●000057●text●犬の影を見おろす綾は仮面のように、一切の\n表情を浮かべていなかった。
+
+# idx=000058 file=PS2I057A.BIN off=0x000012D7 inst=0x000012D7 tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000058●text○彼女は消え去る瞬間まで、犬の憎しみを受けとめようとしなかった。
+●000058●text●彼女は消え去る瞬間まで、犬の憎しみを受けとめようとしなかった。
+
+# idx=000059 file=PS2I057A.BIN off=0x00001331 inst=0x00001331 tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place
+○000059●text○影の憎しみは、綾からほんのわずかな関心をも\n引き出すことができなかった。
+●000059●text●影の憎しみは、綾からほんのわずかな関心をも\n引き出すことができなかった。
+
+# idx=000060 file=PS2I057A.BIN off=0x00001395 inst=0x00001395 tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000060●text○その、超然としたあり方に、どこか影があわれにすら思えた。
+●000060●text●その、超然としたあり方に、どこか影があわれにすら思えた。
+
+# idx=000061 file=PS2I057A.BIN off=0x000013F5 inst=0x000013F5 tag=text source=inline_len8_string len=66 enc=cp932 policy=in_place
+○000061●text○犬の影が消えてしばらくのあいだ、綾は自分の\n足もとを見つめていた。
+●000061●text●犬の影が消えてしばらくのあいだ、綾は自分の\n足もとを見つめていた。
+
+# idx=000062 file=PS2I057A.BIN off=0x00001453 inst=0x00001453 tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000062●text○なんの感傷もなく、ただそうしたいからそうしているだけのように思えた。
+●000062●text●なんの感傷もなく、ただそうしたいからそうしているだけのように思えた。
+
+# idx=000063 file=PS2I057A.BIN off=0x000014B3 inst=0x000014B3 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000063●text○ぼくと泉美さんは、綾のふるまいに目を奪われていた。
+●000063●text●ぼくと泉美さんは、綾のふるまいに目を奪われていた。
+
+# idx=000064 file=PS2I057A.BIN off=0x00001501 inst=0x00001501 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000064●text○彼女の存在そのものが、ぼくたちをひきつけて\nいた。
+●000064●text●彼女の存在そのものが、ぼくたちをひきつけて\nいた。
+
+# idx=000065 file=PS2I057A.BIN off=0x0000154F inst=0x0000154F tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000065●text○綾はうつむいていた顔を、ぼくたちに向ける。
+●000065●text●綾はうつむいていた顔を、ぼくたちに向ける。
+
+# idx=000066 file=PS2I057A.BIN off=0x00001595 inst=0x00001595 tag=text source=inline_len8_string len=90 enc=cp932 policy=in_place
+○000066●text○本当に、なにげないしぐさだった。\nほんの少し前、全身に憎悪の波をあびたとは思えないくらい。
+●000066●text●本当に、なにげないしぐさだった。\nほんの少し前、全身に憎悪の波をあびたとは思えないくらい。
+
+# idx=000067 file=PS2I057A.BIN off=0x00001639 inst=0x00001639 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000067●label○IZ07880
+●000067●label●IZ07880
+
+# idx=000068 file=PS2I057A.BIN off=0x00001648 inst=0x00001639 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07880 name_source=prev_voice_label virtual=true writable=false pair=000069 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000068●name○泉美
+●000068●name●泉美
+
+# idx=000069 file=PS2I057A.BIN off=0x00001648 inst=0x00001648 tag=text source=inline_len8_string len=37 enc=cp932 policy=in_place speaker_idx=000068 name=泉美 name_id=IZ speaker_code=IZ07880 name_source=prev_voice_label pair=000068 confidence=high full_name=泉美
+○000069●text○「きゃああああ!! こっち向いたぁぁ!!」
+●000069●text●「きゃああああ!! こっち向いたぁぁ!!」
+
+# idx=000070 file=PS2I057A.BIN off=0x00001689 inst=0x00001689 tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000070●text○泉美さんが悲鳴をあげ、ぼくの腕にしがみつく。綾は、無表情にぼくたちを見ていた。
+●000070●text●泉美さんが悲鳴をあげ、ぼくの腕にしがみつく。綾は、無表情にぼくたちを見ていた。
+
+# idx=000071 file=PS2I057A.BIN off=0x000016F3 inst=0x000016F3 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=綾 name_id=AY confidence=high
+○000071●label○AY03580
+●000071●label●AY03580
+
+# idx=000072 file=PS2I057A.BIN off=0x00001702 inst=0x000016F3 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=AY speaker_code=AY03580 name_source=prev_voice_label virtual=true writable=false pair=000073 confidence=high full_name=綾 basis=DEBUG_route_labels:_綾シナリオ
+○000072●name○綾
+●000072●name●綾
+
+# idx=000073 file=PS2I057A.BIN off=0x00001702 inst=0x00001702 tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place speaker_idx=000072 name=綾 name_id=AY speaker_code=AY03580 name_source=prev_voice_label pair=000072 confidence=high full_name=綾
+○000073●text○「あなたたちも……」
+●000073●text●「あなたたちも……」
+
+# idx=000074 file=PS2I057A.BIN off=0x00001732 inst=0x00001732 tag=text source=inline_len8_string len=66 enc=cp932 policy=in_place
+○000074●text○ききおぼえのない声が問いかけようとしていた。それが、綾の声だった。
+●000074●text●ききおぼえのない声が問いかけようとしていた。それが、綾の声だった。
+
+# idx=000075 file=PS2I057A.BIN off=0x00001790 inst=0x00001790 tag=text source=inline_len8_string len=104 enc=cp932 policy=in_place
+○000075●text○彼女の口もとは動かなかったし、声が届く距離\nでもなかった。\nけれど、ぼくたちは綾の声を聞くことができた。
+●000075●text●彼女の口もとは動かなかったし、声が届く距離\nでもなかった。\nけれど、ぼくたちは綾の声を聞くことができた。
+
+# idx=000076 file=PS2I057A.BIN off=0x00001814 inst=0x00001814 tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000076●text○その声には、凍りつくような冷たさがあった。
+●000076●text●その声には、凍りつくような冷たさがあった。
+
+# idx=000077 file=PS2I057A.BIN off=0x0000185A inst=0x0000185A tag=text source=inline_len8_string len=110 enc=cp932 policy=in_place
+○000077●text○人……が持っているはずの感情や揺らぎといったものすべてをそぎ落としたような、鋭く、手の\n切れるような冷たさが。
+●000077●text●人……が持っているはずの感情や揺らぎといったものすべてをそぎ落としたような、鋭く、手の\n切れるような冷たさが。
+
+# idx=000078 file=PS2I057A.BIN off=0x00001912 inst=0x00001912 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=綾 name_id=AY confidence=high
+○000078●label○AY03590
+●000078●label●AY03590
+
+# idx=000079 file=PS2I057A.BIN off=0x00001921 inst=0x00001912 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=AY speaker_code=AY03590 name_source=prev_voice_label virtual=true writable=false pair=000080 confidence=high full_name=綾 basis=DEBUG_route_labels:_綾シナリオ
+○000079●name○綾
+●000079●name●綾
+
+# idx=000080 file=PS2I057A.BIN off=0x00001921 inst=0x00001921 tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place speaker_idx=000079 name=綾 name_id=AY speaker_code=AY03590 name_source=prev_voice_label pair=000079 confidence=high full_name=綾
+○000080●text○「………私の邪魔をするの？」
+●000080●text●「………私の邪魔をするの？」
+
+# idx=000081 file=PS2I057A.BIN off=0x00001959 inst=0x00001959 tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place
+○000081●text○冷たいだけの視線が、ぼくたちを貫き通す。
+●000081●text●冷たいだけの視線が、ぼくたちを貫き通す。
+
+# idx=000082 file=PS2I057A.BIN off=0x0000199D inst=0x0000199D tag=text source=inline_len8_string len=74 enc=cp932 policy=in_place
+○000082●text○彼女のことばには、なんの感情もこめられて\nいなかった。\n単なる事実の確認。
+●000082●text●彼女のことばには、なんの感情もこめられて\nいなかった。\n単なる事実の確認。
+
+# idx=000083 file=PS2I057A.BIN off=0x00001A03 inst=0x00001A03 tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000083●text○ぼくたちが見ている彼女と、本当の彼女のあいだにある大きな溝を感じた。
+●000083●text●ぼくたちが見ている彼女と、本当の彼女のあいだにある大きな溝を感じた。
+
+# idx=000084 file=PS2I057A.BIN off=0x00001A91 inst=0x00001A91 tag=text source=inline_len8_string len=102 enc=cp932 policy=in_place
+○000084●text○彼女……綾は、ぼくの返事を待っている。\n彼女が、ぼくたちを認識しようとする機会は\nわずかかもしれない。
+●000084●text●彼女……綾は、ぼくの返事を待っている。\n彼女が、ぼくたちを認識しようとする機会は\nわずかかもしれない。
+
+# idx=000085 file=PS2I057A.BIN off=0x00001B13 inst=0x00001B13 tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place
+○000085●text○チャンスは、ほとんどないといえた。
+●000085●text●チャンスは、ほとんどないといえた。
+
+# idx=000086 file=PS2I057A.BIN off=0x00001B51 inst=0x00001B51 tag=text source=inline_len8_string len=116 enc=cp932 policy=in_place
+○000086●text○彼女が、ぼくたちのようなちっぽけな存在に、\nどれほどのあいだ関心を払いつづけてくれるか\nなど、誰にも保証はできない。
+●000086●text●彼女が、ぼくたちのようなちっぽけな存在に、\nどれほどのあいだ関心を払いつづけてくれるか\nなど、誰にも保証はできない。
+
+# idx=000087 file=PS2I057A.BIN off=0x00001BE1 inst=0x00001BE1 tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000087●text○あの……影にすら、興味を持とうとしなかった\n彼女なのだから。
+●000087●text●あの……影にすら、興味を持とうとしなかった\n彼女なのだから。
+
+# idx=000088 file=PS2I057A.BIN off=0x00001C25 inst=0x00001C25 tag=text source=inline_len8_string len=16 enc=cp932 policy=in_place
+○000088●text○きみは誰なんだ？
+●000088●text●きみは誰なんだ？
+
+# idx=000089 file=PS2I057A.BIN off=0x00001C45 inst=0x00001C45 tag=text source=inline_len8_string len=24 enc=cp932 policy=in_place
+○000089●text○きみはなにを求めている？
+●000089●text●きみはなにを求めている？
+
+# idx=000090 file=PS2I057A.BIN off=0x00001C6D inst=0x00001C6D tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000090●text○………………
+●000090●text●………………
+
+# idx=000091 file=PS2I057A.BIN off=0x00001CBE inst=0x00001CBE tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000091●text○彼女は、ほんの少しうつむいた。\n答えをさがしているように思えた。
+●000091●text●彼女は、ほんの少しうつむいた。\n答えをさがしているように思えた。
+
+# idx=000092 file=PS2I057A.BIN off=0x00001D1A inst=0x00001D1A tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place
+○000092●text○けれど、それはぼくの勘違いだった。
+●000092●text●けれど、それはぼくの勘違いだった。
+
+# idx=000093 file=PS2I057A.BIN off=0x00001D58 inst=0x00001D58 tag=text source=inline_len8_string len=98 enc=cp932 policy=in_place
+○000093●text○かえって来た綾の声には、あざけるような、\nあわれむような響きが（ほんのかすかに）\nこめられていた。
+●000093●text●かえって来た綾の声には、あざけるような、\nあわれむような響きが（ほんのかすかに）\nこめられていた。
+
+# idx=000094 file=PS2I057A.BIN off=0x00001DD6 inst=0x00001DD6 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=綾 name_id=AY confidence=high
+○000094●label○AY03600
+●000094●label●AY03600
+
+# idx=000095 file=PS2I057A.BIN off=0x00001DE5 inst=0x00001DD6 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=AY speaker_code=AY03600 name_source=prev_voice_label virtual=true writable=false pair=000096 confidence=high full_name=綾 basis=DEBUG_route_labels:_綾シナリオ
+○000095●name○綾
+●000095●name●綾
+
+# idx=000096 file=PS2I057A.BIN off=0x00001DE5 inst=0x00001DE5 tag=text source=inline_len8_string len=121 enc=cp932 policy=in_place speaker_idx=000095 name=綾 name_id=AY speaker_code=AY03600 name_source=prev_voice_label pair=000095 confidence=high full_name=綾
+○000096●text○「私は…和辻綾。でも、それを聞いてなんの意味があるの？ 私の名前は私だけのもの。\nあなたに、受けとめられるはずがないもの」
+●000096●text●「私は…和辻綾。でも、それを聞いてなんの意味があるの？ 私の名前は私だけのもの。\nあなたに、受けとめられるはずがないもの」
+
+# idx=000097 file=PS2I057A.BIN off=0x00001E8B inst=0x00001E8B tag=text source=inline_len8_string len=84 enc=cp932 policy=in_place
+○000097●text○綾は、一瞬とまどいの表情を浮かべる。\nかすかにくちびるを噛み、悔しげに目を落とした。
+●000097●text●綾は、一瞬とまどいの表情を浮かべる。\nかすかにくちびるを噛み、悔しげに目を落とした。
+
+# idx=000098 file=PS2I057A.BIN off=0x00001F29 inst=0x00001F29 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=綾 name_id=AY confidence=high
+○000098●label○AY03610
+●000098●label●AY03610
+
+# idx=000099 file=PS2I057A.BIN off=0x00001F38 inst=0x00001F29 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=AY speaker_code=AY03610 name_source=prev_voice_label virtual=true writable=false pair=000100 confidence=high full_name=綾 basis=DEBUG_route_labels:_綾シナリオ
+○000099●name○綾
+●000099●name●綾
+
+# idx=000100 file=PS2I057A.BIN off=0x00001F38 inst=0x00001F38 tag=text source=inline_len8_string len=126 enc=cp932 policy=in_place speaker_idx=000099 name=綾 name_id=AY speaker_code=AY03610 name_source=prev_voice_label pair=000099 confidence=high full_name=綾
+○000100●text○「私は……私の場所を取り戻したいだけ。もう、とじこめられているのに我慢できない。私は、\n私がいるべき場所を探しているだけだわ」
+●000100●text●「私は……私の場所を取り戻したいだけ。もう、とじこめられているのに我慢できない。私は、\n私がいるべき場所を探しているだけだわ」
+
+# idx=000101 file=PS2I057A.BIN off=0x00002000 inst=0x00002000 tag=text source=inline_len8_string len=86 enc=cp932 policy=in_place
+○000101●text○ぼくたちは綾の視線に射すくめられたまま、声を出すこともできず、ただ彼女を見つめていた。
+●000101●text●ぼくたちは綾の視線に射すくめられたまま、声を出すこともできず、ただ彼女を見つめていた。
+
+# idx=000102 file=PS2I057A.BIN off=0x000020A0 inst=0x000020A0 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000102●text○綾は、突然ぼくたちに興味をなくしたように、\n背中を向けた。
+●000102●text●綾は、突然ぼくたちに興味をなくしたように、\n背中を向けた。
+
+# idx=000103 file=PS2I057A.BIN off=0x00002124 inst=0x00002124 tag=text source=inline_len8_string len=80 enc=cp932 policy=in_place
+○000103●text○彼女の前で空間がゆがんでいく。\n彼女はぼくたちと同じではない。\nそれを理解した。
+●000103●text●彼女の前で空間がゆがんでいく。\n彼女はぼくたちと同じではない。\nそれを理解した。
+
+# idx=000104 file=PS2I057A.BIN off=0x00002190 inst=0x00002190 tag=text source=inline_len8_string len=114 enc=cp932 policy=in_place
+○000104●text○人の姿をしていながら、彼女は人ではなかった。人の感覚ではとらえることのできない、とらえ\nきれない『なにか』だった。
+●000104●text●人の姿をしていながら、彼女は人ではなかった。人の感覚ではとらえることのできない、とらえ\nきれない『なにか』だった。
+
+# idx=000105 file=PS2I057A.BIN off=0x0000224C inst=0x0000224C tag=text source=inline_len8_string len=66 enc=cp932 policy=in_place
+○000105●text○消え去る直前、彼女はほんの少しだけふり返って、ぼくたちを見つめた。
+●000105●text●消え去る直前、彼女はほんの少しだけふり返って、ぼくたちを見つめた。
+
+# idx=000106 file=PS2I057A.BIN off=0x000022AA inst=0x000022AA tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000106●text○なにかを思い出そうとしているのか、それとも\nぼくたちの卑小さを哀れんでなのか。
+●000106●text●なにかを思い出そうとしているのか、それとも\nぼくたちの卑小さを哀れんでなのか。
+
+# idx=000107 file=PS2I057A.BIN off=0x00002314 inst=0x00002314 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000107●text○彼女の瞳が、なにかを告げようとしているように思えた。
+●000107●text●彼女の瞳が、なにかを告げようとしているように思えた。
+
+# idx=000108 file=PS2I057A.BIN off=0x00002392 inst=0x00002392 tag=text source=inline_len8_string len=84 enc=cp932 policy=in_place
+○000108●text○綾の闇が、急速にあたりを呑み込んでいく。\n桜吹雪の海が漆黒の闇に包みこまれて行った。
+●000108●text●綾の闇が、急速にあたりを呑み込んでいく。\n桜吹雪の海が漆黒の闇に包みこまれて行った。
+
+# idx=000109 file=PS2I057A.BIN off=0x00002402 inst=0x00002402 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000109●label○IZ07950
+●000109●label●IZ07950
+
+# idx=000110 file=PS2I057A.BIN off=0x00002411 inst=0x00002402 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07950 name_source=prev_voice_label virtual=true writable=false pair=000111 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000110●name○泉美
+●000110●name●泉美
+
+# idx=000111 file=PS2I057A.BIN off=0x00002411 inst=0x00002411 tag=text source=inline_len8_string len=33 enc=cp932 policy=in_place speaker_idx=000110 name=泉美 name_id=IZ speaker_code=IZ07950 name_source=prev_voice_label pair=000110 confidence=high full_name=泉美
+○000111●text○「えぇっ?! …………ここって……」
+●000111●text●「えぇっ?! …………ここって……」
+
+# idx=000112 file=PS2I057A.BIN off=0x0000247C inst=0x0000247C tag=text source=inline_len8_string len=106 enc=cp932 policy=in_place
+○000112●text○ぼくたちは夜の街に立っていた。\n以前、迷い込んだあの、無人の街に。\nただ、あの時とは違い、街は生きていた。
+●000112●text●ぼくたちは夜の街に立っていた。\n以前、迷い込んだあの、無人の街に。\nただ、あの時とは違い、街は生きていた。
+
+# idx=000113 file=PS2I057A.BIN off=0x00002502 inst=0x00002502 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000113●text○陰の中で妖精が跳ね回り、月を背に人面の鳥が\n飛ぶ。
+●000113●text●陰の中で妖精が跳ね回り、月を背に人面の鳥が\n飛ぶ。
+
+# idx=000114 file=PS2I057A.BIN off=0x00002550 inst=0x00002550 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000114●text○ここは綾の街であり、ぼくたちは……\n侵入者だった。
+●000114●text●ここは綾の街であり、ぼくたちは……\n侵入者だった。
+
+# idx=000115 file=PS2I057A.BIN off=0x0000259E inst=0x0000259E tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000115●label○FU00590
+●000115●label●FU00590
+
+# idx=000116 file=PS2I057A.BIN off=0x000025AD inst=0x0000259E tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU00590 name_source=prev_voice_label virtual=true writable=false pair=000117 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000116●name○冬木
+●000116●name●冬木
+
+# idx=000117 file=PS2I057A.BIN off=0x000025AD inst=0x000025AD tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place speaker_idx=000116 name=冬木 name_id=FU speaker_code=FU00590 name_source=prev_voice_label pair=000116 confidence=medium full_name=冬木
+○000117●text○「もう……いいでしょう。扉が閉まりかけて\nいます」
+●000117●text●「もう……いいでしょう。扉が閉まりかけて\nいます」
+
+# idx=000118 file=PS2I057A.BIN off=0x000025FB inst=0x000025FB tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000118●label○IZ07960
+●000118●label●IZ07960
+
+# idx=000119 file=PS2I057A.BIN off=0x0000260A inst=0x000025FB tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07960 name_source=prev_voice_label virtual=true writable=false pair=000120 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000119●name○泉美
+●000119●name●泉美
+
+# idx=000120 file=PS2I057A.BIN off=0x0000260A inst=0x0000260A tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place speaker_idx=000119 name=泉美 name_id=IZ speaker_code=IZ07960 name_source=prev_voice_label pair=000119 confidence=high full_name=泉美
+○000120●text○「えぇっ?!」
+●000120●text●「えぇっ?!」
+
+# idx=000121 file=PS2I057A.BIN off=0x00002639 inst=0x00002639 tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000121●text○突然、冬木さんの声がして、ぼくたちはふり返る。
+●000121●text●突然、冬木さんの声がして、ぼくたちはふり返る。
+
+# idx=000122 file=PS2I057A.BIN off=0x000026B1 inst=0x000026B1 tag=text source=inline_len8_string len=70 enc=cp932 policy=in_place
+○000122●text○ぼくたちは暗い管制室にいて……冬木さんが\n笑みを浮かべて迎えてくれた。
+●000122●text●ぼくたちは暗い管制室にいて……冬木さんが\n笑みを浮かべて迎えてくれた。
+
+# idx=000123 file=PS2I057A.BIN off=0x00002757 inst=0x00002757 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000123●label○PS2I058a.bin
+●000123●label●PS2I058a.bin
+
+# idx=000124 file=PS2I057A.BIN off=0x00002790 inst=0x00002790 tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place
+○000124●text○ぼくは、なにをいうべきか見つけることができ\nなかった。\n綾は、ほんのわずか、瞳に怒りをこめる。
+●000124●text●ぼくは、なにをいうべきか見つけることができ\nなかった。\n綾は、ほんのわずか、瞳に怒りをこめる。
+
+# idx=000125 file=PS2I057A.BIN off=0x0000280A inst=0x0000280A tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=綾 name_id=AY confidence=high
+○000125●label○AY03620
+●000125●label●AY03620
+
+# idx=000126 file=PS2I057A.BIN off=0x00002819 inst=0x0000280A tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=AY speaker_code=AY03620 name_source=prev_voice_label virtual=true writable=false pair=000127 confidence=high full_name=綾 basis=DEBUG_route_labels:_綾シナリオ
+○000126●name○綾
+●000126●name●綾
+
+# idx=000127 file=PS2I057A.BIN off=0x00002819 inst=0x00002819 tag=text source=inline_len8_string len=117 enc=cp932 policy=in_place speaker_idx=000126 name=綾 name_id=AY speaker_code=AY03620 name_source=prev_voice_label pair=000126 confidence=high full_name=綾
+○000127●text○「なにもわかっていないくせに、ここまで来たの。なにも理解しようとしないくせに!! なのに、\n私の邪魔をしようというの?!」
+●000127●text●「なにもわかっていないくせに、ここまで来たの。なにも理解しようとしないくせに!! なのに、\n私の邪魔をしようというの?!」
+
+# idx=000128 file=PS2I057A.BIN off=0x000028AA inst=0x000028AA tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=綾 name_id=AY confidence=high
+○000128●label○AY03630
+●000128●label●AY03630
+
+# idx=000129 file=PS2I057A.BIN off=0x000028B9 inst=0x000028AA tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=AY speaker_code=AY03630 name_source=prev_voice_label virtual=true writable=false pair=000130 confidence=high full_name=綾 basis=DEBUG_route_labels:_綾シナリオ
+○000129●name○綾
+●000129●name●綾
+
+# idx=000130 file=PS2I057A.BIN off=0x000028B9 inst=0x000028B9 tag=text source=inline_len8_string len=22 enc=cp932 policy=in_place speaker_idx=000129 name=綾 name_id=AY speaker_code=AY03630 name_source=prev_voice_label pair=000129 confidence=high full_name=綾
+○000130●text○「消えてしまえばいい」
+●000130●text●「消えてしまえばいい」
+
+# idx=000131 file=PS2I057A.BIN off=0x000028EB inst=0x000028EB tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000131●text○彼女はぽつりとそういった。
+●000131●text●彼女はぽつりとそういった。
+
+# idx=000132 file=PS2I057A.BIN off=0x00002912 inst=0x00002912 tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000132●label○se-29
+●000132●label●se-29
+
+# idx=000133 file=PS2I057A.BIN off=0x00002968 inst=0x00002968 tag=text source=inline_len8_string len=70 enc=cp932 policy=in_place
+○000133●text○矢をつがえた弓が、ぼくたちに向けられる。\n鋭い矢先が、ぎらりと輝いた。
+●000133●text●矢をつがえた弓が、ぼくたちに向けられる。\n鋭い矢先が、ぎらりと輝いた。
+
+# idx=000134 file=PS2I057A.BIN off=0x000029CA inst=0x000029CA tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000134●label○IZ07890
+●000134●label●IZ07890
+
+# idx=000135 file=PS2I057A.BIN off=0x000029D9 inst=0x000029CA tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07890 name_source=prev_voice_label virtual=true writable=false pair=000136 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000135●name○泉美
+●000135●name●泉美
+
+# idx=000136 file=PS2I057A.BIN off=0x000029D9 inst=0x000029D9 tag=text source=inline_len8_string len=10 enc=cp932 policy=in_place speaker_idx=000135 name=泉美 name_id=IZ speaker_code=IZ07890 name_source=prev_voice_label pair=000135 confidence=high full_name=泉美
+○000136●text○「ひっ?!」
+●000136●text●「ひっ?!」
+
+# idx=000137 file=PS2I057A.BIN off=0x000029FF inst=0x000029FF tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place
+○000137●text○泉美さんが息をのむ。
+●000137●text●泉美さんが息をのむ。
+
+# idx=000138 file=PS2I057A.BIN off=0x00002A5D inst=0x00002A5D tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000138●text○綾の視線に射すくめられてぼくたちは凍りついた。
+●000138●text●綾の視線に射すくめられてぼくたちは凍りついた。
+
+# idx=000139 file=PS2I057A.BIN off=0x00002AA7 inst=0x00002AA7 tag=text source=inline_len8_string len=114 enc=cp932 policy=in_place
+○000139●text○綾の視線に縛られたぼくたちは、動くことも、\n声を出すこともできなかった。\nしがみついた泉美さんが緊張でかたくなる。
+●000139●text●綾の視線に縛られたぼくたちは、動くことも、\n声を出すこともできなかった。\nしがみついた泉美さんが緊張でかたくなる。
+
+# idx=000140 file=PS2I057A.BIN off=0x00002B35 inst=0x00002B35 tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000140●text○ぼくは動かない足をひきずり、かろうじて\n泉美さんの前に立つ。
+●000140●text●ぼくは動かない足をひきずり、かろうじて\n泉美さんの前に立つ。
+
+# idx=000141 file=PS2I057A.BIN off=0x00002B8D inst=0x00002B8D tag=text source=inline_len8_string len=100 enc=cp932 policy=in_place
+○000141●text○もしかすると無駄な努力なのかもしれない。\n矢先が、ぼくの体を貫き通し、泉美さんに届く\nかもしれない。
+●000141●text●もしかすると無駄な努力なのかもしれない。\n矢先が、ぼくの体を貫き通し、泉美さんに届く\nかもしれない。
+
+# idx=000142 file=PS2I057A.BIN off=0x00002C0D inst=0x00002C0D tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place
+○000142●text○でも、泉美さんの盾になれるなら。
+●000142●text●でも、泉美さんの盾になれるなら。
+
+# idx=000143 file=PS2I057A.BIN off=0x00002C49 inst=0x00002C49 tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place
+○000143●text○それしか、できることがないのなら……。
+●000143●text●それしか、できることがないのなら……。
+
+# idx=000144 file=PS2I057A.BIN off=0x00002C8B inst=0x00002C8B tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000144●text○声を出せない泉美さんは、ぼくの腕を力をこめて握る。
+●000144●text●声を出せない泉美さんは、ぼくの腕を力をこめて握る。
+
+# idx=000145 file=PS2I057A.BIN off=0x00002CD9 inst=0x00002CD9 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000145●label○IZ07900
+●000145●label●IZ07900
+
+# idx=000146 file=PS2I057A.BIN off=0x00002CE8 inst=0x00002CD9 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07900 name_source=prev_voice_label virtual=true writable=false pair=000147 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000146●name○泉美
+●000146●name●泉美
+
+# idx=000147 file=PS2I057A.BIN off=0x00002CE8 inst=0x00002CE8 tag=text source=inline_len8_string len=36 enc=cp932 policy=in_place speaker_idx=000146 name=泉美 name_id=IZ speaker_code=IZ07900 name_source=prev_voice_label pair=000146 confidence=high full_name=泉美
+○000147●text○「やめて……そんなことしないで……」
+●000147●text●「やめて……そんなことしないで……」
+
+# idx=000148 file=PS2I057A.BIN off=0x00002D28 inst=0x00002D28 tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place
+○000148●text○でも……そういうわけにはいかないから。
+●000148●text●でも……そういうわけにはいかないから。
+
+# idx=000149 file=PS2I057A.BIN off=0x00002D6A inst=0x00002D6A tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000149●text○だって……泉美さんは、ぼくの１番大切な人\nだし……。
+●000149●text●だって……泉美さんは、ぼくの１番大切な人\nだし……。
+
+# idx=000150 file=PS2I057A.BIN off=0x00002DBA inst=0x00002DBA tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000150●text○ぼくは……男だし。\n大切な人を……守りたいし……。
+●000150●text●ぼくは……男だし。\n大切な人を……守りたいし……。
+
+# idx=000151 file=PS2I057A.BIN off=0x00002E08 inst=0x00002E08 tag=text source=inline_len8_string len=76 enc=cp932 policy=in_place
+○000151●text○視界の片隅に、かろうじて泉美さんの姿が映る。泉美さんの目は涙でかすんでいた。
+●000151●text●視界の片隅に、かろうじて泉美さんの姿が映る。泉美さんの目は涙でかすんでいた。
+
+# idx=000152 file=PS2I057A.BIN off=0x00002E70 inst=0x00002E70 tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place
+○000152●text○ほんの少しのゆらぎもなく弓を構えた綾。
+●000152●text●ほんの少しのゆらぎもなく弓を構えた綾。
+
+# idx=000153 file=PS2I057A.BIN off=0x00002EB2 inst=0x00002EB2 tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000153●text○彼女は、ぼくと泉美さんのあいだの気持ちなど\n理解しようとしなかった。
+●000153●text●彼女は、ぼくと泉美さんのあいだの気持ちなど\n理解しようとしなかった。
+
+# idx=000154 file=PS2I057A.BIN off=0x00002F12 inst=0x00002F12 tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place
+○000154●text○大地を呑み込む津波が、ツバメの巣など気に\nかけようとはしない。\n彼女は、そういった存在だった。
+●000154●text●大地を呑み込む津波が、ツバメの巣など気に\nかけようとはしない。\n彼女は、そういった存在だった。
+
+# idx=000155 file=PS2I057A.BIN off=0x00002FBA inst=0x00002FBA tag=text source=inline_len8_string len=36 enc=cp932 policy=in_place
+○000155●text○そして、当たり前のように矢をはなつ。
+●000155●text●そして、当たり前のように矢をはなつ。
+
+# idx=000156 file=PS2I057A.BIN off=0x00002FFA inst=0x00002FFA tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000156●text○そこに躊躇はなかった。\nかといって、機械のようでもなかった。
+●000156●text●そこに躊躇はなかった。\nかといって、機械のようでもなかった。
+
+# idx=000157 file=PS2I057A.BIN off=0x00003052 inst=0x00003052 tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000157●text○彼女は、ぼくたちに理解できない意志を持ち、\nそれゆえに弓をはなった。
+●000157●text●彼女は、ぼくたちに理解できない意志を持ち、\nそれゆえに弓をはなった。
+
+# idx=000158 file=PS2I057A.BIN off=0x000030A3 inst=0x000030A3 tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000158●label○se-30
+●000158●label●se-30
+
+# idx=000159 file=PS2I057A.BIN off=0x000030CB inst=0x000030CB tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000159●label○IZ07910
+●000159●label●IZ07910
+
+# idx=000160 file=PS2I057A.BIN off=0x000030DA inst=0x000030CB tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07910 name_source=prev_voice_label virtual=true writable=false pair=000161 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000160●name○泉美
+●000160●name●泉美
+
+# idx=000161 file=PS2I057A.BIN off=0x000030DA inst=0x000030DA tag=text source=inline_len8_string len=8 enc=cp932 policy=in_place speaker_idx=000160 name=泉美 name_id=IZ speaker_code=IZ07910 name_source=prev_voice_label pair=000160 confidence=high full_name=泉美
+○000161●text○「ダメ」
+●000161●text●「ダメ」
+
+# idx=000162 file=PS2I057A.BIN off=0x000030FE inst=0x000030FE tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000162●text○ぼくは鋭く輝く矢先に、自分の死がこめられて\nいると理解した。
+●000162●text●ぼくは鋭く輝く矢先に、自分の死がこめられて\nいると理解した。
+
+# idx=000163 file=PS2I057A.BIN off=0x00003156 inst=0x00003156 tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000163●text○それが、ぼくだけでとどまってくれれば、と\n願っていた。
+●000163●text●それが、ぼくだけでとどまってくれれば、と\n願っていた。
+
+# idx=000164 file=PS2I057A.BIN off=0x000031C7 inst=0x000031C7 tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000164●label○se-31
+●000164●label●se-31
+
+# idx=000165 file=PS2I057A.BIN off=0x00003243 inst=0x00003243 tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000165●text○目の前に、すっと白い塊がさしだされ、矢を\nうけとめた。
+●000165●text●目の前に、すっと白い塊がさしだされ、矢を\nうけとめた。
+
+# idx=000166 file=PS2I057A.BIN off=0x00003295 inst=0x00003295 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000166●text○ぼくたちを縛りつけていた圧力が、ふっと消え\n失せる。
+●000166●text●ぼくたちを縛りつけていた圧力が、ふっと消え\n失せる。
+
+# idx=000167 file=PS2I057A.BIN off=0x000032E5 inst=0x000032E5 tag=text source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000167●text○……えっ?!
+●000167●text●……えっ?!
+
+# idx=000168 file=PS2I057A.BIN off=0x0000332E inst=0x0000332E tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000168●text○ボーリングのピンを握っているのは……\n杉浦さんだった。
+●000168●text●ボーリングのピンを握っているのは……\n杉浦さんだった。
+
+# idx=000169 file=PS2I057A.BIN off=0x00003380 inst=0x00003380 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000169●label○IZ07920
+●000169●label●IZ07920
+
+# idx=000170 file=PS2I057A.BIN off=0x0000338F inst=0x00003380 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07920 name_source=prev_voice_label virtual=true writable=false pair=000171 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000170●name○泉美
+●000170●name●泉美
+
+# idx=000171 file=PS2I057A.BIN off=0x0000338F inst=0x0000338F tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place speaker_idx=000170 name=泉美 name_id=IZ speaker_code=IZ07920 name_source=prev_voice_label pair=000170 confidence=high full_name=泉美
+○000171●text○「だって……死んでたのに?!」
+●000171●text●「だって……死んでたのに?!」
+
+# idx=000172 file=PS2I057A.BIN off=0x000033C7 inst=0x000033C7 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=鈴木 name_id=SU confidence=low
+○000172●label○SU01380
+●000172●label●SU01380
+
+# idx=000173 file=PS2I057A.BIN off=0x000033D6 inst=0x000033C7 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=SU speaker_code=SU01380 name_source=prev_voice_label virtual=true writable=false pair=000174 confidence=low full_name=鈴木 basis=nearby_classroom_text_references_鈴木;_prefix_not_fully_proven
+○000173●name○鈴木
+●000173●name●鈴木
+
+# idx=000174 file=PS2I057A.BIN off=0x000033D6 inst=0x000033D6 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place speaker_idx=000173 name=鈴木 name_id=SU speaker_code=SU01380 name_source=prev_voice_label pair=000173 confidence=low full_name=鈴木
+○000174●text○「いやあ、オレもよお、そのつもりだったんだ\nけどさあ……」
+●000174●text●「いやあ、オレもよお、そのつもりだったんだ\nけどさあ……」
+
+# idx=000175 file=PS2I057A.BIN off=0x0000342C inst=0x0000342C tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000175●text○杉浦さんはものすごくアバウトなことをいう。
+●000175●text●杉浦さんはものすごくアバウトなことをいう。
+
+# idx=000176 file=PS2I057A.BIN off=0x00003472 inst=0x00003472 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000176●label○IZ07930
+●000176●label●IZ07930
+
+# idx=000177 file=PS2I057A.BIN off=0x00003481 inst=0x00003472 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07930 name_source=prev_voice_label virtual=true writable=false pair=000178 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000177●name○泉美
+●000177●name●泉美
+
+# idx=000178 file=PS2I057A.BIN off=0x00003481 inst=0x00003481 tag=text source=inline_len8_string len=24 enc=cp932 policy=in_place speaker_idx=000177 name=泉美 name_id=IZ speaker_code=IZ07930 name_source=prev_voice_label pair=000177 confidence=high full_name=泉美
+○000178●text○「……すっごくテキトー」
+●000178●text●「……すっごくテキトー」
+
+# idx=000179 file=PS2I057A.BIN off=0x000034B5 inst=0x000034B5 tag=text source=inline_len8_string len=112 enc=cp932 policy=in_place
+○000179●text○泉美さんは、まだ震える声でぼそりとつぶやいた。恐怖よりも、杉浦さんへのいやみが先に立つのが、泉美さんらしかった。
+●000179●text●泉美さんは、まだ震える声でぼそりとつぶやいた。恐怖よりも、杉浦さんへのいやみが先に立つのが、泉美さんらしかった。
+
+# idx=000180 file=PS2I057A.BIN off=0x00003541 inst=0x00003541 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000180●label○IZ07940
+●000180●label●IZ07940
+
+# idx=000181 file=PS2I057A.BIN off=0x00003550 inst=0x00003541 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ07940 name_source=prev_voice_label virtual=true writable=false pair=000182 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000181●name○泉美
+●000181●name●泉美
+
+# idx=000182 file=PS2I057A.BIN off=0x00003550 inst=0x00003550 tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place speaker_idx=000181 name=泉美 name_id=IZ speaker_code=IZ07940 name_source=prev_voice_label pair=000181 confidence=high full_name=泉美
+○000182●text○「……え……あっ?!」
+●000182●text●「……え……あっ?!」
+
+# idx=000183 file=PS2I057A.BIN off=0x000035AE inst=0x000035AE tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place
+○000183●text○綾はもう、ぼくたちに興味を持っていなかった。彼女は背を向け、桜の舞い散る中へと歩みだしていた。
+●000183●text●綾はもう、ぼくたちに興味を持っていなかった。彼女は背を向け、桜の舞い散る中へと歩みだしていた。
+
+# idx=000184 file=PS2I057A.BIN off=0x00003628 inst=0x00003628 tag=text source=inline_len8_string len=110 enc=cp932 policy=in_place
+○000184●text○彼女にとって、冬木課長の管制室も、この桜の園も、犬の影も、ぼくたちさえも……\nただの通過点にすぎないのだろう。
+●000184●text●彼女にとって、冬木課長の管制室も、この桜の園も、犬の影も、ぼくたちさえも……\nただの通過点にすぎないのだろう。
+
+# idx=000185 file=PS2I057A.BIN off=0x000036E0 inst=0x000036E0 tag=text source=inline_len8_string len=86 enc=cp932 policy=in_place
+○000185●text○それは……ぼくの気のせいだったかもしれない。彼女が、ほんの少しふり返ったように思えた。
+●000185●text●それは……ぼくの気のせいだったかもしれない。彼女が、ほんの少しふり返ったように思えた。
+
+# idx=000186 file=PS2I057A.BIN off=0x00003752 inst=0x00003752 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000186●text○ちらりと見えたその表情からは、なにも読み取ることはできなかった。
+●000186●text●ちらりと見えたその表情からは、なにも読み取ることはできなかった。
+
+# idx=000187 file=PS2I057A.BIN off=0x000037AE inst=0x000037AE tag=text source=inline_len8_string len=18 enc=cp932 policy=in_place
+○000187●text○ただ、ぼくは……。
+●000187●text●ただ、ぼくは……。
+
+# idx=000188 file=PS2I057A.BIN off=0x000037DC inst=0x000037DC tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000188●text○綾の横顔に、はかりしれない孤独を見たように\n思えた。
+●000188●text●綾の横顔に、はかりしれない孤独を見たように\n思えた。
+
+# idx=000189 file=PS2I057A.BIN off=0x0000382C inst=0x0000382C tag=text source=inline_len8_string len=86 enc=cp932 policy=in_place
+○000189●text○暗く、深く、底のない……漆黒の孤独の闇。\n彼女は、そんな悲しさを有した存在……だった。
+●000189●text●暗く、深く、底のない……漆黒の孤独の闇。\n彼女は、そんな悲しさを有した存在……だった。
+
+# idx=000190 file=PS2I057A.BIN off=0x000038D8 inst=0x000038D8 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000190●text○綾は……姿を消し、ぼくたちは桜の花びらの海に取り残された。
+●000190●text●綾は……姿を消し、ぼくたちは桜の花びらの海に取り残された。
+
+# idx=000191 file=PS2I057A.BIN off=0x0000392E inst=0x0000392E tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000191●label○FU00580
+●000191●label●FU00580
+
+# idx=000192 file=PS2I057A.BIN off=0x0000393D inst=0x0000392E tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU00580 name_source=prev_voice_label virtual=true writable=false pair=000193 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000192●name○冬木
+●000192●name●冬木
+
+# idx=000193 file=PS2I057A.BIN off=0x0000393D inst=0x0000393D tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place speaker_idx=000192 name=冬木 name_id=FU speaker_code=FU00580 name_source=prev_voice_label pair=000192 confidence=medium full_name=冬木
+○000193●text○「もう、いいでしょう。彼女は行ってしまい\nました」
+●000193●text●「もう、いいでしょう。彼女は行ってしまい\nました」
+
+# idx=000194 file=PS2I057A.BIN off=0x0000398B inst=0x0000398B tag=text source=inline_len8_string len=108 enc=cp932 policy=in_place
+○000194●text○あたたかい、安心するような声が聞こえた。\nそれは、この美しく、悲しい場所には、最も\n不つりあいなものだった。
+●000194●text●あたたかい、安心するような声が聞こえた。\nそれは、この美しく、悲しい場所には、最も\n不つりあいなものだった。
+
+# idx=000195 file=PS2I057A.BIN off=0x00003A41 inst=0x00003A41 tag=text source=inline_len8_string len=90 enc=cp932 policy=in_place
+○000195●text○ふり返ったぼくたちは、暗い管制室の中にいた。そして、冬木課長が笑みを浮かべて迎えてくれた。
+●000195●text●ふり返ったぼくたちは、暗い管制室の中にいた。そして、冬木課長が笑みを浮かべて迎えてくれた。
+
+# idx=000196 file=PS2I057A.BIN off=0x00003AB7 inst=0x00003AB7 tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000196●text○ぼくたちは……帰ってきた。\n現実の世界へ……。
+●000196●text●ぼくたちは……帰ってきた。\n現実の世界へ……。
+
+# idx=000197 file=PS2I057A.BIN off=0x00003B01 inst=0x00003B01 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000197●text○生きて……ぼくたちは……帰って来ることが\nできた。
+●000197●text●生きて……ぼくたちは……帰って来ることが\nできた。
+
+# idx=000198 file=PS2I057A.BIN off=0x00003B88 inst=0x00003B88 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000198●label○PS2I058a.bin
+●000198●label●PS2I058a.bin
+

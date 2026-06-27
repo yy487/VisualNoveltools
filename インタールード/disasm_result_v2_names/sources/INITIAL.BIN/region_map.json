@@ -1,0 +1,16 @@
+{
+  "file": "INITIAL.BIN",
+  "byte_size": 35,
+  "coverage_percent": 100.0,
+  "coverage_status": "OK",
+  "regions": [
+    {
+      "id": "r0000",
+      "type": "instruction_stream",
+      "start": "0x00000000",
+      "end": "0x00000023",
+      "size": 35,
+      "description": "Conservative typed VM-bytecode atom stream; ambiguous semantics retained as opaque atoms."
+    }
+  ]
+}

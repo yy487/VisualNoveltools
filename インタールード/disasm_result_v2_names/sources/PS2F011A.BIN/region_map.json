@@ -1,0 +1,16 @@
+{
+  "file": "PS2F011A.BIN",
+  "byte_size": 27355,
+  "coverage_percent": 100.0,
+  "coverage_status": "OK",
+  "regions": [
+    {
+      "id": "r0000",
+      "type": "instruction_stream",
+      "start": "0x00000000",
+      "end": "0x00006ADB",
+      "size": 27355,
+      "description": "Conservative typed VM-bytecode atom stream; ambiguous semantics retained as opaque atoms."
+    }
+  ]
+}

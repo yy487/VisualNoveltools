@@ -1,0 +1,9 @@
+file: PS2T043A.BIN
+byte_size: 4213
+coverage: 100.00%
+status: OK
+records: 1389
+text_entries: 62
+zero_mutation_roundtrip: PASS
+original_sha256: 5a2cef50d3e4bf9bf77f89ccbb79618318b7c9f759b6c3b3850a96ec50b928b3
+rebuilt_sha256: 5a2cef50d3e4bf9bf77f89ccbb79618318b7c9f759b6c3b3850a96ec50b928b3

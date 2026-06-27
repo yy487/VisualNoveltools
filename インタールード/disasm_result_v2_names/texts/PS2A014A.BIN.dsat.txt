@@ -1,0 +1,256 @@
+# DSAT export for PS2A014A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2A014A.BIN off=0x00000053 inst=0x00000053 tag=text source=inline_len8_string len=76 enc=cp932 policy=in_place
+○000001●text○玉が家へ駆け込んだ後、月夜の道をひとりで帰る。ここ数日来の気分のよさだった。
+●000001●text●玉が家へ駆け込んだ後、月夜の道をひとりで帰る。ここ数日来の気分のよさだった。
+
+# idx=000002 file=PS2A014A.BIN off=0x000000E8 inst=0x000000E8 tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000002●text○なにも考えていない玉の笑顔にこんな力がある\nとは思わなかった。
+●000002●text●なにも考えていない玉の笑顔にこんな力がある\nとは思わなかった。
+
+# idx=000003 file=PS2A014A.BIN off=0x00000142 inst=0x00000142 tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place
+○000003●text○つきまとっていた違和感は姿を消していた。\n根拠のない不安におびえていた自分が愚かしく\n思えた。
+●000003●text●つきまとっていた違和感は姿を消していた。\n根拠のない不安におびえていた自分が愚かしく\n思えた。
+
+# idx=000004 file=PS2A014A.BIN off=0x000001BC inst=0x000001BC tag=text source=inline_len8_string len=104 enc=cp932 policy=in_place
+○000004●text○錯覚や勘違いにふり回され、必要以上に\nこだわっていたから、自分の中で次第に大きく\nなっていったのだろう。
+●000004●text●錯覚や勘違いにふり回され、必要以上に\nこだわっていたから、自分の中で次第に大きく\nなっていったのだろう。
+
+# idx=000005 file=PS2A014A.BIN off=0x00000240 inst=0x00000240 tag=text source=inline_len8_string len=24 enc=cp932 policy=in_place
+○000005●text○ふと夜の公園に目を移す。
+●000005●text●ふと夜の公園に目を移す。
+
+# idx=000006 file=PS2A014A.BIN off=0x000002A1 inst=0x000002A1 tag=text source=inline_len8_string len=82 enc=cp932 policy=in_place
+○000006●text○月明かりにシーソーやブランコが照らされている。小さな頃、玉とよく遊びに来た場所だ。
+●000006●text●月明かりにシーソーやブランコが照らされている。小さな頃、玉とよく遊びに来た場所だ。
+
+# idx=000007 file=PS2A014A.BIN off=0x0000030F inst=0x0000030F tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000007●text○小さな鉄棒に腰をかける。\nあの頃は手が届かなかった。
+●000007●text●小さな鉄棒に腰をかける。\nあの頃は手が届かなかった。
+
+# idx=000008 file=PS2A014A.BIN off=0x0000035F inst=0x0000035F tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000008●text○そういえば、玉はあの頃からちょろちょろ\n元気過剰な奴だった。
+●000008●text●そういえば、玉はあの頃からちょろちょろ\n元気過剰な奴だった。
+
+# idx=000009 file=PS2A014A.BIN off=0x000003B7 inst=0x000003B7 tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000009●text○昔のことなのに鮮明な記憶。\n目の前の通りを家に向かう人たちが通りすぎて\nいく。
+●000009●text●昔のことなのに鮮明な記憶。\n目の前の通りを家に向かう人たちが通りすぎて\nいく。
+
+# idx=000010 file=PS2A014A.BIN off=0x00000421 inst=0x00000421 tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000010●text○もう大丈夫。\n現実の確かな手応えがここにある。
+●000010●text●もう大丈夫。\n現実の確かな手応えがここにある。
+
+# idx=000011 file=PS2A014A.BIN off=0x0000046B inst=0x0000046B tag=text source=inline_len8_string len=104 enc=cp932 policy=in_place
+○000011●text○ぼくは……驚いていた。\nなんの疑問もなく当たり前に暮らしていた毎日が、こんな簡単に壊れそうになるなんて。
+●000011●text●ぼくは……驚いていた。\nなんの疑問もなく当たり前に暮らしていた毎日が、こんな簡単に壊れそうになるなんて。
+
+# idx=000012 file=PS2A014A.BIN off=0x000004EF inst=0x000004EF tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000012●text○間違いなく存在しているはずの現実が、こんなにもろかったなんて。
+●000012●text●間違いなく存在しているはずの現実が、こんなにもろかったなんて。
+
+# idx=000013 file=PS2A014A.BIN off=0x00000549 inst=0x00000549 tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place
+○000013●text○冷静に考えをまとめることができそうだ。\nおきているできごとに混乱し、のみこまれるの\nではなく。
+●000013●text●冷静に考えをまとめることができそうだ。\nおきているできごとに混乱し、のみこまれるの\nではなく。
+
+# idx=000014 file=PS2A014A.BIN off=0x000005C3 inst=0x000005C3 tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000014●text○ゆっくりと、確実に思考を働かすことが\nできそうだった。
+●000014●text●ゆっくりと、確実に思考を働かすことが\nできそうだった。
+
+# idx=000015 file=PS2A014A.BIN off=0x00000615 inst=0x00000615 tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000015●text○それが……混乱と騒動の源、玉のおかげってのもすごいけど。
+●000015●text●それが……混乱と騒動の源、玉のおかげってのもすごいけど。
+
+# idx=000016 file=PS2A014A.BIN off=0x00000669 inst=0x00000669 tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place
+○000016●text○始まりは……。
+●000016●text●始まりは……。
+
+# idx=000017 file=PS2A014A.BIN off=0x000006AF inst=0x000006AF tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000017●label○se-e33
+●000017●label●se-e33
+
+# idx=000018 file=PS2A014A.BIN off=0x000006E4 inst=0x000006E4 tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place
+○000018●text○……『彼女』だった。
+●000018●text●……『彼女』だった。
+
+# idx=000019 file=PS2A014A.BIN off=0x00000714 inst=0x00000714 tag=text source=inline_len8_string len=70 enc=cp932 policy=in_place
+○000019●text○ぼくは……あの瞬間から、なにかが変わって\nしまったことに気づいていた。
+●000019●text●ぼくは……あの瞬間から、なにかが変わって\nしまったことに気づいていた。
+
+# idx=000020 file=PS2A014A.BIN off=0x00000776 inst=0x00000776 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000020●text○もしかすると、自分が正気を失おうとしているのかもしれない。
+●000020●text●もしかすると、自分が正気を失おうとしているのかもしれない。
+
+# idx=000021 file=PS2A014A.BIN off=0x000007CC inst=0x000007CC tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place
+○000021●text○そんなことを、どこかで考えていた。
+●000021●text●そんなことを、どこかで考えていた。
+
+# idx=000022 file=PS2A014A.BIN off=0x0000080A inst=0x0000080A tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place
+○000022●text○狂った場所へおちこもうとしている自分を、\n見つめているだけかもしれない。
+●000022●text●狂った場所へおちこもうとしている自分を、\n見つめているだけかもしれない。
+
+# idx=000023 file=PS2A014A.BIN off=0x0000086E inst=0x0000086E tag=text source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000023●text○でも……。
+●000023●text●でも……。
+
+# idx=000024 file=PS2A014A.BIN off=0x00000894 inst=0x00000894 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000024●text○ぼくなのか、世界なのか。\nおかしいのは、どちらなんだろう。
+●000024●text●ぼくなのか、世界なのか。\nおかしいのは、どちらなんだろう。
+
+# idx=000025 file=PS2A014A.BIN off=0x000008EA inst=0x000008EA tag=text source=inline_len8_string len=24 enc=cp932 policy=in_place
+○000025●text○どちらが最初なんだろう。
+●000025●text●どちらが最初なんだろう。
+
+# idx=000026 file=PS2A014A.BIN off=0x0000091E inst=0x0000091E tag=text source=inline_len8_string len=76 enc=cp932 policy=in_place
+○000026●text○変になりかけている自分だから、世界が異常\nなのだと思いこんでるだけだろうか。
+●000026●text●変になりかけている自分だから、世界が異常\nなのだと思いこんでるだけだろうか。
+
+# idx=000027 file=PS2A014A.BIN off=0x00000986 inst=0x00000986 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000027●text○じゃあ……『彼女』は……。
+●000027●text●じゃあ……『彼女』は……。
+
+# idx=000028 file=PS2A014A.BIN off=0x000009BC inst=0x000009BC tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000028●text○ぼくを狂った世界へひきずりこもうとしている？
+●000028●text●ぼくを狂った世界へひきずりこもうとしている？
+
+# idx=000029 file=PS2A014A.BIN off=0x00000A04 inst=0x00000A04 tag=text source=inline_len8_string len=84 enc=cp932 policy=in_place
+○000029●text○……そうは、思えなかった。\n『彼女』が、なんらかの形で『狂気』と関係しているなんて。
+●000029●text●……そうは、思えなかった。\n『彼女』が、なんらかの形で『狂気』と関係しているなんて。
+
+# idx=000030 file=PS2A014A.BIN off=0x00000A74 inst=0x00000A74 tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place
+○000030●text○反対に、『彼女』こそ、狂った場所から最も\n遠いところにいるように思えた。
+●000030●text●反対に、『彼女』こそ、狂った場所から最も\n遠いところにいるように思えた。
+
+# idx=000031 file=PS2A014A.BIN off=0x00000AD8 inst=0x00000AD8 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000031●text○……単語帳を暗記している『狂気』なんて、\n想像もできない。
+●000031●text●……単語帳を暗記している『狂気』なんて、\n想像もできない。
+
+# idx=000032 file=PS2A014A.BIN off=0x00000B2E inst=0x00000B2E tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000032●text○でも……そうだとするなら……。\nぼくは、あることに気がついた。
+●000032●text●でも……そうだとするなら……。\nぼくは、あることに気がついた。
+
+# idx=000033 file=PS2A014A.BIN off=0x00000B88 inst=0x00000B88 tag=text source=inline_len8_string len=90 enc=cp932 policy=in_place
+○000033●text○『彼女』が正常な場所にいるのなら……\nぼくはどこにいる？\nやっぱり……ここがおかしいのか？
+●000033●text●『彼女』が正常な場所にいるのなら……\nぼくはどこにいる？\nやっぱり……ここがおかしいのか？
+
+# idx=000034 file=PS2A014A.BIN off=0x00000BFE inst=0x00000BFE tag=text source=inline_len8_string len=76 enc=cp932 policy=in_place
+○000034●text○ぼくはふと人の気配を感じて顔をあげた。\n誰もいない。\n夜の公園は無人のまま。
+●000034●text●ぼくはふと人の気配を感じて顔をあげた。\n誰もいない。\n夜の公園は無人のまま。
+
+# idx=000035 file=PS2A014A.BIN off=0x00000C66 inst=0x00000C66 tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000035●text○少し……いろんなことを考えすぎているのかも\nしれない。
+●000035●text●少し……いろんなことを考えすぎているのかも\nしれない。
+
+# idx=000036 file=PS2A014A.BIN off=0x00000CB8 inst=0x00000CB8 tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place
+○000036●text○いや、違う。\n……『彼女』がいる。
+●000036●text●いや、違う。\n……『彼女』がいる。
+
+# idx=000037 file=PS2A014A.BIN off=0x00000CF6 inst=0x00000CF6 tag=text source=inline_len8_string len=48 enc=cp932 policy=in_place
+○000037●text○でも、どこに？\n人の気配など、どこにもないのに。
+●000037●text●でも、どこに？\n人の気配など、どこにもないのに。
+
+# idx=000038 file=PS2A014A.BIN off=0x00000D42 inst=0x00000D42 tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000038●text○でも……彼女が近くにいる。\nなぜか、それがわかった。\nじゃあ……彼女はどこに？
+●000038●text●でも……彼女が近くにいる。\nなぜか、それがわかった。\nじゃあ……彼女はどこに？
+
+# idx=000039 file=PS2A014A.BIN off=0x00000DDA inst=0x00000DDA tag=text source=inline_len8_string len=92 enc=cp932 policy=in_place
+○000039●text○公園の奥、隣の家と公園をへだてている壁。\nそこに、『彼女』の影がくっきりと描き出されていた。
+●000039●text●公園の奥、隣の家と公園をへだてている壁。\nそこに、『彼女』の影がくっきりと描き出されていた。
+
+# idx=000040 file=PS2A014A.BIN off=0x00000E52 inst=0x00000E52 tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000040●text○ぼくは反射的に、道路を振り返った。\n『彼女』の姿はない。
+●000040●text●ぼくは反射的に、道路を振り返った。\n『彼女』の姿はない。
+
+# idx=000041 file=PS2A014A.BIN off=0x00000EA6 inst=0x00000EA6 tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000041●text○月の光の中、『彼女』の影だけが、わき目も\nふらずに歩いている。
+●000041●text●月の光の中、『彼女』の影だけが、わき目も\nふらずに歩いている。
+
+# idx=000042 file=PS2A014A.BIN off=0x00000EEC inst=0x00000EEC tag=text source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000042●text○追いかける
+●000042●text●追いかける
+
+# idx=000043 file=PS2A014A.BIN off=0x00000F06 inst=0x00000F06 tag=text source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000043●text○見守る
+●000043●text●見守る
+
+# idx=000044 file=PS2A014A.BIN off=0x00000F51 inst=0x00000F51 tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000044●text○ぼくは、『彼女』の影を追いかけた。\nなにかがおかしい、などと考えはしなかった。
+●000044●text●ぼくは、『彼女』の影を追いかけた。\nなにかがおかしい、などと考えはしなかった。
+
+# idx=000045 file=PS2A014A.BIN off=0x00000FBB inst=0x00000FBB tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000045●text○『彼女』の影がそこにある。\nなら、『彼女』もどこかにいるはず。
+●000045●text●『彼女』の影がそこにある。\nなら、『彼女』もどこかにいるはず。
+
+# idx=000046 file=PS2A014A.BIN off=0x00001015 inst=0x00001015 tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000046●text○『彼女』は……。\n幻ではないのかもしれない。
+●000046●text●『彼女』は……。\n幻ではないのかもしれない。
+
+# idx=000047 file=PS2A014A.BIN off=0x0000107C inst=0x0000107C tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000047●label○se-e29
+●000047●label●se-e29
+
+# idx=000048 file=PS2A014A.BIN off=0x000010A5 inst=0x000010A5 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000048●text○『彼女』の影が走り出した。\nぼくの足音におびえて。
+●000048●text●『彼女』の影が走り出した。\nぼくの足音におびえて。
+
+# idx=000049 file=PS2A014A.BIN off=0x000010F3 inst=0x000010F3 tag=text source=inline_len8_string len=88 enc=cp932 policy=in_place
+○000049●text○影は月明かりの中を駆けていく。\n誰もいない道の真ん中に、『彼女』の影だけが\nのびていた。
+●000049●text●影は月明かりの中を駆けていく。\n誰もいない道の真ん中に、『彼女』の影だけが\nのびていた。
+
+# idx=000050 file=PS2A014A.BIN off=0x00001167 inst=0x00001167 tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000050●text○ぼくは必死で彼女の後を追い……。\n彼女は月の光を目ざして駆けて行く。
+●000050●text●ぼくは必死で彼女の後を追い……。\n彼女は月の光を目ざして駆けて行く。
+
+# idx=000051 file=PS2A014A.BIN off=0x000011C7 inst=0x000011C7 tag=text source=inline_len8_string len=76 enc=cp932 policy=in_place
+○000051●text○月の光の中で、影は次第に薄れていき、\nぼくは……輝きの中で、彼女を見失った。
+●000051●text●月の光の中で、影は次第に薄れていき、\nぼくは……輝きの中で、彼女を見失った。
+
+# idx=000052 file=PS2A014A.BIN off=0x0000122F inst=0x0000122F tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place
+○000052●text○そして、影は行ってしまった。
+●000052●text●そして、影は行ってしまった。
+
+# idx=000053 file=PS2A014A.BIN off=0x000012B1 inst=0x000012B1 tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place
+○000053●text○ぼくは……『彼女』の影を見ていた。\n目に、『彼女』の姿を焼きつけようとしていたのかもしれない。
+●000053●text●ぼくは……『彼女』の影を見ていた。\n目に、『彼女』の姿を焼きつけようとしていたのかもしれない。
+
+# idx=000054 file=PS2A014A.BIN off=0x0000132B inst=0x0000132B tag=text source=inline_len8_string len=116 enc=cp932 policy=in_place
+○000054●text○足早に歩く『彼女』の影が、ふと立ちどまる。\nいぶかしげな様子で辺りを見回す。\n自分を見つめている誰かをさがすように。
+●000054●text●足早に歩く『彼女』の影が、ふと立ちどまる。\nいぶかしげな様子で辺りを見回す。\n自分を見つめている誰かをさがすように。
+
+# idx=000055 file=PS2A014A.BIN off=0x000013BB inst=0x000013BB tag=text source=inline_len8_string len=92 enc=cp932 policy=in_place
+○000055●text○ぼくの視線を感じたのか。\n……『彼女』とぼくには……接点があるのか？\nあのときのように……。
+●000055●text●ぼくの視線を感じたのか。\n……『彼女』とぼくには……接点があるのか？\nあのときのように……。
+
+# idx=000056 file=PS2A014A.BIN off=0x00001463 inst=0x00001463 tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000056●text○でも……『彼女』の影は、ぼくを見つける\nことができなかった。
+●000056●text●でも……『彼女』の影は、ぼくを見つける\nことができなかった。
+
+# idx=000057 file=PS2A014A.BIN off=0x000014BB inst=0x000014BB tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000057●text○なにごともなかったかのように歩きだす。\nそして、影は行ってしまった。
+●000057●text●なにごともなかったかのように歩きだす。\nそして、影は行ってしまった。
+
+# idx=000058 file=PS2A014A.BIN off=0x0000151B inst=0x0000151B tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000058●text○『彼女』はいる、確かに。\n間違いではなかった。
+●000058●text●『彼女』はいる、確かに。\n間違いではなかった。
+
+# idx=000059 file=PS2A014A.BIN off=0x00001565 inst=0x00001565 tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000059●text○ぼくは……『彼女』の気配を感じた。\nたとえ、それが影だったとしても。
+●000059●text●ぼくは……『彼女』の気配を感じた。\nたとえ、それが影だったとしても。
+
+# idx=000060 file=PS2A014A.BIN off=0x000015C5 inst=0x000015C5 tag=text source=inline_len8_string len=106 enc=cp932 policy=in_place
+○000060●text○もしかすると、ぼくは幻に捕らわれようとして\nいるのかもしれない。\nそれでも『彼女』が……身近な場所にいる。
+●000060●text●もしかすると、ぼくは幻に捕らわれようとして\nいるのかもしれない。\nそれでも『彼女』が……身近な場所にいる。
+
+# idx=000061 file=PS2A014A.BIN off=0x0000164B inst=0x0000164B tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000061●text○ここではない、どこか。\nそんなどこかがこの街には存在している。
+●000061●text●ここではない、どこか。\nそんなどこかがこの街には存在している。
+
+# idx=000062 file=PS2A014A.BIN off=0x000016A5 inst=0x000016A5 tag=text source=inline_len8_string len=98 enc=cp932 policy=in_place
+○000062●text○ぼくはそれが事実なのだと思った。\n信じがたいような結論だったとしても……。\nぼくはそれを確信した。
+●000062●text●ぼくはそれが事実なのだと思った。\n信じがたいような結論だったとしても……。\nぼくはそれを確信した。
+
+# idx=000063 file=PS2A014A.BIN off=0x00001767 inst=0x00001767 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000063●label○PS2A015a.bin
+●000063●label●PS2A015a.bin
+

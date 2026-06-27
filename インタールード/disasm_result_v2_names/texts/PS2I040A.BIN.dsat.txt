@@ -1,0 +1,24 @@
+# DSAT export for PS2I040A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2I040A.BIN off=0x0000006D inst=0x0000006D tag=text source=inline_len8_string len=118 enc=cp932 policy=in_place
+○000001●text○結局、泉美さんからの連絡はとぎれたまま。\n杉浦さんともあれ以来会っていない（会おうと\n思って会える人ではないけれど）。
+●000001●text●結局、泉美さんからの連絡はとぎれたまま。\n杉浦さんともあれ以来会っていない（会おうと\n思って会える人ではないけれど）。
+
+# idx=000002 file=PS2I040A.BIN off=0x000000FF inst=0x000000FF tag=text source=inline_len8_string len=104 enc=cp932 policy=in_place
+○000002●text○こうしてみると、自分ひとりではなにもできないことを思い知らされる。\nできることの少なさに驚かされもする。
+●000002●text●こうしてみると、自分ひとりではなにもできないことを思い知らされる。\nできることの少なさに驚かされもする。
+
+# idx=000003 file=PS2I040A.BIN off=0x00000183 inst=0x00000183 tag=text source=inline_len8_string len=100 enc=cp932 policy=in_place
+○000003●text○学生だからなんでもできるはずなのに、反対に\nなにもできない。\nそんな自分が、すごくちっぽけに思えた。
+●000003●text●学生だからなんでもできるはずなのに、反対に\nなにもできない。\nそんな自分が、すごくちっぽけに思えた。
+
+# idx=000004 file=PS2I040A.BIN off=0x00000247 inst=0x00000247 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000004●label○PS2F008a.bin
+●000004●label●PS2F008a.bin
+
+# idx=000005 file=PS2I040A.BIN off=0x00000273 inst=0x00000273 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000005●label○PS2I048a.bin
+●000005●label●PS2I048a.bin
+

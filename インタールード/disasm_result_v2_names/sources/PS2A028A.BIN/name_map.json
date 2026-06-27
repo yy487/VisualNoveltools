@@ -1,0 +1,55 @@
+{
+  "file": "PS2A028A.BIN",
+  "resolution_status": "resolved_with_virtual_speaker_pairs",
+  "pairing_rule": "preceding 80-string voice id matching /^[A-Z]{2}\\d{5}[A-Za-z]?T?$/ paired with following quoted text",
+  "entities": [
+    {
+      "name_id": "CM",
+      "display_name": "クラスメート",
+      "full_name": "クラスメート",
+      "confidence": "low",
+      "occurrences": 1,
+      "basis": "classmate voice prefix, exact person not proven"
+    },
+    {
+      "name_id": "EX",
+      "display_name": "EX",
+      "full_name": "EX",
+      "confidence": "unresolved",
+      "occurrences": 3,
+      "basis": "prefix detected; no mapping"
+    },
+    {
+      "name_id": "HF",
+      "display_name": "遥",
+      "full_name": "藤之辺遥",
+      "confidence": "medium",
+      "occurrences": 5,
+      "basis": "KT lines address 遥ちゃん; narration identifies 藤之辺 nearby"
+    },
+    {
+      "name_id": "KT",
+      "display_name": "千佳",
+      "full_name": "木村千佳",
+      "confidence": "medium",
+      "occurrences": 11,
+      "basis": "KT lines address 玉/遥; narration identifies 木村 nearby"
+    },
+    {
+      "name_id": "MT",
+      "display_name": "玉",
+      "full_name": "玉城麻衣子",
+      "confidence": "high",
+      "occurrences": 32,
+      "basis": "route/debug labels and repeated MT dialogue by 玉/麻衣子"
+    },
+    {
+      "name_id": "TA",
+      "display_name": "カウンセラー",
+      "full_name": "カウンセラー",
+      "confidence": "medium",
+      "occurrences": 2,
+      "basis": "TA lines occur in counseling-room scene"
+    }
+  ]
+}

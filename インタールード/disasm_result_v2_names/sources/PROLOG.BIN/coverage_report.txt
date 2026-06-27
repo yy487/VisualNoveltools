@@ -1,0 +1,9 @@
+file: PROLOG.BIN
+byte_size: 85
+coverage: 100.00%
+status: OK
+records: 43
+text_entries: 1
+zero_mutation_roundtrip: PASS
+original_sha256: c781c18772421049d1d5d36536cae4aaf68f81bcb87d9715614fa201fece1c78
+rebuilt_sha256: c781c18772421049d1d5d36536cae4aaf68f81bcb87d9715614fa201fece1c78

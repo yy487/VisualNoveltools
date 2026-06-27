@@ -1,0 +1,124 @@
+# DSAT export for PS2A031A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2A031A.BIN off=0x00000053 inst=0x00000053 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=レイディ name_id=NA confidence=medium
+○000001●label○NA90460
+●000001●label●NA90460
+
+# idx=000002 file=PS2A031A.BIN off=0x00000062 inst=0x00000053 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=NA speaker_code=NA90460 name_source=prev_voice_label virtual=true writable=false pair=000003 confidence=medium full_name=担任のレイディ basis=NA_teacher-like_classroom_lines;_narration_names_レイディ
+○000002●name○レイディ
+●000002●name●レイディ
+
+# idx=000003 file=PS2A031A.BIN off=0x00000062 inst=0x00000062 tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place speaker_idx=000002 name=レイディ name_id=NA speaker_code=NA90460 name_source=prev_voice_label pair=000002 confidence=medium full_name=担任のレイディ
+○000003●text○「主人公はなぜ、メキシコに、なんとなく\nそぐわない印象があるのでしょう」
+●000003●text●「主人公はなぜ、メキシコに、なんとなく\nそぐわない印象があるのでしょう」
+
+# idx=000004 file=PS2A031A.BIN off=0x000000C6 inst=0x000000C6 tag=text source=inline_len8_string len=84 enc=cp932 policy=in_place
+○000004●text○レイディの声が聞こえる。\nようやく、今が授業中だと気がついた。\n落ちつこう、と思う。
+●000004●text●レイディの声が聞こえる。\nようやく、今が授業中だと気がついた。\n落ちつこう、と思う。
+
+# idx=000005 file=PS2A031A.BIN off=0x00000136 inst=0x00000136 tag=text source=inline_len8_string len=96 enc=cp932 policy=in_place
+○000005●text○このままではいけない。\nぼくは今、なにかを失いかけていた。\nたぶん、それは……現実感なのだろう。
+●000005●text●このままではいけない。\nぼくは今、なにかを失いかけていた。\nたぶん、それは……現実感なのだろう。
+
+# idx=000006 file=PS2A031A.BIN off=0x000001DF inst=0x000001DF tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000006●text○ぼくの周囲で現実の崩壊が加速し始めていた。\nなにかが壊れかけている。
+●000006●text●ぼくの周囲で現実の崩壊が加速し始めていた。\nなにかが壊れかけている。
+
+# idx=000007 file=PS2A031A.BIN off=0x0000023F inst=0x0000023F tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000007●text○いや……。\n真実の姿をあらわし始めているのかもしれない。
+●000007●text●いや……。\n真実の姿をあらわし始めているのかもしれない。
+
+# idx=000008 file=PS2A031A.BIN off=0x00000293 inst=0x00000293 tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000008●text○ぼくだけに起きているのだと思っていた。\n今まではぼくひとりに、向けられていた。
+●000008●text●ぼくだけに起きているのだと思っていた。\n今まではぼくひとりに、向けられていた。
+
+# idx=000009 file=PS2A031A.BIN off=0x000002FD inst=0x000002FD tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000009●text○けれど、昨日は玉と一緒で……たくさんの人が\n見ていた。
+●000009●text●けれど、昨日は玉と一緒で……たくさんの人が\n見ていた。
+
+# idx=000010 file=PS2A031A.BIN off=0x0000034F inst=0x0000034F tag=text source=inline_len8_string len=16 enc=cp932 policy=in_place
+○000010●text○……はずだった。
+●000010●text●……はずだった。
+
+# idx=000011 file=PS2A031A.BIN off=0x0000037B inst=0x0000037B tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000011●text○わからない。\nおかしいのは、どっちなんだ？
+●000011●text●わからない。\nおかしいのは、どっちなんだ？
+
+# idx=000012 file=PS2A031A.BIN off=0x000003C1 inst=0x000003C1 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000012●text○みんなの記憶がぼくの記憶と食い違うなら、\n正しいのは一体？
+●000012●text●みんなの記憶がぼくの記憶と食い違うなら、\n正しいのは一体？
+
+# idx=000013 file=PS2A031A.BIN off=0x00000417 inst=0x00000417 tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place
+○000013●text○その疑問がぼくを混乱させる。
+●000013●text●その疑問がぼくを混乱させる。
+
+# idx=000014 file=PS2A031A.BIN off=0x0000044F inst=0x0000044F tag=text source=inline_len8_string len=100 enc=cp932 policy=in_place
+○000014●text○今までは……あの朝のホームのできごと以来\nなにかが起きているのだと信じていたし\n信じることができた。
+●000014●text●今までは……あの朝のホームのできごと以来\nなにかが起きているのだと信じていたし\n信じることができた。
+
+# idx=000015 file=PS2A031A.BIN off=0x000004CF inst=0x000004CF tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000015●text○でも、自分の身に起きたことを信じられない\nのだとしたら？
+●000015●text●でも、自分の身に起きたことを信じられない\nのだとしたら？
+
+# idx=000016 file=PS2A031A.BIN off=0x00000523 inst=0x00000523 tag=text source=inline_len8_string len=82 enc=cp932 policy=in_place
+○000016●text○世界が逸脱しようとしているのではなく、\nぼく自身が世界から逸脱しかけているのでは？
+●000016●text●世界が逸脱しようとしているのではなく、\nぼく自身が世界から逸脱しかけているのでは？
+
+# idx=000017 file=PS2A031A.BIN off=0x00000591 inst=0x00000591 tag=text source=inline_len8_string len=114 enc=cp932 policy=in_place
+○000017●text○……それは、壊れかけているのが世界ではなく、\nぼくだ……ということを意味している。\nぼくは……どうなっているんだ？
+●000017●text●……それは、壊れかけているのが世界ではなく、\nぼくだ……ということを意味している。\nぼくは……どうなっているんだ？
+
+# idx=000018 file=PS2A031A.BIN off=0x0000061F inst=0x0000061F tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000018●text○もし、自分の記憶が真実に基づいていないのだと\nしたら……。
+●000018●text●もし、自分の記憶が真実に基づいていないのだと\nしたら……。
+
+# idx=000019 file=PS2A031A.BIN off=0x00000675 inst=0x00000675 tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000019●text○ぼくはなにを信じればいい？\nぼくには……なにが残されている？
+●000019●text●ぼくはなにを信じればいい？\nぼくには……なにが残されている？
+
+# idx=000020 file=PS2A031A.BIN off=0x000006CD inst=0x000006CD tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000020●text○なにも残されていなかった。
+●000020●text●なにも残されていなかった。
+
+# idx=000021 file=PS2A031A.BIN off=0x00000703 inst=0x00000703 tag=text source=inline_len8_string len=98 enc=cp932 policy=in_place
+○000021●text○自分自身を信じられなくなったとき、なにを\n基準にできるのか。\nなにを信じることができるというのか。
+●000021●text●自分自身を信じられなくなったとき、なにを\n基準にできるのか。\nなにを信じることができるというのか。
+
+# idx=000022 file=PS2A031A.BIN off=0x00000781 inst=0x00000781 tag=text source=inline_len8_string len=36 enc=cp932 policy=in_place
+○000022●text○ぼくは……自分自身を失いかけていた。
+●000022●text●ぼくは……自分自身を失いかけていた。
+
+# idx=000023 file=PS2A031A.BIN off=0x000007C1 inst=0x000007C1 tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000023●text○それははじめての経験だったし、そんなことが\n起きるのだとは思ってもいなかった。
+●000023●text●それははじめての経験だったし、そんなことが\n起きるのだとは思ってもいなかった。
+
+# idx=000024 file=PS2A031A.BIN off=0x0000082B inst=0x0000082B tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000024●text○自分自身が確かなものでない、ということは……。
+●000024●text●自分自身が確かなものでない、ということは……。
+
+# idx=000025 file=PS2A031A.BIN off=0x00000875 inst=0x00000875 tag=text source=inline_len8_string len=90 enc=cp932 policy=in_place
+○000025●text○いや……そうじゃない。\nぼくは、まだ信じられるものがある。\nそれが、あの朝のホームの……。
+●000025●text●いや……そうじゃない。\nぼくは、まだ信じられるものがある。\nそれが、あの朝のホームの……。
+
+# idx=000026 file=PS2A031A.BIN off=0x00000907 inst=0x00000907 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000026●label○se-e33
+●000026●label●se-e33
+
+# idx=000027 file=PS2A031A.BIN off=0x00000929 inst=0x00000929 tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000027●text○彼女の瞳だ。
+●000027●text●彼女の瞳だ。
+
+# idx=000028 file=PS2A031A.BIN off=0x00000951 inst=0x00000951 tag=text source=inline_len8_string len=100 enc=cp932 policy=in_place
+○000028●text○ぼくは、彼女の瞳の奥にある、強い意志の意味を\n知りたいと思った。\nその気持ちだけは確かなものだった。
+●000028●text●ぼくは、彼女の瞳の奥にある、強い意志の意味を\n知りたいと思った。\nその気持ちだけは確かなものだった。
+
+# idx=000029 file=PS2A031A.BIN off=0x000009D1 inst=0x000009D1 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000029●text○ぼくは、すべてを失ったわけではなかった。\nそう……信じたかった。
+●000029●text●ぼくは、すべてを失ったわけではなかった。\nそう……信じたかった。
+
+# idx=000030 file=PS2A031A.BIN off=0x00000A71 inst=0x00000A71 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000030●label○PS2A032a.bin
+●000030●label●PS2A032a.bin
+

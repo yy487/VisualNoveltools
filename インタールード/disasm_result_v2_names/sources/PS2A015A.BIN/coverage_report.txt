@@ -1,0 +1,9 @@
+file: PS2A015A.BIN
+byte_size: 11705
+coverage: 100.00%
+status: OK
+records: 2899
+text_entries: 143
+zero_mutation_roundtrip: PASS
+original_sha256: 11390efab1a7416e196e5f9b76760c2c9e2706aa441a7476e89f9f860deeac67
+rebuilt_sha256: 11390efab1a7416e196e5f9b76760c2c9e2706aa441a7476e89f9f860deeac67

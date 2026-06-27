@@ -1,0 +1,288 @@
+# DSAT export for PS2I048A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2I048A.BIN off=0x00000053 inst=0x00000053 tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000001●text○泉美さんと連絡がとれなくなって、しばらくたつ。いつもだったら
+●000001●text●泉美さんと連絡がとれなくなって、しばらくたつ。いつもだったら
+
+# idx=000002 file=PS2I048A.BIN off=0x000000AB inst=0x000000AB tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000002●label○IZ06400
+●000002●label●IZ06400
+
+# idx=000003 file=PS2I048A.BIN off=0x000000BA inst=0x000000AB tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ06400 name_source=prev_voice_label virtual=true writable=false pair=000004 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000003●name○泉美
+●000003●name●泉美
+
+# idx=000004 file=PS2I048A.BIN off=0x000000BA inst=0x000000BA tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place speaker_idx=000003 name=泉美 name_id=IZ speaker_code=IZ06400 name_source=prev_voice_label pair=000003 confidence=high full_name=泉美
+○000004●text○「きょーねー、いきたいとこある～」
+●000004●text●「きょーねー、いきたいとこある～」
+
+# idx=000005 file=PS2I048A.BIN off=0x000000F8 inst=0x000000F8 tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000005●text○……とゆー、お気楽な電話がかかってくるのに。
+●000005●text●……とゆー、お気楽な電話がかかってくるのに。
+
+# idx=000006 file=PS2I048A.BIN off=0x00000140 inst=0x00000140 tag=text source=inline_len8_string len=102 enc=cp932 policy=in_place
+○000006●text○あの杉浦という人とあったあの日……無人の街に迷いこみ、犬の影に襲われた日から、泉美さんとあっていない。
+●000006●text●あの杉浦という人とあったあの日……無人の街に迷いこみ、犬の影に襲われた日から、泉美さんとあっていない。
+
+# idx=000007 file=PS2I048A.BIN off=0x000001C2 inst=0x000001C2 tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000007●text○仕事が忙しいとか、体調を崩した……というの\nならまだしも、なにかあったのでは。
+●000007●text●仕事が忙しいとか、体調を崩した……というの\nならまだしも、なにかあったのでは。
+
+# idx=000008 file=PS2I048A.BIN off=0x0000022C inst=0x0000022C tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000008●text○ただでさえ緊張感に欠ける泉美さんのことだから、どうしても心配になる。
+●000008●text●ただでさえ緊張感に欠ける泉美さんのことだから、どうしても心配になる。
+
+# idx=000009 file=PS2I048A.BIN off=0x0000028C inst=0x0000028C tag=text source=inline_len8_string len=104 enc=cp932 policy=in_place
+○000009●text○こうしてみると、自分ひとりではなにもできないことを思い知らされる。\nできることの少なさに驚かされもする。
+●000009●text●こうしてみると、自分ひとりではなにもできないことを思い知らされる。\nできることの少なさに驚かされもする。
+
+# idx=000010 file=PS2I048A.BIN off=0x00000310 inst=0x00000310 tag=text source=inline_len8_string len=100 enc=cp932 policy=in_place
+○000010●text○学生だからなんでもできるはずなのに、反対に\nなにもできない。\nそんな自分が、すごくちっぽけに思えた。
+●000010●text●学生だからなんでもできるはずなのに、反対に\nなにもできない。\nそんな自分が、すごくちっぽけに思えた。
+
+# idx=000011 file=PS2I048A.BIN off=0x00000390 inst=0x00000390 tag=text source=inline_len8_string len=80 enc=cp932 policy=in_place
+○000011●text○放課後、様子を見に行ってみよう。\nうまくいけば、あって話すこともできるだろうし。
+●000011●text●放課後、様子を見に行ってみよう。\nうまくいけば、あって話すこともできるだろうし。
+
+# idx=000012 file=PS2I048A.BIN off=0x00000469 inst=0x00000469 tag=text source=inline_len8_string len=88 enc=cp932 policy=in_place
+○000012●text○役所はちょうど終業時間だった。\n仕事を終えた公務員が、ぞろぞろと建物から\nはきだされる。
+●000012●text●役所はちょうど終業時間だった。\n仕事を終えた公務員が、ぞろぞろと建物から\nはきだされる。
+
+# idx=000013 file=PS2I048A.BIN off=0x000004DD inst=0x000004DD tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000013●text○ものすごい数の人たちが、この建物の中で働いている。
+●000013●text●ものすごい数の人たちが、この建物の中で働いている。
+
+# idx=000014 file=PS2I048A.BIN off=0x0000052B inst=0x0000052B tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place
+○000014●text○いつまで見ていても、人の列はとぎれることが\nなかった。\nそれでも、泉美さんの姿は見つからない。
+●000014●text●いつまで見ていても、人の列はとぎれることが\nなかった。\nそれでも、泉美さんの姿は見つからない。
+
+# idx=000015 file=PS2I048A.BIN off=0x000005A5 inst=0x000005A5 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000015●text○それもそうかな。\n校門の前で女の子を待ってるのとは、わけが違う。
+●000015●text●それもそうかな。\n校門の前で女の子を待ってるのとは、わけが違う。
+
+# idx=000016 file=PS2I048A.BIN off=0x00000601 inst=0x00000601 tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000016●text○どうしても、泉美さんとはそこら辺の\nタイミングがズレてしまう。
+●000016●text●どうしても、泉美さんとはそこら辺の\nタイミングがズレてしまう。
+
+# idx=000017 file=PS2I048A.BIN off=0x0000065B inst=0x0000065B tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place
+○000017●text○しょーがない。\n出なおそう。
+●000017●text●しょーがない。\n出なおそう。
+
+# idx=000018 file=PS2I048A.BIN off=0x00000693 inst=0x00000693 tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000018●text○そう思ったとき、見おぼえのある人の姿が目に\n飛び込んできた。
+●000018●text●そう思ったとき、見おぼえのある人の姿が目に\n飛び込んできた。
+
+# idx=000019 file=PS2I048A.BIN off=0x000006EB inst=0x000006EB tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place
+○000019●text○あ……あの人たち。\n確か……泉美さんと一緒の……\n薫子さんと優輝ちゃん。
+●000019●text●あ……あの人たち。\n確か……泉美さんと一緒の……\n薫子さんと優輝ちゃん。
+
+# idx=000020 file=PS2I048A.BIN off=0x0000074F inst=0x0000074F tag=text source=inline_len8_string len=70 enc=cp932 policy=in_place
+○000020●text○あ、そっか。\n名前は何度も聞いたのに、名字を聞いたこと\nなかったっけ。
+●000020●text●あ、そっか。\n名前は何度も聞いたのに、名字を聞いたこと\nなかったっけ。
+
+# idx=000021 file=PS2I048A.BIN off=0x000007B1 inst=0x000007B1 tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000021●text○でも、あの人たちなら、泉美さんがどーしてるか絶対知ってるはず。
+●000021●text●でも、あの人たちなら、泉美さんがどーしてるか絶対知ってるはず。
+
+# idx=000022 file=PS2I048A.BIN off=0x0000080B inst=0x0000080B tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000022●text○ぼくは、ふたりに近づいた。
+●000022●text●ぼくは、ふたりに近づいた。
+
+# idx=000023 file=PS2I048A.BIN off=0x000008B6 inst=0x000008B6 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000023●label○Y00010
+●000023●label●Y00010
+
+# idx=000024 file=PS2I048A.BIN off=0x000008C4 inst=0x000008C4 tag=text source=inline_len8_string len=100 enc=cp932 policy=in_place
+○000024●text○「だからさあ、薫子さんならモテモテだってー。みーんな、薫子さんのそばからはなれなく\nなっちゃうよー」
+●000024●text●「だからさあ、薫子さんならモテモテだってー。みーんな、薫子さんのそばからはなれなく\nなっちゃうよー」
+
+# idx=000025 file=PS2I048A.BIN off=0x00000944 inst=0x00000944 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=薫子 name_id=KO confidence=medium
+○000025●label○KO00070
+●000025●label●KO00070
+
+# idx=000026 file=PS2I048A.BIN off=0x00000953 inst=0x00000944 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KO speaker_code=KO00070 name_source=prev_voice_label virtual=true writable=false pair=000027 confidence=medium full_name=薫子 basis=YU_lines_address_薫子さん;_KO_response_style_and_context
+○000026●name○薫子
+●000026●name●薫子
+
+# idx=000027 file=PS2I048A.BIN off=0x00000953 inst=0x00000953 tag=text source=inline_len8_string len=100 enc=cp932 policy=in_place speaker_idx=000026 name=薫子 name_id=KO speaker_code=KO00070 name_source=prev_voice_label pair=000026 confidence=medium full_name=薫子
+○000027●text○「まあ、そうですの。で、そのあいだに\n優輝ちゃんは、お目あてさんとフェードアウト\nされるんですわね」
+●000027●text●「まあ、そうですの。で、そのあいだに\n優輝ちゃんは、お目あてさんとフェードアウト\nされるんですわね」
+
+# idx=000028 file=PS2I048A.BIN off=0x000009D3 inst=0x000009D3 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000028●label○Y00020
+●000028●label●Y00020
+
+# idx=000029 file=PS2I048A.BIN off=0x000009E1 inst=0x000009E1 tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place
+○000029●text○「しないよー。そんなのしたことある～？」
+●000029●text●「しないよー。そんなのしたことある～？」
+
+# idx=000030 file=PS2I048A.BIN off=0x00000A25 inst=0x00000A25 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=薫子 name_id=KO confidence=medium
+○000030●label○KO00080
+●000030●label●KO00080
+
+# idx=000031 file=PS2I048A.BIN off=0x00000A34 inst=0x00000A25 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KO speaker_code=KO00080 name_source=prev_voice_label virtual=true writable=false pair=000032 confidence=medium full_name=薫子 basis=YU_lines_address_薫子さん;_KO_response_style_and_context
+○000031●name○薫子
+●000031●name●薫子
+
+# idx=000032 file=PS2I048A.BIN off=0x00000A34 inst=0x00000A34 tag=text source=inline_len8_string len=35 enc=cp932 policy=in_place speaker_idx=000031 name=薫子 name_id=KO speaker_code=KO00080 name_source=prev_voice_label pair=000031 confidence=medium full_name=薫子
+○000032●text○「まあ?! いつもなさってますわよ～」
+●000032●text●「まあ?! いつもなさってますわよ～」
+
+# idx=000033 file=PS2I048A.BIN off=0x00000A73 inst=0x00000A73 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000033●label○Y00030
+●000033●label●Y00030
+
+# idx=000034 file=PS2I048A.BIN off=0x00000A81 inst=0x00000A81 tag=text source=inline_len8_string len=43 enc=cp932 policy=in_place
+○000034●text○「そーかなー？ 薫子さんのかんちがいだよー」
+●000034●text●「そーかなー？ 薫子さんのかんちがいだよー」
+
+# idx=000035 file=PS2I048A.BIN off=0x00000AC8 inst=0x00000AC8 tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000035●text○「あの……すみません。いず……丸藤さんの\nことで……」
+●000035●text●「あの……すみません。いず……丸藤さんの\nことで……」
+
+# idx=000036 file=PS2I048A.BIN off=0x00000B7D inst=0x00000B7D tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000036●label○Y00040
+●000036●label●Y00040
+
+# idx=000037 file=PS2I048A.BIN off=0x00000B8B inst=0x00000B8B tag=text source=inline_len8_string len=80 enc=cp932 policy=in_place
+○000037●text○「薫子さ～ん、ガキのくせにナンパだよー。お金持ってないくせに、なまいきだよねー」
+●000037●text●「薫子さ～ん、ガキのくせにナンパだよー。お金持ってないくせに、なまいきだよねー」
+
+# idx=000038 file=PS2I048A.BIN off=0x00000C2C inst=0x00000C2C tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=薫子 name_id=KO confidence=medium
+○000038●label○KO00090
+●000038●label●KO00090
+
+# idx=000039 file=PS2I048A.BIN off=0x00000C3B inst=0x00000C2C tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KO speaker_code=KO00090 name_source=prev_voice_label virtual=true writable=false pair=000040 confidence=medium full_name=薫子 basis=YU_lines_address_薫子さん;_KO_response_style_and_context
+○000039●name○薫子
+●000039●name●薫子
+
+# idx=000040 file=PS2I048A.BIN off=0x00000C3B inst=0x00000C3B tag=text source=inline_len8_string len=41 enc=cp932 policy=in_place speaker_idx=000039 name=薫子 name_id=KO speaker_code=KO00090 name_source=prev_voice_label pair=000039 confidence=medium full_name=薫子
+○000040●text○「まあっ?! 丸ちゃんのお友だちですわねー」
+●000040●text●「まあっ?! 丸ちゃんのお友だちですわねー」
+
+# idx=000041 file=PS2I048A.BIN off=0x00000CB5 inst=0x00000CB5 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000041●label○Y00050
+●000041●label●Y00050
+
+# idx=000042 file=PS2I048A.BIN off=0x00000CC3 inst=0x00000CC3 tag=text source=inline_len8_string len=104 enc=cp932 policy=in_place
+○000042●text○「あっ?! そうだ!! な～んだ、知ってるよ。\nうわー、丸のやつー、まだこ～んなこども、\nたぶらかしてんだー」
+●000042●text●「あっ?! そうだ!! な～んだ、知ってるよ。\nうわー、丸のやつー、まだこ～んなこども、\nたぶらかしてんだー」
+
+# idx=000043 file=PS2I048A.BIN off=0x00000D7C inst=0x00000D7C tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=薫子 name_id=KO confidence=medium
+○000043●label○KO00100
+●000043●label●KO00100
+
+# idx=000044 file=PS2I048A.BIN off=0x00000D8B inst=0x00000D7C tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KO speaker_code=KO00100 name_source=prev_voice_label virtual=true writable=false pair=000045 confidence=medium full_name=薫子 basis=YU_lines_address_薫子さん;_KO_response_style_and_context
+○000044●name○薫子
+●000044●name●薫子
+
+# idx=000045 file=PS2I048A.BIN off=0x00000D8B inst=0x00000D8B tag=text source=inline_len8_string len=33 enc=cp932 policy=in_place speaker_idx=000044 name=薫子 name_id=KO speaker_code=KO00100 name_source=prev_voice_label pair=000044 confidence=medium full_name=薫子
+○000045●text○「優輝ちゃん!! ……失礼ですわよ」
+●000045●text●「優輝ちゃん!! ……失礼ですわよ」
+
+# idx=000046 file=PS2I048A.BIN off=0x00000DFD inst=0x00000DFD tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000046●label○Y00060
+●000046●label●Y00060
+
+# idx=000047 file=PS2I048A.BIN off=0x00000E0B inst=0x00000E0B tag=text source=inline_len8_string len=120 enc=cp932 policy=in_place
+○000047●text○「えぇ～、薫子さーん。ぜーったい、そーだって。丸、弱虫だからー、自分のゆーこと聞きそーな\nこども相手にしてるんだってー」
+●000047●text●「えぇ～、薫子さーん。ぜーったい、そーだって。丸、弱虫だからー、自分のゆーこと聞きそーな\nこども相手にしてるんだってー」
+
+# idx=000048 file=PS2I048A.BIN off=0x00000ED4 inst=0x00000ED4 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=薫子 name_id=KO confidence=medium
+○000048●label○KO00110
+●000048●label●KO00110
+
+# idx=000049 file=PS2I048A.BIN off=0x00000EE3 inst=0x00000ED4 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KO speaker_code=KO00110 name_source=prev_voice_label virtual=true writable=false pair=000050 confidence=medium full_name=薫子 basis=YU_lines_address_薫子さん;_KO_response_style_and_context
+○000049●name○薫子
+●000049●name●薫子
+
+# idx=000050 file=PS2I048A.BIN off=0x00000EE3 inst=0x00000EE3 tag=text source=inline_len8_string len=120 enc=cp932 policy=in_place speaker_idx=000049 name=薫子 name_id=KO speaker_code=KO00110 name_source=prev_voice_label pair=000049 confidence=medium full_name=薫子
+○000050●text○「ごめんなさいね～。丸ちゃん、有給休暇を\nとってますのよ。よろしかったら、後で連絡\nいれてもらえるよーにしておきますわ」
+●000050●text●「ごめんなさいね～。丸ちゃん、有給休暇を\nとってますのよ。よろしかったら、後で連絡\nいれてもらえるよーにしておきますわ」
+
+# idx=000051 file=PS2I048A.BIN off=0x00000F77 inst=0x00000F77 tag=text source=inline_len8_string len=70 enc=cp932 policy=in_place
+○000051●text○薫子さんはにっこりと微笑んだ。\n有無をいわせず、といった雰囲気がある。
+●000051●text●薫子さんはにっこりと微笑んだ。\n有無をいわせず、といった雰囲気がある。
+
+# idx=000052 file=PS2I048A.BIN off=0x00000FD9 inst=0x00000FD9 tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000052●text○「あ……じゃ、それで。よろしくお願いします」
+●000052●text●「あ……じゃ、それで。よろしくお願いします」
+
+# idx=000053 file=PS2I048A.BIN off=0x00001021 inst=0x00001021 tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place
+○000053●text○薫子さんはにこにこと微笑み続けている。
+●000053●text●薫子さんはにこにこと微笑み続けている。
+
+# idx=000054 file=PS2I048A.BIN off=0x00001063 inst=0x00001063 tag=text source=inline_len8_string len=100 enc=cp932 policy=in_place
+○000054●text○その笑顔を浮かべている限り、これ以上なにを\nいっても答えてくれないのだろうな、という\n予感があった。
+●000054●text●その笑顔を浮かべている限り、これ以上なにを\nいっても答えてくれないのだろうな、という\n予感があった。
+
+# idx=000055 file=PS2I048A.BIN off=0x000010E3 inst=0x000010E3 tag=text source=inline_len8_string len=24 enc=cp932 policy=in_place
+○000055●text○「じゃあ……失礼します」
+●000055●text●「じゃあ……失礼します」
+
+# idx=000056 file=PS2I048A.BIN off=0x00001117 inst=0x00001117 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=薫子 name_id=KO confidence=medium
+○000056●label○KO00120
+●000056●label●KO00120
+
+# idx=000057 file=PS2I048A.BIN off=0x00001126 inst=0x00001117 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KO speaker_code=KO00120 name_source=prev_voice_label virtual=true writable=false pair=000058 confidence=medium full_name=薫子 basis=YU_lines_address_薫子さん;_KO_response_style_and_context
+○000057●name○薫子
+●000057●name●薫子
+
+# idx=000058 file=PS2I048A.BIN off=0x00001126 inst=0x00001126 tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place speaker_idx=000057 name=薫子 name_id=KO speaker_code=KO00120 name_source=prev_voice_label pair=000057 confidence=medium full_name=薫子
+○000058●text○「こちらこそ、失礼いたしましたわ」
+●000058●text●「こちらこそ、失礼いたしましたわ」
+
+# idx=000059 file=PS2I048A.BIN off=0x00001164 inst=0x00001164 tag=text source=inline_len8_string len=82 enc=cp932 policy=in_place
+○000059●text○泉美さんとの数少ない接点に、笑顔で力いっぱい拒絶されてしまった。\nどうしよう……。
+●000059●text●泉美さんとの数少ない接点に、笑顔で力いっぱい拒絶されてしまった。\nどうしよう……。
+
+# idx=000060 file=PS2I048A.BIN off=0x00001220 inst=0x00001220 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000060●label○Y00071
+●000060●label●Y00071
+
+# idx=000061 file=PS2I048A.BIN off=0x0000122E inst=0x0000122E tag=text source=inline_len8_string len=101 enc=cp932 policy=in_place
+○000061●text○「薫子さ～ん、どーすんのー？ 丸に電話する？\nユーキューとって隠れてるの、あいつが原因だよ、きっとー」
+●000061●text●「薫子さ～ん、どーすんのー？ 丸に電話する？\nユーキューとって隠れてるの、あいつが原因だよ、きっとー」
+
+# idx=000062 file=PS2I048A.BIN off=0x000012AF inst=0x000012AF tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000062●label○Y00072
+●000062●label●Y00072
+
+# idx=000063 file=PS2I048A.BIN off=0x000012BD inst=0x000012BD tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place
+○000063●text○「暴力ふるったりー、お金もってったりー、あとぜ～んぜん働かないとかねー」
+●000063●text●「暴力ふるったりー、お金もってったりー、あとぜ～んぜん働かないとかねー」
+
+# idx=000064 file=PS2I048A.BIN off=0x00001321 inst=0x00001321 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=薫子 name_id=KO confidence=medium
+○000064●label○KO00130
+●000064●label●KO00130
+
+# idx=000065 file=PS2I048A.BIN off=0x00001330 inst=0x00001321 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KO speaker_code=KO00130 name_source=prev_voice_label virtual=true writable=false pair=000066 confidence=medium full_name=薫子 basis=YU_lines_address_薫子さん;_KO_response_style_and_context
+○000065●name○薫子
+●000065●name●薫子
+
+# idx=000066 file=PS2I048A.BIN off=0x00001330 inst=0x00001330 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place speaker_idx=000065 name=薫子 name_id=KO speaker_code=KO00130 name_source=prev_voice_label pair=000065 confidence=medium full_name=薫子
+○000066●text○「だって、高校生ですもの。働いてなくって当然ですわ」
+●000066●text●「だって、高校生ですもの。働いてなくって当然ですわ」
+
+# idx=000067 file=PS2I048A.BIN off=0x00001380 inst=0x00001380 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000067●label○Y00080
+●000067●label●Y00080
+
+# idx=000068 file=PS2I048A.BIN off=0x0000138E inst=0x0000138E tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000068●text○「あ、そっか。……そんなことないなー。バイトとかできるよー」
+●000068●text●「あ、そっか。……そんなことないなー。バイトとかできるよー」
+
+# idx=000069 file=PS2I048A.BIN off=0x000013E6 inst=0x000013E6 tag=text source=inline_len8_string len=66 enc=cp932 policy=in_place
+○000069●text○後ろで、ふたりの話す声がする。\n泉美さん、有給とって隠れてるって？
+●000069●text●後ろで、ふたりの話す声がする。\n泉美さん、有給とって隠れてるって？
+
+# idx=000070 file=PS2I048A.BIN off=0x00001444 inst=0x00001444 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000070●text○なにかおきたんだろうか。\n無事で……いてくれればいいのだけれど。
+●000070●text●なにかおきたんだろうか。\n無事で……いてくれればいいのだけれど。
+
+# idx=000071 file=PS2I048A.BIN off=0x000014FE inst=0x000014FE tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000071●label○PS2I041a.bin
+●000071●label●PS2I041a.bin
+

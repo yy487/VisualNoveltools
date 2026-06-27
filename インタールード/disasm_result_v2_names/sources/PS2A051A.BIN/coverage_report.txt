@@ -1,0 +1,9 @@
+file: PS2A051A.BIN
+byte_size: 22917
+coverage: 100.00%
+status: OK
+records: 5035
+text_entries: 280
+zero_mutation_roundtrip: PASS
+original_sha256: f98d9b618df9c8411d06483f974a6c8b7bae8c85abdb700e11b932d8e839ddb2
+rebuilt_sha256: f98d9b618df9c8411d06483f974a6c8b7bae8c85abdb700e11b932d8e839ddb2

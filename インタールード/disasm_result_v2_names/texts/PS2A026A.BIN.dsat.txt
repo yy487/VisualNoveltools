@@ -1,0 +1,124 @@
+# DSAT export for PS2A026A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2A026A.BIN off=0x00000053 inst=0x00000053 tag=text source=inline_len8_string len=22 enc=cp932 policy=in_place
+○000001●text○あれから数日がすぎた。
+●000001●text●あれから数日がすぎた。
+
+# idx=000002 file=PS2A026A.BIN off=0x00000085 inst=0x00000085 tag=text source=inline_len8_string len=110 enc=cp932 policy=in_place
+○000002●text○カウンセラーからの呼び出しはもうなかった。\nうわべの平穏な毎日は続き、ぼくも表面だけは\nそれにつきあっていた。
+●000002●text●カウンセラーからの呼び出しはもうなかった。\nうわべの平穏な毎日は続き、ぼくも表面だけは\nそれにつきあっていた。
+
+# idx=000003 file=PS2A026A.BIN off=0x00000156 inst=0x00000156 tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place
+○000003●text○イワノビッチの古文は続いていた。
+●000003●text●イワノビッチの古文は続いていた。
+
+# idx=000004 file=PS2A026A.BIN off=0x00000192 inst=0x00000192 tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000004●text○中間テストは近いのだが、熱心に聞いているのはほんの数人。強烈な眠気を誘う時間。
+●000004●text●中間テストは近いのだが、熱心に聞いているのはほんの数人。強烈な眠気を誘う時間。
+
+# idx=000005 file=PS2A026A.BIN off=0x000001FC inst=0x000001FC tag=text source=inline_len8_string len=80 enc=cp932 policy=in_place
+○000005●text○ぼくは別な意味で授業にははいりこめない。\n考えはいつでもあの瞬間に戻ってしまう。
+●000005●text●ぼくは別な意味で授業にははいりこめない。\n考えはいつでもあの瞬間に戻ってしまう。
+
+# idx=000006 file=PS2A026A.BIN off=0x00000365 inst=0x00000365 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000006●text○ホームで見た『彼女』。\n幻の中で見た自分自身の姿。
+●000006●text●ホームで見た『彼女』。\n幻の中で見た自分自身の姿。
+
+# idx=000007 file=PS2A026A.BIN off=0x000003B3 inst=0x000003B3 tag=text source=inline_len8_string len=102 enc=cp932 policy=in_place
+○000007●text○自分が暮らす場所ではなく、『彼女』の場所こそ現実かもしれない。\nそんな疑問が何度でもよみがえってくる。
+●000007●text●自分が暮らす場所ではなく、『彼女』の場所こそ現実かもしれない。\nそんな疑問が何度でもよみがえってくる。
+
+# idx=000008 file=PS2A026A.BIN off=0x00000435 inst=0x00000435 tag=text source=inline_len8_string len=82 enc=cp932 policy=in_place
+○000008●text○彼女の記憶が、ぼくを助けてくれたのだと\nしたら……。\n彼女と彼女の場所こそが……。
+●000008●text●彼女の記憶が、ぼくを助けてくれたのだと\nしたら……。\n彼女と彼女の場所こそが……。
+
+# idx=000009 file=PS2A026A.BIN off=0x000004A3 inst=0x000004A3 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=先生 name_id=IW confidence=low
+○000009●label○IW00111
+●000009●label●IW00111
+
+# idx=000010 file=PS2A026A.BIN off=0x000004B2 inst=0x000004A3 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IW speaker_code=IW00111 name_source=prev_voice_label virtual=true writable=false pair=000011 confidence=low full_name=教師 basis=classroom_teacher-like_lines
+○000010●name○先生
+●000010●name●先生
+
+# idx=000011 file=PS2A026A.BIN off=0x000004B2 inst=0x000004B2 tag=text source=inline_len8_string len=86 enc=cp932 policy=in_place speaker_idx=000010 name=先生 name_id=IW speaker_code=IW00111 name_source=prev_voice_label pair=000010 confidence=low full_name=教師
+○000011●text○「こっからもわかんだけどよー、昔の人はなー、あの世を別世界とは思ってなかったんだなー」
+●000011●text●「こっからもわかんだけどよー、昔の人はなー、あの世を別世界とは思ってなかったんだなー」
+
+# idx=000012 file=PS2A026A.BIN off=0x00000524 inst=0x00000524 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=先生 name_id=IW confidence=low
+○000012●label○IW00112
+●000012●label●IW00112
+
+# idx=000013 file=PS2A026A.BIN off=0x00000533 inst=0x00000524 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IW speaker_code=IW00112 name_source=prev_voice_label virtual=true writable=false pair=000014 confidence=low full_name=教師 basis=classroom_teacher-like_lines
+○000013●name○先生
+●000013●name●先生
+
+# idx=000014 file=PS2A026A.BIN off=0x00000533 inst=0x00000533 tag=text source=inline_len8_string len=116 enc=cp932 policy=in_place speaker_idx=000013 name=先生 name_id=IW speaker_code=IW00112 name_source=prev_voice_label pair=000013 confidence=low full_name=教師
+○000014●text○「黄泉平坂って峠を越えると死後の世界になるんで、今だとなー、国境とか赤道とか日付変更線\nみたいに考えてたわけだなー」
+●000014●text●「黄泉平坂って峠を越えると死後の世界になるんで、今だとなー、国境とか赤道とか日付変更線\nみたいに考えてたわけだなー」
+
+# idx=000015 file=PS2A026A.BIN off=0x000005C3 inst=0x000005C3 tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place
+○000015●text○イワノビッチの声が耳に飛び込んで来た。
+●000015●text●イワノビッチの声が耳に飛び込んで来た。
+
+# idx=000016 file=PS2A026A.BIN off=0x00000605 inst=0x00000605 tag=text source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000016●text○……？
+●000016●text●……？
+
+# idx=000017 file=PS2A026A.BIN off=0x00000627 inst=0x00000627 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=先生 name_id=IW confidence=low
+○000017●label○IW00121
+●000017●label●IW00121
+
+# idx=000018 file=PS2A026A.BIN off=0x00000636 inst=0x00000627 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IW speaker_code=IW00121 name_source=prev_voice_label virtual=true writable=false pair=000019 confidence=low full_name=教師 basis=classroom_teacher-like_lines
+○000018●name○先生
+●000018●name●先生
+
+# idx=000019 file=PS2A026A.BIN off=0x00000636 inst=0x00000636 tag=text source=inline_len8_string len=118 enc=cp932 policy=in_place speaker_idx=000018 name=先生 name_id=IW speaker_code=IW00121 name_source=prev_voice_label pair=000018 confidence=low full_name=教師
+○000019●text○「脇道だけどなー、たとえばよーオーストラリアの先住民はだ、『夢の世界が現実で、目覚めてるときは幻だ』と思ってたしよー」
+●000019●text●「脇道だけどなー、たとえばよーオーストラリアの先住民はだ、『夢の世界が現実で、目覚めてるときは幻だ』と思ってたしよー」
+
+# idx=000020 file=PS2A026A.BIN off=0x000006C8 inst=0x000006C8 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=先生 name_id=IW confidence=low
+○000020●label○IW00122
+●000020●label●IW00122
+
+# idx=000021 file=PS2A026A.BIN off=0x000006D7 inst=0x000006C8 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IW speaker_code=IW00122 name_source=prev_voice_label virtual=true writable=false pair=000022 confidence=low full_name=教師 basis=classroom_teacher-like_lines
+○000021●name○先生
+●000021●name●先生
+
+# idx=000022 file=PS2A026A.BIN off=0x000006D7 inst=0x000006D7 tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place speaker_idx=000021 name=先生 name_id=IW speaker_code=IW00122 name_source=prev_voice_label pair=000021 confidence=low full_name=教師
+○000022●text○「欧米でもカメラが生まれたときにはー、目には見えない世界を写せる機械だって考えたわけ\nだしな」
+●000022●text●「欧米でもカメラが生まれたときにはー、目には見えない世界を写せる機械だって考えたわけ\nだしな」
+
+# idx=000023 file=PS2A026A.BIN off=0x00000751 inst=0x00000751 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=先生 name_id=IW confidence=low
+○000023●label○IW00123
+●000023●label●IW00123
+
+# idx=000024 file=PS2A026A.BIN off=0x00000760 inst=0x00000751 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IW speaker_code=IW00123 name_source=prev_voice_label virtual=true writable=false pair=000025 confidence=low full_name=教師 basis=classroom_teacher-like_lines
+○000024●name○先生
+●000024●name●先生
+
+# idx=000025 file=PS2A026A.BIN off=0x00000760 inst=0x00000760 tag=text source=inline_len8_string len=80 enc=cp932 policy=in_place speaker_idx=000024 name=先生 name_id=IW speaker_code=IW00123 name_source=prev_voice_label pair=000024 confidence=low full_name=教師
+○000025●text○「どこかにここじゃない場所があるってーのは\n洋の東西を問わずに共通してたわけだ」
+●000025●text●「どこかにここじゃない場所があるってーのは\n洋の東西を問わずに共通してたわけだ」
+
+# idx=000026 file=PS2A026A.BIN off=0x00000800 inst=0x00000800 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000026●text○イワノビッチは宇宙とか深海のことを話し、\n古事記の表記にもどる。
+●000026●text●イワノビッチは宇宙とか深海のことを話し、\n古事記の表記にもどる。
+
+# idx=000027 file=PS2A026A.BIN off=0x0000085C inst=0x0000085C tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000027●text○でも、ぼくの耳には『現実に重なる世界』ということばだけが残っていた。
+●000027●text●でも、ぼくの耳には『現実に重なる世界』ということばだけが残っていた。
+
+# idx=000028 file=PS2A026A.BIN off=0x000008BC inst=0x000008BC tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000028●text○この場所に重なるどこか。\nそんな場所があるとしたら……。
+●000028●text●この場所に重なるどこか。\nそんな場所があるとしたら……。
+
+# idx=000029 file=PS2A026A.BIN off=0x00000910 inst=0x00000910 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000029●text○それは……彼女の場所につながる答えとなるの\nかもしれない。
+●000029●text●それは……彼女の場所につながる答えとなるの\nかもしれない。
+
+# idx=000030 file=PS2A026A.BIN off=0x000009AA inst=0x000009AA tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000030●label○PS2A027a.bin
+●000030●label●PS2A027a.bin
+

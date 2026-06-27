@@ -1,0 +1,124 @@
+# DSAT export for PS2A023A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2A023A.BIN off=0x00000041 inst=0x00000041 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000001●text○そこは、夜のホームだった。\nぼくはいつのまにか、駅まで来ていた。
+●000001●text●そこは、夜のホームだった。\nぼくはいつのまにか、駅まで来ていた。
+
+# idx=000002 file=PS2A023A.BIN off=0x0000009D inst=0x0000009D tag=text source=inline_len8_string len=106 enc=cp932 policy=in_place
+○000002●text○まだ混乱している。\nどうやって学校を出たのかもおぼえていない。\nどうやってここまで来たのかおぼえていない。
+●000002●text●まだ混乱している。\nどうやって学校を出たのかもおぼえていない。\nどうやってここまで来たのかおぼえていない。
+
+# idx=000003 file=PS2A023A.BIN off=0x00000123 inst=0x00000123 tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000003●text○錯覚だった。
+●000003●text●錯覚だった。
+
+# idx=000004 file=PS2A023A.BIN off=0x0000014B inst=0x0000014B tag=text source=inline_len8_string len=114 enc=cp932 policy=in_place
+○000004●text○気持ちが落ちつかないまま、ぼくは辺りを見回す。帰宅ラッシュの、当たり前の風景。\n胸から、ためていた息があふれ出す。
+●000004●text●気持ちが落ちつかないまま、ぼくは辺りを見回す。帰宅ラッシュの、当たり前の風景。\n胸から、ためていた息があふれ出す。
+
+# idx=000005 file=PS2A023A.BIN off=0x000001D9 inst=0x000001D9 tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000005●text○どうかしていた。\nなにを焦っていたのだろう。
+●000005●text●どうかしていた。\nなにを焦っていたのだろう。
+
+# idx=000006 file=PS2A023A.BIN off=0x00000221 inst=0x00000221 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000006●text○なにがあったっていうんだ？
+●000006●text●なにがあったっていうんだ？
+
+# idx=000007 file=PS2A023A.BIN off=0x00000257 inst=0x00000257 tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place
+○000007●text○……なにも起きてなんかいない。
+●000007●text●……なにも起きてなんかいない。
+
+# idx=000008 file=PS2A023A.BIN off=0x00000291 inst=0x00000291 tag=text source=inline_len8_string len=102 enc=cp932 policy=in_place
+○000008●text○ぼくが、ぼっとしているあいだに、みんなが\n帰ってしまっただけだ。\n玉とも、単にすれ違ってしまっただけ。
+●000008●text●ぼくが、ぼっとしているあいだに、みんなが\n帰ってしまっただけだ。\n玉とも、単にすれ違ってしまっただけ。
+
+# idx=000009 file=PS2A023A.BIN off=0x00000313 inst=0x00000313 tag=text source=inline_len8_string len=84 enc=cp932 policy=in_place
+○000009●text○玉のカバンが消えていたのも……。\n錯覚だったのだ。\nうん……確かめたわけではないし。
+●000009●text●玉のカバンが消えていたのも……。\n錯覚だったのだ。\nうん……確かめたわけではないし。
+
+# idx=000010 file=PS2A023A.BIN off=0x00000383 inst=0x00000383 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000010●text○見た、と思っていただけで、最初っから\nなかったんだ。
+●000010●text●見た、と思っていただけで、最初っから\nなかったんだ。
+
+# idx=000011 file=PS2A023A.BIN off=0x000003D3 inst=0x000003D3 tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000011●text○そう考えれば、不思議なことなんてなにもない。
+●000011●text●そう考えれば、不思議なことなんてなにもない。
+
+# idx=000012 file=PS2A023A.BIN off=0x0000041B inst=0x0000041B tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place
+○000012●text○でも……あのとき感じた気配は……。
+●000012●text●でも……あのとき感じた気配は……。
+
+# idx=000013 file=PS2A023A.BIN off=0x00000476 inst=0x00000476 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000013●label○se-e33
+●000013●label●se-e33
+
+# idx=000014 file=PS2A023A.BIN off=0x00000498 inst=0x00000498 tag=text source=inline_len8_string len=82 enc=cp932 policy=in_place
+○000014●text○そんなとき、あの少女の面影が浮かぶ。\nあの朝、ホームにひとりっきりだった『彼女』。
+●000014●text●そんなとき、あの少女の面影が浮かぶ。\nあの朝、ホームにひとりっきりだった『彼女』。
+
+# idx=000015 file=PS2A023A.BIN off=0x00000534 inst=0x00000534 tag=text source=inline_len8_string len=22 enc=cp932 policy=in_place
+○000015●text○どうしてこんなときに？
+●000015●text●どうしてこんなときに？
+
+# idx=000016 file=PS2A023A.BIN off=0x00000566 inst=0x00000566 tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place
+○000016●text○まさか、『彼女』がいるのか？
+●000016●text●まさか、『彼女』がいるのか？
+
+# idx=000017 file=PS2A023A.BIN off=0x0000059E inst=0x0000059E tag=text source=inline_len8_string len=86 enc=cp932 policy=in_place
+○000017●text○失いかけている世界の手ざわりが、『彼女』の\n瞳にはあった。\n目が『彼女』を捜していた。
+●000017●text●失いかけている世界の手ざわりが、『彼女』の\n瞳にはあった。\n目が『彼女』を捜していた。
+
+# idx=000018 file=PS2A023A.BIN off=0x00000601 inst=0x00000601 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000018●label○SE-S19
+●000018●label●SE-S19
+
+# idx=000019 file=PS2A023A.BIN off=0x0000062A inst=0x0000062A tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000019●text○夕方のホームはいつもと変わらぬ混雑。\nもちろん、『彼女』の姿があるわけもない。
+●000019●text●夕方のホームはいつもと変わらぬ混雑。\nもちろん、『彼女』の姿があるわけもない。
+
+# idx=000020 file=PS2A023A.BIN off=0x00000694 inst=0x00000694 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000020●text○どうかしてる。\nぼくは……正気を失いかけているのか？
+●000020●text●どうかしてる。\nぼくは……正気を失いかけているのか？
+
+# idx=000021 file=PS2A023A.BIN off=0x000006E4 inst=0x000006E4 tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000021●text○電車がホームにすべりこんでくる。\nその瞬間、目が異様な物を映し出す。
+●000021●text●電車がホームにすべりこんでくる。\nその瞬間、目が異様な物を映し出す。
+
+# idx=000022 file=PS2A023A.BIN off=0x00000791 inst=0x00000791 tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000022●text○人ごみの中に人ではないものがいた。\n怪物、妖怪、魔物。\n呼び名はどうでもいい。
+●000022●text●人ごみの中に人ではないものがいた。\n怪物、妖怪、魔物。\n呼び名はどうでもいい。
+
+# idx=000023 file=PS2A023A.BIN off=0x0000084F inst=0x0000084F tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000023●text○人間ではない『なにか』が人の中にまぎれこんでいた。
+●000023●text●人間ではない『なにか』が人の中にまぎれこんでいた。
+
+# idx=000024 file=PS2A023A.BIN off=0x0000089D inst=0x0000089D tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000024●text○けれど、『なにか』は、すぐに人ごみの中に\n消えてしまった。
+●000024●text●けれど、『なにか』は、すぐに人ごみの中に\n消えてしまった。
+
+# idx=000025 file=PS2A023A.BIN off=0x000008F3 inst=0x000008F3 tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000025●text○それは一瞬の幻だった。\n周りの誰も『なにか』なんて見ていない。
+●000025●text●それは一瞬の幻だった。\n周りの誰も『なにか』なんて見ていない。
+
+# idx=000026 file=PS2A023A.BIN off=0x0000094D inst=0x0000094D tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000026●text○全身にしびれのような感覚が走る。\nこれは……いったい。
+●000026●text●全身にしびれのような感覚が走る。\nこれは……いったい。
+
+# idx=000027 file=PS2A023A.BIN off=0x000009E0 inst=0x000009E0 tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place
+○000027●text○『彼女』の、あの瞳を思い出す。
+●000027●text●『彼女』の、あの瞳を思い出す。
+
+# idx=000028 file=PS2A023A.BIN off=0x00000A5A inst=0x00000A5A tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000028●text○『彼女』は幻だった。\nでも、ここは……どうなんだ？
+●000028●text●『彼女』は幻だった。\nでも、ここは……どうなんだ？
+
+# idx=000029 file=PS2A023A.BIN off=0x00000AA8 inst=0x00000AA8 tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place
+○000029●text○ぼくたちの毎日は、いったい……。
+●000029●text●ぼくたちの毎日は、いったい……。
+
+# idx=000030 file=PS2A023A.BIN off=0x00000B28 inst=0x00000B28 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000030●label○PS2A024a.bin
+●000030●label●PS2A024a.bin
+

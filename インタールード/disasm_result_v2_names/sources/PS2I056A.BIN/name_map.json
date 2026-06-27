@@ -1,0 +1,23 @@
+{
+  "file": "PS2I056A.BIN",
+  "resolution_status": "resolved_with_virtual_speaker_pairs",
+  "pairing_rule": "preceding 80-string voice id matching /^[A-Z]{2}\\d{5}[A-Za-z]?T?$/ paired with following quoted text",
+  "entities": [
+    {
+      "name_id": "FU",
+      "display_name": "冬木",
+      "full_name": "冬木",
+      "confidence": "medium",
+      "occurrences": 32,
+      "basis": "FU lines mention 三枝先生; nearby text identifies 冬木"
+    },
+    {
+      "name_id": "IZ",
+      "display_name": "泉美",
+      "full_name": "泉美",
+      "confidence": "high",
+      "occurrences": 28,
+      "basis": "DEBUG route labels: 泉美シナリオ"
+    }
+  ]
+}

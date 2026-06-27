@@ -1,0 +1,21 @@
+{
+  "file": "MESSAGES.BIN",
+  "byte_size": 929046,
+  "coverage_percent": 100.0,
+  "regions": [
+    {
+      "start": "0x00000000",
+      "end": "0x000082C2",
+      "size": 33474,
+      "type": "pointer_table",
+      "description": "MESSAGES.BIN prefix area; first uint16-le points to string-pool start"
+    },
+    {
+      "start": "0x000082C2",
+      "end": "0x000E2D16",
+      "size": 895572,
+      "type": "string_table",
+      "description": "null-terminated CP932 message pool"
+    }
+  ]
+}

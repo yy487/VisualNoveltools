@@ -1,0 +1,28 @@
+# DSAT export for PS2A099D.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2A099D.BIN off=0x00000054 inst=0x00000054 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000001●label○MT92900
+●000001●label●MT92900
+
+# idx=000002 file=PS2A099D.BIN off=0x00000063 inst=0x00000054 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT92900 name_source=prev_voice_label virtual=true writable=false pair=000003 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000002●name○玉
+●000002●name●玉
+
+# idx=000003 file=PS2A099D.BIN off=0x00000063 inst=0x00000063 tag=text source=inline_len8_string len=24 enc=cp932 policy=in_place speaker_idx=000002 name=玉 name_id=MT speaker_code=MT92900 name_source=prev_voice_label pair=000002 confidence=high full_name=玉城麻衣子
+○000003●text○「あー、なんだここー？」
+●000003●text●「あー、なんだここー？」
+
+# idx=000004 file=PS2A099D.BIN off=0x000000CC inst=0x000000CC tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000004●label○MT92910
+●000004●label●MT92910
+
+# idx=000005 file=PS2A099D.BIN off=0x000000DB inst=0x000000CC tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT92910 name_source=prev_voice_label virtual=true writable=false pair=000006 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000005●name○玉
+●000005●name●玉
+
+# idx=000006 file=PS2A099D.BIN off=0x000000DB inst=0x000000DB tag=text source=inline_len8_string len=57 enc=cp932 policy=in_place speaker_idx=000005 name=玉 name_id=MT speaker_code=MT92910 name_source=prev_voice_label pair=000005 confidence=high full_name=玉城麻衣子
+○000006●text○「チムー、チムー!! ここあいてるよー。\nあそびくーるー？」
+●000006●text●「チムー、チムー!! ここあいてるよー。\nあそびくーるー？」
+

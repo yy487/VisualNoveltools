@@ -1,0 +1,608 @@
+# DSAT export for PS2A065A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2A065A.BIN off=0x00000026 inst=0x00000026 tag=text source=inline_len8_string len=22 enc=cp932 policy=in_place
+○000001●text○話し声が近づいてくる。
+●000001●text●話し声が近づいてくる。
+
+# idx=000002 file=PS2A065A.BIN off=0x00000058 inst=0x00000058 tag=text source=inline_len8_string len=88 enc=cp932 policy=in_place
+○000002●text○ぼくは、ただ待っていた。\n彼らと会うことで、なにかを始めることができる\nのかもしれない。
+●000002●text●ぼくは、ただ待っていた。\n彼らと会うことで、なにかを始めることができる\nのかもしれない。
+
+# idx=000003 file=PS2A065A.BIN off=0x000000CC inst=0x000000CC tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000003●label○MK90010
+●000003●label●MK90010
+
+# idx=000004 file=PS2A065A.BIN off=0x000000DB inst=0x000000CC tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90010 name_source=prev_voice_label virtual=true writable=false pair=000005 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000004●name○MK
+●000004●name●MK
+
+# idx=000005 file=PS2A065A.BIN off=0x000000DB inst=0x000000DB tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place speaker_idx=000004 name=MK name_id=MK speaker_code=MK90010 name_source=prev_voice_label pair=000004 confidence=unresolved full_name=MK
+○000005●text○「じゃあ……再構築が開始されるのかしら？」
+●000005●text●「じゃあ……再構築が開始されるのかしら？」
+
+# idx=000006 file=PS2A065A.BIN off=0x00000121 inst=0x00000121 tag=text source=inline_len8_string len=90 enc=cp932 policy=in_place
+○000006●text○女の声がそういった。\nほんのわずかな感傷と、あるかどうかわからない\nくらいの非難をこめて。
+●000006●text●女の声がそういった。\nほんのわずかな感傷と、あるかどうかわからない\nくらいの非難をこめて。
+
+# idx=000007 file=PS2A065A.BIN off=0x00000197 inst=0x00000197 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000007●label○FU90010
+●000007●label●FU90010
+
+# idx=000008 file=PS2A065A.BIN off=0x000001A6 inst=0x00000197 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU90010 name_source=prev_voice_label virtual=true writable=false pair=000009 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000008●name○冬木
+●000008●name●冬木
+
+# idx=000009 file=PS2A065A.BIN off=0x000001A6 inst=0x000001A6 tag=text source=inline_len8_string len=84 enc=cp932 policy=in_place speaker_idx=000008 name=冬木 name_id=FU speaker_code=FU90010 name_source=prev_voice_label pair=000008 confidence=medium full_name=冬木
+○000009●text○「まだ、そうと決まったわけではありませんが、\n準備だけはしておいた方がよいでしょう」
+●000009●text●「まだ、そうと決まったわけではありませんが、\n準備だけはしておいた方がよいでしょう」
+
+# idx=000010 file=PS2A065A.BIN off=0x00000216 inst=0x00000216 tag=text source=inline_len8_string len=66 enc=cp932 policy=in_place
+○000010●text○男がこたえた。\nそのやさしい声には、人を安心させる響きが\nあった。
+●000010●text●男がこたえた。\nそのやさしい声には、人を安心させる響きが\nあった。
+
+# idx=000011 file=PS2A065A.BIN off=0x00000274 inst=0x00000274 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000011●text○直感的に、この人は嘘をついていないのだ、と\n思った。
+●000011●text●直感的に、この人は嘘をついていないのだ、と\n思った。
+
+# idx=000012 file=PS2A065A.BIN off=0x000002F2 inst=0x000002F2 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000012●label○MK90020
+●000012●label●MK90020
+
+# idx=000013 file=PS2A065A.BIN off=0x00000301 inst=0x000002F2 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90020 name_source=prev_voice_label virtual=true writable=false pair=000014 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000013●name○MK
+●000013●name●MK
+
+# idx=000014 file=PS2A065A.BIN off=0x00000301 inst=0x00000301 tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place speaker_idx=000013 name=MK name_id=MK speaker_code=MK90020 name_source=prev_voice_label pair=000013 confidence=unresolved full_name=MK
+○000014●text○「そう……」
+●000014●text●「そう……」
+
+# idx=000015 file=PS2A065A.BIN off=0x00000329 inst=0x00000329 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000015●label○MK90030
+●000015●label●MK90030
+
+# idx=000016 file=PS2A065A.BIN off=0x00000338 inst=0x00000329 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90030 name_source=prev_voice_label virtual=true writable=false pair=000017 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000016●name○MK
+●000016●name●MK
+
+# idx=000017 file=PS2A065A.BIN off=0x00000338 inst=0x00000338 tag=text source=inline_len8_string len=104 enc=cp932 policy=in_place speaker_idx=000016 name=MK name_id=MK speaker_code=MK90030 name_source=prev_voice_label pair=000016 confidence=unresolved full_name=MK
+○000017●text○「冬木くんは、『綾』が扉を開けてしまうと\n考えているのね。そして、睦月ちゃんが２度と\n夢を見なくなると」
+●000017●text●「冬木くんは、『綾』が扉を開けてしまうと\n考えているのね。そして、睦月ちゃんが２度と\n夢を見なくなると」
+
+# idx=000018 file=PS2A065A.BIN off=0x000003BC inst=0x000003BC tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000018●label○FU90020
+●000018●label●FU90020
+
+# idx=000019 file=PS2A065A.BIN off=0x000003CB inst=0x000003BC tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU90020 name_source=prev_voice_label virtual=true writable=false pair=000020 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000019●name○冬木
+●000019●name●冬木
+
+# idx=000020 file=PS2A065A.BIN off=0x000003CB inst=0x000003CB tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place speaker_idx=000019 name=冬木 name_id=FU speaker_code=FU90020 name_source=prev_voice_label pair=000019 confidence=medium full_name=冬木
+○000020●text○「どうでしょう。ただ不測の事態には備えて\nおきたい性分ですから」
+●000020●text●「どうでしょう。ただ不測の事態には備えて\nおきたい性分ですから」
+
+# idx=000021 file=PS2A065A.BIN off=0x00000427 inst=0x00000427 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000021●label○MK90040
+●000021●label●MK90040
+
+# idx=000022 file=PS2A065A.BIN off=0x00000436 inst=0x00000427 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90040 name_source=prev_voice_label virtual=true writable=false pair=000023 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000022●name○MK
+●000022●name●MK
+
+# idx=000023 file=PS2A065A.BIN off=0x00000436 inst=0x00000436 tag=text source=inline_len8_string len=90 enc=cp932 policy=in_place speaker_idx=000022 name=MK name_id=MK speaker_code=MK90040 name_source=prev_voice_label pair=000022 confidence=unresolved full_name=MK
+○000023●text○「変わらないわね、あなたも。心配性のあなたと、\nずぼらな美也子。いいコンビだと思ってたわ」
+●000023●text●「変わらないわね、あなたも。心配性のあなたと、\nずぼらな美也子。いいコンビだと思ってたわ」
+
+# idx=000024 file=PS2A065A.BIN off=0x000004AC inst=0x000004AC tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000024●label○MK90050
+●000024●label●MK90050
+
+# idx=000025 file=PS2A065A.BIN off=0x000004BB inst=0x000004AC tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90050 name_source=prev_voice_label virtual=true writable=false pair=000026 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000025●name○MK
+●000025●name●MK
+
+# idx=000026 file=PS2A065A.BIN off=0x000004BB inst=0x000004BB tag=text source=inline_len8_string len=86 enc=cp932 policy=in_place speaker_idx=000025 name=MK name_id=MK speaker_code=MK90050 name_source=prev_voice_label pair=000025 confidence=unresolved full_name=MK
+○000026●text○「そう、美也子……近頃また、睦月ちゃんに\n呼ばれてる。ときどき姿を消してるらしいのよ」
+●000026●text●「そう、美也子……近頃また、睦月ちゃんに\n呼ばれてる。ときどき姿を消してるらしいのよ」
+
+# idx=000027 file=PS2A065A.BIN off=0x0000052D inst=0x0000052D tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000027●label○FU90030
+●000027●label●FU90030
+
+# idx=000028 file=PS2A065A.BIN off=0x0000053C inst=0x0000052D tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU90030 name_source=prev_voice_label virtual=true writable=false pair=000029 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000028●name○冬木
+●000028●name●冬木
+
+# idx=000029 file=PS2A065A.BIN off=0x0000053C inst=0x0000053C tag=text source=inline_len8_string len=66 enc=cp932 policy=in_place speaker_idx=000028 name=冬木 name_id=FU speaker_code=FU90030 name_source=prev_voice_label pair=000028 confidence=medium full_name=冬木
+○000029●text○「ええ、わかってます。三枝先生は、ぼくの\n直接の保護下にあります」
+●000029●text●「ええ、わかってます。三枝先生は、ぼくの\n直接の保護下にあります」
+
+# idx=000030 file=PS2A065A.BIN off=0x0000059A inst=0x0000059A tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000030●label○FU90040
+●000030●label●FU90040
+
+# idx=000031 file=PS2A065A.BIN off=0x000005A9 inst=0x0000059A tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU90040 name_source=prev_voice_label virtual=true writable=false pair=000032 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000031●name○冬木
+●000031●name●冬木
+
+# idx=000032 file=PS2A065A.BIN off=0x000005A9 inst=0x000005A9 tag=text source=inline_len8_string len=110 enc=cp932 policy=in_place speaker_idx=000031 name=冬木 name_id=FU speaker_code=FU90040 name_source=prev_voice_label pair=000031 confidence=medium full_name=冬木
+○000032●text○「だから、関係性を抹消して、再構築を\n始めようと思ったんです。睦月ちゃんにはまた、\n新しい夢を見てもらおうと」
+●000032●text●「だから、関係性を抹消して、再構築を\n始めようと思ったんです。睦月ちゃんにはまた、\n新しい夢を見てもらおうと」
+
+# idx=000033 file=PS2A065A.BIN off=0x00000633 inst=0x00000633 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000033●label○MK90060
+●000033●label●MK90060
+
+# idx=000034 file=PS2A065A.BIN off=0x00000642 inst=0x00000633 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90060 name_source=prev_voice_label virtual=true writable=false pair=000035 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000034●name○MK
+●000034●name●MK
+
+# idx=000035 file=PS2A065A.BIN off=0x00000642 inst=0x00000642 tag=text source=inline_len8_string len=120 enc=cp932 policy=in_place speaker_idx=000034 name=MK name_id=MK speaker_code=MK90060 name_source=prev_voice_label pair=000034 confidence=unresolved full_name=MK
+○000035●text○「さっきの、訂正するわ。冬木くん変わった。\n昔のあなたは、夕日を見て、終わっていく今日の\nために涙を流せる人だったのに」
+●000035●text●「さっきの、訂正するわ。冬木くん変わった。\n昔のあなたは、夕日を見て、終わっていく今日の\nために涙を流せる人だったのに」
+
+# idx=000036 file=PS2A065A.BIN off=0x000006D6 inst=0x000006D6 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000036●label○FU90050
+●000036●label●FU90050
+
+# idx=000037 file=PS2A065A.BIN off=0x000006E5 inst=0x000006D6 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU90050 name_source=prev_voice_label virtual=true writable=false pair=000038 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000037●name○冬木
+●000037●name●冬木
+
+# idx=000038 file=PS2A065A.BIN off=0x000006E5 inst=0x000006E5 tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place speaker_idx=000037 name=冬木 name_id=FU speaker_code=FU90050 name_source=prev_voice_label pair=000037 confidence=medium full_name=冬木
+○000038●text○「人は変わっていくものですから。\n好む好まないにかかわらず」
+●000038●text●「人は変わっていくものですから。\n好む好まないにかかわらず」
+
+# idx=000039 file=PS2A065A.BIN off=0x0000073D inst=0x0000073D tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000039●label○MK90070
+●000039●label●MK90070
+
+# idx=000040 file=PS2A065A.BIN off=0x0000074C inst=0x0000073D tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90070 name_source=prev_voice_label virtual=true writable=false pair=000041 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000040●name○MK
+●000040●name●MK
+
+# idx=000041 file=PS2A065A.BIN off=0x0000074C inst=0x0000074C tag=text source=inline_len8_string len=66 enc=cp932 policy=in_place speaker_idx=000040 name=MK name_id=MK speaker_code=MK90070 name_source=prev_voice_label pair=000040 confidence=unresolved full_name=MK
+○000041●text○「ねえ、冬木くん、消されてしまう人たちのこと、\n考えたことある？」
+●000041●text●「ねえ、冬木くん、消されてしまう人たちのこと、\n考えたことある？」
+
+# idx=000042 file=PS2A065A.BIN off=0x000007AA inst=0x000007AA tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000042●label○MK90080
+●000042●label●MK90080
+
+# idx=000043 file=PS2A065A.BIN off=0x000007B9 inst=0x000007AA tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90080 name_source=prev_voice_label virtual=true writable=false pair=000044 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000043●name○MK
+●000043●name●MK
+
+# idx=000044 file=PS2A065A.BIN off=0x000007B9 inst=0x000007B9 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place speaker_idx=000043 name=MK name_id=MK speaker_code=MK90080 name_source=prev_voice_label pair=000043 confidence=unresolved full_name=MK
+○000044●text○「存在の痕跡……いえ、記憶すら消去されて\nしまう人たちのことを」
+●000044●text●「存在の痕跡……いえ、記憶すら消去されて\nしまう人たちのことを」
+
+# idx=000045 file=PS2A065A.BIN off=0x00000815 inst=0x00000815 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000045●label○MK90090
+●000045●label●MK90090
+
+# idx=000046 file=PS2A065A.BIN off=0x00000824 inst=0x00000815 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90090 name_source=prev_voice_label virtual=true writable=false pair=000047 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000046●name○MK
+●000046●name●MK
+
+# idx=000047 file=PS2A065A.BIN off=0x00000824 inst=0x00000824 tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place speaker_idx=000046 name=MK name_id=MK speaker_code=MK90090 name_source=prev_voice_label pair=000046 confidence=unresolved full_name=MK
+○000047●text○「でも……あなたは特別よね。次の世界にも、\n必ず存在するのでしょ？」
+●000047●text●「でも……あなたは特別よね。次の世界にも、\n必ず存在するのでしょ？」
+
+# idx=000048 file=PS2A065A.BIN off=0x00000884 inst=0x00000884 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000048●label○FU90060
+●000048●label●FU90060
+
+# idx=000049 file=PS2A065A.BIN off=0x00000893 inst=0x00000884 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU90060 name_source=prev_voice_label virtual=true writable=false pair=000050 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000049●name○冬木
+●000049●name●冬木
+
+# idx=000050 file=PS2A065A.BIN off=0x00000893 inst=0x00000893 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place speaker_idx=000049 name=冬木 name_id=FU speaker_code=FU90060 name_source=prev_voice_label pair=000049 confidence=medium full_name=冬木
+○000050●text○「必ず……かどうかはわかりません。その確率は\n高いでしょうけど」
+●000050●text●「必ず……かどうかはわかりません。その確率は\n高いでしょうけど」
+
+# idx=000051 file=PS2A065A.BIN off=0x000008EF inst=0x000008EF tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000051●label○MK90100
+●000051●label●MK90100
+
+# idx=000052 file=PS2A065A.BIN off=0x000008FE inst=0x000008EF tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90100 name_source=prev_voice_label virtual=true writable=false pair=000053 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000052●name○MK
+●000052●name●MK
+
+# idx=000053 file=PS2A065A.BIN off=0x000008FE inst=0x000008FE tag=text source=inline_len8_string len=108 enc=cp932 policy=in_place speaker_idx=000052 name=MK name_id=MK speaker_code=MK90100 name_source=prev_voice_label pair=000052 confidence=unresolved full_name=MK
+○000053●text○「睦月ちゃんが見る夢の中で、まず美也子が\n再生される。そして、あなた。美也子と\nつきあってたことがあるから」
+●000053●text●「睦月ちゃんが見る夢の中で、まず美也子が\n再生される。そして、あなた。美也子と\nつきあってたことがあるから」
+
+# idx=000054 file=PS2A065A.BIN off=0x00000986 inst=0x00000986 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000054●label○MK90110
+●000054●label●MK90110
+
+# idx=000055 file=PS2A065A.BIN off=0x00000995 inst=0x00000986 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90110 name_source=prev_voice_label virtual=true writable=false pair=000056 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000055●name○MK
+●000055●name●MK
+
+# idx=000056 file=PS2A065A.BIN off=0x00000995 inst=0x00000995 tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place speaker_idx=000055 name=MK name_id=MK speaker_code=MK90110 name_source=prev_voice_label pair=000055 confidence=unresolved full_name=MK
+○000056●text○「私もたぶん大丈夫ね。美也子とはずっと仲が\nよかったし……」
+●000056●text●「私もたぶん大丈夫ね。美也子とはずっと仲が\nよかったし……」
+
+# idx=000057 file=PS2A065A.BIN off=0x000009ED inst=0x000009ED tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000057●label○MK90120
+●000057●label●MK90120
+
+# idx=000058 file=PS2A065A.BIN off=0x000009FC inst=0x000009ED tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90120 name_source=prev_voice_label virtual=true writable=false pair=000059 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000058●name○MK
+●000058●name●MK
+
+# idx=000059 file=PS2A065A.BIN off=0x000009FC inst=0x000009FC tag=text source=inline_len8_string len=106 enc=cp932 policy=in_place speaker_idx=000058 name=MK name_id=MK speaker_code=MK90120 name_source=prev_voice_label pair=000058 confidence=unresolved full_name=MK
+○000059●text○「でも……関係性の輪が中心から遠ざかれば……\n冬木くんのマンションの管理人さん、ずっと、\n同じ人かしら？」
+●000059●text●「でも……関係性の輪が中心から遠ざかれば……\n冬木くんのマンションの管理人さん、ずっと、\n同じ人かしら？」
+
+# idx=000060 file=PS2A065A.BIN off=0x00000A82 inst=0x00000A82 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000060●label○FU90070
+●000060●label●FU90070
+
+# idx=000061 file=PS2A065A.BIN off=0x00000A91 inst=0x00000A82 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU90070 name_source=prev_voice_label virtual=true writable=false pair=000062 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000061●name○冬木
+●000061●name●冬木
+
+# idx=000062 file=PS2A065A.BIN off=0x00000A91 inst=0x00000A91 tag=text source=inline_len8_string len=99 enc=cp932 policy=in_place speaker_idx=000061 name=冬木 name_id=FU speaker_code=FU90070 name_source=prev_voice_label pair=000061 confidence=medium full_name=冬木
+○000062●text○「どうでしょう？ ぼくの記憶も再構成されて\nしまいますから。それについては、なんとも\nいえませんね」
+●000062●text●「どうでしょう？ ぼくの記憶も再構成されて\nしまいますから。それについては、なんとも\nいえませんね」
+
+# idx=000063 file=PS2A065A.BIN off=0x00000B3E inst=0x00000B3E tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place
+○000063●text○ふたりが、目の前までやって来た。
+●000063●text●ふたりが、目の前までやって来た。
+
+# idx=000064 file=PS2A065A.BIN off=0x00000B7A inst=0x00000B7A tag=text source=inline_len8_string len=92 enc=cp932 policy=in_place
+○000064●text○けれど、ぼくにほんの少しの注意も向けようとし\nなかった。\nまるで、ぼくなどいないかのように。
+●000064●text●けれど、ぼくにほんの少しの注意も向けようとし\nなかった。\nまるで、ぼくなどいないかのように。
+
+# idx=000065 file=PS2A065A.BIN off=0x00000BF2 inst=0x00000BF2 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000065●label○MK90130
+●000065●label●MK90130
+
+# idx=000066 file=PS2A065A.BIN off=0x00000C01 inst=0x00000BF2 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90130 name_source=prev_voice_label virtual=true writable=false pair=000067 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000066●name○MK
+●000066●name●MK
+
+# idx=000067 file=PS2A065A.BIN off=0x00000C01 inst=0x00000C01 tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place speaker_idx=000066 name=MK name_id=MK speaker_code=MK90130 name_source=prev_voice_label pair=000066 confidence=unresolved full_name=MK
+○000067●text○「ねえ、こんな風に考えたことはない？」
+●000067●text●「ねえ、こんな風に考えたことはない？」
+
+# idx=000068 file=PS2A065A.BIN off=0x00000C43 inst=0x00000C43 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000068●label○MK90140
+●000068●label●MK90140
+
+# idx=000069 file=PS2A065A.BIN off=0x00000C52 inst=0x00000C43 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90140 name_source=prev_voice_label virtual=true writable=false pair=000070 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000069●name○MK
+●000069●name●MK
+
+# idx=000070 file=PS2A065A.BIN off=0x00000C52 inst=0x00000C52 tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place speaker_idx=000069 name=MK name_id=MK speaker_code=MK90140 name_source=prev_voice_label pair=000069 confidence=unresolved full_name=MK
+○000070●text○「私たちは、睦月ちゃんの夢という形で世界の\n記憶を保存している……と思いこんでるだけ\nだって」
+●000070●text●「私たちは、睦月ちゃんの夢という形で世界の\n記憶を保存している……と思いこんでるだけ\nだって」
+
+# idx=000071 file=PS2A065A.BIN off=0x00000CCC inst=0x00000CCC tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000071●label○MK90150
+●000071●label●MK90150
+
+# idx=000072 file=PS2A065A.BIN off=0x00000CDB inst=0x00000CCC tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90150 name_source=prev_voice_label virtual=true writable=false pair=000073 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000072●name○MK
+●000072●name●MK
+
+# idx=000073 file=PS2A065A.BIN off=0x00000CDB inst=0x00000CDB tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place speaker_idx=000072 name=MK name_id=MK speaker_code=MK90150 name_source=prev_voice_label pair=000072 confidence=unresolved full_name=MK
+○000073●text○「実際には、混沌の海の中で、ぽつんと\n睦月ちゃんが眠っているだけだって」
+●000073●text●「実際には、混沌の海の中で、ぽつんと\n睦月ちゃんが眠っているだけだって」
+
+# idx=000074 file=PS2A065A.BIN off=0x00000D3F inst=0x00000D3F tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000074●label○FU90080
+●000074●label●FU90080
+
+# idx=000075 file=PS2A065A.BIN off=0x00000D4E inst=0x00000D3F tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU90080 name_source=prev_voice_label virtual=true writable=false pair=000076 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000075●name○冬木
+●000075●name●冬木
+
+# idx=000076 file=PS2A065A.BIN off=0x00000D4E inst=0x00000D4E tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place speaker_idx=000075 name=冬木 name_id=FU speaker_code=FU90080 name_source=prev_voice_label pair=000075 confidence=medium full_name=冬木
+○000076●text○「その可能性も否定はできません」
+●000076●text●「その可能性も否定はできません」
+
+# idx=000077 file=PS2A065A.BIN off=0x00000D8A inst=0x00000D8A tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000077●label○FU90090
+●000077●label●FU90090
+
+# idx=000078 file=PS2A065A.BIN off=0x00000D99 inst=0x00000D8A tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU90090 name_source=prev_voice_label virtual=true writable=false pair=000079 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000078●name○冬木
+●000078●name●冬木
+
+# idx=000079 file=PS2A065A.BIN off=0x00000D99 inst=0x00000D99 tag=text source=inline_len8_string len=106 enc=cp932 policy=in_place speaker_idx=000078 name=冬木 name_id=FU speaker_code=FU90090 name_source=prev_voice_label pair=000078 confidence=medium full_name=冬木
+○000079●text○「だからといって、たくさんの人たちの記憶を\n維持し続ける、という責務を放棄するわけには\nいかないでしょう」
+●000079●text●「だからといって、たくさんの人たちの記憶を\n維持し続ける、という責務を放棄するわけには\nいかないでしょう」
+
+# idx=000080 file=PS2A065A.BIN off=0x00000E1F inst=0x00000E1F tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000080●label○MK90160
+●000080●label●MK90160
+
+# idx=000081 file=PS2A065A.BIN off=0x00000E2E inst=0x00000E1F tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90160 name_source=prev_voice_label virtual=true writable=false pair=000082 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000081●name○MK
+●000081●name●MK
+
+# idx=000082 file=PS2A065A.BIN off=0x00000E2E inst=0x00000E2E tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place speaker_idx=000081 name=MK name_id=MK speaker_code=MK90160 name_source=prev_voice_label pair=000081 confidence=unresolved full_name=MK
+○000082●text○「真面目ね、冬木くんは。\nだから……不確定要因の『綾』をゆるせないのね」
+●000082●text●「真面目ね、冬木くんは。\nだから……不確定要因の『綾』をゆるせないのね」
+
+# idx=000083 file=PS2A065A.BIN off=0x00000E92 inst=0x00000E92 tag=text source=inline_len8_string len=86 enc=cp932 policy=in_place
+○000083●text○『綾』の名前。\n女の口から出た、綾の名前にぼくは驚いていた。\nどうして、いつから……。
+●000083●text●『綾』の名前。\n女の口から出た、綾の名前にぼくは驚いていた。\nどうして、いつから……。
+
+# idx=000084 file=PS2A065A.BIN off=0x00000F04 inst=0x00000F04 tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000084●text○ぼくは、綾のことを考えなくなったのだろう。
+●000084●text●ぼくは、綾のことを考えなくなったのだろう。
+
+# idx=000085 file=PS2A065A.BIN off=0x00000F4A inst=0x00000F4A tag=text source=inline_len8_string len=66 enc=cp932 policy=in_place
+○000085●text○ぼくは、綾を助けようとして、妖精狩りの\nふたりに頭を撃たれて……。
+●000085●text●ぼくは、綾を助けようとして、妖精狩りの\nふたりに頭を撃たれて……。
+
+# idx=000086 file=PS2A065A.BIN off=0x00000FA8 inst=0x00000FA8 tag=text source=inline_len8_string len=74 enc=cp932 policy=in_place
+○000086●text○ぼくは綾のもとへ戻ろうと、あの闇の中を歩き\n続けていたはずだったのに……。
+●000086●text●ぼくは綾のもとへ戻ろうと、あの闇の中を歩き\n続けていたはずだったのに……。
+
+# idx=000087 file=PS2A065A.BIN off=0x0000100E inst=0x0000100E tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000087●label○FU90100
+●000087●label●FU90100
+
+# idx=000088 file=PS2A065A.BIN off=0x0000101D inst=0x0000100E tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU90100 name_source=prev_voice_label virtual=true writable=false pair=000089 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000088●name○冬木
+●000088●name●冬木
+
+# idx=000089 file=PS2A065A.BIN off=0x0000101D inst=0x0000101D tag=text source=inline_len8_string len=91 enc=cp932 policy=in_place speaker_idx=000088 name=冬木 name_id=FU speaker_code=FU90100 name_source=prev_voice_label pair=000088 confidence=medium full_name=冬木
+○000089●text○「当然でしょう？ ぼくたちには守るべきものが\nあるのですから。『世界の記憶』と睦月ちゃんを」
+●000089●text●「当然でしょう？ ぼくたちには守るべきものが\nあるのですから。『世界の記憶』と睦月ちゃんを」
+
+# idx=000090 file=PS2A065A.BIN off=0x00001094 inst=0x00001094 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000090●label○MK90170
+●000090●label●MK90170
+
+# idx=000091 file=PS2A065A.BIN off=0x000010A3 inst=0x00001094 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90170 name_source=prev_voice_label virtual=true writable=false pair=000092 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000091●name○MK
+●000091●name●MK
+
+# idx=000092 file=PS2A065A.BIN off=0x000010A3 inst=0x000010A3 tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place speaker_idx=000091 name=MK name_id=MK speaker_code=MK90170 name_source=prev_voice_label pair=000091 confidence=unresolved full_name=MK
+○000092●text○「私、考えたのよ。私たちも『綾』も、\n睦月ちゃんの夢から生まれてる」
+●000092●text●「私、考えたのよ。私たちも『綾』も、\n睦月ちゃんの夢から生まれてる」
+
+# idx=000093 file=PS2A065A.BIN off=0x00001103 inst=0x00001103 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000093●label○MK90180
+●000093●label●MK90180
+
+# idx=000094 file=PS2A065A.BIN off=0x00001112 inst=0x00001103 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90180 name_source=prev_voice_label virtual=true writable=false pair=000095 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000094●name○MK
+●000094●name●MK
+
+# idx=000095 file=PS2A065A.BIN off=0x00001112 inst=0x00001112 tag=text source=inline_len8_string len=116 enc=cp932 policy=in_place speaker_idx=000094 name=MK name_id=MK speaker_code=MK90180 name_source=prev_voice_label pair=000094 confidence=unresolved full_name=MK
+○000095●text○「じゃあ、どうして、睦月ちゃんは『綾』を\n必要としたのかなって。もしかすると、私も、\nそうだったかもしれないなって」
+●000095●text●「じゃあ、どうして、睦月ちゃんは『綾』を\n必要としたのかなって。もしかすると、私も、\nそうだったかもしれないなって」
+
+# idx=000096 file=PS2A065A.BIN off=0x000011A2 inst=0x000011A2 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000096●label○FU90110
+●000096●label●FU90110
+
+# idx=000097 file=PS2A065A.BIN off=0x000011B1 inst=0x000011A2 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU90110 name_source=prev_voice_label virtual=true writable=false pair=000098 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000097●name○冬木
+●000097●name●冬木
+
+# idx=000098 file=PS2A065A.BIN off=0x000011B1 inst=0x000011B1 tag=text source=inline_len8_string len=22 enc=cp932 policy=in_place speaker_idx=000097 name=冬木 name_id=FU speaker_code=FU90110 name_source=prev_voice_label pair=000097 confidence=medium full_name=冬木
+○000098●text○「なんのことですか？」
+●000098●text●「なんのことですか？」
+
+# idx=000099 file=PS2A065A.BIN off=0x000011E3 inst=0x000011E3 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000099●label○MK90190
+●000099●label●MK90190
+
+# idx=000100 file=PS2A065A.BIN off=0x000011F2 inst=0x000011E3 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90190 name_source=prev_voice_label virtual=true writable=false pair=000101 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000100●name○MK
+●000100●name●MK
+
+# idx=000101 file=PS2A065A.BIN off=0x000011F2 inst=0x000011F2 tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place speaker_idx=000100 name=MK name_id=MK speaker_code=MK90190 name_source=prev_voice_label pair=000100 confidence=unresolved full_name=MK
+○000101●text○「冬木くんは、いいお父さんになると思う」
+●000101●text●「冬木くんは、いいお父さんになると思う」
+
+# idx=000102 file=PS2A065A.BIN off=0x00001236 inst=0x00001236 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000102●label○MK90200
+●000102●label●MK90200
+
+# idx=000103 file=PS2A065A.BIN off=0x00001245 inst=0x00001236 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90200 name_source=prev_voice_label virtual=true writable=false pair=000104 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000103●name○MK
+●000103●name●MK
+
+# idx=000104 file=PS2A065A.BIN off=0x00001245 inst=0x00001245 tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place speaker_idx=000103 name=MK name_id=MK speaker_code=MK90200 name_source=prev_voice_label pair=000103 confidence=unresolved full_name=MK
+○000104●text○「でも、睦月ちゃんは14歳なのよ。\nそう、子どもじゃないの。恋をして、人を好きに\nなる年頃だわ」
+●000104●text●「でも、睦月ちゃんは14歳なのよ。\nそう、子どもじゃないの。恋をして、人を好きに\nなる年頃だわ」
+
+# idx=000105 file=PS2A065A.BIN off=0x000012BF inst=0x000012BF tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000105●label○MK90210
+●000105●label●MK90210
+
+# idx=000106 file=PS2A065A.BIN off=0x000012CE inst=0x000012BF tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90210 name_source=prev_voice_label virtual=true writable=false pair=000107 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000106●name○MK
+●000106●name●MK
+
+# idx=000107 file=PS2A065A.BIN off=0x000012CE inst=0x000012CE tag=text source=inline_len8_string len=110 enc=cp932 policy=in_place speaker_idx=000106 name=MK name_id=MK speaker_code=MK90210 name_source=prev_voice_label pair=000106 confidence=unresolved full_name=MK
+○000107●text○「もう『よいこ』なだけではいられないのよ。\n親がつくってくれた、あたたかい巣の中から\n飛び出そうとしているの」
+●000107●text●「もう『よいこ』なだけではいられないのよ。\n親がつくってくれた、あたたかい巣の中から\n飛び出そうとしているの」
+
+# idx=000108 file=PS2A065A.BIN off=0x00001358 inst=0x00001358 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000108●label○MK90220
+●000108●label●MK90220
+
+# idx=000109 file=PS2A065A.BIN off=0x00001367 inst=0x00001358 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90220 name_source=prev_voice_label virtual=true writable=false pair=000110 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000109●name○MK
+●000109●name●MK
+
+# idx=000110 file=PS2A065A.BIN off=0x00001367 inst=0x00001367 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place speaker_idx=000109 name=MK name_id=MK speaker_code=MK90220 name_source=prev_voice_label pair=000109 confidence=unresolved full_name=MK
+○000110●text○「それが、結果として世界を破滅させるのだと\nしても」
+●000110●text●「それが、結果として世界を破滅させるのだと\nしても」
+
+# idx=000111 file=PS2A065A.BIN off=0x000013B7 inst=0x000013B7 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000111●label○MK90230
+●000111●label●MK90230
+
+# idx=000112 file=PS2A065A.BIN off=0x000013C6 inst=0x000013B7 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90230 name_source=prev_voice_label virtual=true writable=false pair=000113 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000112●name○MK
+●000112●name●MK
+
+# idx=000113 file=PS2A065A.BIN off=0x000013C6 inst=0x000013C6 tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place speaker_idx=000112 name=MK name_id=MK speaker_code=MK90230 name_source=prev_voice_label pair=000112 confidence=unresolved full_name=MK
+○000113●text○「あの子、そんなことを考えてるのかもしれない」
+●000113●text●「あの子、そんなことを考えてるのかもしれない」
+
+# idx=000114 file=PS2A065A.BIN off=0x00001410 inst=0x00001410 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000114●label○FU90120
+●000114●label●FU90120
+
+# idx=000115 file=PS2A065A.BIN off=0x0000141F inst=0x00001410 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU90120 name_source=prev_voice_label virtual=true writable=false pair=000116 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000115●name○冬木
+●000115●name●冬木
+
+# idx=000116 file=PS2A065A.BIN off=0x0000141F inst=0x0000141F tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place speaker_idx=000115 name=冬木 name_id=FU speaker_code=FU90120 name_source=prev_voice_label pair=000115 confidence=medium full_name=冬木
+○000116●text○「それは、どうでしょうか」
+●000116●text●「それは、どうでしょうか」
+
+# idx=000117 file=PS2A065A.BIN off=0x00001455 inst=0x00001455 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000117●label○FU90130
+●000117●label●FU90130
+
+# idx=000118 file=PS2A065A.BIN off=0x00001464 inst=0x00001455 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU90130 name_source=prev_voice_label virtual=true writable=false pair=000119 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000118●name○冬木
+●000118●name●冬木
+
+# idx=000119 file=PS2A065A.BIN off=0x00001464 inst=0x00001464 tag=text source=inline_len8_string len=100 enc=cp932 policy=in_place speaker_idx=000118 name=冬木 name_id=FU speaker_code=FU90130 name_source=prev_voice_label pair=000118 confidence=medium full_name=冬木
+○000119●text○「睦月ちゃんは、そんな子じゃありませんから。\nあの子は、もっとしっかりした、責任感の強い子\nでした」
+●000119●text●「睦月ちゃんは、そんな子じゃありませんから。\nあの子は、もっとしっかりした、責任感の強い子\nでした」
+
+# idx=000120 file=PS2A065A.BIN off=0x000014E4 inst=0x000014E4 tag=text source=inline_len8_string len=76 enc=cp932 policy=in_place
+○000120●text○ふたりは、ぼくに気づかなかった。\n……肩がふれあうくらいの距離だというのに。
+●000120●text●ふたりは、ぼくに気づかなかった。\n……肩がふれあうくらいの距離だというのに。
+
+# idx=000121 file=PS2A065A.BIN off=0x0000158C inst=0x0000158C tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000121●text○通路の闇の中に、ふたりの姿が消えていく。\n話し声だけを残して。
+●000121●text●通路の闇の中に、ふたりの姿が消えていく。\n話し声だけを残して。
+
+# idx=000122 file=PS2A065A.BIN off=0x000015E6 inst=0x000015E6 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000122●label○MK90240
+●000122●label●MK90240
+
+# idx=000123 file=PS2A065A.BIN off=0x000015F5 inst=0x000015E6 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90240 name_source=prev_voice_label virtual=true writable=false pair=000124 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000123●name○MK
+●000123●name●MK
+
+# idx=000124 file=PS2A065A.BIN off=0x000015F5 inst=0x000015F5 tag=text source=inline_len8_string len=114 enc=cp932 policy=in_place speaker_idx=000123 name=MK name_id=MK speaker_code=MK90240 name_source=prev_voice_label pair=000123 confidence=unresolved full_name=MK
+○000124●text○「あのね、女はね、すべてを捨てられるのよ。\n恋する人のためなら。冬木くんは、男だから\nわからないかもしれないけど」
+●000124●text●「あのね、女はね、すべてを捨てられるのよ。\n恋する人のためなら。冬木くんは、男だから\nわからないかもしれないけど」
+
+# idx=000125 file=PS2A065A.BIN off=0x00001683 inst=0x00001683 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000125●label○FU90140
+●000125●label●FU90140
+
+# idx=000126 file=PS2A065A.BIN off=0x00001692 inst=0x00001683 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU90140 name_source=prev_voice_label virtual=true writable=false pair=000127 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000126●name○冬木
+●000126●name●冬木
+
+# idx=000127 file=PS2A065A.BIN off=0x00001692 inst=0x00001692 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place speaker_idx=000126 name=冬木 name_id=FU speaker_code=FU90140 name_source=prev_voice_label pair=000126 confidence=medium full_name=冬木
+○000127●text○「ぼくは……睦月ちゃんは、そんな子じゃない、\nと信じてますから」
+●000127●text●「ぼくは……睦月ちゃんは、そんな子じゃない、\nと信じてますから」
+
+# idx=000128 file=PS2A065A.BIN off=0x000016EE inst=0x000016EE tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000128●label○MK90250
+●000128●label●MK90250
+
+# idx=000129 file=PS2A065A.BIN off=0x000016FD inst=0x000016EE tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90250 name_source=prev_voice_label virtual=true writable=false pair=000130 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000129●name○MK
+●000129●name●MK
+
+# idx=000130 file=PS2A065A.BIN off=0x000016FD inst=0x000016FD tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place speaker_idx=000129 name=MK name_id=MK speaker_code=MK90250 name_source=prev_voice_label pair=000129 confidence=unresolved full_name=MK
+○000130●text○「うん、やっぱり冬木くん、いいお父さんに\nなると思うわ」
+●000130●text●「うん、やっぱり冬木くん、いいお父さんに\nなると思うわ」
+
+# idx=000131 file=PS2A065A.BIN off=0x00001751 inst=0x00001751 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=MK name_id=MK confidence=unresolved
+○000131●label○MK90260
+●000131●label●MK90260
+
+# idx=000132 file=PS2A065A.BIN off=0x00001760 inst=0x00001751 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MK speaker_code=MK90260 name_source=prev_voice_label virtual=true writable=false pair=000133 confidence=unresolved full_name=MK basis=prefix_detected;_exact_entity_not_proven
+○000132●name○MK
+●000132●name●MK
+
+# idx=000133 file=PS2A065A.BIN off=0x00001760 inst=0x00001760 tag=text source=inline_len8_string len=80 enc=cp932 policy=in_place speaker_idx=000132 name=MK name_id=MK speaker_code=MK90260 name_source=prev_voice_label pair=000132 confidence=unresolved full_name=MK
+○000133●text○「そこまで信用してくれるなんて、私が娘\nだったら……すごく、うれしいと思うもの」
+●000133●text●「そこまで信用してくれるなんて、私が娘\nだったら……すごく、うれしいと思うもの」
+
+# idx=000134 file=PS2A065A.BIN off=0x000017CC inst=0x000017CC tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000134●label○FU90150
+●000134●label●FU90150
+
+# idx=000135 file=PS2A065A.BIN off=0x000017DB inst=0x000017CC tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU90150 name_source=prev_voice_label virtual=true writable=false pair=000136 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000135●name○冬木
+●000135●name●冬木
+
+# idx=000136 file=PS2A065A.BIN off=0x000017DB inst=0x000017DB tag=text source=inline_len8_string len=66 enc=cp932 policy=in_place speaker_idx=000135 name=冬木 name_id=FU speaker_code=FU90150 name_source=prev_voice_label pair=000135 confidence=medium full_name=冬木
+○000136●text○「それは……喜んでいいのか、どうか。ちょっと\n複雑な気持ちですね」
+●000136●text●「それは……喜んでいいのか、どうか。ちょっと\n複雑な気持ちですね」
+
+# idx=000137 file=PS2A065A.BIN off=0x00001839 inst=0x00001839 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000137●text○ぼくは、人の気配が消えるまで、その場に\n立ちつくしていた。
+●000137●text●ぼくは、人の気配が消えるまで、その場に\n立ちつくしていた。
+
+# idx=000138 file=PS2A065A.BIN off=0x0000188F inst=0x0000188F tag=text source=inline_len8_string len=74 enc=cp932 policy=in_place
+○000138●text○ふたりは……ぼくがいることに気づかなかった。気づかないわけが……ないのに。
+●000138●text●ふたりは……ぼくがいることに気づかなかった。気づかないわけが……ないのに。
+
+# idx=000139 file=PS2A065A.BIN off=0x000018F5 inst=0x000018F5 tag=text source=inline_len8_string len=70 enc=cp932 policy=in_place
+○000139●text○ぼくは、どうしてしまったのだろう。\n妖精狩りの連中に頭を撃たれて……。
+●000139●text●ぼくは、どうしてしまったのだろう。\n妖精狩りの連中に頭を撃たれて……。
+
+# idx=000140 file=PS2A065A.BIN off=0x00001957 inst=0x00001957 tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000140●text○いや、そんなことよりも、気になることがあった。
+●000140●text●いや、そんなことよりも、気になることがあった。
+
+# idx=000141 file=PS2A065A.BIN off=0x000019A1 inst=0x000019A1 tag=text source=inline_len8_string len=86 enc=cp932 policy=in_place
+○000141●text○綾は……やはり中心ではなかった。\nカウンセラーは、綾が世界を破滅させると\n告げていた。
+●000141●text●綾は……やはり中心ではなかった。\nカウンセラーは、綾が世界を破滅させると\n告げていた。
+
+# idx=000142 file=PS2A065A.BIN off=0x00001A13 inst=0x00001A13 tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000142●text○では……破滅させられる世界は、どこにある？
+●000142●text●では……破滅させられる世界は、どこにある？
+
+# idx=000143 file=PS2A065A.BIN off=0x00001A59 inst=0x00001A59 tag=text source=inline_len8_string len=102 enc=cp932 policy=in_place
+○000143●text○綾はひとつの要素にすぎないと、今のふたりは\n話していた。\n破局をもたらす、ひとつの要因でしかない、と。
+●000143●text●綾はひとつの要素にすぎないと、今のふたりは\n話していた。\n破局をもたらす、ひとつの要因でしかない、と。
+
+# idx=000144 file=PS2A065A.BIN off=0x00001ADB inst=0x00001ADB tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place
+○000144●text○彼女は……端役にすぎなかった。
+●000144●text●彼女は……端役にすぎなかった。
+
+# idx=000145 file=PS2A065A.BIN off=0x00001B15 inst=0x00001B15 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000145●text○あの朝、視線を交わしたときから始まった、\nぼくたちの物語は……。
+●000145●text●あの朝、視線を交わしたときから始まった、\nぼくたちの物語は……。
+
+# idx=000146 file=PS2A065A.BIN off=0x00001B71 inst=0x00001B71 tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000146●text○ぼくと綾の物語ではなく、主役が別の場所にいる。
+●000146●text●ぼくと綾の物語ではなく、主役が別の場所にいる。
+
+# idx=000147 file=PS2A065A.BIN off=0x00001BBB inst=0x00001BBB tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000147●text○さっきのふたりは睦月について話していた。\n彼女が、世界の中心だ、と。
+●000147●text●さっきのふたりは睦月について話していた。\n彼女が、世界の中心だ、と。
+
+# idx=000148 file=PS2A065A.BIN off=0x00001C1B inst=0x00001C1B tag=text source=inline_len8_string len=70 enc=cp932 policy=in_place
+○000148●text○彼女に会えば……ぼくたちは、終わりを\nみつけることができるのだろうか。
+●000148●text●彼女に会えば……ぼくたちは、終わりを\nみつけることができるのだろうか。
+
+# idx=000149 file=PS2A065A.BIN off=0x00001C7D inst=0x00001C7D tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000149●text○ぼくは、行く先もわからぬまま、迷宮を歩き\n始める。
+●000149●text●ぼくは、行く先もわからぬまま、迷宮を歩き\n始める。
+
+# idx=000150 file=PS2A065A.BIN off=0x00001CCB inst=0x00001CCB tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place
+○000150●text○どこかにいるかもしれない睦月を探して。
+●000150●text●どこかにいるかもしれない睦月を探して。
+
+# idx=000151 file=PS2A065A.BIN off=0x00001D45 inst=0x00001D45 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000151●label○PS2A066a.bin
+●000151●label●PS2A066a.bin
+

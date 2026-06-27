@@ -1,0 +1,1292 @@
+# DSAT export for PS2T035A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2T035A.BIN off=0x00000032 inst=0x00000032 tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000001●label○se-04
+●000001●label●se-04
+
+# idx=000002 file=PS2T035A.BIN off=0x000000C1 inst=0x000000C1 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=レイディ name_id=NA confidence=medium
+○000002●label○NA90470
+●000002●label●NA90470
+
+# idx=000003 file=PS2T035A.BIN off=0x000000D0 inst=0x000000C1 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=NA speaker_code=NA90470 name_source=prev_voice_label virtual=true writable=false pair=000004 confidence=medium full_name=担任のレイディ basis=NA_teacher-like_classroom_lines;_narration_names_レイディ
+○000003●name○レイディ
+●000003●name●レイディ
+
+# idx=000004 file=PS2T035A.BIN off=0x000000D0 inst=0x000000D0 tag=text source=inline_len8_string len=84 enc=cp932 policy=in_place speaker_idx=000003 name=レイディ name_id=NA speaker_code=NA90470 name_source=prev_voice_label pair=000003 confidence=medium full_name=担任のレイディ
+○000004●text○「では、今日はここまでです。学生であるという\n自覚をもって放課後を過ごしてください」
+●000004●text●「では、今日はここまでです。学生であるという\n自覚をもって放課後を過ごしてください」
+
+# idx=000005 file=PS2T035A.BIN off=0x000001BC inst=0x000001BC tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000005●label○MT90300
+●000005●label●MT90300
+
+# idx=000006 file=PS2T035A.BIN off=0x000001CB inst=0x000001BC tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT90300 name_source=prev_voice_label virtual=true writable=false pair=000007 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000006●name○玉
+●000006●name●玉
+
+# idx=000007 file=PS2T035A.BIN off=0x000001CB inst=0x000001CB tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place speaker_idx=000006 name=玉 name_id=MT speaker_code=MT90300 name_source=prev_voice_label pair=000006 confidence=high full_name=玉城麻衣子
+○000007●text○「む。おわたー。きょー、なにすっかな」
+●000007●text●「む。おわたー。きょー、なにすっかな」
+
+# idx=000008 file=PS2T035A.BIN off=0x00000262 inst=0x00000262 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000008●label○KT90360
+●000008●label●KT90360
+
+# idx=000009 file=PS2T035A.BIN off=0x00000271 inst=0x00000262 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT90360 name_source=prev_voice_label virtual=true writable=false pair=000010 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000009●name○千佳
+●000009●name●千佳
+
+# idx=000010 file=PS2T035A.BIN off=0x00000271 inst=0x00000271 tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place speaker_idx=000009 name=千佳 name_id=KT speaker_code=KT90360 name_source=prev_voice_label pair=000009 confidence=medium full_name=木村千佳
+○000010●text○「玉ちゃ～ん、今日、バイトは～？」
+●000010●text●「玉ちゃ～ん、今日、バイトは～？」
+
+# idx=000011 file=PS2T035A.BIN off=0x000002E4 inst=0x000002E4 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000011●label○MT90310
+●000011●label●MT90310
+
+# idx=000012 file=PS2T035A.BIN off=0x000002F3 inst=0x000002E4 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT90310 name_source=prev_voice_label virtual=true writable=false pair=000013 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000012●name○玉
+●000012●name●玉
+
+# idx=000013 file=PS2T035A.BIN off=0x000002F3 inst=0x000002F3 tag=text source=inline_len8_string len=124 enc=cp932 policy=in_place speaker_idx=000012 name=玉 name_id=MT speaker_code=MT90310 name_source=prev_voice_label pair=000012 confidence=high full_name=玉城麻衣子
+○000013●text○「な～い。あーのね、きょーね、テンチョさんと\nカトさん、おやすみー。だからね、おみせ、\nしめちゃうって、シマさんいってた～」
+●000013●text●「な～い。あーのね、きょーね、テンチョさんと\nカトさん、おやすみー。だからね、おみせ、\nしめちゃうって、シマさんいってた～」
+
+# idx=000014 file=PS2T035A.BIN off=0x000003E0 inst=0x000003E0 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000014●label○KT90370
+●000014●label●KT90370
+
+# idx=000015 file=PS2T035A.BIN off=0x000003EF inst=0x000003E0 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT90370 name_source=prev_voice_label virtual=true writable=false pair=000016 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000015●name○千佳
+●000015●name●千佳
+
+# idx=000016 file=PS2T035A.BIN off=0x000003EF inst=0x000003EF tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place speaker_idx=000015 name=千佳 name_id=KT speaker_code=KT90370 name_source=prev_voice_label pair=000015 confidence=medium full_name=木村千佳
+○000016●text○「え～、じゃあ、どっか遊びに行く？玉ちゃん、遊び行きた～い？」
+●000016●text●「え～、じゃあ、どっか遊びに行く？玉ちゃん、遊び行きた～い？」
+
+# idx=000017 file=PS2T035A.BIN off=0x0000047E inst=0x0000047E tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000017●label○MT90320
+●000017●label●MT90320
+
+# idx=000018 file=PS2T035A.BIN off=0x0000048D inst=0x0000047E tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT90320 name_source=prev_voice_label virtual=true writable=false pair=000019 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000018●name○玉
+●000018●name●玉
+
+# idx=000019 file=PS2T035A.BIN off=0x0000048D inst=0x0000048D tag=text source=inline_len8_string len=24 enc=cp932 policy=in_place speaker_idx=000018 name=玉 name_id=MT speaker_code=MT90320 name_source=prev_voice_label pair=000018 confidence=high full_name=玉城麻衣子
+○000019●text○「むう。いきたいきたっ」
+●000019●text●「むう。いきたいきたっ」
+
+# idx=000020 file=PS2T035A.BIN off=0x000004C1 inst=0x000004C1 tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place
+○000020●text○すっかり、放課後遊びモードの玉。
+●000020●text●すっかり、放課後遊びモードの玉。
+
+# idx=000021 file=PS2T035A.BIN off=0x000004FD inst=0x000004FD tag=text source=inline_len8_string len=100 enc=cp932 policy=in_place
+○000021●text○本当なら、勉強させた方がいいのかもしれない\nけど、ときどきは、自由にさせてやらないと\n死んじゃうし。
+●000021●text●本当なら、勉強させた方がいいのかもしれない\nけど、ときどきは、自由にさせてやらないと\n死んじゃうし。
+
+# idx=000022 file=PS2T035A.BIN off=0x000005D3 inst=0x000005D3 tag=text source=inline_len8_string len=84 enc=cp932 policy=in_place
+○000022●text○バレー部の川畑が寄ってきた。\n朝と帰り以外に、教室で顔を見るのは\nしばらくぶりかも。
+●000022●text●バレー部の川畑が寄ってきた。\n朝と帰り以外に、教室で顔を見るのは\nしばらくぶりかも。
+
+# idx=000023 file=PS2T035A.BIN off=0x00000643 inst=0x00000643 tag=text source=inline_len8_string len=80 enc=cp932 policy=in_place
+○000023●text○部活に人生かけてる感じ。\n熱心な帰宅部の玉や木村とは、あんまり接点\nないのにな。
+●000023●text●部活に人生かけてる感じ。\n熱心な帰宅部の玉や木村とは、あんまり接点\nないのにな。
+
+# idx=000024 file=PS2T035A.BIN off=0x000006AF inst=0x000006AF tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000024●label○CM92010
+●000024●label●CM92010
+
+# idx=000025 file=PS2T035A.BIN off=0x000006BE inst=0x000006AF tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM92010 name_source=prev_voice_label virtual=true writable=false pair=000026 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000025●name○クラスメート
+●000025●name●クラスメート
+
+# idx=000026 file=PS2T035A.BIN off=0x000006BE inst=0x000006BE tag=text source=inline_len8_string len=66 enc=cp932 policy=in_place speaker_idx=000025 name=クラスメート name_id=CM speaker_code=CM92010 name_source=prev_voice_label pair=000025 confidence=low full_name=クラスメート
+○000026●text○「木村～、玉城ー。帰るなよー。\nさっき、みんなで決めたんだからー」
+●000026●text●「木村～、玉城ー。帰るなよー。\nさっき、みんなで決めたんだからー」
+
+# idx=000027 file=PS2T035A.BIN off=0x00000771 inst=0x00000771 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000027●label○KT90380
+●000027●label●KT90380
+
+# idx=000028 file=PS2T035A.BIN off=0x00000780 inst=0x00000771 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT90380 name_source=prev_voice_label virtual=true writable=false pair=000029 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000028●name○千佳
+●000028●name●千佳
+
+# idx=000029 file=PS2T035A.BIN off=0x00000780 inst=0x00000780 tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place speaker_idx=000028 name=千佳 name_id=KT speaker_code=KT90380 name_source=prev_voice_label pair=000028 confidence=medium full_name=木村千佳
+○000029●text○「あ、そーだったー」
+●000029●text●「あ、そーだったー」
+
+# idx=000030 file=PS2T035A.BIN off=0x000007E5 inst=0x000007E5 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000030●label○MT90330
+●000030●label●MT90330
+
+# idx=000031 file=PS2T035A.BIN off=0x000007F4 inst=0x000007E5 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT90330 name_source=prev_voice_label virtual=true writable=false pair=000032 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000031●name○玉
+●000031●name●玉
+
+# idx=000032 file=PS2T035A.BIN off=0x000007F4 inst=0x000007F4 tag=text source=inline_len8_string len=35 enc=cp932 policy=in_place speaker_idx=000031 name=玉 name_id=MT speaker_code=MT90330 name_source=prev_voice_label pair=000031 confidence=high full_name=玉城麻衣子
+○000032●text○「あ～……だれだ～？ このひとぉ？」
+●000032●text●「あ～……だれだ～？ このひとぉ？」
+
+# idx=000033 file=PS2T035A.BIN off=0x00000833 inst=0x00000833 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000033●label○CM92020
+●000033●label●CM92020
+
+# idx=000034 file=PS2T035A.BIN off=0x00000842 inst=0x00000833 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM92020 name_source=prev_voice_label virtual=true writable=false pair=000035 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000034●name○クラスメート
+●000034●name●クラスメート
+
+# idx=000035 file=PS2T035A.BIN off=0x00000842 inst=0x00000842 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place speaker_idx=000034 name=クラスメート name_id=CM speaker_code=CM92020 name_source=prev_voice_label pair=000034 confidence=low full_name=クラスメート
+○000035●text○「えぇっ？……木村～、ちょっとなんとかして\nくんなーい？」
+●000035●text●「えぇっ？……木村～、ちょっとなんとかして\nくんなーい？」
+
+# idx=000036 file=PS2T035A.BIN off=0x000008ED inst=0x000008ED tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000036●label○KT90390
+●000036●label●KT90390
+
+# idx=000037 file=PS2T035A.BIN off=0x000008FC inst=0x000008ED tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT90390 name_source=prev_voice_label virtual=true writable=false pair=000038 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000037●name○千佳
+●000037●name●千佳
+
+# idx=000038 file=PS2T035A.BIN off=0x000008FC inst=0x000008FC tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place speaker_idx=000037 name=千佳 name_id=KT speaker_code=KT90390 name_source=prev_voice_label pair=000037 confidence=medium full_name=木村千佳
+○000038●text○「ええ～、あのねえ、川畑さーん、玉ちゃん、\nふざけてるだけだからー」
+●000038●text●「ええ～、あのねえ、川畑さーん、玉ちゃん、\nふざけてるだけだからー」
+
+# idx=000039 file=PS2T035A.BIN off=0x0000095C inst=0x0000095C tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000039●label○CM92030
+●000039●label●CM92030
+
+# idx=000040 file=PS2T035A.BIN off=0x0000096B inst=0x0000095C tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM92030 name_source=prev_voice_label virtual=true writable=false pair=000041 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000040●name○クラスメート
+●000040●name●クラスメート
+
+# idx=000041 file=PS2T035A.BIN off=0x0000096B inst=0x0000096B tag=text source=inline_len8_string len=36 enc=cp932 policy=in_place speaker_idx=000040 name=クラスメート name_id=CM speaker_code=CM92030 name_source=prev_voice_label pair=000040 confidence=low full_name=クラスメート
+○000041●text○「あ、そーなんだ。ならいいけど……」
+●000041●text●「あ、そーなんだ。ならいいけど……」
+
+# idx=000042 file=PS2T035A.BIN off=0x000009AB inst=0x000009AB tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000042●label○CM92040
+●000042●label●CM92040
+
+# idx=000043 file=PS2T035A.BIN off=0x000009BA inst=0x000009AB tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM92040 name_source=prev_voice_label virtual=true writable=false pair=000044 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000043●name○クラスメート
+●000043●name●クラスメート
+
+# idx=000044 file=PS2T035A.BIN off=0x000009BA inst=0x000009BA tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place speaker_idx=000043 name=クラスメート name_id=CM speaker_code=CM92040 name_source=prev_voice_label pair=000043 confidence=low full_name=クラスメート
+○000044●text○「あのな、玉城ー。放課後、バレーの特訓するって決めたろ」
+●000044●text●「あのな、玉城ー。放課後、バレーの特訓するって決めたろ」
+
+# idx=000045 file=PS2T035A.BIN off=0x00000A0E inst=0x00000A0E tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000045●label○CM92050
+●000045●label●CM92050
+
+# idx=000046 file=PS2T035A.BIN off=0x00000A1D inst=0x00000A0E tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM92050 name_source=prev_voice_label virtual=true writable=false pair=000047 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000046●name○クラスメート
+●000046●name●クラスメート
+
+# idx=000047 file=PS2T035A.BIN off=0x00000A1D inst=0x00000A1D tag=text source=inline_len8_string len=102 enc=cp932 policy=in_place speaker_idx=000046 name=クラスメート name_id=CM speaker_code=CM92050 name_source=prev_voice_label pair=000046 confidence=low full_name=クラスメート
+○000047●text○「お前もさ、来なきゃ駄目なんだよ。\n運動神経悪くないんだし、練習すれば、ちゃんと\n戦力になるんだぞー」
+●000047●text●「お前もさ、来なきゃ駄目なんだよ。\n運動神経悪くないんだし、練習すれば、ちゃんと\n戦力になるんだぞー」
+
+# idx=000048 file=PS2T035A.BIN off=0x00000AD4 inst=0x00000AD4 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000048●label○MT90340
+●000048●label●MT90340
+
+# idx=000049 file=PS2T035A.BIN off=0x00000AE3 inst=0x00000AD4 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT90340 name_source=prev_voice_label virtual=true writable=false pair=000050 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000049●name○玉
+●000049●name●玉
+
+# idx=000050 file=PS2T035A.BIN off=0x00000AE3 inst=0x00000AE3 tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place speaker_idx=000049 name=玉 name_id=MT speaker_code=MT90340 name_source=prev_voice_label pair=000049 confidence=high full_name=玉城麻衣子
+○000050●text○「むー。そなこといわれてもー」
+●000050●text●「むー。そなこといわれてもー」
+
+# idx=000051 file=PS2T035A.BIN off=0x00000B0E inst=0x00000B0E tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000051●label○se-e29
+●000051●label●se-e29
+
+# idx=000052 file=PS2T035A.BIN off=0x00000BC0 inst=0x00000BC0 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000052●label○KT90400
+●000052●label●KT90400
+
+# idx=000053 file=PS2T035A.BIN off=0x00000BCF inst=0x00000BC0 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT90400 name_source=prev_voice_label virtual=true writable=false pair=000054 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000053●name○千佳
+●000053●name●千佳
+
+# idx=000054 file=PS2T035A.BIN off=0x00000BCF inst=0x00000BCF tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place speaker_idx=000053 name=千佳 name_id=KT speaker_code=KT90400 name_source=prev_voice_label pair=000053 confidence=medium full_name=木村千佳
+○000054●text○「あ～あ、玉ちゃん、逃げちゃった」
+●000054●text●「あ～あ、玉ちゃん、逃げちゃった」
+
+# idx=000055 file=PS2T035A.BIN off=0x00000C0D inst=0x00000C0D tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place
+○000055●text○「なつかないんだよなー、あいつー」
+●000055●text●「なつかないんだよなー、あいつー」
+
+# idx=000056 file=PS2T035A.BIN off=0x00000C37 inst=0x00000C37 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000056●label○CM92060
+●000056●label●CM92060
+
+# idx=000057 file=PS2T035A.BIN off=0x00000C46 inst=0x00000C46 tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place
+○000057●text○とりあえず、あやまっとこうか
+●000057●text●とりあえず、あやまっとこうか
+
+# idx=000058 file=PS2T035A.BIN off=0x00000C72 inst=0x00000C72 tag=text source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000058●text○ほっとこう
+●000058●text●ほっとこう
+
+# idx=000059 file=PS2T035A.BIN off=0x00000CC1 inst=0x00000C37 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM92060 name_source=prev_voice_label virtual=true writable=false pair=000060 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000059●name○クラスメート
+●000059●name●クラスメート
+
+# idx=000060 file=PS2T035A.BIN off=0x00000CC1 inst=0x00000CC1 tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place speaker_idx=000059 name=クラスメート name_id=CM speaker_code=CM92060 name_source=prev_voice_label pair=000059 confidence=low full_name=クラスメート
+○000060●text○「わるいね」
+●000060●text●「わるいね」
+
+# idx=000061 file=PS2T035A.BIN off=0x00000CE9 inst=0x00000CE9 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000061●label○CM92070
+●000061●label●CM92070
+
+# idx=000062 file=PS2T035A.BIN off=0x00000CF8 inst=0x00000CE9 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM92070 name_source=prev_voice_label virtual=true writable=false pair=000063 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000062●name○クラスメート
+●000062●name●クラスメート
+
+# idx=000063 file=PS2T035A.BIN off=0x00000CF8 inst=0x00000CF8 tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place speaker_idx=000062 name=クラスメート name_id=CM speaker_code=CM92070 name_source=prev_voice_label pair=000062 confidence=low full_name=クラスメート
+○000063●text○「いや、あんたにあやまられても」
+●000063●text●「いや、あんたにあやまられても」
+
+# idx=000064 file=PS2T035A.BIN off=0x00000D89 inst=0x00000D89 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000064●label○KT90410
+●000064●label●KT90410
+
+# idx=000065 file=PS2T035A.BIN off=0x00000D98 inst=0x00000D89 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT90410 name_source=prev_voice_label virtual=true writable=false pair=000066 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000065●name○千佳
+●000065●name●千佳
+
+# idx=000066 file=PS2T035A.BIN off=0x00000D98 inst=0x00000D98 tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place speaker_idx=000065 name=千佳 name_id=KT speaker_code=KT90410 name_source=prev_voice_label pair=000065 confidence=medium full_name=木村千佳
+○000066●text○「えー、だって、玉ちゃんの保護者だからー」
+●000066●text●「えー、だって、玉ちゃんの保護者だからー」
+
+# idx=000067 file=PS2T035A.BIN off=0x00000DEF inst=0x00000DEF tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000067●label○CM92080
+●000067●label●CM92080
+
+# idx=000068 file=PS2T035A.BIN off=0x00000DFE inst=0x00000DEF tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM92080 name_source=prev_voice_label virtual=true writable=false pair=000069 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000068●name○クラスメート
+●000068●name●クラスメート
+
+# idx=000069 file=PS2T035A.BIN off=0x00000DFE inst=0x00000DFE tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place speaker_idx=000068 name=クラスメート name_id=CM speaker_code=CM92080 name_source=prev_voice_label pair=000068 confidence=low full_name=クラスメート
+○000069●text○「え……なに、玉城っていっつもあんな感じ？」
+●000069●text●「え……なに、玉城っていっつもあんな感じ？」
+
+# idx=000070 file=PS2T035A.BIN off=0x00000E9B inst=0x00000E9B tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000070●label○KT90420
+●000070●label●KT90420
+
+# idx=000071 file=PS2T035A.BIN off=0x00000EAA inst=0x00000E9B tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT90420 name_source=prev_voice_label virtual=true writable=false pair=000072 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000071●name○千佳
+●000071●name●千佳
+
+# idx=000072 file=PS2T035A.BIN off=0x00000EAA inst=0x00000EAA tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place speaker_idx=000071 name=千佳 name_id=KT speaker_code=KT90420 name_source=prev_voice_label pair=000071 confidence=medium full_name=木村千佳
+○000072●text○「うん、練習とか努力って聞くと逃げちゃうのー。\nでも、大丈夫。千佳がね、ちゃんとお話するから」
+●000072●text●「うん、練習とか努力って聞くと逃げちゃうのー。\nでも、大丈夫。千佳がね、ちゃんとお話するから」
+
+# idx=000073 file=PS2T035A.BIN off=0x00000F24 inst=0x00000F24 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000073●label○CM92090
+●000073●label●CM92090
+
+# idx=000074 file=PS2T035A.BIN off=0x00000F33 inst=0x00000F24 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM92090 name_source=prev_voice_label virtual=true writable=false pair=000075 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000074●name○クラスメート
+●000074●name●クラスメート
+
+# idx=000075 file=PS2T035A.BIN off=0x00000F33 inst=0x00000F33 tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place speaker_idx=000074 name=クラスメート name_id=CM speaker_code=CM92090 name_source=prev_voice_label pair=000074 confidence=low full_name=クラスメート
+○000075●text○「で、木村はどーする、練習？」
+●000075●text●「で、木村はどーする、練習？」
+
+# idx=000076 file=PS2T035A.BIN off=0x00000FC2 inst=0x00000FC2 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000076●label○KT90430
+●000076●label●KT90430
+
+# idx=000077 file=PS2T035A.BIN off=0x00000FD1 inst=0x00000FC2 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT90430 name_source=prev_voice_label virtual=true writable=false pair=000078 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000077●name○千佳
+●000077●name●千佳
+
+# idx=000078 file=PS2T035A.BIN off=0x00000FD1 inst=0x00000FD1 tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place speaker_idx=000077 name=千佳 name_id=KT speaker_code=KT90430 name_source=prev_voice_label pair=000077 confidence=medium full_name=木村千佳
+○000078●text○「あ、う～ん……でも、千佳、みんなに迷惑\nかけちゃうし」
+●000078●text●「あ、う～ん……でも、千佳、みんなに迷惑\nかけちゃうし」
+
+# idx=000079 file=PS2T035A.BIN off=0x00001025 inst=0x00001025 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000079●label○CM92100
+●000079●label●CM92100
+
+# idx=000080 file=PS2T035A.BIN off=0x00001034 inst=0x00001025 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM92100 name_source=prev_voice_label virtual=true writable=false pair=000081 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000080●name○クラスメート
+●000080●name●クラスメート
+
+# idx=000081 file=PS2T035A.BIN off=0x00001034 inst=0x00001034 tag=text source=inline_len8_string len=104 enc=cp932 policy=in_place speaker_idx=000080 name=クラスメート name_id=CM speaker_code=CM92100 name_source=prev_voice_label pair=000080 confidence=low full_name=クラスメート
+○000081●text○「じゃあ、一応、顔だけ出してよ。無理しなくて\nいいから。それだけしてくれりゃ、みんな、文句\nいわないし」
+●000081●text●「じゃあ、一応、顔だけ出してよ。無理しなくて\nいいから。それだけしてくれりゃ、みんな、文句\nいわないし」
+
+# idx=000082 file=PS2T035A.BIN off=0x0000110D inst=0x0000110D tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000082●label○KT90440
+●000082●label●KT90440
+
+# idx=000083 file=PS2T035A.BIN off=0x0000111C inst=0x0000110D tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT90440 name_source=prev_voice_label virtual=true writable=false pair=000084 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000083●name○千佳
+●000083●name●千佳
+
+# idx=000084 file=PS2T035A.BIN off=0x0000111C inst=0x0000111C tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place speaker_idx=000083 name=千佳 name_id=KT speaker_code=KT90440 name_source=prev_voice_label pair=000083 confidence=medium full_name=木村千佳
+○000084●text○「う～ん、ごめんねー。そーするー」
+●000084●text●「う～ん、ごめんねー。そーするー」
+
+# idx=000085 file=PS2T035A.BIN off=0x000011B0 inst=0x000011B0 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000085●label○HF90260
+●000085●label●HF90260
+
+# idx=000086 file=PS2T035A.BIN off=0x000011BF inst=0x000011B0 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF90260 name_source=prev_voice_label virtual=true writable=false pair=000087 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000086●name○遥
+●000086●name●遥
+
+# idx=000087 file=PS2T035A.BIN off=0x000011BF inst=0x000011BF tag=text source=inline_len8_string len=99 enc=cp932 policy=in_place speaker_idx=000086 name=遥 name_id=HF speaker_code=HF90260 name_source=prev_voice_label pair=000086 confidence=medium full_name=藤之辺遥
+○000087●text○「……なに？ 玉に逃げられたんだ。飼い主が、\nちゃんとしつけしてないからさ。あまやかして\nばっかり」
+●000087●text●「……なに？ 玉に逃げられたんだ。飼い主が、\nちゃんとしつけしてないからさ。あまやかして\nばっかり」
+
+# idx=000088 file=PS2T035A.BIN off=0x00001293 inst=0x00001293 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000088●label○KT90450
+●000088●label●KT90450
+
+# idx=000089 file=PS2T035A.BIN off=0x000012A2 inst=0x00001293 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT90450 name_source=prev_voice_label virtual=true writable=false pair=000090 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000089●name○千佳
+●000089●name●千佳
+
+# idx=000090 file=PS2T035A.BIN off=0x000012A2 inst=0x000012A2 tag=text source=inline_len8_string len=18 enc=cp932 policy=in_place speaker_idx=000089 name=千佳 name_id=KT speaker_code=KT90450 name_source=prev_voice_label pair=000089 confidence=medium full_name=木村千佳
+○000090●text○「……遥ちゃ～ん」
+●000090●text●「……遥ちゃ～ん」
+
+# idx=000091 file=PS2T035A.BIN off=0x000012D0 inst=0x000012D0 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000091●label○CM92110
+●000091●label●CM92110
+
+# idx=000092 file=PS2T035A.BIN off=0x000012DF inst=0x000012D0 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM92110 name_source=prev_voice_label virtual=true writable=false pair=000093 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000092●name○クラスメート
+●000092●name●クラスメート
+
+# idx=000093 file=PS2T035A.BIN off=0x000012DF inst=0x000012DF tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place speaker_idx=000092 name=クラスメート name_id=CM speaker_code=CM92110 name_source=prev_voice_label pair=000092 confidence=low full_name=クラスメート
+○000093●text○「なに、飼い主って？……ああ、飼い主ね」
+●000093●text●「なに、飼い主って？……ああ、飼い主ね」
+
+# idx=000094 file=PS2T035A.BIN off=0x00001378 inst=0x00001378 tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place
+○000094●text○みんなが、そろってぼくを見ている。
+●000094●text●みんなが、そろってぼくを見ている。
+
+# idx=000095 file=PS2T035A.BIN off=0x000013B6 inst=0x000013B6 tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000095●text○「見るなよ」
+●000095●text●「見るなよ」
+
+# idx=000096 file=PS2T035A.BIN off=0x0000146F inst=0x0000146F tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000096●label○HF90270
+●000096●label●HF90270
+
+# idx=000097 file=PS2T035A.BIN off=0x0000147E inst=0x0000146F tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF90270 name_source=prev_voice_label virtual=true writable=false pair=000098 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000097●name○遥
+●000097●name●遥
+
+# idx=000098 file=PS2T035A.BIN off=0x0000147E inst=0x0000147E tag=text source=inline_len8_string len=18 enc=cp932 policy=in_place speaker_idx=000097 name=遥 name_id=HF speaker_code=HF90270 name_source=prev_voice_label pair=000097 confidence=medium full_name=藤之辺遥
+○000098●text○「自覚はあるんだ」
+●000098●text●「自覚はあるんだ」
+
+# idx=000099 file=PS2T035A.BIN off=0x000014AC inst=0x000014AC tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000099●label○CM92120
+●000099●label●CM92120
+
+# idx=000100 file=PS2T035A.BIN off=0x000014BB inst=0x000014AC tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM92120 name_source=prev_voice_label virtual=true writable=false pair=000101 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000100●name○クラスメート
+●000100●name●クラスメート
+
+# idx=000101 file=PS2T035A.BIN off=0x000014BB inst=0x000014BB tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place speaker_idx=000100 name=クラスメート name_id=CM speaker_code=CM92120 name_source=prev_voice_label pair=000100 confidence=low full_name=クラスメート
+○000101●text○「それはいいけど、お藤はどーする？\nバスケの連中、待ってたけど」
+●000101●text●「それはいいけど、お藤はどーする？\nバスケの連中、待ってたけど」
+
+# idx=000102 file=PS2T035A.BIN off=0x00001517 inst=0x00001517 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000102●label○HF90280
+●000102●label●HF90280
+
+# idx=000103 file=PS2T035A.BIN off=0x00001526 inst=0x00001517 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF90280 name_source=prev_voice_label virtual=true writable=false pair=000104 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000103●name○遥
+●000103●name●遥
+
+# idx=000104 file=PS2T035A.BIN off=0x00001526 inst=0x00001526 tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place speaker_idx=000103 name=遥 name_id=HF speaker_code=HF90280 name_source=prev_voice_label pair=000103 confidence=medium full_name=藤之辺遥
+○000104●text○「あー、補欠にしといてくんないかなあ。\n球技大会、ズラすかもしれないし」
+●000104●text●「あー、補欠にしといてくんないかなあ。\n球技大会、ズラすかもしれないし」
+
+# idx=000105 file=PS2T035A.BIN off=0x0000158A inst=0x0000158A tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000105●label○CM92130
+●000105●label●CM92130
+
+# idx=000106 file=PS2T035A.BIN off=0x00001599 inst=0x0000158A tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM92130 name_source=prev_voice_label virtual=true writable=false pair=000107 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000106●name○クラスメート
+●000106●name●クラスメート
+
+# idx=000107 file=PS2T035A.BIN off=0x00001599 inst=0x00001599 tag=text source=inline_len8_string len=114 enc=cp932 policy=in_place speaker_idx=000106 name=クラスメート name_id=CM speaker_code=CM92130 name_source=prev_voice_label pair=000106 confidence=low full_name=クラスメート
+○000107●text○「ええ～、それはゆるしてよ～。１回戦で\n負けそうなメンバーなんだー。お藤がいて\nくれないと、どーにもなんないよー」
+●000107●text●「ええ～、それはゆるしてよ～。１回戦で\n負けそうなメンバーなんだー。お藤がいて\nくれないと、どーにもなんないよー」
+
+# idx=000108 file=PS2T035A.BIN off=0x0000167D inst=0x0000167D tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000108●label○HF90290
+●000108●label●HF90290
+
+# idx=000109 file=PS2T035A.BIN off=0x0000168C inst=0x0000167D tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF90290 name_source=prev_voice_label virtual=true writable=false pair=000110 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000109●name○遥
+●000109●name●遥
+
+# idx=000110 file=PS2T035A.BIN off=0x0000168C inst=0x0000168C tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place speaker_idx=000109 name=遥 name_id=HF speaker_code=HF90290 name_source=prev_voice_label pair=000109 confidence=medium full_name=藤之辺遥
+○000110●text○「いや……悪いけどさ。全然やる気ないんだ」
+●000110●text●「いや……悪いけどさ。全然やる気ないんだ」
+
+# idx=000111 file=PS2T035A.BIN off=0x000016D2 inst=0x000016D2 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000111●label○CM92140
+●000111●label●CM92140
+
+# idx=000112 file=PS2T035A.BIN off=0x000016E1 inst=0x000016D2 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM92140 name_source=prev_voice_label virtual=true writable=false pair=000113 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000112●name○クラスメート
+●000112●name●クラスメート
+
+# idx=000113 file=PS2T035A.BIN off=0x000016E1 inst=0x000016E1 tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place speaker_idx=000112 name=クラスメート name_id=CM speaker_code=CM92140 name_source=prev_voice_label pair=000112 confidence=low full_name=クラスメート
+○000113●text○「そこを、なんとか。練習、顔出してくれる\nだけでいいんだけど」
+●000113●text●「そこを、なんとか。練習、顔出してくれる\nだけでいいんだけど」
+
+# idx=000114 file=PS2T035A.BIN off=0x00001791 inst=0x00001791 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000114●label○HF90300
+●000114●label●HF90300
+
+# idx=000115 file=PS2T035A.BIN off=0x000017A0 inst=0x00001791 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF90300 name_source=prev_voice_label virtual=true writable=false pair=000116 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000115●name○遥
+●000115●name●遥
+
+# idx=000116 file=PS2T035A.BIN off=0x000017A0 inst=0x000017A0 tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place speaker_idx=000115 name=遥 name_id=HF speaker_code=HF90300 name_source=prev_voice_label pair=000115 confidence=medium full_name=藤之辺遥
+○000116●text○「そんなこといわれてもなー」
+●000116●text●「そんなこといわれてもなー」
+
+# idx=000117 file=PS2T035A.BIN off=0x0000182D inst=0x0000182D tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000117●label○KT90460
+●000117●label●KT90460
+
+# idx=000118 file=PS2T035A.BIN off=0x0000183C inst=0x0000182D tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT90460 name_source=prev_voice_label virtual=true writable=false pair=000119 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000118●name○千佳
+●000118●name●千佳
+
+# idx=000119 file=PS2T035A.BIN off=0x0000183C inst=0x0000183C tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place speaker_idx=000118 name=千佳 name_id=KT speaker_code=KT90460 name_source=prev_voice_label pair=000118 confidence=medium full_name=木村千佳
+○000119●text○「くすっ。遥ちゃん……なんか、玉ちゃん\nみた～い」
+●000119●text●「くすっ。遥ちゃん……なんか、玉ちゃん\nみた～い」
+
+# idx=000120 file=PS2T035A.BIN off=0x000018E0 inst=0x000018E0 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000120●label○HF90310
+●000120●label●HF90310
+
+# idx=000121 file=PS2T035A.BIN off=0x000018EF inst=0x000018E0 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF90310 name_source=prev_voice_label virtual=true writable=false pair=000122 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000121●name○遥
+●000121●name●遥
+
+# idx=000122 file=PS2T035A.BIN off=0x000018EF inst=0x000018EF tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place speaker_idx=000121 name=遥 name_id=HF speaker_code=HF90310 name_source=prev_voice_label pair=000121 confidence=medium full_name=藤之辺遥
+○000122●text○「……千佳ぁ。なんだよ、それえ。私の、なにが\n玉とにてるって？」
+●000122●text●「……千佳ぁ。なんだよ、それえ。私の、なにが\n玉とにてるって？」
+
+# idx=000123 file=PS2T035A.BIN off=0x0000194B inst=0x0000194B tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000123●label○KT90470
+●000123●label●KT90470
+
+# idx=000124 file=PS2T035A.BIN off=0x0000195A inst=0x0000194B tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT90470 name_source=prev_voice_label virtual=true writable=false pair=000125 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000124●name○千佳
+●000124●name●千佳
+
+# idx=000125 file=PS2T035A.BIN off=0x0000195A inst=0x0000195A tag=text source=inline_len8_string len=109 enc=cp932 policy=in_place speaker_idx=000124 name=千佳 name_id=KT speaker_code=KT90470 name_source=prev_voice_label pair=000124 confidence=medium full_name=木村千佳
+○000125●text○「だって、練習やだ～って、グズってるんで\nしょー？ 玉ちゃんと一緒だ～って思ったら、\nおかしくなっちゃったー」
+●000125●text●「だって、練習やだ～って、グズってるんで\nしょー？ 玉ちゃんと一緒だ～って思ったら、\nおかしくなっちゃったー」
+
+# idx=000126 file=PS2T035A.BIN off=0x00001A39 inst=0x00001A39 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000126●label○HF90320
+●000126●label●HF90320
+
+# idx=000127 file=PS2T035A.BIN off=0x00001A48 inst=0x00001A39 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF90320 name_source=prev_voice_label virtual=true writable=false pair=000128 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000127●name○遥
+●000127●name●遥
+
+# idx=000128 file=PS2T035A.BIN off=0x00001A48 inst=0x00001A48 tag=text source=inline_len8_string len=105 enc=cp932 policy=in_place speaker_idx=000127 name=遥 name_id=HF speaker_code=HF90320 name_source=prev_voice_label pair=000127 confidence=medium full_name=藤之辺遥
+○000128●text○「あぁ……もう、千佳はなあ……。わかったよ。\nつきあえば、いいんだろ？ 川畑ァ、体育館\n行けばいいわけ？」
+●000128●text●「あぁ……もう、千佳はなあ……。わかったよ。\nつきあえば、いいんだろ？ 川畑ァ、体育館\n行けばいいわけ？」
+
+# idx=000129 file=PS2T035A.BIN off=0x00001ACD inst=0x00001ACD tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000129●label○CM92150
+●000129●label●CM92150
+
+# idx=000130 file=PS2T035A.BIN off=0x00001ADC inst=0x00001ACD tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM92150 name_source=prev_voice_label virtual=true writable=false pair=000131 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000130●name○クラスメート
+●000130●name●クラスメート
+
+# idx=000131 file=PS2T035A.BIN off=0x00001ADC inst=0x00001ADC tag=text source=inline_len8_string len=110 enc=cp932 policy=in_place speaker_idx=000130 name=クラスメート name_id=CM speaker_code=CM92150 name_source=prev_voice_label pair=000130 confidence=low full_name=クラスメート
+○000131●text○「あ、うん。そうだけど。あ、お藤、来て\nくれたら、みんなやる気出ると思うなあ。\nあ、うれしい。すごく助かる～」
+●000131●text●「あ、うん。そうだけど。あ、お藤、来て\nくれたら、みんなやる気出ると思うなあ。\nあ、うれしい。すごく助かる～」
+
+# idx=000132 file=PS2T035A.BIN off=0x00001BD5 inst=0x00001BD5 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000132●label○KT90480
+●000132●label●KT90480
+
+# idx=000133 file=PS2T035A.BIN off=0x00001BE4 inst=0x00001BD5 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT90480 name_source=prev_voice_label virtual=true writable=false pair=000134 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000133●name○千佳
+●000133●name●千佳
+
+# idx=000134 file=PS2T035A.BIN off=0x00001BE4 inst=0x00001BE4 tag=text source=inline_len8_string len=90 enc=cp932 policy=in_place speaker_idx=000133 name=千佳 name_id=KT speaker_code=KT90480 name_source=prev_voice_label pair=000133 confidence=medium full_name=木村千佳
+○000134●text○「じゃあね、みんなで体育館行ってるからって、\n玉ちゃん、かえって来たら、おしえてあげて～」
+●000134●text●「じゃあね、みんなで体育館行ってるからって、\n玉ちゃん、かえって来たら、おしえてあげて～」
+
+# idx=000135 file=PS2T035A.BIN off=0x00001CB0 inst=0x00001CB0 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=遥 name_id=HF confidence=medium
+○000135●label○HF90330
+●000135●label●HF90330
+
+# idx=000136 file=PS2T035A.BIN off=0x00001CBF inst=0x00001CB0 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=HF speaker_code=HF90330 name_source=prev_voice_label virtual=true writable=false pair=000137 confidence=medium full_name=藤之辺遥 basis=KT_lines_address_遥ちゃん;_narration_identifies_藤之辺_nearby
+○000136●name○遥
+●000136●name●遥
+
+# idx=000137 file=PS2T035A.BIN off=0x00001CBF inst=0x00001CBF tag=text source=inline_len8_string len=88 enc=cp932 policy=in_place speaker_idx=000136 name=遥 name_id=HF speaker_code=HF90330 name_source=prev_voice_label pair=000136 confidence=medium full_name=藤之辺遥
+○000137●text○「あ～あ、もう……。千佳ぁ、私は別に球技大会、興味ないんだからね。行っても、すぐ帰るよ」
+●000137●text●「あ～あ、もう……。千佳ぁ、私は別に球技大会、興味ないんだからね。行っても、すぐ帰るよ」
+
+# idx=000138 file=PS2T035A.BIN off=0x00001D88 inst=0x00001D88 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=千佳 name_id=KT confidence=medium
+○000138●label○KT90490
+●000138●label●KT90490
+
+# idx=000139 file=PS2T035A.BIN off=0x00001D97 inst=0x00001D88 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=KT speaker_code=KT90490 name_source=prev_voice_label virtual=true writable=false pair=000140 confidence=medium full_name=木村千佳 basis=KT_lines_address_玉/遥;_narration_identifies_木村_nearby
+○000139●name○千佳
+●000139●name●千佳
+
+# idx=000140 file=PS2T035A.BIN off=0x00001D97 inst=0x00001D97 tag=text source=inline_len8_string len=100 enc=cp932 policy=in_place speaker_idx=000139 name=千佳 name_id=KT speaker_code=KT90490 name_source=prev_voice_label pair=000139 confidence=medium full_name=木村千佳
+○000140●text○「ええ～、遥ちゃん、わかってるよー。\nでもねー、遥ちゃんが行くと、みんな喜んで\nくれると思うからー」
+●000140●text●「ええ～、遥ちゃん、わかってるよー。\nでもねー、遥ちゃんが行くと、みんな喜んで\nくれると思うからー」
+
+# idx=000141 file=PS2T035A.BIN off=0x00001E65 inst=0x00001E65 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000141●text○女子がぞろぞろ教室を出ていくと、すっかり\n殺風景。
+●000141●text●女子がぞろぞろ教室を出ていくと、すっかり\n殺風景。
+
+# idx=000142 file=PS2T035A.BIN off=0x00001EB3 inst=0x00001EB3 tag=text source=inline_len8_string len=66 enc=cp932 policy=in_place
+○000142●text○玉をこのまま、待っててもな。\nいつ、帰って来るんだかわかんないし。
+●000142●text●玉をこのまま、待っててもな。\nいつ、帰って来るんだかわかんないし。
+
+# idx=000143 file=PS2T035A.BIN off=0x00001F11 inst=0x00001F11 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000143●text○うん……。\n……購買でジュースでも買ってこよっか。
+●000143●text●うん……。\n……購買でジュースでも買ってこよっか。
+
+# idx=000144 file=PS2T035A.BIN off=0x00001FAF inst=0x00001FAF tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000144●text○そう思ったとき、呼びとめられた。\n仲田と鈴木。
+●000144●text●そう思ったとき、呼びとめられた。\n仲田と鈴木。
+
+# idx=000145 file=PS2T035A.BIN off=0x00001FF9 inst=0x00001FF9 tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place
+○000145●text○「ん～、どした～？」
+●000145●text●「ん～、どした～？」
+
+# idx=000146 file=PS2T035A.BIN off=0x00002029 inst=0x00002029 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000146●label○CM93010
+●000146●label●CM93010
+
+# idx=000147 file=PS2T035A.BIN off=0x00002038 inst=0x00002029 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM93010 name_source=prev_voice_label virtual=true writable=false pair=000148 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000147●name○クラスメート
+●000147●name●クラスメート
+
+# idx=000148 file=PS2T035A.BIN off=0x00002038 inst=0x00002038 tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place speaker_idx=000147 name=クラスメート name_id=CM speaker_code=CM93010 name_source=prev_voice_label pair=000147 confidence=low full_name=クラスメート
+○000148●text○「お前、よく藤之辺と話してられってよぉ」
+●000148●text●「お前、よく藤之辺と話してられってよぉ」
+
+# idx=000149 file=PS2T035A.BIN off=0x0000207C inst=0x0000207C tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place
+○000149●text○「ん～、なにがー？」
+●000149●text●「ん～、なにがー？」
+
+# idx=000150 file=PS2T035A.BIN off=0x000020AC inst=0x000020AC tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000150●label○CM93020
+●000150●label●CM93020
+
+# idx=000151 file=PS2T035A.BIN off=0x000020BB inst=0x000020AC tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM93020 name_source=prev_voice_label virtual=true writable=false pair=000152 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000151●name○クラスメート
+●000151●name●クラスメート
+
+# idx=000152 file=PS2T035A.BIN off=0x000020BB inst=0x000020BB tag=text source=inline_len8_string len=109 enc=cp932 policy=in_place speaker_idx=000151 name=クラスメート name_id=CM speaker_code=CM93020 name_source=prev_voice_label pair=000151 confidence=low full_name=クラスメート
+○000152●text○「だってよ、アレ、こわくない？ ヒトのこと、\nにらむなって。２年になって、急にアレでよ。\nなにがあったあ～？」
+●000152●text●「だってよ、アレ、こわくない？ ヒトのこと、\nにらむなって。２年になって、急にアレでよ。\nなにがあったあ～？」
+
+# idx=000153 file=PS2T035A.BIN off=0x00002144 inst=0x00002144 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000153●label○CM91060
+●000153●label●CM91060
+
+# idx=000154 file=PS2T035A.BIN off=0x00002153 inst=0x00002144 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM91060 name_source=prev_voice_label virtual=true writable=false pair=000155 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000154●name○クラスメート
+●000154●name●クラスメート
+
+# idx=000155 file=PS2T035A.BIN off=0x00002153 inst=0x00002153 tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place speaker_idx=000154 name=クラスメート name_id=CM speaker_code=CM91060 name_source=prev_voice_label pair=000154 confidence=low full_name=クラスメート
+○000155●text○「リューちゃん、１年ンとき、同じクラスだった\nよなー」
+●000155●text●「リューちゃん、１年ンとき、同じクラスだった\nよなー」
+
+# idx=000156 file=PS2T035A.BIN off=0x000021A5 inst=0x000021A5 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000156●label○CM93030
+●000156●label●CM93030
+
+# idx=000157 file=PS2T035A.BIN off=0x000021B4 inst=0x000021A5 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM93030 name_source=prev_voice_label virtual=true writable=false pair=000158 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000157●name○クラスメート
+●000157●name●クラスメート
+
+# idx=000158 file=PS2T035A.BIN off=0x000021B4 inst=0x000021B4 tag=text source=inline_len8_string len=112 enc=cp932 policy=in_place speaker_idx=000157 name=クラスメート name_id=CM speaker_code=CM93030 name_source=prev_voice_label pair=000157 confidence=low full_name=クラスメート
+○000158●text○「あぁ。１年ンとき、フツーってゆーか、地味\nだったって。いや、地味っつーか、ダサくってよ、\n優等生って感じでさ」
+●000158●text●「あぁ。１年ンとき、フツーってゆーか、地味\nだったって。いや、地味っつーか、ダサくってよ、\n優等生って感じでさ」
+
+# idx=000159 file=PS2T035A.BIN off=0x00002240 inst=0x00002240 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000159●label○CM93040
+●000159●label●CM93040
+
+# idx=000160 file=PS2T035A.BIN off=0x0000224F inst=0x00002240 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM93040 name_source=prev_voice_label virtual=true writable=false pair=000161 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000160●name○クラスメート
+●000160●name●クラスメート
+
+# idx=000161 file=PS2T035A.BIN off=0x0000224F inst=0x0000224F tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place speaker_idx=000160 name=クラスメート name_id=CM speaker_code=CM93040 name_source=prev_voice_label pair=000160 confidence=low full_name=クラスメート
+○000161●text○「木村は変わってねーけどよ」
+●000161●text●「木村は変わってねーけどよ」
+
+# idx=000162 file=PS2T035A.BIN off=0x00002287 inst=0x00002287 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000162●text○「ああ、変わんなそうだね」
+●000162●text●「ああ、変わんなそうだね」
+
+# idx=000163 file=PS2T035A.BIN off=0x000022BD inst=0x000022BD tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000163●label○CM93050
+●000163●label●CM93050
+
+# idx=000164 file=PS2T035A.BIN off=0x000022CC inst=0x000022BD tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM93050 name_source=prev_voice_label virtual=true writable=false pair=000165 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000164●name○クラスメート
+●000164●name●クラスメート
+
+# idx=000165 file=PS2T035A.BIN off=0x000022CC inst=0x000022CC tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place speaker_idx=000164 name=クラスメート name_id=CM speaker_code=CM93050 name_source=prev_voice_label pair=000164 confidence=low full_name=クラスメート
+○000165●text○「違うって」
+●000165●text●「違うって」
+
+# idx=000166 file=PS2T035A.BIN off=0x000022F4 inst=0x000022F4 tag=text source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000166●text○「なにが」
+●000166●text●「なにが」
+
+# idx=000167 file=PS2T035A.BIN off=0x0000231A inst=0x0000231A tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000167●label○CM93060
+●000167●label●CM93060
+
+# idx=000168 file=PS2T035A.BIN off=0x00002329 inst=0x0000231A tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM93060 name_source=prev_voice_label virtual=true writable=false pair=000169 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000168●name○クラスメート
+●000168●name●クラスメート
+
+# idx=000169 file=PS2T035A.BIN off=0x00002329 inst=0x00002329 tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place speaker_idx=000168 name=クラスメート name_id=CM speaker_code=CM93060 name_source=prev_voice_label pair=000168 confidence=low full_name=クラスメート
+○000169●text○「話しとこーと思ったんだよ」
+●000169●text●「話しとこーと思ったんだよ」
+
+# idx=000170 file=PS2T035A.BIN off=0x00002361 inst=0x00002361 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000170●label○CM93070
+●000170●label●CM93070
+
+# idx=000171 file=PS2T035A.BIN off=0x00002370 inst=0x00002361 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM93070 name_source=prev_voice_label virtual=true writable=false pair=000172 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000171●name○クラスメート
+●000171●name●クラスメート
+
+# idx=000172 file=PS2T035A.BIN off=0x00002370 inst=0x00002370 tag=text source=inline_len8_string len=108 enc=cp932 policy=in_place speaker_idx=000171 name=クラスメート name_id=CM speaker_code=CM93070 name_source=prev_voice_label pair=000171 confidence=low full_name=クラスメート
+○000172●text○「あのよ、この前よ、アンデラのバイトに\nかわいーのがいるって聞いたって。なんかよ、\nＢ級アイドル級の美少女」
+●000172●text●「あのよ、この前よ、アンデラのバイトに\nかわいーのがいるって聞いたって。なんかよ、\nＢ級アイドル級の美少女」
+
+# idx=000173 file=PS2T035A.BIN off=0x000023F8 inst=0x000023F8 tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000173●text○「それも微妙なたとえで、わかりにくいけどな」
+●000173●text●「それも微妙なたとえで、わかりにくいけどな」
+
+# idx=000174 file=PS2T035A.BIN off=0x00002440 inst=0x00002440 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000174●label○CM93080
+●000174●label●CM93080
+
+# idx=000175 file=PS2T035A.BIN off=0x0000244F inst=0x00002440 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM93080 name_source=prev_voice_label virtual=true writable=false pair=000176 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000175●name○クラスメート
+●000175●name●クラスメート
+
+# idx=000176 file=PS2T035A.BIN off=0x0000244F inst=0x0000244F tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place speaker_idx=000175 name=クラスメート name_id=CM speaker_code=CM93080 name_source=prev_voice_label pair=000175 confidence=low full_name=クラスメート
+○000176●text○「まあな。でよ、鈴木とハッシーといって\nみたんだ」
+●000176●text●「まあな。でよ、鈴木とハッシーといって\nみたんだ」
+
+# idx=000177 file=PS2T035A.BIN off=0x0000249D inst=0x0000249D tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000177●label○CM93090
+●000177●label●CM93090
+
+# idx=000178 file=PS2T035A.BIN off=0x000024AC inst=0x0000249D tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM93090 name_source=prev_voice_label virtual=true writable=false pair=000179 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000178●name○クラスメート
+●000178●name●クラスメート
+
+# idx=000179 file=PS2T035A.BIN off=0x000024AC inst=0x000024AC tag=text source=inline_len8_string len=104 enc=cp932 policy=in_place speaker_idx=000178 name=クラスメート name_id=CM speaker_code=CM93090 name_source=prev_voice_label pair=000178 confidence=low full_name=クラスメート
+○000179●text○「そしたらよ、玉城でやんの。なんだよー、とか\n思ったら、ナンパされてんだって。バンドの\n兄ちゃんたちに」
+●000179●text●「そしたらよ、玉城でやんの。なんだよー、とか\n思ったら、ナンパされてんだって。バンドの\n兄ちゃんたちに」
+
+# idx=000180 file=PS2T035A.BIN off=0x00002543 inst=0x00002543 tag=text source=inline_len8_string len=16 enc=cp932 policy=in_place
+○000180●text○ああ……またか。
+●000180●text●ああ……またか。
+
+# idx=000181 file=PS2T035A.BIN off=0x0000256F inst=0x0000256F tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place
+○000181●text○おかしいよ、世間って。玉のこと、知らな\nすぎるよ。\n……ってゆーか、知ってる方がおかしいのか。
+●000181●text●おかしいよ、世間って。玉のこと、知らな\nすぎるよ。\n……ってゆーか、知ってる方がおかしいのか。
+
+# idx=000182 file=PS2T035A.BIN off=0x000025FC inst=0x000025FC tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000182●label○CM93101
+●000182●label●CM93101
+
+# idx=000183 file=PS2T035A.BIN off=0x0000260B inst=0x000025FC tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM93101 name_source=prev_voice_label virtual=true writable=false pair=000184 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000183●name○クラスメート
+●000183●name●クラスメート
+
+# idx=000184 file=PS2T035A.BIN off=0x0000260B inst=0x0000260B tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place speaker_idx=000183 name=クラスメート name_id=CM speaker_code=CM93101 name_source=prev_voice_label pair=000183 confidence=low full_name=クラスメート
+○000184●text○「でよ、でよ、そーゆーとき、玉城、フツー\nなのな」
+●000184●text●「でよ、でよ、そーゆーとき、玉城、フツー\nなのな」
+
+# idx=000185 file=PS2T035A.BIN off=0x00002659 inst=0x00002659 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000185●label○CM93102
+●000185●label●CM93102
+
+# idx=000186 file=PS2T035A.BIN off=0x00002668 inst=0x00002659 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM93102 name_source=prev_voice_label virtual=true writable=false pair=000187 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000186●name○クラスメート
+●000186●name●クラスメート
+
+# idx=000187 file=PS2T035A.BIN off=0x00002668 inst=0x00002668 tag=text source=inline_len8_string len=98 enc=cp932 policy=in_place speaker_idx=000186 name=クラスメート name_id=CM speaker_code=CM93102 name_source=prev_voice_label pair=000186 confidence=low full_name=クラスメート
+○000187●text○「『ええ～、バイト中だからダメだも～ん』\nとかさ、『嶋さんに怒られちゃう～』とか、\nいってんのよ」
+●000187●text●「『ええ～、バイト中だからダメだも～ん』\nとかさ、『嶋さんに怒られちゃう～』とか、\nいってんのよ」
+
+# idx=000188 file=PS2T035A.BIN off=0x000026E6 inst=0x000026E6 tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place
+○000188●text○ああ、例のよそ行きの顔してたわけね。\nもう、使い分けてるなあ、しっかり。
+●000188●text●ああ、例のよそ行きの顔してたわけね。\nもう、使い分けてるなあ、しっかり。
+
+# idx=000189 file=PS2T035A.BIN off=0x0000274A inst=0x0000274A tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000189●label○CM93111
+●000189●label●CM93111
+
+# idx=000190 file=PS2T035A.BIN off=0x00002759 inst=0x0000274A tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM93111 name_source=prev_voice_label virtual=true writable=false pair=000191 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000190●name○クラスメート
+●000190●name●クラスメート
+
+# idx=000191 file=PS2T035A.BIN off=0x00002759 inst=0x00002759 tag=text source=inline_len8_string len=104 enc=cp932 policy=in_place speaker_idx=000190 name=クラスメート name_id=CM speaker_code=CM93111 name_source=prev_voice_label pair=000190 confidence=low full_name=クラスメート
+○000191●text○「全然違うじゃん、学校と。でよ、『帰り、迎え\n来るから、一緒帰れないんだー。ごめんねー』\nとかいってさ」
+●000191●text●「全然違うじゃん、学校と。でよ、『帰り、迎え\n来るから、一緒帰れないんだー。ごめんねー』\nとかいってさ」
+
+# idx=000192 file=PS2T035A.BIN off=0x000027DD inst=0x000027DD tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000192●label○CM93112
+●000192●label●CM93112
+
+# idx=000193 file=PS2T035A.BIN off=0x000027EC inst=0x000027DD tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM93112 name_source=prev_voice_label virtual=true writable=false pair=000194 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000193●name○クラスメート
+●000193●name●クラスメート
+
+# idx=000194 file=PS2T035A.BIN off=0x000027EC inst=0x000027EC tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place speaker_idx=000193 name=クラスメート name_id=CM speaker_code=CM93112 name_source=prev_voice_label pair=000193 confidence=low full_name=クラスメート
+○000194●text○「なに、お前、毎日、迎え行ってんの？」
+●000194●text●「なに、お前、毎日、迎え行ってんの？」
+
+# idx=000195 file=PS2T035A.BIN off=0x0000282E inst=0x0000282E tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place
+○000195●text○「う～……まあねえ。行かないとさあ……」
+●000195●text●「う～……まあねえ。行かないとさあ……」
+
+# idx=000196 file=PS2T035A.BIN off=0x00002872 inst=0x00002872 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000196●label○CM93120
+●000196●label●CM93120
+
+# idx=000197 file=PS2T035A.BIN off=0x00002881 inst=0x00002872 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM93120 name_source=prev_voice_label virtual=true writable=false pair=000198 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000197●name○クラスメート
+●000197●name●クラスメート
+
+# idx=000198 file=PS2T035A.BIN off=0x00002881 inst=0x00002881 tag=text source=inline_len8_string len=114 enc=cp932 policy=in_place speaker_idx=000197 name=クラスメート name_id=CM speaker_code=CM93120 name_source=prev_voice_label pair=000197 confidence=low full_name=クラスメート
+○000198●text○「いや、それはいんだって。でよ、オレたちん\nとこ来たらいつもと一緒でさ、『あ、スズキだ。\nなんだ～？』なんだよな」
+●000198●text●「いや、それはいんだって。でよ、オレたちん\nとこ来たらいつもと一緒でさ、『あ、スズキだ。\nなんだ～？』なんだよな」
+
+# idx=000199 file=PS2T035A.BIN off=0x0000290F inst=0x0000290F tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000199●label○CM91070
+●000199●label●CM91070
+
+# idx=000200 file=PS2T035A.BIN off=0x0000291E inst=0x0000290F tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM91070 name_source=prev_voice_label virtual=true writable=false pair=000201 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000200●name○クラスメート
+●000200●name●クラスメート
+
+# idx=000201 file=PS2T035A.BIN off=0x0000291E inst=0x0000291E tag=text source=inline_len8_string len=126 enc=cp932 policy=in_place speaker_idx=000200 name=クラスメート name_id=CM speaker_code=CM91070 name_source=prev_voice_label pair=000200 confidence=low full_name=クラスメート
+○000201●text○「玉城ってよー、いっつもオレの顔みてさー、\n『あ、スズキだ』ってゆーんだよなあ。\nいわなくてもわかってんだろー。なんでだあ？」
+●000201●text●「玉城ってよー、いっつもオレの顔みてさー、\n『あ、スズキだ』ってゆーんだよなあ。\nいわなくてもわかってんだろー。なんでだあ？」
+
+# idx=000202 file=PS2T035A.BIN off=0x000029B8 inst=0x000029B8 tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place
+○000202●text○「いや、さすがにそれはわからん」
+●000202●text●「いや、さすがにそれはわからん」
+
+# idx=000203 file=PS2T035A.BIN off=0x000029F4 inst=0x000029F4 tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place
+○000203●text○でも、本当は少しわかってる。\n鈴木のことをおもしろがってるんだ、きっと。
+●000203●text●でも、本当は少しわかってる。\n鈴木のことをおもしろがってるんだ、きっと。
+
+# idx=000204 file=PS2T035A.BIN off=0x00002A58 inst=0x00002A58 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000204●label○CM93130
+●000204●label●CM93130
+
+# idx=000205 file=PS2T035A.BIN off=0x00002A67 inst=0x00002A58 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM93130 name_source=prev_voice_label virtual=true writable=false pair=000206 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000205●name○クラスメート
+●000205●name●クラスメート
+
+# idx=000206 file=PS2T035A.BIN off=0x00002A67 inst=0x00002A67 tag=text source=inline_len8_string len=82 enc=cp932 policy=in_place speaker_idx=000205 name=クラスメート name_id=CM speaker_code=CM93130 name_source=prev_voice_label pair=000205 confidence=low full_name=クラスメート
+○000206●text○「ひっでーんだー。オーダー勝手に決めたんだ\nぜー。鈴木なんてよ、アレだったもんな」
+●000206●text●「ひっでーんだー。オーダー勝手に決めたんだ\nぜー。鈴木なんてよ、アレだったもんな」
+
+# idx=000207 file=PS2T035A.BIN off=0x00002AD5 inst=0x00002AD5 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000207●label○CM91080
+●000207●label●CM91080
+
+# idx=000208 file=PS2T035A.BIN off=0x00002AE4 inst=0x00002AD5 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM91080 name_source=prev_voice_label virtual=true writable=false pair=000209 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000208●name○クラスメート
+●000208●name●クラスメート
+
+# idx=000209 file=PS2T035A.BIN off=0x00002AE4 inst=0x00002AE4 tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place speaker_idx=000208 name=クラスメート name_id=CM speaker_code=CM91080 name_source=prev_voice_label pair=000208 confidence=low full_name=クラスメート
+○000209●text○「アイスコーヒーっていったのに、\nビーフンサラダだぞー」
+●000209●text●「アイスコーヒーっていったのに、\nビーフンサラダだぞー」
+
+# idx=000210 file=PS2T035A.BIN off=0x00002B38 inst=0x00002B38 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000210●label○CM93140
+●000210●label●CM93140
+
+# idx=000211 file=PS2T035A.BIN off=0x00002B47 inst=0x00002B38 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM93140 name_source=prev_voice_label virtual=true writable=false pair=000212 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000211●name○クラスメート
+●000211●name●クラスメート
+
+# idx=000212 file=PS2T035A.BIN off=0x00002B47 inst=0x00002B47 tag=text source=inline_len8_string len=36 enc=cp932 policy=in_place speaker_idx=000211 name=クラスメート name_id=CM speaker_code=CM93140 name_source=prev_voice_label pair=000211 confidence=low full_name=クラスメート
+○000212●text○「ハッシーなんてよー、なんだっけ？」
+●000212●text●「ハッシーなんてよー、なんだっけ？」
+
+# idx=000213 file=PS2T035A.BIN off=0x00002B87 inst=0x00002B87 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000213●label○CM91090
+●000213●label●CM91090
+
+# idx=000214 file=PS2T035A.BIN off=0x00002B96 inst=0x00002B87 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM91090 name_source=prev_voice_label virtual=true writable=false pair=000215 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000214●name○クラスメート
+●000214●name●クラスメート
+
+# idx=000215 file=PS2T035A.BIN off=0x00002B96 inst=0x00002B96 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place speaker_idx=000214 name=クラスメート name_id=CM speaker_code=CM91090 name_source=prev_voice_label pair=000214 confidence=low full_name=クラスメート
+○000215●text○「フランス風カツ煮定食ー」
+●000215●text●「フランス風カツ煮定食ー」
+
+# idx=000216 file=PS2T035A.BIN off=0x00002BCC inst=0x00002BCC tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000216●label○CM93150
+●000216●label●CM93150
+
+# idx=000217 file=PS2T035A.BIN off=0x00002BDB inst=0x00002BCC tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM93150 name_source=prev_voice_label virtual=true writable=false pair=000218 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000217●name○クラスメート
+●000217●name●クラスメート
+
+# idx=000218 file=PS2T035A.BIN off=0x00002BDB inst=0x00002BDB tag=text source=inline_len8_string len=84 enc=cp932 policy=in_place speaker_idx=000217 name=クラスメート name_id=CM speaker_code=CM93150 name_source=prev_voice_label pair=000217 confidence=low full_name=クラスメート
+○000218●text○「それそれ。メニューにねえだろ、そんなんって。\nでよー、オレなんか水だけなんだぜー」
+●000218●text●「それそれ。メニューにねえだろ、そんなんって。\nでよー、オレなんか水だけなんだぜー」
+
+# idx=000219 file=PS2T035A.BIN off=0x00002C4B inst=0x00002C4B tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000219●label○CM93160
+●000219●label●CM93160
+
+# idx=000220 file=PS2T035A.BIN off=0x00002C5A inst=0x00002C4B tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM93160 name_source=prev_voice_label virtual=true writable=false pair=000221 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000220●name○クラスメート
+●000220●name●クラスメート
+
+# idx=000221 file=PS2T035A.BIN off=0x00002C5A inst=0x00002C5A tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place speaker_idx=000220 name=クラスメート name_id=CM speaker_code=CM93160 name_source=prev_voice_label pair=000220 confidence=low full_name=クラスメート
+○000221●text○「なんでだよーって聞いたら、レジで嶋さん、\n嶋さんてあのこわいオバさんだよな」
+●000221●text●「なんでだよーって聞いたら、レジで嶋さん、\n嶋さんてあのこわいオバさんだよな」
+
+# idx=000222 file=PS2T035A.BIN off=0x00002CC4 inst=0x00002CC4 tag=text source=inline_len8_string len=22 enc=cp932 policy=in_place
+○000222●text○「うん。こわいこわい」
+●000222●text●「うん。こわいこわい」
+
+# idx=000223 file=PS2T035A.BIN off=0x00002CF6 inst=0x00002CF6 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000223●label○CM93170
+●000223●label●CM93170
+
+# idx=000224 file=PS2T035A.BIN off=0x00002D05 inst=0x00002CF6 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM93170 name_source=prev_voice_label virtual=true writable=false pair=000225 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000224●name○クラスメート
+●000224●name●クラスメート
+
+# idx=000225 file=PS2T035A.BIN off=0x00002D05 inst=0x00002D05 tag=text source=inline_len8_string len=102 enc=cp932 policy=in_place speaker_idx=000224 name=クラスメート name_id=CM speaker_code=CM93170 name_source=prev_voice_label pair=000224 confidence=low full_name=クラスメート
+○000225●text○「嶋さん、すっげームッとするから、それ\n見たいーって。なんだよー、オレ、ホントに\nにらまれたんだぞー」
+●000225●text●「嶋さん、すっげームッとするから、それ\n見たいーって。なんだよー、オレ、ホントに\nにらまれたんだぞー」
+
+# idx=000226 file=PS2T035A.BIN off=0x00002D87 inst=0x00002D87 tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000226●text○「そうか。そりゃ、すまんかった。一応、\nあやまっておく」
+●000226●text●「そうか。そりゃ、すまんかった。一応、\nあやまっておく」
+
+# idx=000227 file=PS2T035A.BIN off=0x00002DDB inst=0x00002DDB tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000227●label○CM93180
+●000227●label●CM93180
+
+# idx=000228 file=PS2T035A.BIN off=0x00002DEA inst=0x00002DDB tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM93180 name_source=prev_voice_label virtual=true writable=false pair=000229 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000228●name○クラスメート
+●000228●name●クラスメート
+
+# idx=000229 file=PS2T035A.BIN off=0x00002DEA inst=0x00002DEA tag=text source=inline_len8_string len=102 enc=cp932 policy=in_place speaker_idx=000228 name=クラスメート name_id=CM speaker_code=CM93180 name_source=prev_voice_label pair=000228 confidence=low full_name=クラスメート
+○000229●text○「おう。ホントだよお。たのむからよお、今度は\nちゃんとオーダーとってくれって、いっといて\nくれよなあ」
+●000229●text●「おう。ホントだよお。たのむからよお、今度は\nちゃんとオーダーとってくれって、いっといて\nくれよなあ」
+
+# idx=000230 file=PS2T035A.BIN off=0x00002E6C inst=0x00002E6C tag=text source=inline_len8_string len=29 enc=cp932 policy=in_place
+○000230●text○「え、なに？ まだ行くんだ？」
+●000230●text●「え、なに？ まだ行くんだ？」
+
+# idx=000231 file=PS2T035A.BIN off=0x00002EA5 inst=0x00002EA5 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000231●label○CM93190
+●000231●label●CM93190
+
+# idx=000232 file=PS2T035A.BIN off=0x00002EB4 inst=0x00002EA5 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM93190 name_source=prev_voice_label virtual=true writable=false pair=000233 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000232●name○クラスメート
+●000232●name●クラスメート
+
+# idx=000233 file=PS2T035A.BIN off=0x00002EB4 inst=0x00002EB4 tag=text source=inline_len8_string len=102 enc=cp932 policy=in_place speaker_idx=000232 name=クラスメート name_id=CM speaker_code=CM93190 name_source=prev_voice_label pair=000232 confidence=low full_name=クラスメート
+○000233●text○「行くに決まってんだろー。あそこ行くとよー、\nオトコって感じすっからなー。サンズイつく方の\nオトコね」
+●000233●text●「行くに決まってんだろー。あそこ行くとよー、\nオトコって感じすっからなー。サンズイつく方の\nオトコね」
+
+# idx=000234 file=PS2T035A.BIN off=0x00002F36 inst=0x00002F36 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000234●label○CM91100
+●000234●label●CM91100
+
+# idx=000235 file=PS2T035A.BIN off=0x00002F45 inst=0x00002F36 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM91100 name_source=prev_voice_label virtual=true writable=false pair=000236 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000235●name○クラスメート
+●000235●name●クラスメート
+
+# idx=000236 file=PS2T035A.BIN off=0x00002F45 inst=0x00002F45 tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place speaker_idx=000235 name=クラスメート name_id=CM speaker_code=CM91100 name_source=prev_voice_label pair=000235 confidence=low full_name=クラスメート
+○000236●text○「意外と人気あるぞー。男子に～。あと、\nおっさんとー」
+●000236●text●「意外と人気あるぞー。男子に～。あと、\nおっさんとー」
+
+# idx=000237 file=PS2T035A.BIN off=0x00002F97 inst=0x00002F97 tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place
+○000237●text○「そっかー。そーだったんだー」
+●000237●text●「そっかー。そーだったんだー」
+
+# idx=000238 file=PS2T035A.BIN off=0x00002FD1 inst=0x00002FD1 tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place
+○000238●text○変わり者しかいかないのかと思ってたな。
+●000238●text●変わり者しかいかないのかと思ってたな。
+
+# idx=000239 file=PS2T035A.BIN off=0x00003013 inst=0x00003013 tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000239●text○いや……待て。\nこいつらも変わり者って可能性があるな。
+●000239●text●いや……待て。\nこいつらも変わり者って可能性があるな。
+
+# idx=000240 file=PS2T035A.BIN off=0x00003065 inst=0x00003065 tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000240●text○あーやだやだ。\nどーしてぼくのまわりはこんなのばっか……
+●000240●text●あーやだやだ。\nどーしてぼくのまわりはこんなのばっか……
+
+# idx=000241 file=PS2T035A.BIN off=0x000030B9 inst=0x000030B9 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=クラスメート name_id=CM confidence=low
+○000241●label○CM93200
+●000241●label●CM93200
+
+# idx=000242 file=PS2T035A.BIN off=0x000030C8 inst=0x000030B9 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=CM speaker_code=CM93200 name_source=prev_voice_label virtual=true writable=false pair=000243 confidence=low full_name=クラスメート basis=classmate_voice_prefix,_exact_person_not_proven
+○000242●name○クラスメート
+●000242●name●クラスメート
+
+# idx=000243 file=PS2T035A.BIN off=0x000030C8 inst=0x000030C8 tag=text source=inline_len8_string len=80 enc=cp932 policy=in_place speaker_idx=000242 name=クラスメート name_id=CM speaker_code=CM93200 name_source=prev_voice_label pair=000242 confidence=low full_name=クラスメート
+○000243●text○「だ～からよ、た～のむよな。玉城によ、\nオーダー、とれって、いっといてくれよな」
+●000243●text●「だ～からよ、た～のむよな。玉城によ、\nオーダー、とれって、いっといてくれよな」
+
+# idx=000244 file=PS2T035A.BIN off=0x00003134 inst=0x00003134 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000244●text○「ん、わかったー。ゆーこときくかはわかんない\nけど、いっとくー」
+●000244●text●「ん、わかったー。ゆーこときくかはわかんない\nけど、いっとくー」
+
+# idx=000245 file=PS2T035A.BIN off=0x000031DE inst=0x000031DE tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000245●text○仲田たちが行ってしまうと、静かな教室が戻って\nくる。\nなんだか今日は大忙しだ。
+●000245●text●仲田たちが行ってしまうと、静かな教室が戻って\nくる。\nなんだか今日は大忙しだ。
+
+# idx=000246 file=PS2T035A.BIN off=0x00003248 inst=0x00003248 tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000246●text○えっと……なにかしようと思ってたんだけど。
+●000246●text●えっと……なにかしようと思ってたんだけど。
+
+# idx=000247 file=PS2T035A.BIN off=0x0000328E inst=0x0000328E tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000247●text○もう、みんながいろんなこといいに来るから\nさあ……。
+●000247●text●もう、みんながいろんなこといいに来るから\nさあ……。
+
+# idx=000248 file=PS2T035A.BIN off=0x000032DE inst=0x000032DE tag=text source=inline_len8_string len=96 enc=cp932 policy=in_place
+○000248●text○あ……そっか、購買行こうと思ってたんだ。\nこれ以上、なにか起きる前に、さっさと行って\nこようか。
+●000248●text●あ……そっか、購買行こうと思ってたんだ。\nこれ以上、なにか起きる前に、さっさと行って\nこようか。
+
+# idx=000249 file=PS2T035A.BIN off=0x00003387 inst=0x00003387 tag=text source=inline_len8_string len=96 enc=cp932 policy=in_place
+○000249●text○購買でコーヒーを飲んでいるあいだは、自由な\n時間だった。\n安らぎと憩いの時間、といえなくもない。
+●000249●text●購買でコーヒーを飲んでいるあいだは、自由な\n時間だった。\n安らぎと憩いの時間、といえなくもない。
+
+# idx=000250 file=PS2T035A.BIN off=0x00003403 inst=0x00003403 tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place
+○000250●text○でも、そんなゼータクはゆるされないのだ。
+●000250●text●でも、そんなゼータクはゆるされないのだ。
+
+# idx=000251 file=PS2T035A.BIN off=0x00003447 inst=0x00003447 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000251●text○そろそろ玉も戻ってきてるだろーし、喧騒と\n混乱の時間が復活する。
+●000251●text●そろそろ玉も戻ってきてるだろーし、喧騒と\n混乱の時間が復活する。
+
+# idx=000252 file=PS2T035A.BIN off=0x000034A3 inst=0x000034A3 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000252●text○さて……。\nやる気を出して、玉でも迎えに行こうか。
+●000252●text●さて……。\nやる気を出して、玉でも迎えに行こうか。
+
+# idx=000253 file=PS2T035A.BIN off=0x00003539 inst=0x00003539 tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000253●text○教室に戻って来たとき、レイディとすれ違った。
+●000253●text●教室に戻って来たとき、レイディとすれ違った。
+
+# idx=000254 file=PS2T035A.BIN off=0x00003581 inst=0x00003581 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=レイディ name_id=NA confidence=medium
+○000254●label○NA90040
+●000254●label●NA90040
+
+# idx=000255 file=PS2T035A.BIN off=0x00003590 inst=0x00003581 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=NA speaker_code=NA90040 name_source=prev_voice_label virtual=true writable=false pair=000256 confidence=medium full_name=担任のレイディ basis=NA_teacher-like_classroom_lines;_narration_names_レイディ
+○000255●name○レイディ
+●000255●name●レイディ
+
+# idx=000256 file=PS2T035A.BIN off=0x00003590 inst=0x00003590 tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place speaker_idx=000255 name=レイディ name_id=NA speaker_code=NA90040 name_source=prev_voice_label pair=000255 confidence=medium full_name=担任のレイディ
+○000256●text○「終わるまで、帰らないでくださいね。絶対」
+●000256●text●「終わるまで、帰らないでくださいね。絶対」
+
+# idx=000257 file=PS2T035A.BIN off=0x0000360B inst=0x0000360B tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place
+○000257●text○レイディは、ぼくに気づき眉をひそめる。
+●000257●text●レイディは、ぼくに気づき眉をひそめる。
+
+# idx=000258 file=PS2T035A.BIN off=0x0000364D inst=0x0000364D tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=レイディ name_id=NA confidence=medium
+○000258●label○NA90050
+●000258●label●NA90050
+
+# idx=000259 file=PS2T035A.BIN off=0x0000365C inst=0x0000364D tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=NA speaker_code=NA90050 name_source=prev_voice_label virtual=true writable=false pair=000260 confidence=medium full_name=担任のレイディ basis=NA_teacher-like_classroom_lines;_narration_names_レイディ
+○000259●name○レイディ
+●000259●name●レイディ
+
+# idx=000260 file=PS2T035A.BIN off=0x0000365C inst=0x0000365C tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place speaker_idx=000259 name=レイディ name_id=NA speaker_code=NA90050 name_source=prev_voice_label pair=000259 confidence=medium full_name=担任のレイディ
+○000260●text○「あなたからも、いっておいてくださいね」
+●000260●text●「あなたからも、いっておいてくださいね」
+
+# idx=000261 file=PS2T035A.BIN off=0x000036D4 inst=0x000036D4 tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place
+○000261●text○う～ん、またなにかしたのかな？
+●000261●text●う～ん、またなにかしたのかな？
+
+# idx=000262 file=PS2T035A.BIN off=0x00003756 inst=0x00003756 tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000262●text○教室には……玉がひとり。\n難しい顔をして、机に向かっていた。
+●000262●text●教室には……玉がひとり。\n難しい顔をして、机に向かっていた。
+
+# idx=000263 file=PS2T035A.BIN off=0x000037AE inst=0x000037AE tag=text source=inline_len8_string len=90 enc=cp932 policy=in_place
+○000263●text○シャーペン持って、なにかを必死で書いている。\n額に汗なんか浮かべて。\nかなり、意外な風景。
+●000263●text●シャーペン持って、なにかを必死で書いている。\n額に汗なんか浮かべて。\nかなり、意外な風景。
+
+# idx=000264 file=PS2T035A.BIN off=0x00003843 inst=0x00003843 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000264●text○仲田のことばを思い出す。\n……Ｂ級アイドル級ねえ。
+●000264●text●仲田のことばを思い出す。\n……Ｂ級アイドル級ねえ。
+
+# idx=000265 file=PS2T035A.BIN off=0x00003891 inst=0x00003891 tag=text source=inline_len8_string len=37 enc=cp932 policy=in_place
+○000265●text○「お、どーした？ みんな、体育館だよ」
+●000265●text●「お、どーした？ みんな、体育館だよ」
+
+# idx=000266 file=PS2T035A.BIN off=0x00003907 inst=0x00003907 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000266●label○MT90350
+●000266●label●MT90350
+
+# idx=000267 file=PS2T035A.BIN off=0x00003916 inst=0x00003907 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT90350 name_source=prev_voice_label virtual=true writable=false pair=000268 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000267●name○玉
+●000267●name●玉
+
+# idx=000268 file=PS2T035A.BIN off=0x00003916 inst=0x00003916 tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place speaker_idx=000267 name=玉 name_id=MT speaker_code=MT90350 name_source=prev_voice_label pair=000267 confidence=high full_name=玉城麻衣子
+○000268●text○「むう……わかてる」
+●000268●text●「むう……わかてる」
+
+# idx=000269 file=PS2T035A.BIN off=0x00003946 inst=0x00003946 tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place
+○000269●text○「行かなかったんだ」
+●000269●text●「行かなかったんだ」
+
+# idx=000270 file=PS2T035A.BIN off=0x00003976 inst=0x00003976 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000270●label○MT90360
+●000270●label●MT90360
+
+# idx=000271 file=PS2T035A.BIN off=0x00003985 inst=0x00003976 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT90360 name_source=prev_voice_label virtual=true writable=false pair=000272 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000271●name○玉
+●000271●name●玉
+
+# idx=000272 file=PS2T035A.BIN off=0x00003985 inst=0x00003985 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place speaker_idx=000271 name=玉 name_id=MT speaker_code=MT90360 name_source=prev_voice_label pair=000271 confidence=high full_name=玉城麻衣子
+○000272●text○「む……いかなかた～……」
+●000272●text●「む……いかなかた～……」
+
+# idx=000273 file=PS2T035A.BIN off=0x000039BB inst=0x000039BB tag=text source=inline_len8_string len=67 enc=cp932 policy=in_place
+○000273●text○「どーした？ レイディになんかいわれたのか？\nうん、なに書いてる？」
+●000273●text●「どーした？ レイディになんかいわれたのか？\nうん、なに書いてる？」
+
+# idx=000274 file=PS2T035A.BIN off=0x00003A1A inst=0x00003A1A tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000274●label○MT90370
+●000274●label●MT90370
+
+# idx=000275 file=PS2T035A.BIN off=0x00003A29 inst=0x00003A1A tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT90370 name_source=prev_voice_label virtual=true writable=false pair=000276 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000275●name○玉
+●000275●name●玉
+
+# idx=000276 file=PS2T035A.BIN off=0x00003A29 inst=0x00003A29 tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place speaker_idx=000275 name=玉 name_id=MT speaker_code=MT90370 name_source=prev_voice_label pair=000275 confidence=high full_name=玉城麻衣子
+○000276●text○「むう……にっしかいてるー」
+●000276●text●「むう……にっしかいてるー」
+
+# idx=000277 file=PS2T035A.BIN off=0x00003A61 inst=0x00003A61 tag=text source=inline_len8_string len=35 enc=cp932 policy=in_place
+○000277●text○「あれ？ 今日、日直じゃないだろ？」
+●000277●text●「あれ？ 今日、日直じゃないだろ？」
+
+# idx=000278 file=PS2T035A.BIN off=0x00003AD5 inst=0x00003AD5 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000278●label○MT90380
+●000278●label●MT90380
+
+# idx=000279 file=PS2T035A.BIN off=0x00003AE4 inst=0x00003AD5 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT90380 name_source=prev_voice_label virtual=true writable=false pair=000280 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000279●name○玉
+●000279●name●玉
+
+# idx=000280 file=PS2T035A.BIN off=0x00003AE4 inst=0x00003AE4 tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place speaker_idx=000279 name=玉 name_id=MT speaker_code=MT90380 name_source=prev_voice_label pair=000279 confidence=high full_name=玉城麻衣子
+○000280●text○「ちがーよ。さっきねー、レデーにつかまったー」
+●000280●text●「ちがーよ。さっきねー、レデーにつかまったー」
+
+# idx=000281 file=PS2T035A.BIN off=0x00003B63 inst=0x00003B63 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000281●label○MT90390
+●000281●label●MT90390
+
+# idx=000282 file=PS2T035A.BIN off=0x00003B72 inst=0x00003B63 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT90390 name_source=prev_voice_label virtual=true writable=false pair=000283 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000282●name○玉
+●000282●name●玉
+
+# idx=000283 file=PS2T035A.BIN off=0x00003B72 inst=0x00003B72 tag=text source=inline_len8_string len=100 enc=cp932 policy=in_place speaker_idx=000282 name=玉 name_id=MT speaker_code=MT90390 name_source=prev_voice_label pair=000282 confidence=high full_name=玉城麻衣子
+○000283●text○「そしたらねー、このまえ、にっしかかないで\nかえったから、かくまでかえっちゃだめーって\nいわれたー」
+●000283●text●「そしたらねー、このまえ、にっしかかないで\nかえったから、かくまでかえっちゃだめーって\nいわれたー」
+
+# idx=000284 file=PS2T035A.BIN off=0x00003BF2 inst=0x00003BF2 tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place
+○000284●text○「ま、そりゃいわれても当然か」
+●000284●text●「ま、そりゃいわれても当然か」
+
+# idx=000285 file=PS2T035A.BIN off=0x00003C2C inst=0x00003C2C tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place
+○000285●text○うわー、レイディも大変だ。\nそんなことまで、させなきゃなんないんだから。
+●000285●text●うわー、レイディも大変だ。\nそんなことまで、させなきゃなんないんだから。
+
+# idx=000286 file=PS2T035A.BIN off=0x00003CC5 inst=0x00003CC5 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000286●label○MT90400
+●000286●label●MT90400
+
+# idx=000287 file=PS2T035A.BIN off=0x00003CD4 inst=0x00003CC5 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT90400 name_source=prev_voice_label virtual=true writable=false pair=000288 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000287●name○玉
+●000287●name●玉
+
+# idx=000288 file=PS2T035A.BIN off=0x00003CD4 inst=0x00003CD4 tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place speaker_idx=000287 name=玉 name_id=MT speaker_code=MT90400 name_source=prev_voice_label pair=000287 confidence=high full_name=玉城麻衣子
+○000288●text○「むう……」
+●000288●text●「むう……」
+
+# idx=000289 file=PS2T035A.BIN off=0x00003CFC inst=0x00003CFC tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place
+○000289●text○「ちゃっちゃっと書いちゃえよ」
+●000289●text●「ちゃっちゃっと書いちゃえよ」
+
+# idx=000290 file=PS2T035A.BIN off=0x00003D36 inst=0x00003D36 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000290●label○MT90410
+●000290●label●MT90410
+
+# idx=000291 file=PS2T035A.BIN off=0x00003D45 inst=0x00003D36 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT90410 name_source=prev_voice_label virtual=true writable=false pair=000292 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000291●name○玉
+●000291●name●玉
+
+# idx=000292 file=PS2T035A.BIN off=0x00003D45 inst=0x00003D45 tag=text source=inline_len8_string len=16 enc=cp932 policy=in_place speaker_idx=000291 name=玉 name_id=MT speaker_code=MT90410 name_source=prev_voice_label pair=000291 confidence=high full_name=玉城麻衣子
+○000292●text○「むぅう………」
+●000292●text●「むぅう………」
+
+# idx=000293 file=PS2T035A.BIN off=0x00003D71 inst=0x00003D71 tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place
+○000293●text○「学級日誌で居残りってのもお前くらいだ」
+●000293●text●「学級日誌で居残りってのもお前くらいだ」
+
+# idx=000294 file=PS2T035A.BIN off=0x00003DEA inst=0x00003DEA tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000294●label○MT90420
+●000294●label●MT90420
+
+# idx=000295 file=PS2T035A.BIN off=0x00003DF9 inst=0x00003DEA tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT90420 name_source=prev_voice_label virtual=true writable=false pair=000296 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000295●name○玉
+●000295●name●玉
+
+# idx=000296 file=PS2T035A.BIN off=0x00003DF9 inst=0x00003DF9 tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place speaker_idx=000295 name=玉 name_id=MT speaker_code=MT90420 name_source=prev_voice_label pair=000295 confidence=high full_name=玉城麻衣子
+○000296●text○「むー………」
+●000296●text●「むー………」
+
+# idx=000297 file=PS2T035A.BIN off=0x00003E23 inst=0x00003E23 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000297●label○MT90430
+●000297●label●MT90430
+
+# idx=000298 file=PS2T035A.BIN off=0x00003E32 inst=0x00003E23 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT90430 name_source=prev_voice_label virtual=true writable=false pair=000299 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000298●name○玉
+●000298●name●玉
+
+# idx=000299 file=PS2T035A.BIN off=0x00003E32 inst=0x00003E32 tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place speaker_idx=000298 name=玉 name_id=MT speaker_code=MT90430 name_source=prev_voice_label pair=000298 confidence=high full_name=玉城麻衣子
+○000299●text○「むう………」
+●000299●text●「むう………」
+
+# idx=000300 file=PS2T035A.BIN off=0x00003E91 inst=0x00003E91 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000300●label○MT90440
+●000300●label●MT90440
+
+# idx=000301 file=PS2T035A.BIN off=0x00003EA0 inst=0x00003E91 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT90440 name_source=prev_voice_label virtual=true writable=false pair=000302 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000301●name○玉
+●000301●name●玉
+
+# idx=000302 file=PS2T035A.BIN off=0x00003EA0 inst=0x00003EA0 tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place speaker_idx=000301 name=玉 name_id=MT speaker_code=MT90440 name_source=prev_voice_label pair=000301 confidence=high full_name=玉城麻衣子
+○000302●text○「あのねー」
+●000302●text●「あのねー」
+
+# idx=000303 file=PS2T035A.BIN off=0x00003EC8 inst=0x00003EC8 tag=text source=inline_len8_string len=8 enc=cp932 policy=in_place
+○000303●text○「ん？」
+●000303●text●「ん？」
+
+# idx=000304 file=PS2T035A.BIN off=0x00003F21 inst=0x00003F21 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000304●label○MT90450
+●000304●label●MT90450
+
+# idx=000305 file=PS2T035A.BIN off=0x00003F30 inst=0x00003F21 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT90450 name_source=prev_voice_label virtual=true writable=false pair=000306 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000305●name○玉
+●000305●name●玉
+
+# idx=000306 file=PS2T035A.BIN off=0x00003F30 inst=0x00003F30 tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place speaker_idx=000305 name=玉 name_id=MT speaker_code=MT90450 name_source=prev_voice_label pair=000305 confidence=high full_name=玉城麻衣子
+○000306●text○「もってかえって、おうちでかいちゃダメ？」
+●000306●text●「もってかえって、おうちでかいちゃダメ？」
+
+# idx=000307 file=PS2T035A.BIN off=0x00003F76 inst=0x00003F76 tag=text source=inline_len8_string len=126 enc=cp932 policy=in_place
+○000307●text○「だめ。持ってかえったら、お前忘れて、２度と\n持ってこないし。そしたら、うちのクラス、学級\n日誌のないクラスになっちゃうだろ」
+●000307●text●「だめ。持ってかえったら、お前忘れて、２度と\n持ってこないし。そしたら、うちのクラス、学級\n日誌のないクラスになっちゃうだろ」
+
+# idx=000308 file=PS2T035A.BIN off=0x00004045 inst=0x00004045 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000308●label○MT90460
+●000308●label●MT90460
+
+# idx=000309 file=PS2T035A.BIN off=0x00004054 inst=0x00004045 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT90460 name_source=prev_voice_label virtual=true writable=false pair=000310 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000309●name○玉
+●000309●name●玉
+
+# idx=000310 file=PS2T035A.BIN off=0x00004054 inst=0x00004054 tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place speaker_idx=000309 name=玉 name_id=MT speaker_code=MT90460 name_source=prev_voice_label pair=000309 confidence=high full_name=玉城麻衣子
+○000310●text○「なくてもいいのに」
+●000310●text●「なくてもいいのに」
+
+# idx=000311 file=PS2T035A.BIN off=0x00004084 inst=0x00004084 tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000311●text○「ホントはなくてもいいけど、やっぱりダメ」
+●000311●text●「ホントはなくてもいいけど、やっぱりダメ」
+
+# idx=000312 file=PS2T035A.BIN off=0x000040FF inst=0x000040FF tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=玉 name_id=MT confidence=high
+○000312●label○MT90470
+●000312●label●MT90470
+
+# idx=000313 file=PS2T035A.BIN off=0x0000410E inst=0x000040FF tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MT speaker_code=MT90470 name_source=prev_voice_label virtual=true writable=false pair=000314 confidence=high full_name=玉城麻衣子 basis=route/debug_labels_and_repeated_MT_dialogue_by_玉/麻衣子
+○000313●name○玉
+●000313●name●玉
+
+# idx=000314 file=PS2T035A.BIN off=0x0000410E inst=0x0000410E tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place speaker_idx=000313 name=玉 name_id=MT speaker_code=MT90470 name_source=prev_voice_label pair=000313 confidence=high full_name=玉城麻衣子
+○000314●text○「むう………めんどくさー」
+●000314●text●「むう………めんどくさー」
+
+# idx=000315 file=PS2T035A.BIN off=0x00004157 inst=0x00004157 tag=text source=inline_len8_string len=38 enc=cp932 policy=in_place
+○000315●text○あ～あ、こいつのどこが美少女なんだよ。
+●000315●text●あ～あ、こいつのどこが美少女なんだよ。
+
+# idx=000316 file=PS2T035A.BIN off=0x00004199 inst=0x00004199 tag=text source=inline_len8_string len=86 enc=cp932 policy=in_place
+○000316●text○ナンパする連中もさー、色んなコト考えよーよね。もう……レイディの苦労が身にしみるなあ。
+●000316●text●ナンパする連中もさー、色んなコト考えよーよね。もう……レイディの苦労が身にしみるなあ。
+
+# idx=000317 file=PS2T035A.BIN off=0x00004269 inst=0x00004269 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000317●label○PS2T037a.bin
+●000317●label●PS2T037a.bin
+
+# idx=000318 file=PS2T035A.BIN off=0x000042A2 inst=0x000042A2 tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000318●text○玉がんばれ。\n学級日誌はな、小学生でもなんとかするぞ。
+●000318●text●玉がんばれ。\n学級日誌はな、小学生でもなんとかするぞ。
+
+# idx=000319 file=PS2T035A.BIN off=0x000042F4 inst=0x000042F4 tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000319●text○それにね、今は丸藤さんのお世話もしなきゃ\nいけないわけ。
+●000319●text●それにね、今は丸藤さんのお世話もしなきゃ\nいけないわけ。
+
+# idx=000320 file=PS2T035A.BIN off=0x00004348 inst=0x00004348 tag=text source=inline_len8_string len=48 enc=cp932 policy=in_place
+○000320●text○誰かいってたっけ。\n荷物はふたつ持てませんって。
+●000320●text●誰かいってたっけ。\n荷物はふたつ持てませんって。
+
+# idx=000321 file=PS2T035A.BIN off=0x00004394 inst=0x00004394 tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place
+○000321●text○いや、悪いな玉。がんばれよ。
+●000321●text●いや、悪いな玉。がんばれよ。
+
+# idx=000322 file=PS2T035A.BIN off=0x0000442A inst=0x0000442A tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000322●label○PS2I027a.bin
+●000322●label●PS2I027a.bin
+

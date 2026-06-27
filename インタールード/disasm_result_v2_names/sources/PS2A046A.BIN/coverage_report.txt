@@ -1,0 +1,9 @@
+file: PS2A046A.BIN
+byte_size: 15785
+coverage: 100.00%
+status: OK
+records: 3560
+text_entries: 209
+zero_mutation_roundtrip: PASS
+original_sha256: f50c77b36252dad434f56782819d155a633e65b7c8b976e79737c5309b1df3c0
+rebuilt_sha256: f50c77b36252dad434f56782819d155a633e65b7c8b976e79737c5309b1df3c0

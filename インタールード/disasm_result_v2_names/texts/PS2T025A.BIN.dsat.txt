@@ -1,0 +1,100 @@
+# DSAT export for PS2T025A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2T025A.BIN off=0x0000005F inst=0x0000005F tag=text source=inline_len8_string len=106 enc=cp932 policy=in_place
+○000001●text○ふと気づくと中間テストの時期がせまっていた。\nしかも、もう目前。\nなにしてたんだ、と自分を問いつめてみる。
+●000001●text●ふと気づくと中間テストの時期がせまっていた。\nしかも、もう目前。\nなにしてたんだ、と自分を問いつめてみる。
+
+# idx=000002 file=PS2T025A.BIN off=0x000000E5 inst=0x000000E5 tag=text source=inline_len8_string len=84 enc=cp932 policy=in_place
+○000002●text○ああ……王子さまさがしでしたか。\nなんてゆーのかな、えっと……。\nすごく無駄な時間？
+●000002●text●ああ……王子さまさがしでしたか。\nなんてゆーのかな、えっと……。\nすごく無駄な時間？
+
+# idx=000003 file=PS2T025A.BIN off=0x00000155 inst=0x00000155 tag=text source=inline_len8_string len=106 enc=cp932 policy=in_place
+○000003●text○いや、確かに丸藤さんみたいなお姉さんと\n親しくなれるのはうれしーけど。\nでも、丸藤さん、ちょっとアレだし。
+●000003●text●いや、確かに丸藤さんみたいなお姉さんと\n親しくなれるのはうれしーけど。\nでも、丸藤さん、ちょっとアレだし。
+
+# idx=000004 file=PS2T025A.BIN off=0x000001DB inst=0x000001DB tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000004●text○なんてゆーのかな、少々オツムがあったかめの人だからなあ。
+●000004●text●なんてゆーのかな、少々オツムがあったかめの人だからなあ。
+
+# idx=000005 file=PS2T025A.BIN off=0x0000022F inst=0x0000022F tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000005●text○だいたい、ちゃんと聞いてみたいよね。\nどーして、王子さまなのかって。
+●000005●text●だいたい、ちゃんと聞いてみたいよね。\nどーして、王子さまなのかって。
+
+# idx=000006 file=PS2T025A.BIN off=0x0000028F inst=0x0000028F tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000006●text○よくよく考えたら、王子さまじゃなくても\nいーじゃん。
+●000006●text●よくよく考えたら、王子さまじゃなくても\nいーじゃん。
+
+# idx=000007 file=PS2T025A.BIN off=0x000002DF inst=0x000002DF tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000007●text○御曹子とか若社長とか、青年実業家でも\nいーんでしょ？
+●000007●text●御曹子とか若社長とか、青年実業家でも\nいーんでしょ？
+
+# idx=000008 file=PS2T025A.BIN off=0x0000032F inst=0x0000032F tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000008●text○あー、もー、若くてお金持ちで、かっこよければさあ。
+●000008●text●あー、もー、若くてお金持ちで、かっこよければさあ。
+
+# idx=000009 file=PS2T025A.BIN off=0x0000037D inst=0x0000037D tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place
+○000009●text○ハンサムな外科医の殺し屋とか、アブダビの王子っていわれたほうが、まだリアリティあるん\nだもん!!
+●000009●text●ハンサムな外科医の殺し屋とか、アブダビの王子っていわれたほうが、まだリアリティあるん\nだもん!!
+
+# idx=000010 file=PS2T025A.BIN off=0x000003F7 inst=0x000003F7 tag=text source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000010●text○……。
+●000010●text●……。
+
+# idx=000011 file=PS2T025A.BIN off=0x00000419 inst=0x00000419 tag=text source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000011●text○……ふう。
+●000011●text●……ふう。
+
+# idx=000012 file=PS2T025A.BIN off=0x0000043F inst=0x0000043F tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000012●text○ついテストに対する不安を王子さまにぶつけて\nしまった。
+●000012●text●ついテストに対する不安を王子さまにぶつけて\nしまった。
+
+# idx=000013 file=PS2T025A.BIN off=0x00000491 inst=0x00000491 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000013●text○でもな……結局はつきあっちゃったこっちが\n悪いんだし……。
+●000013●text●でもな……結局はつきあっちゃったこっちが\n悪いんだし……。
+
+# idx=000014 file=PS2T025A.BIN off=0x000004E7 inst=0x000004E7 tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000014●text○あ～あ、玉といい、丸藤さんといい……。\nみんな、もっと大人になってほしいよな。
+●000014●text●あ～あ、玉といい、丸藤さんといい……。\nみんな、もっと大人になってほしいよな。
+
+# idx=000015 file=PS2T025A.BIN off=0x00000551 inst=0x00000551 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000015●text○いや、そんなこと、望むだけ無駄なんだけど。\n……わかってるんだ。
+●000015●text●いや、そんなこと、望むだけ無駄なんだけど。\n……わかってるんだ。
+
+# idx=000016 file=PS2T025A.BIN off=0x000005F1 inst=0x000005F1 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000016●label○PS2I019a.bin
+●000016●label●PS2I019a.bin
+
+# idx=000017 file=PS2T025A.BIN off=0x0000066A inst=0x0000066A tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000017●text○そしていよいよ中間テスト。
+●000017●text●そしていよいよ中間テスト。
+
+# idx=000018 file=PS2T025A.BIN off=0x000006E8 inst=0x000006E8 tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000018●text○ここ数日は玉もバイトの休みをもらって猛特訓。
+●000018●text●ここ数日は玉もバイトの休みをもらって猛特訓。
+
+# idx=000019 file=PS2T025A.BIN off=0x00000730 inst=0x00000730 tag=text source=inline_len8_string len=112 enc=cp932 policy=in_place
+○000019●text○何度も何度も弱音をはいた玉だったけれど、\n藤之辺や木村もつきあってくれたから、何とか\nやるだけやったという感じ。
+●000019●text●何度も何度も弱音をはいた玉だったけれど、\n藤之辺や木村もつきあってくれたから、何とか\nやるだけやったという感じ。
+
+# idx=000020 file=PS2T025A.BIN off=0x000007BC inst=0x000007BC tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place
+○000020●text○でも、いざ始まってしまうと、やっぱり違うからなあ。\n試験用紙が配られるたびに、心配が先にたつ。
+●000020●text●でも、いざ始まってしまうと、やっぱり違うからなあ。\n試験用紙が配られるたびに、心配が先にたつ。
+
+# idx=000021 file=PS2T025A.BIN off=0x00000836 inst=0x00000836 tag=text source=inline_len8_string len=90 enc=cp932 policy=in_place
+○000021●text○勉強おしえてたせいで、ぼく自身はなんだか力が底あげされたようなんだけど、問題はやっぱり玉。
+●000021●text●勉強おしえてたせいで、ぼく自身はなんだか力が底あげされたようなんだけど、問題はやっぱり玉。
+
+# idx=000022 file=PS2T025A.BIN off=0x000008AC inst=0x000008AC tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000022●text○底あげしようにも、そもそも底がないとゆーか、ぬけてるんだから。
+●000022●text●底あげしようにも、そもそも底がないとゆーか、ぬけてるんだから。
+
+# idx=000023 file=PS2T025A.BIN off=0x00000906 inst=0x00000906 tag=text source=inline_len8_string len=102 enc=cp932 policy=in_place
+○000023●text○それに、テスト期間中、集中力が続いてくれるかどーかが心配。\n実際、真剣さには欠けてる気がするんだよな。
+●000023●text●それに、テスト期間中、集中力が続いてくれるかどーかが心配。\n実際、真剣さには欠けてる気がするんだよな。
+
+# idx=000024 file=PS2T025A.BIN off=0x000009E6 inst=0x000009E6 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000024●label○PS2T026a.bin
+●000024●label●PS2T026a.bin
+

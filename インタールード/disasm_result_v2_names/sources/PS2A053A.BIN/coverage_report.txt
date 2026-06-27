@@ -1,0 +1,9 @@
+file: PS2A053A.BIN
+byte_size: 24789
+coverage: 100.00%
+status: OK
+records: 5197
+text_entries: 320
+zero_mutation_roundtrip: PASS
+original_sha256: af6ac6a4bdbaa0edb7744f0b0b2b902c982c1562a2757a746ba7f046df09761b
+rebuilt_sha256: af6ac6a4bdbaa0edb7744f0b0b2b902c982c1562a2757a746ba7f046df09761b

@@ -1,0 +1,9 @@
+file: STAY.BIN
+byte_size: 25905
+coverage: 100.00%
+status: OK
+records: 6440
+text_entries: 1398
+zero_mutation_roundtrip: PASS
+original_sha256: 39f4fa48d48696c4a4c615f2aba1e126a192cc545b4dd4215b8931ecdfa68015
+rebuilt_sha256: 39f4fa48d48696c4a4c615f2aba1e126a192cc545b4dd4215b8931ecdfa68015

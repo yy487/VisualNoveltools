@@ -1,0 +1,6 @@
+file=MESSAGES.BIN
+byte_size=929046
+coverage=100.00%
+regions=2
+string_pool_start=0x000082C2
+message_strings=16214

@@ -1,0 +1,9 @@
+file: PS2A033A.BIN
+byte_size: 5679
+coverage: 100.00%
+status: OK
+records: 1591
+text_entries: 82
+zero_mutation_roundtrip: PASS
+original_sha256: 2ece89a84ca65c6943a2b7455f579bda33781c82487f2f843b93a8b9d58b1523
+rebuilt_sha256: 2ece89a84ca65c6943a2b7455f579bda33781c82487f2f843b93a8b9d58b1523

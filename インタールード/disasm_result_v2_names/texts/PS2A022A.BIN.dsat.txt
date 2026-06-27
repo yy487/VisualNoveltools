@@ -1,0 +1,128 @@
+# DSAT export for PS2A022A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2A022A.BIN off=0x00000040 inst=0x00000040 tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000001●text○気づくとグラウンドで練習していた野球部や\n陸上部の姿がない。
+●000001●text●気づくとグラウンドで練習していた野球部や\n陸上部の姿がない。
+
+# idx=000002 file=PS2A022A.BIN off=0x00000098 inst=0x00000098 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000002●text○深い青が空を覆い始めている。\nもう……そんな時間か。
+●000002●text●深い青が空を覆い始めている。\nもう……そんな時間か。
+
+# idx=000003 file=PS2A022A.BIN off=0x000000E8 inst=0x000000E8 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000003●text○えっ……？\n時計が変な時間をさしている。\n故障かな？
+●000003●text●えっ……？\n時計が変な時間をさしている。\n故障かな？
+
+# idx=000004 file=PS2A022A.BIN off=0x00000138 inst=0x00000138 tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000004●text○静かすぎる校内。\nぼけっとしていて、思っていたより遅くなった\nのか。
+●000004●text●静かすぎる校内。\nぼけっとしていて、思っていたより遅くなった\nのか。
+
+# idx=000005 file=PS2A022A.BIN off=0x00000198 inst=0x00000198 tag=text source=inline_len8_string len=66 enc=cp932 policy=in_place
+○000005●text○いや……\nそれにしても、帰りのアナウンスを聞き逃す\nわけもないし。
+●000005●text●いや……\nそれにしても、帰りのアナウンスを聞き逃す\nわけもないし。
+
+# idx=000006 file=PS2A022A.BIN off=0x00000224 inst=0x00000224 tag=text source=inline_len8_string len=88 enc=cp932 policy=in_place
+○000006●text○窓の外にも動きがない。\n暗くなっているのだから、自動車のライト\nくらいは見えるだろうに。
+●000006●text●窓の外にも動きがない。\n暗くなっているのだから、自動車のライト\nくらいは見えるだろうに。
+
+# idx=000007 file=PS2A022A.BIN off=0x00000298 inst=0x00000298 tag=text source=inline_len8_string len=76 enc=cp932 policy=in_place
+○000007●text○夜になったばかりの時間の、ちょっと奇妙な感覚。……にしても、変なのだけれど。
+●000007●text●夜になったばかりの時間の、ちょっと奇妙な感覚。……にしても、変なのだけれど。
+
+# idx=000008 file=PS2A022A.BIN off=0x00000300 inst=0x00000300 tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000008●text○まるで……\n時間が止まって、ぼくひとりだけが動いている\nような気分。
+●000008●text●まるで……\n時間が止まって、ぼくひとりだけが動いている\nような気分。
+
+# idx=000009 file=PS2A022A.BIN off=0x00000360 inst=0x00000360 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000009●text○ぼく……ひとり？\nまさか。
+●000009●text●ぼく……ひとり？\nまさか。
+
+# idx=000010 file=PS2A022A.BIN off=0x000003D9 inst=0x000003D9 tag=text source=inline_len8_string len=96 enc=cp932 policy=in_place
+○000010●text○ぼくは、ほんの一瞬、『彼女』のことを思い出す。無人のホームで、ひとり電車を待っていた\n『彼女』。
+●000010●text●ぼくは、ほんの一瞬、『彼女』のことを思い出す。無人のホームで、ひとり電車を待っていた\n『彼女』。
+
+# idx=000011 file=PS2A022A.BIN off=0x00000455 inst=0x00000455 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000011●text○……玉はどうしてる？\nぼくは、職員室へとはしった。
+●000011●text●……玉はどうしてる？\nぼくは、職員室へとはしった。
+
+# idx=000012 file=PS2A022A.BIN off=0x00000524 inst=0x00000524 tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000012●text○職員室は真っ暗で、鍵がかかっていた。\n人の気配はまるでない。
+●000012●text●職員室は真っ暗で、鍵がかかっていた。\n人の気配はまるでない。
+
+# idx=000013 file=PS2A022A.BIN off=0x0000057C inst=0x0000057C tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000013●text○先に帰った？\nいや、そんなことはないはず。
+●000013●text●先に帰った？\nいや、そんなことはないはず。
+
+# idx=000014 file=PS2A022A.BIN off=0x000005C2 inst=0x000005C2 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000014●text○玉は重度さびしがり症だから、いつでも誰かと\n一緒にいたい。
+●000014●text●玉は重度さびしがり症だから、いつでも誰かと\n一緒にいたい。
+
+# idx=000015 file=PS2A022A.BIN off=0x00000618 inst=0x00000618 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000015●text○じゃあ、行き違いになったとか？\n今ごろ、ひとりっきりで待ってる？
+●000015●text●じゃあ、行き違いになったとか？\n今ごろ、ひとりっきりで待ってる？
+
+# idx=000016 file=PS2A022A.BIN off=0x00000674 inst=0x00000674 tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000016●text○ぼくは胸騒ぎをおぼえながら、教室へ急いだ。
+●000016●text●ぼくは胸騒ぎをおぼえながら、教室へ急いだ。
+
+# idx=000017 file=PS2A022A.BIN off=0x00000728 inst=0x00000728 tag=text source=inline_len8_string len=70 enc=cp932 policy=in_place
+○000017●text○教室には誰もいなかった。\nけれど……玉のカバンは机の上に置きっぱなし。
+●000017●text●教室には誰もいなかった。\nけれど……玉のカバンは机の上に置きっぱなし。
+
+# idx=000018 file=PS2A022A.BIN off=0x0000078A inst=0x0000078A tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000018●text○カバンを置いて帰った……\nというのはあり得ることだ。
+●000018●text●カバンを置いて帰った……\nというのはあり得ることだ。
+
+# idx=000019 file=PS2A022A.BIN off=0x000007DA inst=0x000007DA tag=text source=inline_len8_string len=122 enc=cp932 policy=in_place
+○000019●text○でも、教科書はいいとして、ご自慢のかわいい\nおベント箱は持って帰るだろう。\n弁当箱をむきだしで持って帰るわけもないし……。
+●000019●text●でも、教科書はいいとして、ご自慢のかわいい\nおベント箱は持って帰るだろう。\n弁当箱をむきだしで持って帰るわけもないし……。
+
+# idx=000020 file=PS2A022A.BIN off=0x00000870 inst=0x00000870 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000020●text○じゃあ、玉はどこに行った？
+●000020●text●じゃあ、玉はどこに行った？
+
+# idx=000021 file=PS2A022A.BIN off=0x000008A6 inst=0x000008A6 tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000021●text○さっきから感じていた不安が、現実となって\n襲いかかって来る。
+●000021●text●さっきから感じていた不安が、現実となって\n襲いかかって来る。
+
+# idx=000022 file=PS2A022A.BIN off=0x000008FE inst=0x000008FE tag=text source=inline_len8_string len=90 enc=cp932 policy=in_place
+○000022●text○校内から、人が消えていた。\nそれどころか、世界から人が消えてしまった\nような予感さえある。
+●000022●text●校内から、人が消えていた。\nそれどころか、世界から人が消えてしまった\nような予感さえある。
+
+# idx=000023 file=PS2A022A.BIN off=0x00000991 inst=0x00000991 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000023●label○se-e33
+●000023●label●se-e33
+
+# idx=000024 file=PS2A022A.BIN off=0x000009B3 inst=0x000009B3 tag=text source=inline_len8_string len=102 enc=cp932 policy=in_place
+○000024●text○机の上に、ぽつんと残された玉のカバン。\nそれだけが現実感を持っていた。\n……そのカバンが、なくなった。
+●000024●text●机の上に、ぽつんと残された玉のカバン。\nそれだけが現実感を持っていた。\n……そのカバンが、なくなった。
+
+# idx=000025 file=PS2A022A.BIN off=0x00000A35 inst=0x00000A35 tag=text source=inline_len8_string len=86 enc=cp932 policy=in_place
+○000025●text○ほんの一瞬目をはなした隙に机の上が空になっていた。\nさっきまで確かにあったはずなのに。
+●000025●text●ほんの一瞬目をはなした隙に机の上が空になっていた。\nさっきまで確かにあったはずなのに。
+
+# idx=000026 file=PS2A022A.BIN off=0x00000AA7 inst=0x00000AA7 tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000026●text○それとも……\nあると思っていただけなのか。
+●000026●text●それとも……\nあると思っていただけなのか。
+
+# idx=000027 file=PS2A022A.BIN off=0x00000AED inst=0x00000AED tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000027●text○自分が確かに見ていたものさえ自信が持てなく\nなる。
+●000027●text●自分が確かに見ていたものさえ自信が持てなく\nなる。
+
+# idx=000028 file=PS2A022A.BIN off=0x00000B3B inst=0x00000B3B tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000028●text○時間の溝に落ちこんでしまったような奇妙な\n感覚に襲われる。
+●000028●text●時間の溝に落ちこんでしまったような奇妙な\n感覚に襲われる。
+
+# idx=000029 file=PS2A022A.BIN off=0x00000BBF inst=0x00000BBF tag=text source=inline_len8_string len=110 enc=cp932 policy=in_place
+○000029●text○自分を取り囲むすべてが嘘のように思えた。\nここにいてはいけない。\nそんな思いに駆られ、ぼくは校舎を飛び出した。
+●000029●text●自分を取り囲むすべてが嘘のように思えた。\nここにいてはいけない。\nそんな思いに駆られ、ぼくは校舎を飛び出した。
+
+# idx=000030 file=PS2A022A.BIN off=0x00000C49 inst=0x00000C49 tag=text source=inline_len8_string len=86 enc=cp932 policy=in_place
+○000030●text○どこか……人のいる場所へ。\nひとりでいてはいけない。\nぼくは駅へと向かって駆けだした。
+●000030●text●どこか……人のいる場所へ。\nひとりでいてはいけない。\nぼくは駅へと向かって駆けだした。
+
+# idx=000031 file=PS2A022A.BIN off=0x00000CFF inst=0x00000CFF tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000031●label○PS2A023a.bin
+●000031●label●PS2A023a.bin
+

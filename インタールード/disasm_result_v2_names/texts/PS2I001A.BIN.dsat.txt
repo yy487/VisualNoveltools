@@ -1,0 +1,604 @@
+# DSAT export for PS2I001A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2I001A.BIN off=0x00000044 inst=0x00000044 tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000001●label○se-02
+●000001●label●se-02
+
+# idx=000002 file=PS2I001A.BIN off=0x0000006C inst=0x0000006C tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000002●text○ひとりで歩く帰り道。\nふとのんびりしている自分に気づく。
+●000002●text●ひとりで歩く帰り道。\nふとのんびりしている自分に気づく。
+
+# idx=000003 file=PS2I001A.BIN off=0x000000C0 inst=0x000000C0 tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place
+○000003●text○それもそうだ。\nいつもは『静かにしてると死んじゃう』玉が\nとなりにいる。
+●000003●text●それもそうだ。\nいつもは『静かにしてると死んじゃう』玉が\nとなりにいる。
+
+# idx=000004 file=PS2I001A.BIN off=0x00000124 inst=0x00000124 tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000004●text○考えてみると、幼なじみの玉とは幼稚園の\nころから、ずっと行き帰りが一緒だった。
+●000004●text●考えてみると、幼なじみの玉とは幼稚園の\nころから、ずっと行き帰りが一緒だった。
+
+# idx=000005 file=PS2I001A.BIN off=0x0000018E inst=0x0000018E tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000005●text○また、あいつは健康とゆーか頑丈だから、学校\n休まないし。
+●000005●text●また、あいつは健康とゆーか頑丈だから、学校\n休まないし。
+
+# idx=000006 file=PS2I001A.BIN off=0x0000021B inst=0x0000021B tag=text source=inline_len8_string len=118 enc=cp932 policy=in_place
+○000006●text○ひとりきりって……ずいぶんしばらくぶりだった。玉には悪いんだけど、ぼくはひとりっきりに\nなりたかったんだと気がついた。
+●000006●text●ひとりきりって……ずいぶんしばらくぶりだった。玉には悪いんだけど、ぼくはひとりっきりに\nなりたかったんだと気がついた。
+
+# idx=000007 file=PS2I001A.BIN off=0x000002AD inst=0x000002AD tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place
+○000007●text○あの朝の光景のせいだと思う。
+●000007●text●あの朝の光景のせいだと思う。
+
+# idx=000008 file=PS2I001A.BIN off=0x000002E5 inst=0x000002E5 tag=text source=inline_len8_string len=92 enc=cp932 policy=in_place
+○000008●text○真剣になるほどのことはないのかもしれない\nけれど、やっぱり気持ちのどこかがひっかかっている。
+●000008●text●真剣になるほどのことはないのかもしれない\nけれど、やっぱり気持ちのどこかがひっかかっている。
+
+# idx=000009 file=PS2I001A.BIN off=0x0000035D inst=0x0000035D tag=text source=inline_len8_string len=18 enc=cp932 policy=in_place
+○000009●text○静かな場所だった。
+●000009●text●静かな場所だった。
+
+# idx=000010 file=PS2I001A.BIN off=0x0000038B inst=0x0000038B tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place
+○000010●text○そして彼女はひとりきりだった。
+●000010●text●そして彼女はひとりきりだった。
+
+# idx=000011 file=PS2I001A.BIN off=0x000003F3 inst=0x000003F3 tag=text source=inline_len8_string len=124 enc=cp932 policy=in_place
+○000011●text○夕方のホームには人があふれていた。\n学生は楽しいことをさがしているし、仕事途中の会社員は無理してつまらなそうな顔をしている。
+●000011●text●夕方のホームには人があふれていた。\n学生は楽しいことをさがしているし、仕事途中の会社員は無理してつまらなそうな顔をしている。
+
+# idx=000012 file=PS2I001A.BIN off=0x0000048B inst=0x0000048B tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000012●text○いつもと同じ風景なのに、なにかが違う。\nどこか違和感がある。
+●000012●text●いつもと同じ風景なのに、なにかが違う。\nどこか違和感がある。
+
+# idx=000013 file=PS2I001A.BIN off=0x000004E3 inst=0x000004E3 tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place
+○000013●text○……けれど、ぼくは気づいていた。
+●000013●text●……けれど、ぼくは気づいていた。
+
+# idx=000014 file=PS2I001A.BIN off=0x0000051F inst=0x0000051F tag=text source=inline_len8_string len=82 enc=cp932 policy=in_place
+○000014●text○違うのはみんなではなく、ぼくの方だ。\n玉がいないというのも理由のひとつだけれど……
+●000014●text●違うのはみんなではなく、ぼくの方だ。\n玉がいないというのも理由のひとつだけれど……
+
+# idx=000015 file=PS2I001A.BIN off=0x0000058D inst=0x0000058D tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000015●text○目は人ごみの中に、『彼女』をさがしていた。
+●000015●text●目は人ごみの中に、『彼女』をさがしていた。
+
+# idx=000016 file=PS2I001A.BIN off=0x0000063A inst=0x0000063A tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000016●text○ぼくはあの朝たしかに、『彼女』を見た。\n『彼女』もぼくに気がついた。
+●000016●text●ぼくはあの朝たしかに、『彼女』を見た。\n『彼女』もぼくに気がついた。
+
+# idx=000017 file=PS2I001A.BIN off=0x0000069A inst=0x0000069A tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000017●text○ホームから人の姿は消え、『彼女』だけが\n残されていた。
+●000017●text●ホームから人の姿は消え、『彼女』だけが\n残されていた。
+
+# idx=000018 file=PS2I001A.BIN off=0x000006EC inst=0x000006EC tag=text source=inline_len8_string len=114 enc=cp932 policy=in_place
+○000018●text○その瞳から、ぼくは目をはなせなかった。\n黒い瞳の奥ふかくで、なにかが輝いていた。\nそのなにかに、強くひかれていた。
+●000018●text●その瞳から、ぼくは目をはなせなかった。\n黒い瞳の奥ふかくで、なにかが輝いていた。\nそのなにかに、強くひかれていた。
+
+# idx=000019 file=PS2I001A.BIN off=0x000007BB inst=0x000007BB tag=text source=inline_len8_string len=92 enc=cp932 policy=in_place
+○000019●text○理由がわからない。\nけれど、記憶の中で『彼女』の瞳は輝いている。こんな経験ははじめてだった。
+●000019●text●理由がわからない。\nけれど、記憶の中で『彼女』の瞳は輝いている。こんな経験ははじめてだった。
+
+# idx=000020 file=PS2I001A.BIN off=0x00000833 inst=0x00000833 tag=text source=inline_len8_string len=116 enc=cp932 policy=in_place
+○000020●text○『彼女』が幻だと理解していた。\nわかっているのに、自分をとめることができない。あの漆黒のふかい瞳を思い出してしまう。
+●000020●text●『彼女』が幻だと理解していた。\nわかっているのに、自分をとめることができない。あの漆黒のふかい瞳を思い出してしまう。
+
+# idx=000021 file=PS2I001A.BIN off=0x000008C3 inst=0x000008C3 tag=text source=inline_len8_string len=76 enc=cp932 policy=in_place
+○000021●text○たぶん、街灯に群がる蛾は今のぼくのような\n気持ちなのだろうな。\nそう思った。
+●000021●text●たぶん、街灯に群がる蛾は今のぼくのような\n気持ちなのだろうな。\nそう思った。
+
+# idx=000022 file=PS2I001A.BIN off=0x0000094A inst=0x0000094A tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000022●label○se-01
+●000022●label●se-01
+
+# idx=000023 file=PS2I001A.BIN off=0x000009A0 inst=0x000009A0 tag=text source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000023●text○えっ?!
+●000023●text●えっ?!
+
+# idx=000024 file=PS2I001A.BIN off=0x000009CE inst=0x000009CE tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000024●text○金属の反射光が目に刺さる。\n思考が途切れる。
+●000024●text●金属の反射光が目に刺さる。\n思考が途切れる。
+
+# idx=000025 file=PS2I001A.BIN off=0x00000A16 inst=0x00000A16 tag=text source=inline_len8_string len=102 enc=cp932 policy=in_place
+○000025●text○ぼくは向かいのホームを見ていた。\nさっきまでとなにも変わっていない。\nみおぼえのある顔がそこにあった。
+●000025●text●ぼくは向かいのホームを見ていた。\nさっきまでとなにも変わっていない。\nみおぼえのある顔がそこにあった。
+
+# idx=000026 file=PS2I001A.BIN off=0x00000ACA inst=0x00000ACA tag=text source=inline_len8_string len=90 enc=cp932 policy=in_place
+○000026●text○電車通学男子のあいだで話題の巨乳ＯＬ。\nやさしげな感じと、ふつりあいに大きい胸が\n大評判。
+●000026●text●電車通学男子のあいだで話題の巨乳ＯＬ。\nやさしげな感じと、ふつりあいに大きい胸が\n大評判。
+
+# idx=000027 file=PS2I001A.BIN off=0x00000B40 inst=0x00000B40 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000027●text○とにかく……すごいもんね。
+●000027●text●とにかく……すごいもんね。
+
+# idx=000028 file=PS2I001A.BIN off=0x00000B76 inst=0x00000B76 tag=text source=inline_len8_string len=66 enc=cp932 policy=in_place
+○000028●text○あの人も、あの朝ホームにいたけれど……\nなにか気づいたのだろうか。
+●000028●text●あの人も、あの朝ホームにいたけれど……\nなにか気づいたのだろうか。
+
+# idx=000029 file=PS2I001A.BIN off=0x00000BD4 inst=0x00000BD4 tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000029●text○……えぇっ?!
+●000029●text●……えぇっ?!
+
+# idx=000030 file=PS2I001A.BIN off=0x00000C14 inst=0x00000C14 tag=text source=inline_len8_string len=48 enc=cp932 policy=in_place
+○000030●text○気づいてないのお?!\nまずいんじゃない、それって!!
+●000030●text●気づいてないのお?!\nまずいんじゃない、それって!!
+
+# idx=000031 file=PS2I001A.BIN off=0x00000C4C inst=0x00000C4C tag=text source=inline_len8_string len=18 enc=cp932 policy=in_place
+○000031●text○おしえてあげなきゃ
+●000031●text●おしえてあげなきゃ
+
+# idx=000032 file=PS2I001A.BIN off=0x00000C6E inst=0x00000C6E tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place
+○000032●text○気のせいなのか
+●000032●text●気のせいなのか
+
+# idx=000033 file=PS2I001A.BIN off=0x00000CE0 inst=0x00000CE0 tag=label source=inline_len8_string len=5 enc=cp932 policy=in_place
+○000033●label○se-01
+●000033●label●se-01
+
+# idx=000034 file=PS2I001A.BIN off=0x00000D36 inst=0x00000D36 tag=text source=inline_len8_string len=82 enc=cp932 policy=in_place
+○000034●text○あんな露骨にスカートの中のぞかれてるのに\n気づかないなんて、どーかしてんじゃない?!
+●000034●text●あんな露骨にスカートの中のぞかれてるのに\n気づかないなんて、どーかしてんじゃない?!
+
+# idx=000035 file=PS2I001A.BIN off=0x00000DF6 inst=0x00000DF6 tag=text source=inline_len8_string len=84 enc=cp932 policy=in_place
+○000035●text○勘違いだよ。\nそんなことがあったら、普通は気づくだろうし、まわりだってほっとかない。
+●000035●text●勘違いだよ。\nそんなことがあったら、普通は気づくだろうし、まわりだってほっとかない。
+
+# idx=000036 file=PS2I001A.BIN off=0x00000E66 inst=0x00000E66 tag=text source=inline_len8_string len=96 enc=cp932 policy=in_place
+○000036●text○だってあんなに堂々と。\nそれに……だから、見えたよーな気がしただけで実際にはみてなかった、とか。
+●000036●text●だってあんなに堂々と。\nそれに……だから、見えたよーな気がしただけで実際にはみてなかった、とか。
+
+# idx=000037 file=PS2I001A.BIN off=0x00000EE2 inst=0x00000EE2 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000037●text○うん、そーでも考えないと、おかしい。\nおかしすぎる。
+●000037●text●うん、そーでも考えないと、おかしい。\nおかしすぎる。
+
+# idx=000038 file=PS2I001A.BIN off=0x00000F5F inst=0x00000F5F tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000038●text○正面のホームにもう１度、目を向けると……。
+●000038●text●正面のホームにもう１度、目を向けると……。
+
+# idx=000039 file=PS2I001A.BIN off=0x00000FD3 inst=0x00000FD3 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000039●text○お姉さんも、痴漢（風？）の男もいなくなって\nいた。
+●000039●text●お姉さんも、痴漢（風？）の男もいなくなって\nいた。
+
+# idx=000040 file=PS2I001A.BIN off=0x00001021 inst=0x00001021 tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000040●text○お姉さんが気づいて、どこかへ行ったか。\nそれか……気のせいだったか。
+●000040●text●お姉さんが気づいて、どこかへ行ったか。\nそれか……気のせいだったか。
+
+# idx=000041 file=PS2I001A.BIN off=0x00001081 inst=0x00001081 tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place
+○000041●text○それもそうだ。\nそんなにおもしろいことが、そうそう起きる\nわけもないし。
+●000041●text●それもそうだ。\nそんなにおもしろいことが、そうそう起きる\nわけもないし。
+
+# idx=000042 file=PS2I001A.BIN off=0x000010E5 inst=0x000010E5 tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place
+○000042●text○ちょっと疲れてるのかもしれない。
+●000042●text●ちょっと疲れてるのかもしれない。
+
+# idx=000043 file=PS2I001A.BIN off=0x00001121 inst=0x00001121 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place
+○000043●text○今朝だって、突然ホームから人がいなくなって\nいたし。
+●000043●text●今朝だって、突然ホームから人がいなくなって\nいたし。
+
+# idx=000044 file=PS2I001A.BIN off=0x000011A2 inst=0x000011A2 tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000044●text○幻だった。\nでも、妙に存在感のある幻だった。
+●000044●text●幻だった。\nでも、妙に存在感のある幻だった。
+
+# idx=000045 file=PS2I001A.BIN off=0x000011EA inst=0x000011EA tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000045●text○知らない制服を着ていた。\n誰だったんだろう、『彼女』は。
+●000045●text●知らない制服を着ていた。\n誰だったんだろう、『彼女』は。
+
+# idx=000046 file=PS2I001A.BIN off=0x0000123E inst=0x0000123E tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place
+○000046●text○ぼくの願望……だったのかな？
+●000046●text●ぼくの願望……だったのかな？
+
+# idx=000047 file=PS2I001A.BIN off=0x00001276 inst=0x00001276 tag=text source=inline_len8_string len=100 enc=cp932 policy=in_place
+○000047●text○物心ついたときからずっと、騒々しすぎる玉と\n一緒だったから、『彼女』みたいな女の子の夢を見たのかな。
+●000047●text●物心ついたときからずっと、騒々しすぎる玉と\n一緒だったから、『彼女』みたいな女の子の夢を見たのかな。
+
+# idx=000048 file=PS2I001A.BIN off=0x000012F6 inst=0x000012F6 tag=text source=inline_len8_string len=66 enc=cp932 policy=in_place
+○000048●text○ま、それが１番ありそうなこと。\n後は、欲求不満って解釈もできるか。
+●000048●text●ま、それが１番ありそうなこと。\n後は、欲求不満って解釈もできるか。
+
+# idx=000049 file=PS2I001A.BIN off=0x00001354 inst=0x00001354 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000049●text○それについては、考えてもしょーがないこと\nだから。
+●000049●text●それについては、考えてもしょーがないこと\nだから。
+
+# idx=000050 file=PS2I001A.BIN off=0x000013A2 inst=0x000013A2 tag=text source=inline_len8_string len=114 enc=cp932 policy=in_place
+○000050●text○幻……夢だとわかっていても、もう１度、\n『彼女』に会ってみたいな。\nなにをしてるのかって、見てるだけでもいいから。
+●000050●text●幻……夢だとわかっていても、もう１度、\n『彼女』に会ってみたいな。\nなにをしてるのかって、見てるだけでもいいから。
+
+# idx=000051 file=PS2I001A.BIN off=0x00001430 inst=0x00001430 tag=text source=inline_len8_string len=70 enc=cp932 policy=in_place
+○000051●text○ひとりっきりのホームで、単語帳か。\n受験、近いのかな。\n３年生だとか。
+●000051●text●ひとりっきりのホームで、単語帳か。\n受験、近いのかな。\n３年生だとか。
+
+# idx=000052 file=PS2I001A.BIN off=0x00001492 inst=0x00001492 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000052●text○ああ、そっか。\n場合によっては……年上ってこともあるんだ。
+●000052●text●ああ、そっか。\n場合によっては……年上ってこともあるんだ。
+
+# idx=000053 file=PS2I001A.BIN off=0x000014E8 inst=0x000014E8 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=EX name_id=EX confidence=unresolved
+○000053●label○EX10015
+●000053●label●EX10015
+
+# idx=000054 file=PS2I001A.BIN off=0x000014F7 inst=0x000014E8 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=EX speaker_code=EX10015 name_source=prev_voice_label virtual=true writable=false pair=000055 confidence=unresolved full_name=EX basis=prefix_detected;_no_mapping
+○000054●name○EX
+●000054●name●EX
+
+# idx=000055 file=PS2I001A.BIN off=0x000014F7 inst=0x000014F7 tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place speaker_idx=000054 name=EX name_id=EX speaker_code=EX10015 name_source=prev_voice_label pair=000054 confidence=unresolved full_name=EX
+○000055●text○「白線の内側までおさがりください」
+●000055●text●「白線の内側までおさがりください」
+
+# idx=000056 file=PS2I001A.BIN off=0x00001535 inst=0x00001535 tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000056●text○あ……。\nなに考えてんだろ。\nバカみてー。
+●000056●text●あ……。\nなに考えてんだろ。\nバカみてー。
+
+# idx=000057 file=PS2I001A.BIN off=0x0000157B inst=0x0000157B tag=text source=inline_len8_string len=100 enc=cp932 policy=in_place
+○000057●text○これって、ひと目ぼれだよ、フツーなら。\nちらっと見ただけの『彼女』のこと、ずっと\n考えてるんだもの。
+●000057●text●これって、ひと目ぼれだよ、フツーなら。\nちらっと見ただけの『彼女』のこと、ずっと\n考えてるんだもの。
+
+# idx=000058 file=PS2I001A.BIN off=0x000015FB inst=0x000015FB tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place
+○000058●text○でもな、いないんだよ、『彼女』。\n実際には。
+●000058●text●でもな、いないんだよ、『彼女』。\n実際には。
+
+# idx=000059 file=PS2I001A.BIN off=0x0000164A inst=0x0000164A tag=text source=inline_len8_string len=80 enc=cp932 policy=in_place
+○000059●text○ふう、はかなくもせつない恋の終わりって\n感じかな。\nほんの一瞬の恋だったけどね。
+●000059●text●ふう、はかなくもせつない恋の終わりって\n感じかな。\nほんの一瞬の恋だったけどね。
+
+# idx=000060 file=PS2I001A.BIN off=0x000016FA inst=0x000016FA tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000060●label○PS2I002a.bin
+●000060●label●PS2I002a.bin
+
+# idx=000061 file=PS2I001A.BIN off=0x00001722 inst=0x00001722 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=EX name_id=EX confidence=unresolved
+○000061●label○EX10015
+●000061●label●EX10015
+
+# idx=000062 file=PS2I001A.BIN off=0x00001731 inst=0x00001722 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=EX speaker_code=EX10015 name_source=prev_voice_label virtual=true writable=false pair=000063 confidence=unresolved full_name=EX basis=prefix_detected;_no_mapping
+○000062●name○EX
+●000062●name●EX
+
+# idx=000063 file=PS2I001A.BIN off=0x00001731 inst=0x00001731 tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place speaker_idx=000062 name=EX name_id=EX speaker_code=EX10015 name_source=prev_voice_label pair=000062 confidence=unresolved full_name=EX
+○000063●text○「白線の内側までおさがりください」
+●000063●text●「白線の内側までおさがりください」
+
+# idx=000064 file=PS2I001A.BIN off=0x00001760 inst=0x00001760 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000064●label○SE-S19
+●000064●label●SE-S19
+
+# idx=000065 file=PS2I001A.BIN off=0x00001789 inst=0x00001789 tag=text source=inline_len8_string len=92 enc=cp932 policy=in_place
+○000065●text○ぼくは人の列をはなれて駆け出した。\nアナウンスが向かいのホームに電車がはいると\n告げていた。
+●000065●text●ぼくは人の列をはなれて駆け出した。\nアナウンスが向かいのホームに電車がはいると\n告げていた。
+
+# idx=000066 file=PS2I001A.BIN off=0x00001882 inst=0x00001882 tag=text source=inline_len8_string len=102 enc=cp932 policy=in_place
+○000066●text○ぼくは閉じかけた扉に体を押しこむ。\n帰宅ラッシュには少しはやい時間帯。\n車内は思ったより人が多かった。
+●000066●text●ぼくは閉じかけた扉に体を押しこむ。\n帰宅ラッシュには少しはやい時間帯。\n車内は思ったより人が多かった。
+
+# idx=000067 file=PS2I001A.BIN off=0x00001904 inst=0x00001904 tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place
+○000067●text○……あの人は？\n人のかたまりに目を走らせる。\nあの人の姿は見えなかった。
+●000067●text●……あの人は？\n人のかたまりに目を走らせる。\nあの人の姿は見えなかった。
+
+# idx=000068 file=PS2I001A.BIN off=0x00001968 inst=0x00001968 tag=text source=inline_len8_string len=76 enc=cp932 policy=in_place
+○000068●text○ここじゃないのか？\n車輛の確認なんかしてる暇などなかったの\nだから、当然か。
+●000068●text●ここじゃないのか？\n車輛の確認なんかしてる暇などなかったの\nだから、当然か。
+
+# idx=000069 file=PS2I001A.BIN off=0x000019D0 inst=0x000019D0 tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place
+○000069●text○ぼくは人の隙間をぬって、車内を移動する。
+●000069●text●ぼくは人の隙間をぬって、車内を移動する。
+
+# idx=000070 file=PS2I001A.BIN off=0x00001A00 inst=0x00001A00 tag=text source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000070●text○前の車輛へ
+●000070●text●前の車輛へ
+
+# idx=000071 file=PS2I001A.BIN off=0x00001A1A inst=0x00001A1A tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000071●text○後ろの車輛へ
+●000071●text●後ろの車輛へ
+
+# idx=000072 file=PS2I001A.BIN off=0x00001AEA inst=0x00001AEA tag=text source=inline_len8_string len=16 enc=cp932 policy=in_place
+○000072●text○……この車輛は？
+●000072●text●……この車輛は？
+
+# idx=000073 file=PS2I001A.BIN off=0x00001B16 inst=0x00001B16 tag=text source=inline_len8_string len=116 enc=cp932 policy=in_place
+○000073●text○優先席に座っていたおばさんがちらりとぼくを\n見あげ、また目を閉じる。\nどこかからもれてるメタルのリズムが気にさわる。
+●000073●text●優先席に座っていたおばさんがちらりとぼくを\n見あげ、また目を閉じる。\nどこかからもれてるメタルのリズムが気にさわる。
+
+# idx=000074 file=PS2I001A.BIN off=0x00001BA6 inst=0x00001BA6 tag=text source=inline_len8_string len=18 enc=cp932 policy=in_place
+○000074●text○ここじゃないのか？
+●000074●text●ここじゃないのか？
+
+# idx=000075 file=PS2I001A.BIN off=0x00001BC0 inst=0x00001BC0 tag=text source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000075●text○前の車輛へ
+●000075●text●前の車輛へ
+
+# idx=000076 file=PS2I001A.BIN off=0x00001BDA inst=0x00001BDA tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000076●text○後ろの車輛へ
+●000076●text●後ろの車輛へ
+
+# idx=000077 file=PS2I001A.BIN off=0x00001CAA inst=0x00001CAA tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000077●text○ぼくは必死で記憶をあさる。
+●000077●text●ぼくは必死で記憶をあさる。
+
+# idx=000078 file=PS2I001A.BIN off=0x00001CE0 inst=0x00001CE0 tag=text source=inline_len8_string len=92 enc=cp932 policy=in_place
+○000078●text○どんな色の服を着ていた？\n後ろにいた男はどうだった？\n本当にスカートの中をのぞいていたのか？
+●000078●text●どんな色の服を着ていた？\n後ろにいた男はどうだった？\n本当にスカートの中をのぞいていたのか？
+
+# idx=000079 file=PS2I001A.BIN off=0x00001D58 inst=0x00001D58 tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place
+○000079●text○あの人は、ここにもいなかった。
+●000079●text●あの人は、ここにもいなかった。
+
+# idx=000080 file=PS2I001A.BIN off=0x00001D7E inst=0x00001D7E tag=text source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000080●text○前の車輛へ
+●000080●text●前の車輛へ
+
+# idx=000081 file=PS2I001A.BIN off=0x00001D98 inst=0x00001D98 tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000081●text○後ろの車輛へ
+●000081●text●後ろの車輛へ
+
+# idx=000082 file=PS2I001A.BIN off=0x00001E68 inst=0x00001E68 tag=text source=inline_len8_string len=36 enc=cp932 policy=in_place
+○000082●text○ぼくはいま、どの車輛にいるのだろう。
+●000082●text●ぼくはいま、どの車輛にいるのだろう。
+
+# idx=000083 file=PS2I001A.BIN off=0x00001EA8 inst=0x00001EA8 tag=text source=inline_len8_string len=102 enc=cp932 policy=in_place
+○000083●text○車内アナウンスが、次の停車駅を告げる。\nどうするつもりなんだ、ぼくは。\nあの人が降りる駅も知らないし。
+●000083●text●車内アナウンスが、次の停車駅を告げる。\nどうするつもりなんだ、ぼくは。\nあの人が降りる駅も知らないし。
+
+# idx=000084 file=PS2I001A.BIN off=0x00001F6B inst=0x00001F6B tag=text source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000084●text○いた!!
+●000084●text●いた!!
+
+# idx=000085 file=PS2I001A.BIN off=0x00001F8D inst=0x00001F8D tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000085●text○みつけた!!\nぼくは人のすきまをすりぬけ、あの人に近づいた。
+●000085●text●みつけた!!\nぼくは人のすきまをすりぬけ、あの人に近づいた。
+
+# idx=000086 file=PS2I001A.BIN off=0x00001FE3 inst=0x00001FE3 tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place
+○000086●text○あの人は……しきりに背後を気にしている。
+●000086●text●あの人は……しきりに背後を気にしている。
+
+# idx=000087 file=PS2I001A.BIN off=0x00002013 inst=0x00002013 tag=text source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000087●text○様子を見る
+●000087●text●様子を見る
+
+# idx=000088 file=PS2I001A.BIN off=0x0000202D inst=0x0000202D tag=text source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000088●text○声をかける
+●000088●text●声をかける
+
+# idx=000089 file=PS2I001A.BIN off=0x0000207C inst=0x0000207C tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000089●label○IZ00110
+●000089●label●IZ00110
+
+# idx=000090 file=PS2I001A.BIN off=0x0000208B inst=0x0000207C tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ00110 name_source=prev_voice_label virtual=true writable=false pair=000091 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000090●name○泉美
+●000090●name●泉美
+
+# idx=000091 file=PS2I001A.BIN off=0x0000208B inst=0x0000208B tag=text source=inline_len8_string len=16 enc=cp932 policy=in_place speaker_idx=000090 name=泉美 name_id=IZ speaker_code=IZ00110 name_source=prev_voice_label pair=000090 confidence=high full_name=泉美
+○000091●text○「……あの……」
+●000091●text●「……あの……」
+
+# idx=000092 file=PS2I001A.BIN off=0x000020B7 inst=0x000020B7 tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000092●text○なにかをいいかけ、うつむく。\nほほが赤く染まっている。
+●000092●text●なにかをいいかけ、うつむく。\nほほが赤く染まっている。
+
+# idx=000093 file=PS2I001A.BIN off=0x00002109 inst=0x00002109 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000093●label○IZ00120
+●000093●label●IZ00120
+
+# idx=000094 file=PS2I001A.BIN off=0x00002118 inst=0x00002109 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ00120 name_source=prev_voice_label virtual=true writable=false pair=000095 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000094●name○泉美
+●000094●name●泉美
+
+# idx=000095 file=PS2I001A.BIN off=0x00002118 inst=0x00002118 tag=text source=inline_len8_string len=18 enc=cp932 policy=in_place speaker_idx=000094 name=泉美 name_id=IZ speaker_code=IZ00120 name_source=prev_voice_label pair=000094 confidence=high full_name=泉美
+○000095●text○「……えっと……」
+●000095●text●「……えっと……」
+
+# idx=000096 file=PS2I001A.BIN off=0x00002146 inst=0x00002146 tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place
+○000096●text○抗議しようとして、また顔をふせる。
+●000096●text●抗議しようとして、また顔をふせる。
+
+# idx=000097 file=PS2I001A.BIN off=0x00002184 inst=0x00002184 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000097●label○IZ00130
+●000097●label●IZ00130
+
+# idx=000098 file=PS2I001A.BIN off=0x00002193 inst=0x00002184 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ00130 name_source=prev_voice_label virtual=true writable=false pair=000099 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000098●name○泉美
+●000098●name●泉美
+
+# idx=000099 file=PS2I001A.BIN off=0x00002193 inst=0x00002193 tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place speaker_idx=000098 name=泉美 name_id=IZ speaker_code=IZ00130 name_source=prev_voice_label pair=000098 confidence=high full_name=泉美
+○000099●text○「ぅ……ぅうぅ……」
+●000099●text●「ぅ……ぅうぅ……」
+
+# idx=000100 file=PS2I001A.BIN off=0x000021C3 inst=0x000021C3 tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place
+○000100●text○涙声がもうことばにならない。
+●000100●text●涙声がもうことばにならない。
+
+# idx=000101 file=PS2I001A.BIN off=0x0000220C inst=0x0000220C tag=text source=inline_len8_string len=74 enc=cp932 policy=in_place
+○000101●text○考える間もなく、ぼくの手はスカートを\nめくりあげている男の腕にのびていた。
+●000101●text●考える間もなく、ぼくの手はスカートを\nめくりあげている男の腕にのびていた。
+
+# idx=000102 file=PS2I001A.BIN off=0x000022C2 inst=0x000022C2 tag=text source=inline_len8_string len=29 enc=cp932 policy=in_place
+○000102●text○「なにを?! してるんですか!!」
+●000102●text●「なにを?! してるんですか!!」
+
+# idx=000103 file=PS2I001A.BIN off=0x000022FB inst=0x000022FB tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000103●label○IZ00140
+●000103●label●IZ00140
+
+# idx=000104 file=PS2I001A.BIN off=0x0000230A inst=0x000022FB tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ00140 name_source=prev_voice_label virtual=true writable=false pair=000105 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000104●name○泉美
+●000104●name●泉美
+
+# idx=000105 file=PS2I001A.BIN off=0x0000230A inst=0x0000230A tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place speaker_idx=000104 name=泉美 name_id=IZ speaker_code=IZ00140 name_source=prev_voice_label pair=000104 confidence=high full_name=泉美
+○000105●text○「あぁぁ……」
+●000105●text●「あぁぁ……」
+
+# idx=000106 file=PS2I001A.BIN off=0x00002334 inst=0x00002334 tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place
+○000106●text○あの人は安心したのか、気のぬけるような吐息とともに、弱々しく座りこんだ。
+●000106●text●あの人は安心したのか、気のぬけるような吐息とともに、弱々しく座りこんだ。
+
+# idx=000107 file=PS2I001A.BIN off=0x00002398 inst=0x00002398 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=EX name_id=EX confidence=unresolved
+○000107●label○EX46010
+●000107●label●EX46010
+
+# idx=000108 file=PS2I001A.BIN off=0x000023A7 inst=0x00002398 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=EX speaker_code=EX46010 name_source=prev_voice_label virtual=true writable=false pair=000109 confidence=unresolved full_name=EX basis=prefix_detected;_no_mapping
+○000108●name○EX
+●000108●name●EX
+
+# idx=000109 file=PS2I001A.BIN off=0x000023A7 inst=0x000023A7 tag=text source=inline_len8_string len=102 enc=cp932 policy=in_place speaker_idx=000108 name=EX name_id=EX speaker_code=EX46010 name_source=prev_voice_label pair=000108 confidence=unresolved full_name=EX
+○000109●text○「あ、いや、違うよ。きみは、なにかを誤解\nしてるな。これはね、彼女もＯＫで、納得してのことなんだから」
+●000109●text●「あ、いや、違うよ。きみは、なにかを誤解\nしてるな。これはね、彼女もＯＫで、納得してのことなんだから」
+
+# idx=000110 file=PS2I001A.BIN off=0x00002429 inst=0x00002429 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000110●label○IZ00150
+●000110●label●IZ00150
+
+# idx=000111 file=PS2I001A.BIN off=0x00002438 inst=0x00002429 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ00150 name_source=prev_voice_label virtual=true writable=false pair=000112 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000111●name○泉美
+●000111●name●泉美
+
+# idx=000112 file=PS2I001A.BIN off=0x00002438 inst=0x00002438 tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place speaker_idx=000111 name=泉美 name_id=IZ speaker_code=IZ00150 name_source=prev_voice_label pair=000111 confidence=high full_name=泉美
+○000112●text○「たーすけーて～、ちかんですぅ～、\nヘンシツシャー」
+●000112●text●「たーすけーて～、ちかんですぅ～、\nヘンシツシャー」
+
+# idx=000113 file=PS2I001A.BIN off=0x00002488 inst=0x00002488 tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place
+○000113●text○あの人は、へろへろっとした悲鳴をあげた。
+●000113●text●あの人は、へろへろっとした悲鳴をあげた。
+
+# idx=000114 file=PS2I001A.BIN off=0x0000254C inst=0x0000254C tag=text source=inline_len8_string len=94 enc=cp932 policy=in_place
+○000114●text○ぼくとあの人（『丸藤泉美』という名前だった）は、鉄道警察でしばらくのあいだ、事情を\n聞かれた。
+●000114●text●ぼくとあの人（『丸藤泉美』という名前だった）は、鉄道警察でしばらくのあいだ、事情を\n聞かれた。
+
+# idx=000115 file=PS2I001A.BIN off=0x000025C6 inst=0x000025C6 tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000115●text○痴漢は誤解だと言い張ってたようだが、カバンにしかけられたビデオが証拠となった。
+●000115●text●痴漢は誤解だと言い張ってたようだが、カバンにしかけられたビデオが証拠となった。
+
+# idx=000116 file=PS2I001A.BIN off=0x00002630 inst=0x00002630 tag=text source=inline_len8_string len=76 enc=cp932 policy=in_place
+○000116●text○薄いついたての向こうから、悪質だから告訴\nできるがという警察官の問いかけに、
+●000116●text●薄いついたての向こうから、悪質だから告訴\nできるがという警察官の問いかけに、
+
+# idx=000117 file=PS2I001A.BIN off=0x00002698 inst=0x00002698 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000117●label○IZ00160
+●000117●label●IZ00160
+
+# idx=000118 file=PS2I001A.BIN off=0x000026A7 inst=0x00002698 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ00160 name_source=prev_voice_label virtual=true writable=false pair=000119 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000118●name○泉美
+●000118●name●泉美
+
+# idx=000119 file=PS2I001A.BIN off=0x000026A7 inst=0x000026A7 tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place speaker_idx=000118 name=泉美 name_id=IZ speaker_code=IZ00160 name_source=prev_voice_label pair=000118 confidence=high full_name=泉美
+○000119●text○「えっと……そこまでは……」
+●000119●text●「えっと……そこまでは……」
+
+# idx=000120 file=PS2I001A.BIN off=0x000026DF inst=0x000026DF tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000120●text○と、丸藤さんはおびえた声で返事をしていた。
+●000120●text●と、丸藤さんはおびえた声で返事をしていた。
+
+# idx=000121 file=PS2I001A.BIN off=0x00002725 inst=0x00002725 tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000121●text○ぼくたちが解放されたとき、外はすっかり暗く\nなっていた。
+●000121●text●ぼくたちが解放されたとき、外はすっかり暗く\nなっていた。
+
+# idx=000122 file=PS2I001A.BIN off=0x000027AE inst=0x000027AE tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000122●label○IZ00170
+●000122●label●IZ00170
+
+# idx=000123 file=PS2I001A.BIN off=0x000027BD inst=0x000027AE tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ00170 name_source=prev_voice_label virtual=true writable=false pair=000124 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000123●name○泉美
+●000123●name●泉美
+
+# idx=000124 file=PS2I001A.BIN off=0x000027BD inst=0x000027BD tag=text source=inline_len8_string len=16 enc=cp932 policy=in_place speaker_idx=000123 name=泉美 name_id=IZ speaker_code=IZ00170 name_source=prev_voice_label pair=000123 confidence=high full_name=泉美
+○000124●text○「……ふぅ……」
+●000124●text●「……ふぅ……」
+
+# idx=000125 file=PS2I001A.BIN off=0x000027E9 inst=0x000027E9 tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000125●text○彼女……丸藤さんは放心状態だった。\nそれは、そうかも。
+●000125●text●彼女……丸藤さんは放心状態だった。\nそれは、そうかも。
+
+# idx=000126 file=PS2I001A.BIN off=0x00002827 inst=0x00002827 tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place
+○000126●text○だいじょうぶですか？
+●000126●text●だいじょうぶですか？
+
+# idx=000127 file=PS2I001A.BIN off=0x0000284B inst=0x0000284B tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place
+○000127●text○こーゆーことって、はじめてですか？
+●000127●text●こーゆーことって、はじめてですか？
+
+# idx=000128 file=PS2I001A.BIN off=0x0000287D inst=0x0000287D tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place
+○000128●text○どーして訴えなかったんですか？
+●000128●text●どーして訴えなかったんですか？
+
+# idx=000129 file=PS2I001A.BIN off=0x00002915 inst=0x00002915 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000129●label○IZ00180
+●000129●label●IZ00180
+
+# idx=000130 file=PS2I001A.BIN off=0x00002924 inst=0x00002915 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ00180 name_source=prev_voice_label virtual=true writable=false pair=000131 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000130●name○泉美
+●000130●name●泉美
+
+# idx=000131 file=PS2I001A.BIN off=0x00002924 inst=0x00002924 tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place speaker_idx=000130 name=泉美 name_id=IZ speaker_code=IZ00180 name_source=prev_voice_label pair=000130 confidence=high full_name=泉美
+○000131●text○「あ……ぅう～……うん。だいじょーぶー……\nだと思うー」
+●000131●text●「あ……ぅう～……うん。だいじょーぶー……\nだと思うー」
+
+# idx=000132 file=PS2I001A.BIN off=0x000029BE inst=0x000029BE tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000132●label○IZ00190
+●000132●label●IZ00190
+
+# idx=000133 file=PS2I001A.BIN off=0x000029CD inst=0x000029BE tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ00190 name_source=prev_voice_label virtual=true writable=false pair=000134 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000133●name○泉美
+●000133●name●泉美
+
+# idx=000134 file=PS2I001A.BIN off=0x000029CD inst=0x000029CD tag=text source=inline_len8_string len=75 enc=cp932 policy=in_place speaker_idx=000133 name=泉美 name_id=IZ speaker_code=IZ00190 name_source=prev_voice_label pair=000133 confidence=high full_name=泉美
+○000134●text○「えっ？ あの…えと……どーだろー？\nう、うん……はじめて……じゃないかも」
+●000134●text●「えっ？ あの…えと……どーだろー？\nう、うん……はじめて……じゃないかも」
+
+# idx=000135 file=PS2I001A.BIN off=0x00002A7A inst=0x00002A7A tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000135●label○IZ00200
+●000135●label●IZ00200
+
+# idx=000136 file=PS2I001A.BIN off=0x00002A89 inst=0x00002A7A tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ00200 name_source=prev_voice_label virtual=true writable=false pair=000137 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000136●name○泉美
+●000136●name●泉美
+
+# idx=000137 file=PS2I001A.BIN off=0x00002A89 inst=0x00002A89 tag=text source=inline_len8_string len=97 enc=cp932 policy=in_place speaker_idx=000136 name=泉美 name_id=IZ speaker_code=IZ00200 name_source=prev_voice_label pair=000136 confidence=high full_name=泉美
+○000137●text○「えぇ～？ ……っとぉ……どーしてだろー？\nちょっと、かわいそーかなーって思ったかも\nしれなーい」
+●000137●text●「えぇ～？ ……っとぉ……どーしてだろー？\nちょっと、かわいそーかなーって思ったかも\nしれなーい」
+
+# idx=000138 file=PS2I001A.BIN off=0x00002B06 inst=0x00002B06 tag=text source=inline_len8_string len=22 enc=cp932 policy=in_place
+○000138●text○「ひとりで帰れます？」
+●000138●text●「ひとりで帰れます？」
+
+# idx=000139 file=PS2I001A.BIN off=0x00002B38 inst=0x00002B38 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000139●label○IZ00210
+●000139●label●IZ00210
+
+# idx=000140 file=PS2I001A.BIN off=0x00002B47 inst=0x00002B38 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ00210 name_source=prev_voice_label virtual=true writable=false pair=000141 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000140●name○泉美
+●000140●name●泉美
+
+# idx=000141 file=PS2I001A.BIN off=0x00002B47 inst=0x00002B47 tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place speaker_idx=000140 name=泉美 name_id=IZ speaker_code=IZ00210 name_source=prev_voice_label pair=000140 confidence=high full_name=泉美
+○000141●text○「ぅ、う～ん……帰れるー……と思うけどー」
+●000141●text●「ぅ、う～ん……帰れるー……と思うけどー」
+
+# idx=000142 file=PS2I001A.BIN off=0x00002B8D inst=0x00002B8D tag=text source=inline_len8_string len=88 enc=cp932 policy=in_place
+○000142●text○よほどショックが大きかったのだろう。\n丸藤さんからは、気のぬけたこたえが返ってくるだけ。
+●000142●text●よほどショックが大きかったのだろう。\n丸藤さんからは、気のぬけたこたえが返ってくるだけ。
+
+# idx=000143 file=PS2I001A.BIN off=0x00002C01 inst=0x00002C01 tag=text source=inline_len8_string len=102 enc=cp932 policy=in_place
+○000143●text○まぁそうだろうな、と思う。\n痴漢にあったことはないけど（当たり前）、\nいい気分のものではないだろうし。
+●000143●text●まぁそうだろうな、と思う。\n痴漢にあったことはないけど（当たり前）、\nいい気分のものではないだろうし。
+
+# idx=000144 file=PS2I001A.BIN off=0x00002C83 inst=0x00002C83 tag=text source=inline_len8_string len=88 enc=cp932 policy=in_place
+○000144●text○「じゃ、ぼくは帰りますけど……今度あーゆー\nことがあったら、声とか出した方がいいですよ」
+●000144●text●「じゃ、ぼくは帰りますけど……今度あーゆー\nことがあったら、声とか出した方がいいですよ」
+
+# idx=000145 file=PS2I001A.BIN off=0x00002CF7 inst=0x00002CF7 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=泉美 name_id=IZ confidence=high
+○000145●label○IZ00220
+●000145●label●IZ00220
+
+# idx=000146 file=PS2I001A.BIN off=0x00002D06 inst=0x00002CF7 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=IZ speaker_code=IZ00220 name_source=prev_voice_label virtual=true writable=false pair=000147 confidence=high full_name=泉美 basis=DEBUG_route_labels:_泉美シナリオ
+○000146●name○泉美
+●000146●name●泉美
+
+# idx=000147 file=PS2I001A.BIN off=0x00002D06 inst=0x00002D06 tag=text source=inline_len8_string len=18 enc=cp932 policy=in_place speaker_idx=000146 name=泉美 name_id=IZ speaker_code=IZ00220 name_source=prev_voice_label pair=000146 confidence=high full_name=泉美
+○000147●text○「あ……はい……」
+●000147●text●「あ……はい……」
+
+# idx=000148 file=PS2I001A.BIN off=0x00002D68 inst=0x00002D68 tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000148●text○ぼくはいくらかの不安を感じながら、帰りの\n電車にむかう。
+●000148●text●ぼくはいくらかの不安を感じながら、帰りの\n電車にむかう。
+
+# idx=000149 file=PS2I001A.BIN off=0x00002DFC inst=0x00002DFC tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000149●text○う～ん……\n本当にだいじょうぶなのかなあ。
+●000149●text●う～ん……\n本当にだいじょうぶなのかなあ。
+
+# idx=000150 file=PS2I001A.BIN off=0x00002E60 inst=0x00002E60 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000150●label○PS2I002a.bin
+●000150●label●PS2I002a.bin
+

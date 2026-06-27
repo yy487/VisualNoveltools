@@ -1,0 +1,28 @@
+# DSAT export for PS2A063A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2A063A.BIN off=0x00000013 inst=0x00000013 tag=text source=inline_len8_string len=108 enc=cp932 policy=in_place
+○000001●text○ぼくは……暗闇の中を歩いていた。\n果てしない混乱の荒野を、歩き続けていた。\n確かに、そうしていたはずだった。
+●000001●text●ぼくは……暗闇の中を歩いていた。\n果てしない混乱の荒野を、歩き続けていた。\n確かに、そうしていたはずだった。
+
+# idx=000002 file=PS2A063A.BIN off=0x0000009B inst=0x0000009B tag=text source=inline_len8_string len=66 enc=cp932 policy=in_place
+○000002●text○明かりがある、ことに気づいたのはしばらく\nたってからのことだった。
+●000002●text●明かりがある、ことに気づいたのはしばらく\nたってからのことだった。
+
+# idx=000003 file=PS2A063A.BIN off=0x000000F9 inst=0x000000F9 tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000003●text○最初は、星空だと思っていた。\nでも、ここには空などないのに。
+●000003●text●最初は、星空だと思っていた。\nでも、ここには空などないのに。
+
+# idx=000004 file=PS2A063A.BIN off=0x00000151 inst=0x00000151 tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000004●text○星にしては近すぎた。\nそれに光が強すぎる。
+●000004●text●星にしては近すぎた。\nそれに光が強すぎる。
+
+# idx=000005 file=PS2A063A.BIN off=0x00000197 inst=0x00000197 tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000005●text○白く、あたりをぼんやりと照らす、人工的な照明。
+●000005●text●白く、あたりをぼんやりと照らす、人工的な照明。
+
+# idx=000006 file=PS2A063A.BIN off=0x00000238 inst=0x00000238 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000006●label○PS2A064a.bin
+●000006●label●PS2A064a.bin
+

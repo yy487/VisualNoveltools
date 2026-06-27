@@ -1,0 +1,9 @@
+file: PS2F007A.BIN
+byte_size: 5880
+coverage: 100.00%
+status: OK
+records: 1798
+text_entries: 85
+zero_mutation_roundtrip: PASS
+original_sha256: 25cec59b25b7c521bff5adfc10cf6cdbd66f55ef68e160ec28d83bb373c90693
+rebuilt_sha256: 25cec59b25b7c521bff5adfc10cf6cdbd66f55ef68e160ec28d83bb373c90693

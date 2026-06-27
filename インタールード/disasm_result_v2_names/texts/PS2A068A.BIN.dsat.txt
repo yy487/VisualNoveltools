@@ -1,0 +1,324 @@
+# DSAT export for PS2A068A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2A068A.BIN off=0x00000053 inst=0x00000053 tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000001●text○ぼくは戻って来た。\n毎日はゆっくりと確実にすぎていく。
+●000001●text●ぼくは戻って来た。\n毎日はゆっくりと確実にすぎていく。
+
+# idx=000002 file=PS2A068A.BIN off=0x000000A5 inst=0x000000A5 tag=text source=inline_len8_string len=66 enc=cp932 policy=in_place
+○000002●text○特別なことはなにもおきないけれど、すべてが\n特別かもしれない日々。
+●000002●text●特別なことはなにもおきないけれど、すべてが\n特別かもしれない日々。
+
+# idx=000003 file=PS2A068A.BIN off=0x00000103 inst=0x00000103 tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place
+○000003●text○空を見あげる。
+●000003●text●空を見あげる。
+
+# idx=000004 file=PS2A068A.BIN off=0x0000012D inst=0x0000012D tag=text source=inline_len8_string len=100 enc=cp932 policy=in_place
+○000004●text○月はいつも通りに輝いていた。\n街を押しつぶそうとする不吉な光はどこにもない。見慣れた、当たり前の月。
+●000004●text●月はいつも通りに輝いていた。\n街を押しつぶそうとする不吉な光はどこにもない。見慣れた、当たり前の月。
+
+# idx=000005 file=PS2A068A.BIN off=0x000001AD inst=0x000001AD tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000005●text○ぼくは幻の街からの帰還を実感した。\nいや、幻というのは間違っている。
+●000005●text●ぼくは幻の街からの帰還を実感した。\nいや、幻というのは間違っている。
+
+# idx=000006 file=PS2A068A.BIN off=0x0000020D inst=0x0000020D tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place
+○000006●text○あの街は確かに存在していた。
+●000006●text●あの街は確かに存在していた。
+
+# idx=000007 file=PS2A068A.BIN off=0x00000245 inst=0x00000245 tag=text source=inline_len8_string len=56 enc=cp932 policy=in_place
+○000007●text○ぼくたちには見えない場所で、あの街は確実に\n生きていた。
+●000007●text●ぼくたちには見えない場所で、あの街は確実に\n生きていた。
+
+# idx=000008 file=PS2A068A.BIN off=0x00000299 inst=0x00000299 tag=text source=inline_len8_string len=54 enc=cp932 policy=in_place
+○000008●text○ほとんどの人は、街の影にさえ気づかずに\n一生を終える。
+●000008●text●ほとんどの人は、街の影にさえ気づかずに\n一生を終える。
+
+# idx=000009 file=PS2A068A.BIN off=0x00000318 inst=0x00000318 tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place
+○000009●text○でも、ぼくは知ってしまった。
+●000009●text●でも、ぼくは知ってしまった。
+
+# idx=000010 file=PS2A068A.BIN off=0x00000350 inst=0x00000350 tag=text source=inline_len8_string len=110 enc=cp932 policy=in_place
+○000010●text○ときたま、ごく身近であの街の気配を感じた。\nなにをしていても、誰と一緒でも、不意をついて街の気配は襲って来た。
+●000010●text●ときたま、ごく身近であの街の気配を感じた。\nなにをしていても、誰と一緒でも、不意をついて街の気配は襲って来た。
+
+# idx=000011 file=PS2A068A.BIN off=0x000003DA inst=0x000003DA tag=text source=inline_len8_string len=96 enc=cp932 policy=in_place
+○000011●text○影の中から聞こえる小さく甲高い鳴き声、背後に近づく誰かの足音。\n街はいつでもぼくのそばにあった。
+●000011●text●影の中から聞こえる小さく甲高い鳴き声、背後に近づく誰かの足音。\n街はいつでもぼくのそばにあった。
+
+# idx=000012 file=PS2A068A.BIN off=0x00000456 inst=0x00000456 tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000012●text○ほんの少し足を踏み外せば、ぼくはあの街に\n立っているのだろう。
+●000012●text●ほんの少し足を踏み外せば、ぼくはあの街に\n立っているのだろう。
+
+# idx=000013 file=PS2A068A.BIN off=0x000004B0 inst=0x000004B0 tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place
+○000013●text○そんな予感があった。
+●000013●text●そんな予感があった。
+
+# idx=000014 file=PS2A068A.BIN off=0x000004E0 inst=0x000004E0 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=睦月 name_id=MU confidence=high
+○000014●label○MU00530
+●000014●label●MU00530
+
+# idx=000015 file=PS2A068A.BIN off=0x000004EF inst=0x000004E0 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MU speaker_code=MU00530 name_source=prev_voice_label virtual=true writable=false pair=000016 confidence=high full_name=睦月 basis=DEBUG_route_labels_and_MU_dialogue_context
+○000015●name○睦月
+●000015●name●睦月
+
+# idx=000016 file=PS2A068A.BIN off=0x000004EF inst=0x000004EF tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place speaker_idx=000015 name=睦月 name_id=MU speaker_code=MU00530 name_source=prev_voice_label pair=000015 confidence=high full_name=睦月
+○000016●text○「お兄ちゃん、なにしてんの？」
+●000016●text●「お兄ちゃん、なにしてんの？」
+
+# idx=000017 file=PS2A068A.BIN off=0x00000529 inst=0x00000529 tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place
+○000017●text○聞き慣れた声が、ぼくを呼び止める。
+●000017●text●聞き慣れた声が、ぼくを呼び止める。
+
+# idx=000018 file=PS2A068A.BIN off=0x00000567 inst=0x00000567 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000018●text○「別に。考え事してただけ。お前こそなにしてんだよ」
+●000018●text●「別に。考え事してただけ。お前こそなにしてんだよ」
+
+# idx=000019 file=PS2A068A.BIN off=0x000005B5 inst=0x000005B5 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=睦月 name_id=MU confidence=high
+○000019●label○MU00540
+●000019●label●MU00540
+
+# idx=000020 file=PS2A068A.BIN off=0x000005C4 inst=0x000005B5 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MU speaker_code=MU00540 name_source=prev_voice_label virtual=true writable=false pair=000021 confidence=high full_name=睦月 basis=DEBUG_route_labels_and_MU_dialogue_context
+○000020●name○睦月
+●000020●name●睦月
+
+# idx=000021 file=PS2A068A.BIN off=0x000005C4 inst=0x000005C4 tag=text source=inline_len8_string len=44 enc=cp932 policy=in_place speaker_idx=000020 name=睦月 name_id=MU speaker_code=MU00540 name_source=prev_voice_label pair=000020 confidence=high full_name=睦月
+○000021●text○「なんにもしてないよ。お家かえるとこだもん」
+●000021●text●「なんにもしてないよ。お家かえるとこだもん」
+
+# idx=000022 file=PS2A068A.BIN off=0x0000060C inst=0x0000060C tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place
+○000022●text○「一緒にかえるか？」
+●000022●text●「一緒にかえるか？」
+
+# idx=000023 file=PS2A068A.BIN off=0x0000063C inst=0x0000063C tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=睦月 name_id=MU confidence=high
+○000023●label○MU00550
+●000023●label●MU00550
+
+# idx=000024 file=PS2A068A.BIN off=0x0000064B inst=0x0000063C tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MU speaker_code=MU00550 name_source=prev_voice_label virtual=true writable=false pair=000025 confidence=high full_name=睦月 basis=DEBUG_route_labels_and_MU_dialogue_context
+○000024●name○睦月
+●000024●name●睦月
+
+# idx=000025 file=PS2A068A.BIN off=0x0000064B inst=0x0000064B tag=text source=inline_len8_string len=12 enc=cp932 policy=in_place speaker_idx=000024 name=睦月 name_id=MU speaker_code=MU00550 name_source=prev_voice_label pair=000024 confidence=high full_name=睦月
+○000025●text○「……うん」
+●000025●text●「……うん」
+
+# idx=000026 file=PS2A068A.BIN off=0x00000673 inst=0x00000673 tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place
+○000026●text○睦月は恥ずかしそうに小さく笑った。
+●000026●text●睦月は恥ずかしそうに小さく笑った。
+
+# idx=000027 file=PS2A068A.BIN off=0x000006DF inst=0x000006DF tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place
+○000027●text○ぼくたちは月の下をならんで歩く。
+●000027●text●ぼくたちは月の下をならんで歩く。
+
+# idx=000028 file=PS2A068A.BIN off=0x0000071B inst=0x0000071B tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=睦月 name_id=MU confidence=high
+○000028●label○MU00560
+●000028●label●MU00560
+
+# idx=000029 file=PS2A068A.BIN off=0x0000072A inst=0x0000071B tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MU speaker_code=MU00560 name_source=prev_voice_label virtual=true writable=false pair=000030 confidence=high full_name=睦月 basis=DEBUG_route_labels_and_MU_dialogue_context
+○000029●name○睦月
+●000029●name●睦月
+
+# idx=000030 file=PS2A068A.BIN off=0x0000072A inst=0x0000072A tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place speaker_idx=000029 name=睦月 name_id=MU speaker_code=MU00560 name_source=prev_voice_label pair=000029 confidence=high full_name=睦月
+○000030●text○「こんなの、しばらくぶりだよね」
+●000030●text●「こんなの、しばらくぶりだよね」
+
+# idx=000031 file=PS2A068A.BIN off=0x00000766 inst=0x00000766 tag=text source=inline_len8_string len=16 enc=cp932 policy=in_place
+○000031●text○「そうだっけ？」
+●000031●text●「そうだっけ？」
+
+# idx=000032 file=PS2A068A.BIN off=0x00000792 inst=0x00000792 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=睦月 name_id=MU confidence=high
+○000032●label○MU00570
+●000032●label●MU00570
+
+# idx=000033 file=PS2A068A.BIN off=0x000007A1 inst=0x00000792 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MU speaker_code=MU00570 name_source=prev_voice_label virtual=true writable=false pair=000034 confidence=high full_name=睦月 basis=DEBUG_route_labels_and_MU_dialogue_context
+○000033●name○睦月
+●000033●name●睦月
+
+# idx=000034 file=PS2A068A.BIN off=0x000007A1 inst=0x000007A1 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place speaker_idx=000033 name=睦月 name_id=MU speaker_code=MU00570 name_source=prev_voice_label pair=000033 confidence=high full_name=睦月
+○000034●text○「そうだよー。だってお兄ちゃん、いっつも\n誰かと一緒なんだもん」
+●000034●text●「そうだよー。だってお兄ちゃん、いっつも\n誰かと一緒なんだもん」
+
+# idx=000035 file=PS2A068A.BIN off=0x000007FD inst=0x000007FD tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000035●text○「そういえば……そうかな」
+●000035●text●「そういえば……そうかな」
+
+# idx=000036 file=PS2A068A.BIN off=0x00000833 inst=0x00000833 tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000036●text○睦月の手をひいて、小学校へ連れて行った日の\nことを思い出す。
+●000036●text●睦月の手をひいて、小学校へ連れて行った日の\nことを思い出す。
+
+# idx=000037 file=PS2A068A.BIN off=0x0000088B inst=0x0000088B tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000037●text○内気で泣き虫で人見知りの彼女は、ぼくと一緒でなければ学校へ行くのをいやがった。
+●000037●text●内気で泣き虫で人見知りの彼女は、ぼくと一緒でなければ学校へ行くのをいやがった。
+
+# idx=000038 file=PS2A068A.BIN off=0x000008F5 inst=0x000008F5 tag=text source=inline_len8_string len=90 enc=cp932 policy=in_place
+○000038●text○ぼくが風邪をひいて学校を休むと、睦月も休むといいはった。\nひとりで学校なんか行けない、と。
+●000038●text●ぼくが風邪をひいて学校を休むと、睦月も休むといいはった。\nひとりで学校なんか行けない、と。
+
+# idx=000039 file=PS2A068A.BIN off=0x0000096B inst=0x0000096B tag=text source=inline_len8_string len=72 enc=cp932 policy=in_place
+○000039●text○そんなときは、玉がグズる睦月と手をつないで、一緒に行ってくれたんだった。
+●000039●text●そんなときは、玉がグズる睦月と手をつないで、一緒に行ってくれたんだった。
+
+# idx=000040 file=PS2A068A.BIN off=0x000009CF inst=0x000009CF tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000040●text○あの頃はどこにでも兄妹ででかけた。\nいろんなことを毎日あきもせずに話していた。
+●000040●text●あの頃はどこにでも兄妹ででかけた。\nいろんなことを毎日あきもせずに話していた。
+
+# idx=000041 file=PS2A068A.BIN off=0x00000A39 inst=0x00000A39 tag=text source=inline_len8_string len=84 enc=cp932 policy=in_place
+○000041●text○ふたりで捨てネコをひろい、内緒で飼ってたこともある（玉ン家の珍念は、そのこどもだ）。
+●000041●text●ふたりで捨てネコをひろい、内緒で飼ってたこともある（玉ン家の珍念は、そのこどもだ）。
+
+# idx=000042 file=PS2A068A.BIN off=0x00000AA9 inst=0x00000AA9 tag=text source=inline_len8_string len=84 enc=cp932 policy=in_place
+○000042●text○どうして、いろんなことを忘れていたんだろう。頭の中に霧がかかっていたような気がする。
+●000042●text●どうして、いろんなことを忘れていたんだろう。頭の中に霧がかかっていたような気がする。
+
+# idx=000043 file=PS2A068A.BIN off=0x00000B19 inst=0x00000B19 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000043●text○でも今ならはっきり思い出せる。\n睦月は……ぼくの大切な妹だった。
+●000043●text●でも今ならはっきり思い出せる。\n睦月は……ぼくの大切な妹だった。
+
+# idx=000044 file=PS2A068A.BIN off=0x00000B75 inst=0x00000B75 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=睦月 name_id=MU confidence=high
+○000044●label○MU00580
+●000044●label●MU00580
+
+# idx=000045 file=PS2A068A.BIN off=0x00000B84 inst=0x00000B75 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MU speaker_code=MU00580 name_source=prev_voice_label virtual=true writable=false pair=000046 confidence=high full_name=睦月 basis=DEBUG_route_labels_and_MU_dialogue_context
+○000045●name○睦月
+●000045●name●睦月
+
+# idx=000046 file=PS2A068A.BIN off=0x00000B84 inst=0x00000B84 tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place speaker_idx=000045 name=睦月 name_id=MU speaker_code=MU00580 name_source=prev_voice_label pair=000045 confidence=high full_name=睦月
+○000046●text○「お兄ちゃん」
+●000046●text●「お兄ちゃん」
+
+# idx=000047 file=PS2A068A.BIN off=0x00000BAE inst=0x00000BAE tag=text source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000047●text○「なに？」
+●000047●text●「なに？」
+
+# idx=000048 file=PS2A068A.BIN off=0x00000BD4 inst=0x00000BD4 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=睦月 name_id=MU confidence=high
+○000048●label○MU00590
+●000048●label●MU00590
+
+# idx=000049 file=PS2A068A.BIN off=0x00000BE3 inst=0x00000BD4 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MU speaker_code=MU00590 name_source=prev_voice_label virtual=true writable=false pair=000050 confidence=high full_name=睦月 basis=DEBUG_route_labels_and_MU_dialogue_context
+○000049●name○睦月
+●000049●name●睦月
+
+# idx=000050 file=PS2A068A.BIN off=0x00000BE3 inst=0x00000BE3 tag=text source=inline_len8_string len=14 enc=cp932 policy=in_place speaker_idx=000049 name=睦月 name_id=MU speaker_code=MU00590 name_source=prev_voice_label pair=000049 confidence=high full_name=睦月
+○000050●text○「手、つなご」
+●000050●text●「手、つなご」
+
+# idx=000051 file=PS2A068A.BIN off=0x00000C0D inst=0x00000C0D tag=text source=inline_len8_string len=24 enc=cp932 policy=in_place
+○000051●text○「どーしたんだよ、急に」
+●000051●text●「どーしたんだよ、急に」
+
+# idx=000052 file=PS2A068A.BIN off=0x00000C41 inst=0x00000C41 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=睦月 name_id=MU confidence=high
+○000052●label○MU00600
+●000052●label●MU00600
+
+# idx=000053 file=PS2A068A.BIN off=0x00000C50 inst=0x00000C41 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MU speaker_code=MU00600 name_source=prev_voice_label virtual=true writable=false pair=000054 confidence=high full_name=睦月 basis=DEBUG_route_labels_and_MU_dialogue_context
+○000053●name○睦月
+●000053●name●睦月
+
+# idx=000054 file=PS2A068A.BIN off=0x00000C50 inst=0x00000C50 tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place speaker_idx=000053 name=睦月 name_id=MU speaker_code=MU00600 name_source=prev_voice_label pair=000053 confidence=high full_name=睦月
+○000054●text○「だって、ずっと手つないでないんだもん」
+●000054●text●「だって、ずっと手つないでないんだもん」
+
+# idx=000055 file=PS2A068A.BIN off=0x00000C94 inst=0x00000C94 tag=text source=inline_len8_string len=16 enc=cp932 policy=in_place
+○000055●text○「恥ずかしいよ」
+●000055●text●「恥ずかしいよ」
+
+# idx=000056 file=PS2A068A.BIN off=0x00000CC0 inst=0x00000CC0 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=睦月 name_id=MU confidence=high
+○000056●label○MU00610
+●000056●label●MU00610
+
+# idx=000057 file=PS2A068A.BIN off=0x00000CCF inst=0x00000CC0 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MU speaker_code=MU00610 name_source=prev_voice_label virtual=true writable=false pair=000058 confidence=high full_name=睦月 basis=DEBUG_route_labels_and_MU_dialogue_context
+○000057●name○睦月
+●000057●name●睦月
+
+# idx=000058 file=PS2A068A.BIN off=0x00000CCF inst=0x00000CCF tag=text source=inline_len8_string len=52 enc=cp932 policy=in_place speaker_idx=000057 name=睦月 name_id=MU speaker_code=MU00610 name_source=prev_voice_label pair=000057 confidence=high full_name=睦月
+○000058●text○「恥ずかしくないよー、だって睦月のお兄ちゃんだもん」
+●000058●text●「恥ずかしくないよー、だって睦月のお兄ちゃんだもん」
+
+# idx=000059 file=PS2A068A.BIN off=0x00000D4D inst=0x00000D4D tag=text source=inline_len8_string len=106 enc=cp932 policy=in_place
+○000059●text○ぼくは睦月のさしだす手をにぎる。\nやわらかい、とても小さな、ほうっておいたら\n壊れてしまいそうな手だった。
+●000059●text●ぼくは睦月のさしだす手をにぎる。\nやわらかい、とても小さな、ほうっておいたら\n壊れてしまいそうな手だった。
+
+# idx=000060 file=PS2A068A.BIN off=0x00000DD3 inst=0x00000DD3 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000060●text○空を覆う満月の下、ぼくと睦月はふたりきりで\n歩く。
+●000060●text●空を覆う満月の下、ぼくと睦月はふたりきりで\n歩く。
+
+# idx=000061 file=PS2A068A.BIN off=0x00000E21 inst=0x00000E21 tag=text source=inline_len8_string len=70 enc=cp932 policy=in_place
+○000061●text○なにも話さなくてよかった。\n隣に睦月がいる。\nただそれだけでよかった。
+●000061●text●なにも話さなくてよかった。\n隣に睦月がいる。\nただそれだけでよかった。
+
+# idx=000062 file=PS2A068A.BIN off=0x00000E83 inst=0x00000E83 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=睦月 name_id=MU confidence=high
+○000062●label○MU00620
+●000062●label●MU00620
+
+# idx=000063 file=PS2A068A.BIN off=0x00000E92 inst=0x00000E83 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MU speaker_code=MU00620 name_source=prev_voice_label virtual=true writable=false pair=000064 confidence=high full_name=睦月 basis=DEBUG_route_labels_and_MU_dialogue_context
+○000063●name○睦月
+●000063●name●睦月
+
+# idx=000064 file=PS2A068A.BIN off=0x00000E92 inst=0x00000E92 tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place speaker_idx=000063 name=睦月 name_id=MU speaker_code=MU00620 name_source=prev_voice_label pair=000063 confidence=high full_name=睦月
+○000064●text○「………お兄ちゃん」
+●000064●text●「………お兄ちゃん」
+
+# idx=000065 file=PS2A068A.BIN off=0x00000EC2 inst=0x00000EC2 tag=text source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000065●text○「なに？」
+●000065●text●「なに？」
+
+# idx=000066 file=PS2A068A.BIN off=0x00000EE8 inst=0x00000EE8 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=睦月 name_id=MU confidence=high
+○000066●label○MU00630
+●000066●label●MU00630
+
+# idx=000067 file=PS2A068A.BIN off=0x00000EF7 inst=0x00000EE8 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MU speaker_code=MU00630 name_source=prev_voice_label virtual=true writable=false pair=000068 confidence=high full_name=睦月 basis=DEBUG_route_labels_and_MU_dialogue_context
+○000067●name○睦月
+●000067●name●睦月
+
+# idx=000068 file=PS2A068A.BIN off=0x00000EF7 inst=0x00000EF7 tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place speaker_idx=000067 name=睦月 name_id=MU speaker_code=MU00630 name_source=prev_voice_label pair=000067 confidence=high full_name=睦月
+○000068●text○「睦月のこと、ひとりにしたら、泣いちゃうから」
+●000068●text●「睦月のこと、ひとりにしたら、泣いちゃうから」
+
+# idx=000069 file=PS2A068A.BIN off=0x00000F41 inst=0x00000F41 tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place
+○000069●text○そんなことするわけないのに。
+●000069●text●そんなことするわけないのに。
+
+# idx=000070 file=PS2A068A.BIN off=0x00000F79 inst=0x00000F79 tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000070●text○遠くで、小さな影が動いた。
+●000070●text●遠くで、小さな影が動いた。
+
+# idx=000071 file=PS2A068A.BIN off=0x00000FA0 inst=0x00000FA0 tag=label source=inline_len8_string len=6 enc=cp932 policy=in_place
+○000071●label○SE-S39
+●000071●label●SE-S39
+
+# idx=000072 file=PS2A068A.BIN off=0x00000FC9 inst=0x00000FC9 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=睦月 name_id=MU confidence=high
+○000072●label○MU00640
+●000072●label●MU00640
+
+# idx=000073 file=PS2A068A.BIN off=0x00000FD8 inst=0x00000FC9 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MU speaker_code=MU00640 name_source=prev_voice_label virtual=true writable=false pair=000074 confidence=high full_name=睦月 basis=DEBUG_route_labels_and_MU_dialogue_context
+○000073●name○睦月
+●000073●name●睦月
+
+# idx=000074 file=PS2A068A.BIN off=0x00000FD8 inst=0x00000FD8 tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place speaker_idx=000073 name=睦月 name_id=MU speaker_code=MU00640 name_source=prev_voice_label pair=000073 confidence=high full_name=睦月
+○000074●text○「あ、ヘジホーグ。むかえに来てくれたんだ」
+●000074●text●「あ、ヘジホーグ。むかえに来てくれたんだ」
+
+# idx=000075 file=PS2A068A.BIN off=0x00001050 inst=0x00001050 tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place
+○000075●text○黒い影の中で、赤く目が輝いている。
+●000075●text●黒い影の中で、赤く目が輝いている。
+
+# idx=000076 file=PS2A068A.BIN off=0x000010A6 inst=0x000010A6 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=睦月 name_id=MU confidence=high
+○000076●label○MU00650
+●000076●label●MU00650
+
+# idx=000077 file=PS2A068A.BIN off=0x000010B5 inst=0x000010A6 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=MU speaker_code=MU00650 name_source=prev_voice_label virtual=true writable=false pair=000078 confidence=high full_name=睦月 basis=DEBUG_route_labels_and_MU_dialogue_context
+○000077●name○睦月
+●000077●name●睦月
+
+# idx=000078 file=PS2A068A.BIN off=0x000010B5 inst=0x000010B5 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place speaker_idx=000077 name=睦月 name_id=MU speaker_code=MU00650 name_source=prev_voice_label pair=000077 confidence=high full_name=睦月
+○000078●text○「睦月とお兄ちゃんのこと、心配してくれたん\nだよ」
+●000078●text●「睦月とお兄ちゃんのこと、心配してくれたん\nだよ」
+
+# idx=000079 file=PS2A068A.BIN off=0x00001103 inst=0x00001103 tag=text source=inline_len8_string len=98 enc=cp932 policy=in_place
+○000079●text○影が近づいて来る。\n睦月はうれしそうに、駆け寄る影を見守っていた。もう睦月はひとりぼっちじゃない。
+●000079●text●影が近づいて来る。\n睦月はうれしそうに、駆け寄る影を見守っていた。もう睦月はひとりぼっちじゃない。
+
+# idx=000080 file=PS2A068A.BIN off=0x00001181 inst=0x00001181 tag=text source=inline_len8_string len=28 enc=cp932 policy=in_place
+○000080●text○ぼくが、まもってあげるから。
+●000080●text●ぼくが、まもってあげるから。
+

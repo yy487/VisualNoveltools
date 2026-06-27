@@ -1,0 +1,3 @@
+# DSAT export for CGMODE.BIN
+# Generated from IR text projection only; target line initially equals source for zero-mutation workflow.
+

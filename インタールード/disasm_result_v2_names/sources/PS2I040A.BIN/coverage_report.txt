@@ -1,0 +1,9 @@
+file: PS2I040A.BIN
+byte_size: 665
+coverage: 100.00%
+status: OK
+records: 184
+text_entries: 5
+zero_mutation_roundtrip: PASS
+original_sha256: 01fcfddbd52fdcb39d55aa4e640be44bffd333fc8170a35219528b9db8700bb0
+rebuilt_sha256: 01fcfddbd52fdcb39d55aa4e640be44bffd333fc8170a35219528b9db8700bb0

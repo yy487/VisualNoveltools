@@ -1,0 +1,64 @@
+# DSAT export for PS2F006A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2F006A.BIN off=0x00000053 inst=0x00000053 tag=text source=inline_len8_string len=68 enc=cp932 policy=in_place
+○000001●text○遅くなっちゃったけどバイト先へ迎えに行く。\n扉越しに玉の姿をさがす。
+●000001●text●遅くなっちゃったけどバイト先へ迎えに行く。\n扉越しに玉の姿をさがす。
+
+# idx=000002 file=PS2F006A.BIN off=0x000000B3 inst=0x000000B3 tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place
+○000002●text○……いないなあ。\n休憩時間とか？
+●000002●text●……いないなあ。\n休憩時間とか？
+
+# idx=000003 file=PS2F006A.BIN off=0x000000EF inst=0x000000EF tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place
+○000003●text○いや、そろそろ終わりの時間だから、そんな\nことはないはずだけど。
+●000003●text●いや、そろそろ終わりの時間だから、そんな\nことはないはずだけど。
+
+# idx=000004 file=PS2F006A.BIN off=0x0000014B inst=0x0000014B tag=text source=inline_len8_string len=80 enc=cp932 policy=in_place
+○000004●text○しばらく待っていると、チーフの嶋さんが出て\n来た。\n叩きつけるように扉を閉める。
+●000004●text●しばらく待っていると、チーフの嶋さんが出て\n来た。\n叩きつけるように扉を閉める。
+
+# idx=000005 file=PS2F006A.BIN off=0x000001EC inst=0x000001EC tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=嶋 name_id=SI confidence=medium
+○000005●label○SI00150
+●000005●label●SI00150
+
+# idx=000006 file=PS2F006A.BIN off=0x000001FB inst=0x000001EC tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=SI speaker_code=SI00150 name_source=prev_voice_label virtual=true writable=false pair=000007 confidence=medium full_name=嶋チーフ basis=SI_lines_in_scene_with_嶋チーフ
+○000006●name○嶋
+●000006●name●嶋
+
+# idx=000007 file=PS2F006A.BIN off=0x000001FB inst=0x000001FB tag=text source=inline_len8_string len=37 enc=cp932 policy=in_place speaker_idx=000006 name=嶋 name_id=SI speaker_code=SI00150 name_source=prev_voice_label pair=000006 confidence=medium full_name=嶋チーフ
+○000007●text○「まったく!! 辛気くさい連中だよっ!!」
+●000007●text●「まったく!! 辛気くさい連中だよっ!!」
+
+# idx=000008 file=PS2F006A.BIN off=0x00000271 inst=0x00000271 tag=text source=inline_len8_string len=104 enc=cp932 policy=in_place
+○000008●text○いつものように怒ってる嶋さんが目をあげて、\nぼくを見つける。\nかなり意味ありげな微笑がくちもとに浮かぶ。
+●000008●text●いつものように怒ってる嶋さんが目をあげて、\nぼくを見つける。\nかなり意味ありげな微笑がくちもとに浮かぶ。
+
+# idx=000009 file=PS2F006A.BIN off=0x000002F5 inst=0x000002F5 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=嶋 name_id=SI confidence=medium
+○000009●label○SI00160
+●000009●label●SI00160
+
+# idx=000010 file=PS2F006A.BIN off=0x00000304 inst=0x000002F5 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=SI speaker_code=SI00160 name_source=prev_voice_label virtual=true writable=false pair=000011 confidence=medium full_name=嶋チーフ basis=SI_lines_in_scene_with_嶋チーフ
+○000010●name○嶋
+●000010●name●嶋
+
+# idx=000011 file=PS2F006A.BIN off=0x00000304 inst=0x00000304 tag=text source=inline_len8_string len=77 enc=cp932 policy=in_place speaker_idx=000010 name=嶋 name_id=SI speaker_code=SI00160 name_source=prev_voice_label pair=000010 confidence=medium full_name=嶋チーフ
+○000011●text○「あぁん？ タマならとっくに帰っちまったよ。\nなんだい、知らなかったのかい？」
+●000011●text●「あぁん？ タマならとっくに帰っちまったよ。\nなんだい、知らなかったのかい？」
+
+# idx=000012 file=PS2F006A.BIN off=0x0000036D inst=0x0000036D tag=text source=inline_len8_string len=20 enc=cp932 policy=in_place
+○000012●text○「あ……そうですか」
+●000012●text●「あ……そうですか」
+
+# idx=000013 file=PS2F006A.BIN off=0x0000039D inst=0x0000039D tag=text source=inline_len8_string len=32 enc=cp932 policy=in_place
+○000013●text○しまった。\nもう、帰ってたのか。
+●000013●text●しまった。\nもう、帰ってたのか。
+
+# idx=000014 file=PS2F006A.BIN off=0x000003D9 inst=0x000003D9 tag=text source=inline_len8_string len=82 enc=cp932 policy=in_place
+○000014●text○ぼくは背中に嶋さんの好奇の視線を感じながら、丸藤さんとの待ち合わせ場所へと向かう。
+●000014●text●ぼくは背中に嶋さんの好奇の視線を感じながら、丸藤さんとの待ち合わせ場所へと向かう。
+
+# idx=000015 file=PS2F006A.BIN off=0x000004A5 inst=0x000004A5 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000015●label○PS2I030a.bin
+●000015●label●PS2I030a.bin
+

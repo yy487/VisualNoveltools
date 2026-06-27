@@ -1,0 +1,132 @@
+# DSAT export for COLOR.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=COLOR.BIN off=0x0000003C inst=0x0000003C tag=label source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000001●label○AP0002.vtv
+●000001●label●AP0002.vtv
+
+# idx=000002 file=COLOR.BIN off=0x00000048 inst=0x00000048 tag=label source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000002●label○AP0003.vtv
+●000002●label●AP0003.vtv
+
+# idx=000003 file=COLOR.BIN off=0x00000054 inst=0x00000054 tag=label source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000003●label○AP0004.vtv
+●000003●label●AP0004.vtv
+
+# idx=000004 file=COLOR.BIN off=0x00000060 inst=0x00000060 tag=label source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000004●label○AP0005.vtv
+●000004●label●AP0005.vtv
+
+# idx=000005 file=COLOR.BIN off=0x0000006C inst=0x0000006C tag=label source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000005●label○AP0006.vtv
+●000005●label●AP0006.vtv
+
+# idx=000006 file=COLOR.BIN off=0x00000078 inst=0x00000078 tag=label source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000006●label○AP0008.vtv
+●000006●label●AP0008.vtv
+
+# idx=000007 file=COLOR.BIN off=0x00000084 inst=0x00000084 tag=label source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000007●label○AP0009.vtv
+●000007●label●AP0009.vtv
+
+# idx=000008 file=COLOR.BIN off=0x00000090 inst=0x00000090 tag=label source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000008●label○AP0010.vtv
+●000008●label●AP0010.vtv
+
+# idx=000009 file=COLOR.BIN off=0x0000009C inst=0x0000009C tag=label source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000009●label○AP0011.vtv
+●000009●label●AP0011.vtv
+
+# idx=000010 file=COLOR.BIN off=0x000000A8 inst=0x000000A8 tag=label source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000010●label○AP0012.vtv
+●000010●label●AP0012.vtv
+
+# idx=000011 file=COLOR.BIN off=0x000000B4 inst=0x000000B4 tag=label source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000011●label○AP0014.vtv
+●000011●label●AP0014.vtv
+
+# idx=000012 file=COLOR.BIN off=0x000000C0 inst=0x000000C0 tag=label source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000012●label○AP0016.vtv
+●000012●label●AP0016.vtv
+
+# idx=000013 file=COLOR.BIN off=0x000000CC inst=0x000000CC tag=label source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000013●label○EI0003.vtv
+●000013●label●EI0003.vtv
+
+# idx=000014 file=COLOR.BIN off=0x000000D8 inst=0x000000D8 tag=label source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000014●label○EI0004.vtv
+●000014●label●EI0004.vtv
+
+# idx=000015 file=COLOR.BIN off=0x000000E4 inst=0x000000E4 tag=label source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000015●label○EI0005.vtv
+●000015●label●EI0005.vtv
+
+# idx=000016 file=COLOR.BIN off=0x000000F0 inst=0x000000F0 tag=label source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000016●label○EI0008.vtv
+●000016●label●EI0008.vtv
+
+# idx=000017 file=COLOR.BIN off=0x000000FC inst=0x000000FC tag=label source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000017●label○ET0001.vtv
+●000017●label●ET0001.vtv
+
+# idx=000018 file=COLOR.BIN off=0x00000108 inst=0x00000108 tag=label source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000018●label○ET0002.vtv
+●000018●label●ET0002.vtv
+
+# idx=000019 file=COLOR.BIN off=0x00000114 inst=0x00000114 tag=label source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000019●label○ET0003.vtv
+●000019●label●ET0003.vtv
+
+# idx=000020 file=COLOR.BIN off=0x00000120 inst=0x00000120 tag=label source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000020●label○ET0004.vtv
+●000020●label●ET0004.vtv
+
+# idx=000021 file=COLOR.BIN off=0x0000012C inst=0x0000012C tag=label source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000021●label○ET0005.vtv
+●000021●label●ET0005.vtv
+
+# idx=000022 file=COLOR.BIN off=0x00000138 inst=0x00000138 tag=label source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000022●label○ET0006.vtv
+●000022●label●ET0006.vtv
+
+# idx=000023 file=COLOR.BIN off=0x00000144 inst=0x00000144 tag=label source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000023●label○ET0007.vtv
+●000023●label●ET0007.vtv
+
+# idx=000024 file=COLOR.BIN off=0x00000150 inst=0x00000150 tag=label source=inline_len8_string len=10 enc=cp932 policy=in_place
+○000024●label○ET0008.vtv
+●000024●label●ET0008.vtv
+
+# idx=000025 file=COLOR.BIN off=0x0000015C inst=0x0000015C tag=label source=inline_len8_string len=11 enc=cp932 policy=in_place
+○000025●label○ABG011A.vtv
+●000025●label●ABG011A.vtv
+
+# idx=000026 file=COLOR.BIN off=0x00000169 inst=0x00000169 tag=label source=inline_len8_string len=11 enc=cp932 policy=in_place
+○000026●label○ABG012A.vtv
+●000026●label●ABG012A.vtv
+
+# idx=000027 file=COLOR.BIN off=0x00000176 inst=0x00000176 tag=label source=inline_len8_string len=11 enc=cp932 policy=in_place
+○000027●label○TBG001A.vtv
+●000027●label●TBG001A.vtv
+
+# idx=000028 file=COLOR.BIN off=0x00000183 inst=0x00000183 tag=label source=inline_len8_string len=11 enc=cp932 policy=in_place
+○000028●label○TBG003A.vtv
+●000028●label●TBG003A.vtv
+
+# idx=000029 file=COLOR.BIN off=0x00000190 inst=0x00000190 tag=label source=inline_len8_string len=11 enc=cp932 policy=in_place
+○000029●label○TBG043A.vtv
+●000029●label●TBG043A.vtv
+
+# idx=000030 file=COLOR.BIN off=0x00000370 inst=0x00000370 tag=text source=inline_len8_string len=2 enc=cp932 policy=in_place
+○000030●text○H:
+●000030●text●H:
+
+# idx=000031 file=COLOR.BIN off=0x00000384 inst=0x00000384 tag=text source=inline_len8_string len=3 enc=cp932 policy=in_place
+○000031●text○ S:
+●000031●text● S:
+
+# idx=000032 file=COLOR.BIN off=0x00000399 inst=0x00000399 tag=text source=inline_len8_string len=3 enc=cp932 policy=in_place
+○000032●text○ V:
+●000032●text● V:
+

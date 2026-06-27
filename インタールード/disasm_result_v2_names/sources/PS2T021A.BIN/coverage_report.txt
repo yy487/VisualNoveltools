@@ -1,0 +1,9 @@
+file: PS2T021A.BIN
+byte_size: 10523
+coverage: 100.00%
+status: OK
+records: 3389
+text_entries: 152
+zero_mutation_roundtrip: PASS
+original_sha256: c93bffde5bddd0b1c44e6ea3b8f02e29fa91af7596f394b3bd5fa95c01c5afad
+rebuilt_sha256: c93bffde5bddd0b1c44e6ea3b8f02e29fa91af7596f394b3bd5fa95c01c5afad

@@ -1,0 +1,9 @@
+file: PS2A007A.BIN
+byte_size: 6066
+coverage: 100.00%
+status: OK
+records: 1988
+text_entries: 81
+zero_mutation_roundtrip: PASS
+original_sha256: 831a78ac40687092a26580df06442411e1b3d703c3ebe65220b77dffbc1f1133
+rebuilt_sha256: 831a78ac40687092a26580df06442411e1b3d703c3ebe65220b77dffbc1f1133

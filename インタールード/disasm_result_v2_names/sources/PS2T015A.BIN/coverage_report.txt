@@ -1,0 +1,9 @@
+file: PS2T015A.BIN
+byte_size: 776
+coverage: 100.00%
+status: OK
+records: 305
+text_entries: 9
+zero_mutation_roundtrip: PASS
+original_sha256: acf8247c0f51f9320c15bf485c405481ab5454ac41c13f20a41d95f1c302288b
+rebuilt_sha256: acf8247c0f51f9320c15bf485c405481ab5454ac41c13f20a41d95f1c302288b

@@ -1,0 +1,9 @@
+file: MASKTEST.BIN
+byte_size: 2940
+coverage: 100.00%
+status: OK
+records: 1562
+text_entries: 20
+zero_mutation_roundtrip: PASS
+original_sha256: 89492fce0c5e16f47ad75638464ff7e4e584a24f1d844e99d241a5ec88d1fc9d
+rebuilt_sha256: 89492fce0c5e16f47ad75638464ff7e4e584a24f1d844e99d241a5ec88d1fc9d

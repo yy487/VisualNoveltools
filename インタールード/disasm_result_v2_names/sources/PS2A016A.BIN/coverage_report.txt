@@ -1,0 +1,9 @@
+file: PS2A016A.BIN
+byte_size: 8042
+coverage: 100.00%
+status: OK
+records: 2294
+text_entries: 116
+zero_mutation_roundtrip: PASS
+original_sha256: 336bfb5b9743ad8dbe2eedadc78bb2fd32f9a62402d4db9523ab579849410d43
+rebuilt_sha256: 336bfb5b9743ad8dbe2eedadc78bb2fd32f9a62402d4db9523ab579849410d43

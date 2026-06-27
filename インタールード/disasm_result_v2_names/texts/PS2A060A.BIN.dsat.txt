@@ -1,0 +1,100 @@
+# DSAT export for PS2A060A.BIN
+# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
+# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
+
+# idx=000001 file=PS2A060A.BIN off=0x00000054 inst=0x00000054 tag=text source=inline_len8_string len=50 enc=cp932 policy=in_place
+○000001●text○遠くに人影が見えた。\nたくさんの人が集まっている。
+●000001●text●遠くに人影が見えた。\nたくさんの人が集まっている。
+
+# idx=000002 file=PS2A060A.BIN off=0x000000A2 inst=0x000000A2 tag=text source=inline_len8_string len=60 enc=cp932 policy=in_place
+○000002●text○彼らは、ぼくがゆっくり近づいていくのを\n辛抱強く待っている。
+●000002●text●彼らは、ぼくがゆっくり近づいていくのを\n辛抱強く待っている。
+
+# idx=000003 file=PS2A060A.BIN off=0x000000FA inst=0x000000FA tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000003●text○冬木さんがいた。\nカウンセラーも。\n他にもたくさんの人たちが。
+●000003●text●冬木さんがいた。\nカウンセラーも。\n他にもたくさんの人たちが。
+
+# idx=000004 file=PS2A060A.BIN off=0x00000154 inst=0x00000154 tag=text source=inline_len8_string len=70 enc=cp932 policy=in_place
+○000004●text○毎日を守るために、危険に身をさらしてきた\n人たちが、ぼくを待っている。
+●000004●text●毎日を守るために、危険に身をさらしてきた\n人たちが、ぼくを待っている。
+
+# idx=000005 file=PS2A060A.BIN off=0x000001B6 inst=0x000001B6 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000005●label○FU00310
+●000005●label●FU00310
+
+# idx=000006 file=PS2A060A.BIN off=0x000001C5 inst=0x000001B6 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU00310 name_source=prev_voice_label virtual=true writable=false pair=000007 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000006●name○冬木
+●000006●name●冬木
+
+# idx=000007 file=PS2A060A.BIN off=0x000001C5 inst=0x000001C5 tag=text source=inline_len8_string len=64 enc=cp932 policy=in_place speaker_idx=000006 name=冬木 name_id=FU speaker_code=FU00310 name_source=prev_voice_label pair=000006 confidence=medium full_name=冬木
+○000007●text○「ありがとう、彼女をひとりで行かせてくれたんですね。感謝します」
+●000007●text●「ありがとう、彼女をひとりで行かせてくれたんですね。感謝します」
+
+# idx=000008 file=PS2A060A.BIN off=0x00000221 inst=0x00000221 tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=カウンセラー name_id=TA confidence=medium
+○000008●label○TA00420
+●000008●label●TA00420
+
+# idx=000009 file=PS2A060A.BIN off=0x00000230 inst=0x00000221 tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=TA speaker_code=TA00420 name_source=prev_voice_label virtual=true writable=false pair=000010 confidence=medium full_name=カウンセラー basis=TA_lines_occur_in_counseling-room_scene
+○000009●name○カウンセラー
+●000009●name●カウンセラー
+
+# idx=000010 file=PS2A060A.BIN off=0x00000230 inst=0x00000230 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place speaker_idx=000009 name=カウンセラー name_id=TA speaker_code=TA00420 name_source=prev_voice_label pair=000009 confidence=medium full_name=カウンセラー
+○000010●text○「あなたのおかげで……私は……まだ……生きていられる……」
+●000010●text●「あなたのおかげで……私は……まだ……生きていられる……」
+
+# idx=000011 file=PS2A060A.BIN off=0x00000286 inst=0x00000286 tag=text source=inline_len8_string len=78 enc=cp932 policy=in_place
+○000011●text○カウンセラーは涙声だった。\n他の人たちも、ぼくが綾を失ったことを知って\nいる。
+●000011●text●カウンセラーは涙声だった。\n他の人たちも、ぼくが綾を失ったことを知って\nいる。
+
+# idx=000012 file=PS2A060A.BIN off=0x000002F0 inst=0x000002F0 tag=text source=inline_len8_string len=62 enc=cp932 policy=in_place
+○000012●text○綾をなくして、その代償として世界が取り戻せたことを知っている。
+●000012●text●綾をなくして、その代償として世界が取り戻せたことを知っている。
+
+# idx=000013 file=PS2A060A.BIN off=0x0000034A inst=0x0000034A tag=label source=inline_len8_string len=7 enc=cp932 policy=in_place name=冬木 name_id=FU confidence=medium
+○000013●label○FU00320
+●000013●label●FU00320
+
+# idx=000014 file=PS2A060A.BIN off=0x00000359 inst=0x0000034A tag=name source=virtual_speaker_from_voice_id enc=cp932 policy=metadata_only name_id=FU speaker_code=FU00320 name_source=prev_voice_label virtual=true writable=false pair=000015 confidence=medium full_name=冬木 basis=FU_lines_mention_三枝先生;_nearby_text_identifies_冬木
+○000014●name○冬木
+●000014●name●冬木
+
+# idx=000015 file=PS2A060A.BIN off=0x00000359 inst=0x00000359 tag=text source=inline_len8_string len=90 enc=cp932 policy=in_place speaker_idx=000014 name=冬木 name_id=FU speaker_code=FU00320 name_source=prev_voice_label pair=000014 confidence=medium full_name=冬木
+○000015●text○「これで、また、明日をむかえることができます。きみが……みんなを、世界を救ってくれました」
+●000015●text●「これで、また、明日をむかえることができます。きみが……みんなを、世界を救ってくれました」
+
+# idx=000016 file=PS2A060A.BIN off=0x000003CF inst=0x000003CF tag=text source=inline_len8_string len=46 enc=cp932 policy=in_place
+○000016●text○他にも……みんなが同じようなことをいっていた。
+●000016●text●他にも……みんなが同じようなことをいっていた。
+
+# idx=000017 file=PS2A060A.BIN off=0x00000419 inst=0x00000419 tag=text source=inline_len8_string len=100 enc=cp932 policy=in_place
+○000017●text○でも、聞こえていたけれど、意味がよくわから\nなかった。\n知らない外国語を聞いているような気分だった。
+●000017●text●でも、聞こえていたけれど、意味がよくわから\nなかった。\n知らない外国語を聞いているような気分だった。
+
+# idx=000018 file=PS2A060A.BIN off=0x000004C6 inst=0x000004C6 tag=text source=inline_len8_string len=34 enc=cp932 policy=in_place
+○000018●text○明日から、また普通の毎日が始まる。
+●000018●text●明日から、また普通の毎日が始まる。
+
+# idx=000019 file=PS2A060A.BIN off=0x00000531 inst=0x00000531 tag=text source=inline_len8_string len=30 enc=cp932 policy=in_place
+○000019●text○寝坊している玉をむかえに行く。
+●000019●text●寝坊している玉をむかえに行く。
+
+# idx=000020 file=PS2A060A.BIN off=0x000005A4 inst=0x000005A4 tag=text source=inline_len8_string len=40 enc=cp932 policy=in_place
+○000020●text○丸藤さんのどーでもいい愚痴を聞かされる。
+●000020●text●丸藤さんのどーでもいい愚痴を聞かされる。
+
+# idx=000021 file=PS2A060A.BIN off=0x00000616 inst=0x00000616 tag=text source=inline_len8_string len=42 enc=cp932 policy=in_place
+○000021●text○１番大切なみんなの毎日を守ったはずなのに。
+●000021●text●１番大切なみんなの毎日を守ったはずなのに。
+
+# idx=000022 file=PS2A060A.BIN off=0x0000069E inst=0x0000069E tag=text source=inline_len8_string len=26 enc=cp932 policy=in_place
+○000022●text○目からは涙があふれていた。
+●000022●text●目からは涙があふれていた。
+
+# idx=000023 file=PS2A060A.BIN off=0x000006D4 inst=0x000006D4 tag=text source=inline_len8_string len=58 enc=cp932 policy=in_place
+○000023●text○どうしてだろう。\nどうして、ぼくは……泣いているんだろう。
+●000023●text●どうしてだろう。\nどうして、ぼくは……泣いているんだろう。
+
+# idx=000024 file=PS2A060A.BIN off=0x00000748 inst=0x00000748 tag=label source=inline_len8_string len=12 enc=cp932 policy=in_place
+○000024●label○PS2A061a.bin
+●000024●label●PS2A061a.bin
+

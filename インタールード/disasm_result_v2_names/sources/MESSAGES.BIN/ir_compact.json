@@ -1,0 +1,51 @@
+{
+  "$schema": "local://schemas/ir_compact.schema.json",
+  "schema_version": "1.1.0-conservative",
+  "binary_metadata": {
+    "filename": "MESSAGES.BIN",
+    "byte_size": 929046,
+    "cryptography": {
+      "has_layer": false,
+      "layer_stack": []
+    },
+    "checksum": {
+      "crc32": "547CD221",
+      "md5": "5db12365dccc3cbc3db70609871e1ca1",
+      "sha256": "fd3cc22d7bcb1f116ac0ee9c2d62186c366626f8e9d1cd8f82b202aa2e0d46c3"
+    },
+    "source_zip": {
+      "zip_crc32": "547CD221",
+      "compress_size": 382964,
+      "file_size": 929046
+    }
+  },
+  "plugin": {
+    "plugin_id": "messages_table_cp932",
+    "confidence": "medium"
+  },
+  "subresources": {
+    "region_map": "region_map.json",
+    "instructions": "instructions.jsonl",
+    "text_entries": "text_entries.jsonl",
+    "name_map": "name_map.json",
+    "human_disassembly": "disassembly.asm"
+  },
+  "coverage": {
+    "coverage_percent": 100.0,
+    "status": "OK",
+    "records": 48389
+  },
+  "compilation_strategy": {
+    "relocation_allowed": false,
+    "alignment_requirement": 1,
+    "string_padding_mode": "preserve_original_raw_bytes",
+    "reconstruction_mode": "concatenate_instruction_raw_bytes"
+  },
+  "roundtrip": {
+    "zero_mutation": true,
+    "rebuilt_sha256": "fd3cc22d7bcb1f116ac0ee9c2d62186c366626f8e9d1cd8f82b202aa2e0d46c3"
+  },
+  "notes": [
+    "This is a full conservative lexical disassembly. Unknown VM semantics are intentionally kept as opaque atoms while preserving every original byte."
+  ]
+}

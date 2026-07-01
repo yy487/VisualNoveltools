@@ -535,24 +535,34 @@ class SilkyMesScript:
     @staticmethod
     def set_S(arguments: str, encoding: str, opcode: int = 0) -> bytes:
         raw = arguments.encode(encoding)
-        # 对 0x0A STR_CRYPT 做反向压缩：
-        # SJIS 假名区 0x829F..0x831E 压回单字节 c = (v - 0x829E) (1..0x80)
-        # 其他双字节透传，单字节也保持原样（GBK 中文 leadbyte 都 ≥0x81，不会冲突）
         if opcode == 0x0A:
+            enc_lower = encoding.lower().replace('-', '').replace('_', '')
+            is_sjis = enc_lower in ('cp932', 'shiftjis', 'sjis')
+            is_utf8 = enc_lower in ('utf8', 'utf8sig')
             out = bytearray()
             i = 0
             n = len(raw)
             while i < n:
-                if i + 1 < n:
+                byte_val = raw[i]
+                if is_utf8 and byte_val >= 0xC0:
+                    char_len = SilkyMesScript._utf8_byte_count(byte_val)
+                    out.extend(raw[i:min(i + char_len, n)])
+                    i += char_len
+                    continue
+
+                if SilkyMesScript._is_multibyte_lead(byte_val, encoding) and i + 1 < n:
                     v = (raw[i] << 8) | raw[i + 1]
-                    if 0x829F <= v <= 0x831E:
+                    if is_sjis and 0x829F <= v <= 0x831E:
                         c = v - 0x829E
-                        if c < 0x81:  # 永真，但保险检查
+                        if c < 0x81:
                             out.append(c)
                             i += 2
                             continue
-                # 不压缩：透传当前字节
-                out.append(raw[i])
+                    out.extend(raw[i:i + 2])
+                    i += 2
+                    continue
+
+                out.append(byte_val)
                 i += 1
             raw = bytes(out)
         return raw + b'\x00'

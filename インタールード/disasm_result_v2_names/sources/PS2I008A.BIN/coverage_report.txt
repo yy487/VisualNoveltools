@@ -1,9 +1,0 @@
-file: PS2I008A.BIN
-byte_size: 14801
-coverage: 100.00%
-status: OK
-records: 3741
-text_entries: 186
-zero_mutation_roundtrip: PASS
-original_sha256: fabe3ccb7ab83945d2a24ea0fceb43f58f3ec9a25aa3c046d9de3c135a788b5f
-rebuilt_sha256: fabe3ccb7ab83945d2a24ea0fceb43f58f3ec9a25aa3c046d9de3c135a788b5f

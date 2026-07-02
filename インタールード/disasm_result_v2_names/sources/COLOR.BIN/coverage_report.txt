@@ -1,9 +1,0 @@
-file: COLOR.BIN
-byte_size: 995
-coverage: 100.00%
-status: OK
-records: 384
-text_entries: 32
-zero_mutation_roundtrip: PASS
-original_sha256: f0750ea0f4ed35d5e0674a8f19fe174b86505a5e69473ecb3fa2cc513f45a7a8
-rebuilt_sha256: f0750ea0f4ed35d5e0674a8f19fe174b86505a5e69473ecb3fa2cc513f45a7a8

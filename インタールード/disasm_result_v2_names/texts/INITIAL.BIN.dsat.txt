@@ -1,8 +1,0 @@
-# DSAT export for INITIAL.BIN
-# v2: speaker/name mapping injected as virtual name entries where a preceding voice-id label can be resolved.
-# Virtual name entries are context metadata; writable=false means they are not backed by physical bytes.
-
-# idx=000001 file=INITIAL.BIN off=0x00000005 inst=0x00000005 tag=label source=inline_len8_string len=8 enc=cp932 policy=in_place
-○000001●label○stay.bin
-●000001●label●stay.bin
-

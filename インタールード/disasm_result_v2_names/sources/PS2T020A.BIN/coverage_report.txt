@@ -1,9 +1,0 @@
-file: PS2T020A.BIN
-byte_size: 4908
-coverage: 100.00%
-status: OK
-records: 1506
-text_entries: 64
-zero_mutation_roundtrip: PASS
-original_sha256: ba4db2d967baa203a757743c55cd38a7250fb9b75168b8e8a12dcdf341829c70
-rebuilt_sha256: ba4db2d967baa203a757743c55cd38a7250fb9b75168b8e8a12dcdf341829c70

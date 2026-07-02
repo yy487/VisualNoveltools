@@ -1,9 +1,0 @@
-file: PS2A032A.BIN
-byte_size: 2692
-coverage: 100.00%
-status: OK
-records: 963
-text_entries: 37
-zero_mutation_roundtrip: PASS
-original_sha256: 6249da608b78d68e03f107886dc4b166888750261c9bc943ad883425504ba761
-rebuilt_sha256: 6249da608b78d68e03f107886dc4b166888750261c9bc943ad883425504ba761

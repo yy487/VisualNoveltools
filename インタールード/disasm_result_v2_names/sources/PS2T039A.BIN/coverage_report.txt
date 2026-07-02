@@ -1,9 +1,0 @@
-file: PS2T039A.BIN
-byte_size: 5408
-coverage: 100.00%
-status: OK
-records: 1503
-text_entries: 82
-zero_mutation_roundtrip: PASS
-original_sha256: ef6f13d93310157aaafc945568ceb6b68056d9b2aead38e56845e503a07aa27c
-rebuilt_sha256: ef6f13d93310157aaafc945568ceb6b68056d9b2aead38e56845e503a07aa27c

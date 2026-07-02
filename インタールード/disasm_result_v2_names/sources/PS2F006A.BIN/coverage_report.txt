@@ -1,9 +1,0 @@
-file: PS2F006A.BIN
-byte_size: 1227
-coverage: 100.00%
-status: OK
-records: 349
-text_entries: 13
-zero_mutation_roundtrip: PASS
-original_sha256: 008468dfa123dc40bfebec9c5ee66fd278c1843e15b6d09274f675b5535334b4
-rebuilt_sha256: 008468dfa123dc40bfebec9c5ee66fd278c1843e15b6d09274f675b5535334b4

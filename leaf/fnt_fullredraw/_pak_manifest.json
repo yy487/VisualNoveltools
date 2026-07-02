@@ -1,0 +1,70 @@
+{
+  "format": "KCAP-36",
+  "source_pak": "fnt.pak",
+  "encoding": "cp932",
+  "magic": "KCAP",
+  "entry_size": 36,
+  "name_size": 24,
+  "entries": [
+    {
+      "index": 0,
+      "flag": 1,
+      "name": "font12.fd0",
+      "name_hex": "666f6e7431322e666430",
+      "offset": 188,
+      "packed_size": 348310,
+      "unpacked_size": 512028,
+      "packed_sha256": "cb509a3408ceba5a029551c09f1c41e9299599593140117d0f1c0afd05545f47",
+      "unpacked_sha256": "45fc55e5868eecb655f43c1a88e3c0561b3853b663821815ed18a1c8362757d7",
+      "path": "font12.fd0"
+    },
+    {
+      "index": 1,
+      "flag": 1,
+      "name": "font12.fk0",
+      "name_hex": "666f6e7431322e666b30",
+      "offset": 348498,
+      "packed_size": 268219,
+      "unpacked_size": 697050,
+      "packed_sha256": "5e342ed7b121188cf93c4b8d43ad6f8b232685b31cc27c3af41e8461cf51764a",
+      "unpacked_sha256": "5b737705a767b280ba39ef03cef5dfdfb9f546ca11cae6cdc3d279ca8c449315",
+      "path": "font12.fk0"
+    },
+    {
+      "index": 2,
+      "flag": 1,
+      "name": "font24.fd0",
+      "name_hex": "666f6e7432342e666430",
+      "offset": 616717,
+      "packed_size": 1018739,
+      "unpacked_size": 2048112,
+      "packed_sha256": "2507153a81747a6c8b9530414dffb2ec0237662de2e8c1e1566c78f222f4e6c3",
+      "unpacked_sha256": "e1ae308bfc9ba56ffc62131228a78190b87494ae9279375476422aaca46516d2",
+      "path": "font24.fd0"
+    },
+    {
+      "index": 3,
+      "flag": 1,
+      "name": "font24.fk0",
+      "name_hex": "666f6e7432342e666b30",
+      "offset": 1635456,
+      "packed_size": 676614,
+      "unpacked_size": 2788188,
+      "packed_sha256": "1f00b16568d259aa5863fdf16a6af690d5fd4ee5faf2c5efb3fb0c051ffcc1c1",
+      "unpacked_sha256": "ee5396985eacd1cce2066d10d87886a3237f1c9c115c9916b50b68b582f9d132",
+      "path": "font24.fk0"
+    },
+    {
+      "index": 4,
+      "flag": 3435973836,
+      "name": "ＤＦ隷書体",
+      "name_hex": "8263826597ea8f9191cc",
+      "offset": 2312070,
+      "packed_size": 0,
+      "unpacked_size": 0,
+      "packed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unpacked_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "path": "ＤＦ隷書体"
+    }
+  ]
+}

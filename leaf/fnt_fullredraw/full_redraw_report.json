@@ -1,0 +1,68 @@
+{
+  "mode": "full-redraw",
+  "note": "Every drawable CP932/SJIS slot was regenerated from the supplied TTF/TTC. Mapped slots render CN glyphs; unmapped slots render their original CP932 characters. fd0/fk0 both rebuilt; fk0 uses dilated mask radius equal to margin.",
+  "map_stats": {
+    "mapping_entries": 3018,
+    "unique_slots": 3018,
+    "duplicate_slots": [],
+    "bad_slots": []
+  },
+  "render_params": {
+    "size12": 12,
+    "size24": 24,
+    "ttc_index": 0,
+    "xoff": 0,
+    "yoff": 0,
+    "punct_dx24": 2,
+    "punct_dy24": 1,
+    "punct_dx12": 1,
+    "punct_dy12": 1,
+    "fk0_bold_radius": "margin"
+  },
+  "files": [
+    {
+      "file": "font12.fd0",
+      "size": 12,
+      "kind": "fd0",
+      "margin": 0,
+      "drawn_slots": 7123,
+      "mapped_slots": 3018,
+      "fallback_original_slots": 4105,
+      "undecodable_slots": 57,
+      "blank_padding_half_slots": 20
+    },
+    {
+      "file": "font12.fk0",
+      "size": 12,
+      "kind": "fk0",
+      "margin": 1,
+      "drawn_slots": 7123,
+      "mapped_slots": 3018,
+      "fallback_original_slots": 4105,
+      "undecodable_slots": 57,
+      "blank_padding_half_slots": 0
+    },
+    {
+      "file": "font24.fd0",
+      "size": 24,
+      "kind": "fd0",
+      "margin": 0,
+      "drawn_slots": 7123,
+      "mapped_slots": 3018,
+      "fallback_original_slots": 4105,
+      "undecodable_slots": 57,
+      "blank_padding_half_slots": 20
+    },
+    {
+      "file": "font24.fk0",
+      "size": 24,
+      "kind": "fk0",
+      "margin": 2,
+      "drawn_slots": 7123,
+      "mapped_slots": 3018,
+      "fallback_original_slots": 4105,
+      "undecodable_slots": 57,
+      "blank_padding_half_slots": 0
+    }
+  ]
+}

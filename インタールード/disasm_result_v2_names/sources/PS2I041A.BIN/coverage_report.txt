@@ -1,9 +1,0 @@
-file: PS2I041A.BIN
-byte_size: 1824
-coverage: 100.00%
-status: OK
-records: 445
-text_entries: 21
-zero_mutation_roundtrip: PASS
-original_sha256: 0d5a74e1fbb5ac5e9f2dc2efc32ea67fb3d307fbadfe5097eace382a0d457b50
-rebuilt_sha256: 0d5a74e1fbb5ac5e9f2dc2efc32ea67fb3d307fbadfe5097eace382a0d457b50

@@ -1,9 +1,0 @@
-file: PS2I003A.BIN
-byte_size: 61
-coverage: 100.00%
-status: OK
-records: 30
-text_entries: 1
-zero_mutation_roundtrip: PASS
-original_sha256: d8f3821b77d9397d245526f2c9374cfcc663642faf5c55b15d5efb98c18ec0e7
-rebuilt_sha256: d8f3821b77d9397d245526f2c9374cfcc663642faf5c55b15d5efb98c18ec0e7

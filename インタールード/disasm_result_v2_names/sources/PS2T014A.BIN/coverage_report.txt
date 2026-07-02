@@ -1,9 +1,0 @@
-file: PS2T014A.BIN
-byte_size: 7217
-coverage: 100.00%
-status: OK
-records: 2057
-text_entries: 99
-zero_mutation_roundtrip: PASS
-original_sha256: 8fe82ce5b99e0cb1acdb8e5b9884e04511b415e272a61ea7f5419bb762210977
-rebuilt_sha256: 8fe82ce5b99e0cb1acdb8e5b9884e04511b415e272a61ea7f5419bb762210977

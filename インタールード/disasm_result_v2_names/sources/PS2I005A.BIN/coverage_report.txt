@@ -1,9 +1,0 @@
-file: PS2I005A.BIN
-byte_size: 33829
-coverage: 100.00%
-status: OK
-records: 8202
-text_entries: 461
-zero_mutation_roundtrip: PASS
-original_sha256: 66c53b8947c635e6913d03d85ea2eb0103e94fd94627a3012c1a9fc3edc23a22
-rebuilt_sha256: 66c53b8947c635e6913d03d85ea2eb0103e94fd94627a3012c1a9fc3edc23a22

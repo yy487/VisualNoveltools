@@ -1,9 +1,0 @@
-file: PS2I028A.BIN
-byte_size: 4463
-coverage: 100.00%
-status: OK
-records: 1249
-text_entries: 67
-zero_mutation_roundtrip: PASS
-original_sha256: 28e6d7e25894933b51fd870fa3df68676bea7e1a0359afa58c02422dcefb9b6f
-rebuilt_sha256: 28e6d7e25894933b51fd870fa3df68676bea7e1a0359afa58c02422dcefb9b6f

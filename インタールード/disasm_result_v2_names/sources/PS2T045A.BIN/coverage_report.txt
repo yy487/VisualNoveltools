@@ -1,9 +1,0 @@
-file: PS2T045A.BIN
-byte_size: 6856
-coverage: 100.00%
-status: OK
-records: 1855
-text_entries: 101
-zero_mutation_roundtrip: PASS
-original_sha256: ecfd86bd15b474d2630568ce12bf00e7f06f90eb3736957877d992d79052ac4d
-rebuilt_sha256: ecfd86bd15b474d2630568ce12bf00e7f06f90eb3736957877d992d79052ac4d

@@ -1,9 +1,0 @@
-file: INITIAL.BIN
-byte_size: 35
-coverage: 100.00%
-status: OK
-records: 16
-text_entries: 1
-zero_mutation_roundtrip: PASS
-original_sha256: c2194ac4cd3b03cac0bbc11b54b34256290a813ff7c6ee0b52db7847420aaa20
-rebuilt_sha256: c2194ac4cd3b03cac0bbc11b54b34256290a813ff7c6ee0b52db7847420aaa20

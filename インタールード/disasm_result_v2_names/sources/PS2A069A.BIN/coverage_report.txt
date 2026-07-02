@@ -1,9 +1,0 @@
-file: PS2A069A.BIN
-byte_size: 1824
-coverage: 100.00%
-status: OK
-records: 444
-text_entries: 23
-zero_mutation_roundtrip: PASS
-original_sha256: fb3f7e48213f361bd6f5cfb5fc13835736e4ad5ff2776aeefb7b327e11289792
-rebuilt_sha256: fb3f7e48213f361bd6f5cfb5fc13835736e4ad5ff2776aeefb7b327e11289792

@@ -1,9 +1,0 @@
-file: PS2A063A.BIN
-byte_size: 606
-coverage: 100.00%
-status: OK
-records: 158
-text_entries: 6
-zero_mutation_roundtrip: PASS
-original_sha256: 1915a4f9242ea81400537a749b7e531dc515bbd4013344d094fcf822c12ac23a
-rebuilt_sha256: 1915a4f9242ea81400537a749b7e531dc515bbd4013344d094fcf822c12ac23a

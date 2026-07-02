@@ -1,9 +1,0 @@
-file: PS2A060A.BIN
-byte_size: 1890
-coverage: 100.00%
-status: OK
-records: 509
-text_entries: 21
-zero_mutation_roundtrip: PASS
-original_sha256: c43eeca5f5e30e71c640cb8581258c4aa0bfdbacf0967915f638e0d3121b4335
-rebuilt_sha256: c43eeca5f5e30e71c640cb8581258c4aa0bfdbacf0967915f638e0d3121b4335

@@ -1,9 +1,0 @@
-file: PS2T010A.BIN
-byte_size: 12915
-coverage: 100.00%
-status: OK
-records: 4511
-text_entries: 190
-zero_mutation_roundtrip: PASS
-original_sha256: d785ed298e71298efb6051996bd247548c169836e0e669dcb5469aa414329237
-rebuilt_sha256: d785ed298e71298efb6051996bd247548c169836e0e669dcb5469aa414329237

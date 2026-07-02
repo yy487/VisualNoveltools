@@ -1,9 +1,0 @@
-file: PS2A012A.BIN
-byte_size: 125
-coverage: 100.00%
-status: OK
-records: 67
-text_entries: 1
-zero_mutation_roundtrip: PASS
-original_sha256: f653cf002fa722c6ab772b9d45e39479e27a5fe5454ac5ac59d48d7dea20fed2
-rebuilt_sha256: f653cf002fa722c6ab772b9d45e39479e27a5fe5454ac5ac59d48d7dea20fed2

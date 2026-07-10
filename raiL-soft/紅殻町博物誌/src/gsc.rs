@@ -292,7 +292,7 @@ impl<'a> GscFile<'a> {
 
             match context {
                 TextContext::Choice { visible, style, .. } => {
-                    visible.clone_into(&mut entry.scr_msg);
+                    entry.scr_msg = script_text_to_json(visible);
                     "choice".clone_into(&mut entry.entry_type);
                     entry.choice_style = Some(style);
                     if let Some(reference) = choice {
@@ -303,11 +303,11 @@ impl<'a> GscFile<'a> {
                 }
                 TextContext::Dialogue { name, body, .. } => {
                     entry.name = Some(name.to_owned());
-                    body.clone_into(&mut entry.scr_msg);
+                    entry.scr_msg = script_text_to_json(body);
                     "dialogue".clone_into(&mut entry.entry_type);
                 }
                 TextContext::Monologue(text) => {
-                    text.clone_into(&mut entry.scr_msg);
+                    entry.scr_msg = script_text_to_json(text);
                     "monologue".clone_into(&mut entry.entry_type);
                 }
             }
@@ -435,19 +435,15 @@ impl<'a> GscFile<'a> {
             let index_u32 = u32::try_from(index)
                 .map_err(|_| GscError::translation("text index exceeds u32"))?;
             if let Some(entry) = translated_by_index.get(&index_u32) {
-                if entry.message == entry.scr_msg {
-                    rebuilt_pool.extend_from_slice(original_raw);
-                } else {
-                    let decoded = decode_cp932(original_raw, index)?;
-                    let context = text_context(&decoded, choices.contains_key(&index))?;
-                    rebuilt_pool.extend_from_slice(&encode_changed_text(
-                        original_raw,
-                        &context,
-                        &entry.message,
-                        file_name,
-                        index,
-                    )?);
-                }
+                let decoded = decode_cp932(original_raw, index)?;
+                let context = text_context(&decoded, choices.contains_key(&index))?;
+                rebuilt_pool.extend_from_slice(&encode_visible_text(
+                    original_raw,
+                    &context,
+                    &entry.message,
+                    file_name,
+                    index,
+                )?);
             } else {
                 rebuilt_pool.extend_from_slice(original_raw);
             }
@@ -646,13 +642,14 @@ fn encode_cp932(text: &str, file_name: &str, index: usize) -> Result<Vec<u8>, Gs
     Ok(encoded.into_owned())
 }
 
-fn encode_changed_text(
+fn encode_visible_text(
     original_raw: &[u8],
     context: &TextContext<'_>,
     message: &str,
     file_name: &str,
     index: usize,
 ) -> Result<Vec<u8>, GscError> {
+    let script_message = json_text_to_script(message, file_name, index)?;
     match context {
         TextContext::Choice { prefix, .. } | TextContext::Dialogue { prefix, .. } => {
             let encoded_prefix = encode_cp932(prefix, file_name, index)?;
@@ -666,13 +663,129 @@ fn encode_changed_text(
                     "{file_name} index {index}: original prefix bytes do not roundtrip"
                 )));
             }
-            let encoded_message = encode_cp932(message, file_name, index)?;
+            let encoded_message = encode_cp932(&script_message, file_name, index)?;
             let mut rebuilt = Vec::with_capacity(original_prefix.len() + encoded_message.len());
             rebuilt.extend_from_slice(original_prefix);
             rebuilt.extend_from_slice(&encoded_message);
             Ok(rebuilt)
         }
-        TextContext::Monologue(_) => encode_cp932(message, file_name, index),
+        TextContext::Monologue(_) => encode_cp932(&script_message, file_name, index),
+    }
+}
+
+/// Convert engine markup into the translator-facing representation.
+///
+/// Forced line breaks become JSON newlines. Ruby readings and their optional
+/// span marker are intentionally discarded, leaving only the visible base text.
+fn script_text_to_json(text: &str) -> String {
+    let without_ruby = strip_ruby(text);
+    without_ruby.replace("^n", "\n")
+}
+
+fn json_text_to_script(text: &str, file_name: &str, index: usize) -> Result<String, GscError> {
+    let without_ruby = strip_ruby(text);
+    let mut output = String::with_capacity(without_ruby.len());
+    let mut chars = without_ruby.chars().peekable();
+    while let Some(character) = chars.next() {
+        match character {
+            '\r' => {
+                if chars.next_if_eq(&'\n').is_none() {
+                    return Err(GscError::translation(format!(
+                        "{file_name} index {index}: message contains a bare carriage return"
+                    )));
+                }
+                output.push_str("^n");
+            }
+            '\n' => output.push_str("^n"),
+            _ => output.push(character),
+        }
+    }
+    Ok(output)
+}
+
+fn strip_ruby(text: &str) -> String {
+    let mut output = String::with_capacity(text.len());
+    let mut cursor = 0_usize;
+    let mut ruby_base_available = false;
+
+    while cursor < text.len() {
+        let remainder = &text[cursor..];
+        let character = remainder
+            .chars()
+            .next()
+            .expect("cursor should remain on a character boundary");
+
+        if character == '|' && pipe_starts_ruby_span(remainder) {
+            cursor += character.len_utf8();
+            continue;
+        }
+
+        if character == '['
+            && ruby_base_available
+            && let Some(closing_offset) = ruby_closing_offset(remainder)
+        {
+            cursor += closing_offset + ']'.len_utf8();
+            ruby_base_available = false;
+            continue;
+        }
+
+        if let Some(control_len) = script_control_len(remainder) {
+            output.push_str(&remainder[..control_len]);
+            cursor += control_len;
+            ruby_base_available = false;
+            continue;
+        }
+
+        output.push(character);
+        cursor += character.len_utf8();
+        ruby_base_available = can_precede_ruby(character);
+    }
+
+    output
+}
+
+fn pipe_starts_ruby_span(text: &str) -> bool {
+    let Some(after_pipe) = text.strip_prefix('|') else {
+        return false;
+    };
+    let mut base_len = 0_usize;
+    for (offset, character) in after_pipe.char_indices() {
+        if character == '[' {
+            return base_len > 0 && ruby_closing_offset(&after_pipe[offset..]).is_some();
+        }
+        if matches!(character, '|' | ']' | '^' | '\r' | '\n') {
+            return false;
+        }
+        base_len += character.len_utf8();
+    }
+    false
+}
+
+fn ruby_closing_offset(text: &str) -> Option<usize> {
+    let after_open = text.strip_prefix('[')?;
+    if after_open.is_empty() {
+        return None;
+    }
+    for (offset, character) in after_open.char_indices() {
+        match character {
+            ']' if offset > 0 => return Some('['.len_utf8() + offset),
+            '[' | '\r' | '\n' => return None,
+            _ => {}
+        }
+    }
+    None
+}
+
+fn can_precede_ruby(character: char) -> bool {
+    !character.is_whitespace() && !matches!(character, '|' | '[' | ']' | '^')
+}
+
+fn script_control_len(text: &str) -> Option<usize> {
+    let bytes = text.as_bytes();
+    match bytes {
+        [b'^', b'n', ..] => Some(2),
+        [b'^', b'd' | b's', digit, ..] if digit.is_ascii_digit() => Some(3),
+        _ => None,
     }
 }
 
@@ -715,7 +828,12 @@ mod tests {
     }
 
     fn build_gsc() -> Vec<u8> {
-        let texts = ["", "<01>短い", "【智久】^n本文", "grpo"];
+        let texts = [
+            "",
+            "<01>|菅笠[すげかさ]^n娘[おなご]",
+            "【智久】^n本文^n次行",
+            "grpo",
+        ];
         let mut code = vec![0_u8; 60];
         code[0..2].copy_from_slice(&0x000e_u16.to_le_bytes());
         code[2..4].copy_from_slice(&1_u16.to_le_bytes());
@@ -774,15 +892,15 @@ mod tests {
 
         assert_eq!(entries.len(), 2);
         assert_eq!(entries[0].entry_type, "choice");
-        assert_eq!(entries[0].scr_msg, "短い");
+        assert_eq!(entries[0].scr_msg, "菅笠\n娘");
         assert_eq!(entries[0].choice_style, Some(1));
         assert_eq!(entries[1].entry_type, "dialogue");
         assert_eq!(entries[1].name.as_deref(), Some("智久"));
-        assert_eq!(entries[1].scr_msg, "本文");
+        assert_eq!(entries[1].scr_msg, "本文\n次行");
     }
 
     #[test]
-    fn zero_change_rebuild_is_byte_exact() {
+    fn zero_translation_rebuild_removes_ruby_and_is_stable() {
         let data = build_gsc();
         let gsc = GscFile::parse(&data).expect("test GSC should parse");
         let entries = gsc
@@ -791,7 +909,28 @@ mod tests {
         let rebuilt = gsc
             .rebuild_from_entries("test.gsc", &entries)
             .expect("test GSC should rebuild");
-        assert_eq!(rebuilt, data);
+        let reparsed = GscFile::parse(&rebuilt).expect("rebuilt GSC should parse");
+        let rebuilt_entries = reparsed
+            .extract_entries("test.gsc")
+            .expect("rebuilt text should extract");
+
+        let rebuilt_again = reparsed
+            .rebuild_from_entries("test.gsc", &rebuilt_entries)
+            .expect("normalized GSC should rebuild again");
+
+        assert_ne!(rebuilt, data);
+        assert_eq!(rebuilt_entries[0].scr_msg, entries[0].scr_msg);
+        assert_eq!(rebuilt_entries[1].scr_msg, entries[1].scr_msg);
+        assert_eq!(rebuilt_again, rebuilt);
+        assert_eq!(
+            &rebuilt[GSC_HEADER_SIZE..GSC_HEADER_SIZE + 60],
+            &data[GSC_HEADER_SIZE..GSC_HEADER_SIZE + 60]
+        );
+        assert!(
+            !decode_cp932(reparsed.text_bytes[1], 1)
+                .expect("rebuilt choice should decode")
+                .contains(['|', '[', ']'])
+        );
     }
 
     #[test]
@@ -812,13 +951,41 @@ mod tests {
             .extract_entries("test.gsc")
             .expect("rebuilt text should extract");
 
-        assert!(rebuilt.len() > data.len());
         assert_eq!(
             &rebuilt[GSC_HEADER_SIZE..GSC_HEADER_SIZE + 60],
             &data[GSC_HEADER_SIZE..GSC_HEADER_SIZE + 60]
         );
         assert_eq!(rebuilt_entries[0].scr_msg, "かなり長い選択肢");
         assert_eq!(rebuilt_entries[1].scr_msg, "長くなった本文です");
+    }
+
+    #[test]
+    fn normalizes_forced_breaks_and_ruby_markup() {
+        assert_eq!(
+            script_text_to_json("|菅笠[すげかさ]を娘[おなご]^n次^n"),
+            "菅笠を娘\n次\n"
+        );
+        assert_eq!(
+            json_text_to_script("菅笠を娘\r\n次\n", "test.gsc", 7)
+                .expect("JSON line breaks should convert"),
+            "菅笠を娘^n次^n"
+        );
+        assert_eq!(
+            json_text_to_script("|外套[コート]\n", "test.gsc", 8)
+                .expect("ruby added to a translation should be removed"),
+            "外套^n"
+        );
+    }
+
+    #[test]
+    fn preserves_malformed_ruby_and_rejects_bare_carriage_returns() {
+        assert_eq!(
+            script_text_to_json("記号|だけ [未完 [] ^n[表示] ^d1[表示]"),
+            "記号|だけ [未完 [] \n[表示] ^d1[表示]"
+        );
+        let error = json_text_to_script("一行\r二行", "test.gsc", 9)
+            .expect_err("bare carriage return must fail");
+        assert!(error.to_string().contains("bare carriage return"));
     }
 
     #[test]

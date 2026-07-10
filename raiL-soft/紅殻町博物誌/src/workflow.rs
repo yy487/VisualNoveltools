@@ -116,7 +116,7 @@ pub struct GscInjectResult {
     pub output: PathBuf,
     pub files: usize,
     pub entries: usize,
-    pub changed_entries: usize,
+    pub edited_entries: usize,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -143,7 +143,7 @@ struct PreparedJson {
 struct PreparedInjection {
     files: Vec<(PathBuf, Vec<u8>)>,
     entries: usize,
-    changed_entries: usize,
+    edited_entries: usize,
 }
 
 /// Unpack an XFL beside the input as `<stem>_unpacked`.
@@ -364,7 +364,7 @@ pub fn inject_gsc_default(json_dir: &Path) -> Result<GscInjectResult, WorkflowEr
         output,
         files: manifest.files.len(),
         entries: prepared.entries,
-        changed_entries: prepared.changed_entries,
+        edited_entries: prepared.edited_entries,
     })
 }
 
@@ -376,7 +376,7 @@ fn prepare_injection(
     let mut rebuilt_files = HashMap::with_capacity(manifest.files.len());
     let mut seen_sources = HashSet::with_capacity(manifest.files.len());
     let mut total_entries = 0_usize;
-    let mut changed_entries = 0_usize;
+    let mut edited_entries = 0_usize;
     for item in &manifest.files {
         let source_relative = safe_relative_path(&item.source)?;
         let source_key = path_key(&source_relative)?;
@@ -401,7 +401,7 @@ fn prepare_injection(
             )));
         }
         total_entries += entries.len();
-        changed_entries += entries
+        edited_entries += entries
             .iter()
             .filter(|entry| entry.message != entry.scr_msg)
             .count();
@@ -427,7 +427,7 @@ fn prepare_injection(
     Ok(PreparedInjection {
         files,
         entries: total_entries,
-        changed_entries,
+        edited_entries,
     })
 }
 

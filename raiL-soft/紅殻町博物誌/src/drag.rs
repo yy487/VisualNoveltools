@@ -78,7 +78,7 @@ fn execute(operation: DragOperation, input: &Path) -> Result<(), Box<dyn Error>>
             println!("[inject] output={}", result.output.display());
             println!("[inject] rebuilt_files={}", result.files);
             println!("[inject] json_entries={}", result.entries);
-            println!("[inject] changed_entries={}", result.changed_entries);
+            println!("[inject] edited_entries={}", result.edited_entries);
             println!("[inject] failed=0");
             println!("[inject] warnings=0");
         }

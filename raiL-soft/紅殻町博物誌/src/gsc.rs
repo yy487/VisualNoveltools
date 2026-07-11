@@ -244,8 +244,9 @@ impl<'a> GscFile<'a> {
     /// Export every localizable text-table entry using stable text indices.
     ///
     /// Empty strings and the game's confirmed resource identifiers are omitted.
-    /// Dialogue names and choice style prefixes are exposed as metadata and are
-    /// restored automatically during injection.
+    /// Dialogue names are exposed as editable fields and rebuilt into the
+    /// speaker prefix during injection. Choice style prefixes are metadata and
+    /// are restored automatically.
     ///
     /// # Errors
     ///
@@ -440,7 +441,7 @@ impl<'a> GscFile<'a> {
                 rebuilt_pool.extend_from_slice(&encode_visible_text(
                     original_raw,
                     &context,
-                    &entry.message,
+                    entry,
                     file_name,
                     index,
                 )?);
@@ -602,7 +603,6 @@ fn validate_immutable_fields(source: &TextEntry, translated: &TextEntry) -> Resu
         };
     }
 
-    ensure_equal!(name);
     ensure_equal!(scr_msg);
     ensure_equal!(file);
     ensure_equal!(offset);
@@ -614,6 +614,42 @@ fn validate_immutable_fields(source: &TextEntry, translated: &TextEntry) -> Resu
     ensure_equal!(opcode);
     ensure_equal!(target);
     ensure_equal!(choice_style);
+
+    match (&source.name, &translated.name) {
+        (Some(_), Some(name)) => validate_speaker_name(name, &source.file, index)?,
+        (Some(_), None) => {
+            return Err(GscError::translation(format!(
+                "{} index {index}: dialogue name was removed",
+                source.file
+            )));
+        }
+        (None, Some(_)) => {
+            return Err(GscError::translation(format!(
+                "{} index {index}: name was added to a non-dialogue entry",
+                source.file
+            )));
+        }
+        (None, None) => {}
+    }
+    Ok(())
+}
+
+fn validate_speaker_name(name: &str, file_name: &str, index: u32) -> Result<(), GscError> {
+    if name.trim().is_empty() {
+        return Err(GscError::translation(format!(
+            "{file_name} index {index}: dialogue name is empty"
+        )));
+    }
+    if name.chars().any(|character| {
+        matches!(
+            character,
+            '【' | '】' | '[' | ']' | '|' | '^' | '\r' | '\n' | '\0'
+        )
+    }) {
+        return Err(GscError::translation(format!(
+            "{file_name} index {index}: dialogue name contains message markup"
+        )));
+    }
     Ok(())
 }
 
@@ -645,13 +681,13 @@ fn encode_cp932(text: &str, file_name: &str, index: usize) -> Result<Vec<u8>, Gs
 fn encode_visible_text(
     original_raw: &[u8],
     context: &TextContext<'_>,
-    message: &str,
+    entry: &TextEntry,
     file_name: &str,
     index: usize,
 ) -> Result<Vec<u8>, GscError> {
-    let script_message = json_text_to_script(message, file_name, index)?;
+    let script_message = json_text_to_script(&entry.message, file_name, index)?;
     match context {
-        TextContext::Choice { prefix, .. } | TextContext::Dialogue { prefix, .. } => {
+        TextContext::Choice { prefix, .. } => {
             let encoded_prefix = encode_cp932(prefix, file_name, index)?;
             let original_prefix = original_raw.get(..encoded_prefix.len()).ok_or_else(|| {
                 GscError::translation(format!(
@@ -666,6 +702,35 @@ fn encode_visible_text(
             let encoded_message = encode_cp932(&script_message, file_name, index)?;
             let mut rebuilt = Vec::with_capacity(original_prefix.len() + encoded_message.len());
             rebuilt.extend_from_slice(original_prefix);
+            rebuilt.extend_from_slice(&encoded_message);
+            Ok(rebuilt)
+        }
+        TextContext::Dialogue { prefix, .. } => {
+            let encoded_original_prefix = encode_cp932(prefix, file_name, index)?;
+            let original_prefix = original_raw
+                .get(..encoded_original_prefix.len())
+                .ok_or_else(|| {
+                    GscError::translation(format!(
+                        "{file_name} index {index}: original speaker prefix is shorter than expected"
+                    ))
+                })?;
+            if decode_cp932(original_prefix, index)? != *prefix {
+                return Err(GscError::translation(format!(
+                    "{file_name} index {index}: original speaker prefix bytes do not roundtrip"
+                )));
+            }
+
+            let translated_name = entry.name.as_deref().ok_or_else(|| {
+                GscError::translation(format!(
+                    "{file_name} index {index}: dialogue entry is missing name"
+                ))
+            })?;
+            validate_speaker_name(translated_name, file_name, entry.index)?;
+            let translated_prefix = format!("【{translated_name}】^n");
+            let encoded_prefix = encode_cp932(&translated_prefix, file_name, index)?;
+            let encoded_message = encode_cp932(&script_message, file_name, index)?;
+            let mut rebuilt = Vec::with_capacity(encoded_prefix.len() + encoded_message.len());
+            rebuilt.extend_from_slice(&encoded_prefix);
             rebuilt.extend_from_slice(&encoded_message);
             Ok(rebuilt)
         }
@@ -957,6 +1022,60 @@ mod tests {
         );
         assert_eq!(rebuilt_entries[0].scr_msg, "かなり長い選択肢");
         assert_eq!(rebuilt_entries[1].scr_msg, "長くなった本文です");
+    }
+
+    #[test]
+    fn rebuilds_edited_dialogue_name() {
+        let data = build_gsc();
+        let gsc = GscFile::parse(&data).expect("test GSC should parse");
+        let mut entries = gsc
+            .extract_entries("test.gsc")
+            .expect("test text should extract");
+        entries[1].name = Some("知久".to_owned());
+
+        let rebuilt = gsc
+            .rebuild_from_entries("test.gsc", &entries)
+            .expect("edited dialogue name should rebuild");
+        let reparsed = GscFile::parse(&rebuilt).expect("rebuilt GSC should parse");
+        let rebuilt_text =
+            decode_cp932(reparsed.text_bytes[2], 2).expect("rebuilt dialogue text should decode");
+        let rebuilt_entries = reparsed
+            .extract_entries("test.gsc")
+            .expect("rebuilt dialogue should extract");
+
+        assert_eq!(rebuilt_text, "【知久】^n本文^n次行");
+        assert_eq!(rebuilt_entries[1].name.as_deref(), Some("知久"));
+        assert_eq!(rebuilt_entries[1].scr_msg, "本文\n次行");
+    }
+
+    #[test]
+    fn rejects_invalid_dialogue_name_changes() {
+        let data = build_gsc();
+        let gsc = GscFile::parse(&data).expect("test GSC should parse");
+        let entries = gsc
+            .extract_entries("test.gsc")
+            .expect("test text should extract");
+
+        let mut missing_name = entries.clone();
+        missing_name[1].name = None;
+        let error = gsc
+            .rebuild_from_entries("test.gsc", &missing_name)
+            .expect_err("dialogue name removal must fail");
+        assert!(error.to_string().contains("dialogue name was removed"));
+
+        let mut added_name = entries.clone();
+        added_name[0].name = Some("選択肢名".to_owned());
+        let error = gsc
+            .rebuild_from_entries("test.gsc", &added_name)
+            .expect_err("choice name addition must fail");
+        assert!(error.to_string().contains("non-dialogue"));
+
+        let mut markup_name = entries;
+        markup_name[1].name = Some("知久】^n偽名".to_owned());
+        let error = gsc
+            .rebuild_from_entries("test.gsc", &markup_name)
+            .expect_err("speaker markup in a name must fail");
+        assert!(error.to_string().contains("contains message markup"));
     }
 
     #[test]

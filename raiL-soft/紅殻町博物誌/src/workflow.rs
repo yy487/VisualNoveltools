@@ -401,9 +401,21 @@ fn prepare_injection(
             )));
         }
         total_entries += entries.len();
+        let source_entries = gsc
+            .extract_entries(&item.source)
+            .map_err(|error| WorkflowError::gsc(&item.source, error))?;
+        let source_by_index: HashMap<u32, &TextEntry> = source_entries
+            .iter()
+            .map(|entry| (entry.index, entry))
+            .collect();
         edited_entries += entries
             .iter()
-            .filter(|entry| entry.message != entry.scr_msg)
+            .filter(|entry| {
+                entry.message != entry.scr_msg
+                    || source_by_index
+                        .get(&entry.index)
+                        .is_some_and(|source| source.name != entry.name)
+            })
             .count();
         let rebuilt = gsc
             .rebuild_from_entries(&item.source, &entries)

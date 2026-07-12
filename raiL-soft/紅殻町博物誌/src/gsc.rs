@@ -303,7 +303,7 @@ impl<'a> GscFile<'a> {
                     }
                 }
                 TextContext::Dialogue { name, body, .. } => {
-                    entry.name = Some(name.to_owned());
+                    entry.name = Some(script_text_to_json(name));
                     entry.scr_msg = script_text_to_json(body);
                     "dialogue".clone_into(&mut entry.entry_type);
                 }
@@ -616,7 +616,9 @@ fn validate_immutable_fields(source: &TextEntry, translated: &TextEntry) -> Resu
     ensure_equal!(choice_style);
 
     match (&source.name, &translated.name) {
-        (Some(_), Some(name)) => validate_speaker_name(name, &source.file, index)?,
+        (Some(_), Some(name)) => {
+            validate_speaker_name(&script_text_to_json(name), &source.file, index)?;
+        }
         (Some(_), None) => {
             return Err(GscError::translation(format!(
                 "{} index {index}: dialogue name was removed",
@@ -720,12 +722,13 @@ fn encode_visible_text(
                 )));
             }
 
-            let translated_name = entry.name.as_deref().ok_or_else(|| {
+            let raw_translated_name = entry.name.as_deref().ok_or_else(|| {
                 GscError::translation(format!(
                     "{file_name} index {index}: dialogue entry is missing name"
                 ))
             })?;
-            validate_speaker_name(translated_name, file_name, entry.index)?;
+            let translated_name = script_text_to_json(raw_translated_name);
+            validate_speaker_name(&translated_name, file_name, entry.index)?;
             let translated_prefix = format!("【{translated_name}】^n");
             let encoded_prefix = encode_cp932(&translated_prefix, file_name, index)?;
             let encoded_message = encode_cp932(&script_message, file_name, index)?;
@@ -1076,6 +1079,31 @@ mod tests {
             .rebuild_from_entries("test.gsc", &markup_name)
             .expect_err("speaker markup in a name must fail");
         assert!(error.to_string().contains("contains message markup"));
+    }
+
+    #[test]
+    fn normalizes_ruby_in_dialogue_names() {
+        let data = build_gsc();
+        let gsc = GscFile::parse(&data).expect("test GSC should parse");
+        let mut entries = gsc
+            .extract_entries("test.gsc")
+            .expect("test text should extract");
+        entries[1].name = Some("縊[くび]れ鬼".to_owned());
+
+        let rebuilt = gsc
+            .rebuild_from_entries("test.gsc", &entries)
+            .expect("ruby in a dialogue name should normalize");
+        let reparsed = GscFile::parse(&rebuilt).expect("rebuilt GSC should parse");
+        let text = decode_cp932(reparsed.text_bytes[2], 2).expect("dialogue should decode");
+        assert!(text.starts_with("【縊れ鬼】^n"));
+        assert_eq!(
+            reparsed
+                .extract_entries("test.gsc")
+                .expect("normalized dialogue should extract")[1]
+                .name
+                .as_deref(),
+            Some("縊れ鬼")
+        );
     }
 
     #[test]

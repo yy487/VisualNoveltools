@@ -1,173 +1,61 @@
-# Baigui MES script tools
+# AI5WIN / 百鬼本地化工具包
 
-This package contains a finished first-version toolchain for `百鬼 -淫黙された廃墟-` `.MES` scripts.
+本目录集中保存《百鬼》当前有效的 MES 文本工具、`DATA.MR` 字库重绘工具和对应分析文档。翻译交换格式统一为 UTF-8 JSON；`scr_msg` 仅用于原文校验，翻译只写入 `message`。
 
-## Files
-
-```text
-opcode.py        Common VM definitions, LZSS, encoding helpers
-
-disassembler.py  .MES -> semantic asm, optional JSON export
-assembler.py     asm -> rebuilt .MES, optional JSON import
-vm_analysis.md   VM and text-stream analysis notes
-asm.txt          sample semantic assembly output
-```
-
-## Basic usage
-
-### Disassemble one MES
-
-```bash
-python disassembler.py P_01R2.MES -o P_01R2.MES.asm.txt --json P_01R2.MES.json --encoding cp932
-```
-
-If `-o` is omitted, the output defaults to:
+## 目录
 
 ```text
-<input>.asm.txt
+mes_vm_rs/     Rust MES 提取、校验、变长注入和 VM/偏移修复工具
+font_tools/    DATA.MR 解压、检查、全量重绘、重压缩和 ARC 解封包工具
+docs/          MES VM/opcode、偏移表、字库结构和 EXE 缓冲区分析
 ```
 
-### Rebuild one MES
+## MES 文本
 
-```bash
-python assembler.py P_01R2.MES.asm.txt -o P_01R2.rebuild.MES
+发布版：
+
+```powershell
+.\mes_vm_rs\mes_vm_rs.exe export-dir <mes目录> <json目录>
+.\mes_vm_rs\mes_vm_rs.exe import-dir <mes目录> <json目录> <输出mes目录>
 ```
 
-### Plain roundtrip test
+JSON 条目保留位置和校验元数据。`name` 可翻译；内联人名条目使用原始内联人名校验源字节，再以当前 `name + message` 写回。
 
-```bash
-python disassembler.py P_01R2.MES -o P_01R2.MES.asm.txt --encoding cp932
-python assembler.py P_01R2.MES.asm.txt --plain -o P_01R2.rebuild.plain
+源码位于 `mes_vm_rs/src/main.rs`，可在该目录执行：
+
+```powershell
+cargo build --release
 ```
 
-Compare `P_01R2.rebuild.plain` against the LZSS-decompressed original plain stream.  They should match byte-for-byte.
+## DATA.MR 字库
 
-### JSON injection
+`font_tools/data_mr_tool.py` 支持 `info`、`unpack`、`pack`、`sheet` 和 `redraw`。默认按 CP932 字表处理，且只重绘已确认的主字形区 section 3。section 4/5 虽然尺寸类似字形记录，但参与运行期资源查找，必须逐字节保留。
 
-1. Export JSON:
+典型全量重绘：
 
-```bash
-python disassembler.py P_01R2.MES -o P_01R2.MES.asm.txt --json P_01R2.MES.json --encoding cp932
+```powershell
+python .\font_tools\data_mr_tool.py redraw `
+  .\font_tools\assets\DATA_MR_chs_full.MR `
+  .\font_tools\assets\subs_cn_jp.json `
+  .\font_tools\assets\alyce_humming.ttf `
+  .\font_tools\output\DATA_MR_redrawn.MR
 ```
 
-2. Edit only `message`; optionally edit `name` when present.
+工具会优先调用同目录的 `baigui_lzss_pack.exe`；缺失时回退到 Python 压缩器。`arc_tool.py` 用于把生成的 `DATA.MR` 放回 `data.arc`。
 
-3. Rebuild through the asm IR:
+依赖：Python 3、Pillow。`fontTools` 不是这套 24x24 `DATA.MR` 工具的必需依赖。
 
-```bash
-python assembler.py P_01R2.MES.asm.txt --json P_01R2.MES.json -o P_01R2.chs.MES
-```
+## 文档
 
-This performs full plain-stream rebuild, not fixed-offset overwrite.
+- `docs/mes_vm_analysis.md`：文本流、`0x01` 字符串、`0x0B` 显示边界、VM 参数和选择项分析。
+- `docs/mes_vm_offset_table_notes.md`：MES 文件头 entry table、变长注入和偏移重建依据。
+- `docs/data_mr_cache_patch.md`：字库结构、扩容后 EXE 缓冲区边界和 patch 依据。
+- `docs/fontfix_windowtest_notes.md`：字库构建产物、标点处理和相关实机排查记录。
 
-## Batch mode
+## 约束
 
-Disassemble all `.MES` files in a directory:
-
-```bash
-python disassembler.py mes_dir -o asm_dir --json json_dir --encoding cp932
-```
-
-Rebuild all `.asm.txt` files in a directory:
-
-```bash
-python assembler.py asm_dir --json json_dir -o rebuilt_mes_dir
-```
-
-## Drag-and-drop behavior
-
-On Windows, dragging a `.MES` file onto `disassembler.py` runs the same as:
-
-```text
-python disassembler.py <dropped file>
-```
-
-Dragging an `.asm.txt` file onto `assembler.py` runs the same as:
-
-```text
-python assembler.py <dropped asm>
-```
-
-## Assembly format
-
-`.cstring1` is the semantic representation of the engine text control:
-
-```text
-.cstring1 "竜一"
-```
-
-It emits:
-
-```text
-01 <cp932 bytes> 00
-```
-
-Opaque VM/control bytes are preserved as `.byte` definitions.
-
-Special bytes inside strings use `{{XX}}` placeholders.  The tools never use `\xNN` escapes in asm strings.
-
-## Extraction rules
-
-Dialogue and monologue:
-
-```text
-0x0B text block boundary
-inside block: one or more 0x01 cstrings
-2 strings: name + message
-1 string : monologue/message
-```
-
-Choice/menu:
-
-```text
-選択肢：... label
-following short 0x01 cstrings -> _type=choice
-```
-
-Resource names such as `.wav`, `.mam`, `.gpr`, `.mes` are preserved in asm but skipped from JSON.
-
-## Important notes
-
-- Default text encoding is `cp932`.
-- The tool rebuilds the plain MES stream structurally.
-- LZSS recompression is compatible but not byte-identical to the original compressor.
-- Unknown regions are preserved as `.byte` and are not modified.
-- If a translated string contains characters not encodable in `cp932`, assembly fails; use your CnJpMap/font strategy before rebuilding.
-- Choice jump target labeling is not exported yet; choice text itself is exported and injectable.
-
-
-## JSON 提取/注入入口
-
-`extract.py` 和 `inject.py` 是正式翻译工作流入口；二者都不单独解析二进制，而是调用 `disassembler.py`/`assembler.py` 的 IR 层完成工作。
-
-提取单文件：
-
-```bash
-python extract.py P_01R2.MES P_01R2.MES.json --encoding cp932
-```
-
-提取目录：
-
-```bash
-python extract.py mes json_out --asm-out asm_out --encoding cp932
-```
-
-注入单文件：
-
-```bash
-python inject.py P_01R2.MES P_01R2.MES.json P_01R2.rebuild.MES
-```
-
-注入目录：
-
-```bash
-python inject.py mes json_new rebuilt_mes --asm-out asm_rebuild
-```
-
-流程固定为：
-
-```text
-原始 .MES -> LZSS 解压 -> disassembler IR -> JSON patch -> assembler 全量重建 plain -> LZSS 重压缩
-```
-
-因此注入不是 offset 原地覆盖，而是基于反汇编 IR 的全量重建。`--asm-out` 可保留中间 IR 便于排查；不指定时注入器使用临时目录。
+- 默认文本编码为 CP932。
+- 不修改 `scr_msg`；只修改 `message`，多段文本按工具导出的分段元数据处理。
+- 注入前必须通过源文本校验；变长注入会重建已确认的文件头 entry table。
+- 不按字节特征猜测并改写 VM 操作数。`F3` 已确认是变量表索引前缀，不是跳转；尚未结构化建模的 VM 内部地址不会被声称已修正。
+- 未知 VM 数据保持原样；无修改回环应以解压后的 MES 字节一致为准。

@@ -1,0 +1,26 @@
+[package]
+name = "avg3216_floreal_tool"
+version = "0.1.0"
+edition = "2024"
+description = "Structured AVG3216 SEEN.TXT extractor/injector for フロレアール"
+
+[dependencies]
+anyhow = "1.0.103"
+clap = { version = "4.6.1", features = ["derive"] }
+encoding_rs = "0.8.35"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.150"
+sha2 = "0.10.9"
+
+[lib]
+name = "avg3216_floreal"
+path = "src/lib.rs"
+
+[[bin]]
+name = "avg3216_extract"
+path = "src/bin/extract.rs"
+
+[[bin]]
+name = "avg3216_inject"
+path = "src/bin/inject.rs"
+

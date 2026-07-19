@@ -1,0 +1,19 @@
+[package]
+name = "silky-common"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.81"
+description = "Rust tools for Silky MES scripts and ARC archives"
+license = "MIT"
+
+[dependencies]
+anyhow = "=1.0.103"
+clap = { version = "=4.6.1", features = ["derive"] }
+encoding_rs = "=0.8.35"
+rayon = "=1.12.0"
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = "=1.0.150"
+
+[profile.release]
+lto = "thin"
+strip = "symbols"

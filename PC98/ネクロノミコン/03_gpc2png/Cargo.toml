@@ -1,0 +1,9 @@
+[package]
+name = "gpc2png"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "gpc2png"
+path = "src/bin/gpc2png.rs"
+

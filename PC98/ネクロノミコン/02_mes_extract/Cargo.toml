@@ -1,0 +1,13 @@
+[package]
+name = "necronomicon-mes"
+version = "0.2.1"
+edition = "2024"
+
+[dependencies]
+encoding_rs = "0.8.35"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.150"
+
+[[bin]]
+name = "mes_extract"
+path = "src/bin/mes_extract.rs"

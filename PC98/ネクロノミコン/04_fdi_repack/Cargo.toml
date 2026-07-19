@@ -1,0 +1,11 @@
+[package]
+name = "necronomicon-fdi-repack"
+version = "0.2.0"
+edition = "2024"
+
+[dependencies]
+encoding_rs = "0.8.35"
+
+[[bin]]
+name = "fdi_repack"
+path = "src/main.rs"

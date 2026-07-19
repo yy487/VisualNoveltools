@@ -120,24 +120,4 @@ MES + JSON  -> SCENE01_injected.MES / mes_injected\
 - MES 通过整体重建支持正文和可写名字变长/变短。重建会修正 header 两组 offset 及 `0x14/0x15/0x16/0x1B` 的代码相对目标。
 - 工具不会新增、删除或重排指令；未知字节作为 opaque raw node 原样保留。
 
-## 验证
 
-```powershell
-cargo fmt -- --check
-cargo test --offline
-cargo clippy --offline --all-targets -- -D warnings
-cargo build --release --offline --bins
-```
-
-自动测试覆盖 LZSS Python 参考向量、LZSS 截断、两种 ARC 内容回环、路径穿越/重叠拒绝、MES 底层零修改 byte-exact、变长 offset/jump 重定位、正文/名字修改后重提取、每次注入清空 ruby reading、字面 `\n`、CP932 编码失败和 `scr_msg` 不一致拒绝。
-
-## 已知限制
-
-- opcode 集来自原 `silky_op.py`；没有在本目录提供真实 MES、ARC 或宿主程序，因此 VM 指令语义没有做新的运行时确认。
-- 角色名只识别项目原有的两个 `PUSH_STR/PUSH/.../0x18` 结构和三个 special PUSH 值。发现新变体时应先展示真实样本并更新项目档案，不能直接扩大启发式规则。
-- ruby 只支持原 Python 已实现的 `TO_NEW_STRING[1] ... RETURN ... STR_CRYPT[base]` 结构；提取时异常结构整块跳过并 warning，注入时为避免残留部分注音会直接失败且不产出文件。
-- 无法按指定编码解码的 MES 字符串会保留原始字节，但所在翻译块不会导出。
-- ARC 回封保证内部文件、顺序和载荷可验证；压缩结果会与当前 LZSS 实现一致，但不承诺含未知间隙/尾随填充的外层 ARC byte-exact。
-- `garbro-fixed` 文件名最多 31 编码字节；`silky-lzss` 文件名最多 255 编码字节。
-
-格式证据和未确认项见 [ENGINE_PROFILE.md](ENGINE_PROFILE.md) 与 [VM_ANALYSIS.md](VM_ANALYSIS.md)。

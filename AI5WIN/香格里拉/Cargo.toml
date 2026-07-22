@@ -1,0 +1,43 @@
+[package]
+name = "shangri-la1-mes-tool"
+version = "0.1.0"
+edition = "2021"
+description = "Structure-aware MES.ARC tools for Shangri-La 1 (AI5WIN)"
+license = "MIT"
+
+[lib]
+name = "shangri_la1_mes"
+path = "src/lib.rs"
+
+[[bin]]
+name = "unpack"
+path = "src/bin/unpack.rs"
+
+[[bin]]
+name = "decompress"
+path = "src/bin/decompress.rs"
+
+[[bin]]
+name = "inspect"
+path = "src/bin/inspect.rs"
+
+[[bin]]
+name = "compress"
+path = "src/bin/compress.rs"
+
+[[bin]]
+name = "extract"
+path = "src/bin/extract.rs"
+
+[[bin]]
+name = "inject"
+path = "src/bin/inject.rs"
+
+[[bin]]
+name = "pack"
+path = "src/bin/pack.rs"
+
+[dependencies]
+encoding_rs = "=0.8.35"
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = "=1.0.150"

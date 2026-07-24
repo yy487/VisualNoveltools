@@ -1,0 +1,49 @@
+[package]
+name = "yuno-hdi-tools"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "=4.6.1", features = ["derive"] }
+encoding_rs = "=0.8.35"
+hex = "=0.4.3"
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = "=1.0.150"
+sha2 = "=0.10.9"
+thiserror = "=2.0.18"
+
+[[bin]]
+name = "unpack_hdi"
+path = "src/bin/unpack_hdi.rs"
+
+[[bin]]
+name = "pack_hdi"
+path = "src/bin/pack_hdi.rs"
+
+[[bin]]
+name = "unpack_yuno"
+path = "src/bin/unpack_yuno.rs"
+
+[[bin]]
+name = "pack_yuno"
+path = "src/bin/pack_yuno.rs"
+
+[[bin]]
+name = "unpack_mes"
+path = "src/bin/unpack_mes.rs"
+
+[[bin]]
+name = "pack_mes"
+path = "src/bin/pack_mes.rs"
+
+[[bin]]
+name = "extract_mes"
+path = "src/bin/extract_mes.rs"
+
+[[bin]]
+name = "inject_mes"
+path = "src/bin/inject_mes.rs"
+
+[[bin]]
+name = "verify_mes"
+path = "src/bin/verify_mes.rs"

@@ -1,37 +1,42 @@
-# vn-tool
+# 我的视觉小说工具
 
-A collection of reverse engineering and localization scripts for visual novels, accumulated while working on translation projects across various game engines.
+这是我自己维护的一套视觉小说工具集合，内容比较杂，主要包括：
 
-## ⚠️ Important Notice
+- 解包与封包
+- 游戏图片处理
+- 脚本提取与相关辅助工具
+- 其他逆向分析、格式探针和补丁制作工具
 
-**Most scripts in this repository are written for a specific game, not as general-purpose tools.**
+不同游戏的完成度不一样。有的只有解包工具，有的只有图片或脚本处理工具，也有的还在分析中。目录里缺少某一类工具是正常情况
 
-Although folders are organized by engine name (e.g. `AI6WIN`, `ADVWIN32`, `EntisGLS`), this does **not** mean the scripts will work on every game built with that engine. Even within the same engine, different titles typically differ in:
+## 目录结构
 
-- Encryption/decryption keys, XOR constants, and permutation tables
-- File header magic, version numbers, and struct field layouts
-- Character encoding handling (SJIS / GB2312 / custom codepages)
-- Script opcode coverage and parameter formats
-- Resource compression parameters (LZSS window size, dictionary initialization, etc.)
+这里基本遵循“一般一个游戏一个文件夹”的习惯。
 
-As a result, **running these scripts directly against a different game will almost always fail**. You will need to adjust constants, table structures, and parsing logic to match your target. The value of this repository lies more in:
+### 命名规则
 
-- Serving as a reference for analyzing specific engine formats
-- Acting as a starting template when writing new tools
-- Recording implementation details of particular games for future reference
+- 已确认引擎的项目，通常使用“引擎--游戏名”的形式命名。
+- 只有游戏名或引擎信息尚未确认时，直接使用游戏名或现有分类名。
+- 当然有时候我也会用游戏制作公司来命名，看我当时想到什么就是什么了
+- 同一个引擎下的多个游戏，会尽量分别放在各自的游戏目录中。
 
-## Repository Layout
+### `common` 目录
 
-Each top-level folder roughly corresponds to a game engine or a specific game. Subfolders are usually scripts adapted for one particular title under that engine. For example:
+如果某个引擎目录下有 `common`，通常表示这个引擎的基本格式已经分析得比较完整，里面放的是可以复用的通用工具或公共代码。
 
-```
-AI6WIN/
-├── *.py                          # Engine-level parsing attempts (still not necessarily portable)
-└── 麻呂の患者はガテン系/         # Scripts adjusted for this specific game
-```
+不过，优先使用具体游戏目录下的工具。那些工具通常经过对应游戏的实际测试，参数、密钥、编码和异常处理更可能与目标版本匹配。
 
-When in doubt, treat the engine-level scripts as **prototypes** and the game-specific subfolders as the actual working versions.
+## 使用说明
 
-## Disclaimer
+1. 先确认目标游戏和版本，再选择对应的游戏目录工具。
+2. 使用解包、封包或注入工具前，建议保留原始文件，并把输出写到新目录或新文件。
+3. 不同版本的同名游戏可能使用不同格式；工具能运行不等于输出一定适用于所有版本。就比如steam上面苍彼的bgi就是unity改造之后的，还有就是一些炒冷饭也可能换引擎，具体情况具体分析就是了
+4. 如果工具无法处理样本，可以附上游戏名称、版本、文件名和错误信息，提issue方便继续分析。
 
-These scripts are shared for research and personal localization purposes. They are provided as-is, with no guarantee of correctness, completeness, or compatibility with any particular game. Use at your own discretion, and respect the copyright of the original works.
+## AI 翻译补丁
+
+如果这些工具对制作 AI 翻译补丁有帮助，欢迎在发布补丁时附上本仓库地址，让其他人能够找到工具来源，也方便后续修复和改进：
+
+<https://github.com/yy487/vn-tool>
+
+

@@ -1,0 +1,19 @@
+[package]
+name = "ianzhong-mes-text"
+version = "1.0.0"
+edition = "2024"
+description = "CP932 text extraction and injection for Shoujo-tachi wa Kouya wo Mezasu MES scripts"
+license = "MIT"
+
+[dependencies]
+encoding_rs = "=0.8.35"
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = "=1.0.150"
+
+[[bin]]
+name = "mes_extract"
+path = "src/bin/mes_extract.rs"
+
+[[bin]]
+name = "mes_inject"
+path = "src/bin/mes_inject.rs"

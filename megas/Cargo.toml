@@ -1,0 +1,21 @@
+[package]
+name = "merry-mpk-tool"
+version = "0.1.0"
+edition = "2021"
+description = "MyMerryMay MPK, glyph-token script, and bitmap font localization tool"
+license = "MIT"
+
+[dependencies]
+ab_glyph = "0.2.32"
+encoding_rs = "0.8.35"
+png = "0.18.1"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.150"
+
+[lib]
+name = "merry_mpk_tool"
+path = "src/lib.rs"
+
+[[bin]]
+name = "mpk_tool"
+path = "src/main.rs"

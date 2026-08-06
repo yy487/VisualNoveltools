@@ -1,0 +1,22 @@
+[package]
+name = "uniform-kanojo-nexas-tool"
+version = "1.0.1"
+edition = "2024"
+description = "UTF-8 JSON extraction and injection for NeXAS Uniform Kanojo scripts"
+license = "MIT"
+
+[dependencies]
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = "=1.0.150"
+
+[[bin]]
+name = "nexas_extract"
+path = "src/bin/nexas_extract.rs"
+
+[[bin]]
+name = "nexas_inject"
+path = "src/bin/nexas_inject.rs"
+
+[[bin]]
+name = "nexas_rebuild"
+path = "src/bin/nexas_rebuild.rs"

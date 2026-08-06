@@ -1,44 +1,160 @@
-# love letter
+# Love Letter `.o` text tool
 
-## 目录定位
+This Rust tool extracts and injects translatable scenario text from the
+`Love Letter` `.o` VM scripts. Classification is based on decoded bytecode
+consumers, not Japanese-character, tag, variable, filename, or path heuristics.
+Inputs and existing outputs are never overwritten.
 
-love letter 目录下的引擎/游戏工具集合。
+## Reverse-engineered format
 
-本 README 根据本目录内 Python 源码的实际入口、参数、注释和数据结构整理，用于说明当前目录工具的用途与推荐使用顺序。
+The executable evidence is `sub_408DF0` in
+`loveletter.exe_export_for_ai/decompile/408DF0.c`:
 
-## 文件分工
+- Opcodes `0x00`, `0x01`, `0x02`, `0x03`, `0x05`, `0x06`, and `0x07` have a
+  four-byte little-endian operand.
+- Opcode `0x08` and expression operators `0x80..=0xFF` are one byte.
+- Opcode `0x02` evaluates a length-prefixed string record; it does not mean
+  dialogue.
+- Opcode `0x05` invokes a native command and opcode `0x06` invokes a script
+  function. They identify the consumer of strings accumulated by a statement.
+- The instruction region is followed by `u32 byte_length + payload` records
+  reaching EOF. Every record start has an instruction-boundary `0x02`
+  reference.
 
-| 文件 | 定位 | 说明 |
-|---|---|---|
-| `mgos_decode.py` | 图像/资源转换 | MGOS (MU Game Operation System) BMP Decoder - Pure Python Supports: Fd, Fc(?), 8P(?), BM formats Reverse engineered from loveletter.exe (0x4217E0, 0x423A10) Usage: python mgos_deco |
+The parser rejects invalid opcodes, truncated operands/records, non-record
+targets, unreferenced records, and strings without a following consumer. The
+injector rebuilds the suffix table and updates only decoded `0x02` operands;
+unknown record payloads and unrelated instruction bytes remain unchanged.
 
-## 推荐流程
+## Extraction policy
 
-1. 如脚本存在加密/压缩层，先执行解密或解码步骤，再处理明文脚本。
+The 47 source objects use two confirmed translatable sinks:
 
-## 命令示例
+- Script call `0x15C27`: scenario message. `_type` is `dialogue`, or `effect`
+  when the internal tag is `!se`.
+- Script call `0x1870E`: choice text. Blank full-width choice slots are not
+  emitted.
 
-### mgos_decode.py
-```bash
-python mgos_decode.py input.bmp [output.png]
-python mgos_decode.py --batch input_dir/ [output_dir/]
+All other consumers are excluded, including UI/status text, title and ending
+labels, resource names, audio/image paths, diagnostics, comparisons, and file
+I/O operands. In particular, `savefile{{VAR:0111}}.dat` is followed by mode
+`2` and native command `0x400`; the executable's `0x400` handler builds
+`%s\\save\\%s` and opens the file. It is not dialogue.
+
+This rule also fixes the opposite error in the old extractor: untagged
+narration passed to `0x15C27` is now `dialogue`, not `ui`. No `_type: "ui"`
+entry is emitted.
+
+## Names and controls
+
+The confirmed split remains:
+
+```text
+!m\id\nNAME　「MESSAGE」
 ```
 
-## 参数入口速查
+The internal prefix is preserved in `_scr_raw` and exposed as `_tag`/`_id`.
+The body inside the final `」` becomes `scr_msg`/`message`. A protagonist name
+stored as byte `0x07` plus four ASCII digits is represented as
+`{{VAR:0083}}`; it is retained in genuine names and dialogue.
 
-### `mgos_decode.py`
-- `'input', help='Input .bmp file or directory'`
-- `'output', nargs='?', help='Output .png file or directory'`
-- `'--batch', action='store_true'`
+`sub_408DF0` defines a string mini-language. The tool parses each construct as
+one indivisible token:
 
-## 依赖提示
+```text
+07 + dddd                         {{VAR:dddd}}
+08 + width/reserved/wide + dddd   {{VAR_FMT:dddd:width:reserved:wide}}
+09                                {{STACK}}
+0A + width/reserved/wide          {{STACK_FMT:width:reserved:wide}}
+```
 
-除 Python 标准库外，源码中检测到的外部/项目依赖模块：`PIL`。
-使用图像或字体相关脚本前需安装 Pillow：`pip install pillow`。
+`width` is a signed decimal `i32`; `reserved` and `wide` are eight-digit
+hexadecimal `u32` values. Other preserved control bytes use `{{CTRL:hh}}`.
+The injector requires the ordered token signature to remain unchanged, so a
+variable name cannot silently become literal text and a formatted construct
+cannot be split into unrelated bytes.
 
-## 注意事项
+Names are validation-only by default. `_scr_name` must match the source; use
+`--write-names` only for an explicitly reviewed literal name change. Runtime
+protagonist variables normally remain unchanged.
 
-- 操作前请备份原始封包、脚本和 EXE；注入/封包类脚本通常会直接生成可替换资源。
-- 保持提取时的目录结构与文件名；多数注入器依赖相对路径、偏移或原文校验。
-- 默认编码多为 CP932/Shift-JIS；若脚本提供 `--encoding`，除非目标游戏已确认，否则不要随意改成 GBK。
-- 对等长/截断注入器，译文过长可能被截断、报错或破坏后续指令；非等长注入器也需要确认跳转/长度表是否已同步修正。
+## JSON contract
+
+Each `.o` file gets one UTF-8 JSON array. Only `message` is normally edited:
+
+```json
+{
+  "name": "やよい",
+  "scr_msg": "瑞穂……",
+  "message": "瑞穂……",
+  "_file": "M_01.o",
+  "_index": 276,
+  "_offset": 156482,
+  "_entry_offset": 156478,
+  "_inst_offset": 131171,
+  "_size": 34,
+  "_type": "dialogue",
+  "_opcode": "0x02",
+  "_encoding": "CP932",
+  "_policy": "relocate",
+  "_scr_raw": "!m\\yay01000\\nやよい　「瑞穂……」",
+  "_scr_name": "やよい",
+  "_tag": "m",
+  "_id": "yay01000",
+  "_split": true,
+  "_quoted": true,
+  "_terminator_len": 1
+}
+```
+
+`scr_msg`, `_scr_raw`, `_scr_name`, locations, instruction references, type,
+encoding, policy, tags, split/quote fields, size, and terminator length are
+validated against the source before any output is written.
+
+## Commands
+
+Run from `H:\IDA-PRO-MCP\loveletter\obj-text-tool`:
+
+```powershell
+cargo run --offline -- extract E:\GAL\love\obj --output .\obj-json
+cargo run --offline -- inject E:\GAL\love\obj .\obj-json --output .\obj-injected
+```
+
+Single files are supported as well:
+
+```powershell
+cargo run --offline -- extract E:\GAL\love\obj\M_01.o
+cargo run --offline -- inject E:\GAL\love\obj\M_01.o E:\GAL\love\obj\M_01.o.json
+```
+
+Directory injection copies all source files and only rebuilds objects with a
+matching JSON file. Existing output paths are refused.
+
+## Verification and limits
+
+The semantic implementation was checked against all 47 source files:
+
+- 38,905 instruction-boundary string references and 38,905 table records
+  decoded without an invalid opcode or boundary mismatch.
+- 21,642 extracted entries: 20,578 dialogue, 990 effects, and 74 nonblank
+  choices; zero UI entries and zero warnings.
+- Unchanged injection reported 21,642 unchanged entries; all 47 rebuilt files
+  were SHA-256 identical to the source.
+- Real short and long edits to `M_01.o` re-extracted correctly. All 46
+  unrelated files stayed identical, and every changed instruction byte was
+  inside a decoded `0x02` operand.
+
+The sink addresses and mini-language are specific to this confirmed
+`Love Letter` profile. The tool deliberately rejects a structurally different
+VM layout instead of falling back to heuristic text scanning. It does not pack
+an outer archive or patch the executable.
+
+Release checks:
+
+```powershell
+cargo fmt -- --check
+cargo test --offline
+cargo clippy --offline --all-targets -- -D warnings
+cargo build --release --offline --bins
+cargo run --release --offline -- --help
+```

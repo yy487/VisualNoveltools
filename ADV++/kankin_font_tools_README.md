@@ -129,14 +129,14 @@ python kankin_font_patch.py info font.dat
 ### 4.2 扫描翻译 JSON 中不可 CP932 编码字符
 
 ```bat
-python kankin_font_patch.py scan E:\BaiduNetdiskDownload\1\2\3\chs\json_restore --cn-jp E:\BaiduNetdiskDownload\1\2\3\subs_cn_jp.json --output scan_report.json
+python kankin_font_patch.py scan "<JSON_DIR>" --cn-jp "<CN_JP_JSON>" --output scan_report.json
 ```
 
 输出示例：
 
 ```text
 [SCAN DONE]
-  input                         = E:\BaiduNetdiskDownload\1\2\3\chs\json_restore
+  input                         = <JSON_DIR>
   fields                        = message, name
   json_files                    = 7
   strings_scanned               = 23694
@@ -174,7 +174,7 @@ mapped_not_cp932_encodable = 0
 ### 4.3 将翻译 JSON 转换为代用字版本
 
 ```bat
-python kankin_font_patch.py convert-json E:\BaiduNetdiskDownload\1\2\3\chs\json_restore --cn-jp E:\BaiduNetdiskDownload\1\2\3\subs_cn_jp.json --output-dir E:\BaiduNetdiskDownload\1\2\3\chs\json_cn
+python kankin_font_patch.py convert-json "<JSON_DIR>" --cn-jp "<CN_JP_JSON>" --output-dir "<OUTPUT_DIR>\json_cn"
 ```
 
 转换示例：
@@ -214,7 +214,7 @@ python kankin_font_patch.py convert-json E:\BaiduNetdiskDownload\1\2\3\chs\json_
 ### 4.4 重绘 font.dat 字库
 
 ```bat
-python kankin_font_patch.py patch font.dat font_new.dat --json E:\BaiduNetdiskDownload\1\2\3\chs\json_restore --cn-jp E:\BaiduNetdiskDownload\1\2\3\subs_cn_jp.json --font alyce_humming.ttf --report font_patch_report.json
+python kankin_font_patch.py patch font.dat font_new.dat --json "<JSON_DIR>" --cn-jp "<CN_JP_JSON>" --font alyce_humming.ttf --report font_patch_report.json
 ```
 
 参数含义：
@@ -339,7 +339,7 @@ python kankin_font_patch.py patch font.dat font_new.dat --json chs\json_restore 
 假设目录为：
 
 ```text
-E:\BaiduNetdiskDownload\1\2\3
+<WORK_DIR>
   font.dat
   subs_cn_jp.json
   alyce_humming.ttf
@@ -350,7 +350,7 @@ E:\BaiduNetdiskDownload\1\2\3
 推荐执行：
 
 ```bat
-cd /d E:\BaiduNetdiskDownload\1\2\3
+cd /d "<WORK_DIR>"
 ```
 
 第一步，扫描映射完整性：
@@ -516,7 +516,7 @@ python kankin_font_patch.py patch font.dat font_new.dat --json chs\json_restore 
 ## 10. 快速命令汇总
 
 ```bat
-cd /d E:\BaiduNetdiskDownload\1\2\3
+cd /d "<WORK_DIR>"
 ```
 
 扫描：

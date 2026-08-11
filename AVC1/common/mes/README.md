@@ -13,9 +13,9 @@
 ## 提取
 
 ```powershell
-mes_extract.exe "E:\GAL\ianzhong\mes"
-mes_extract.exe "E:\GAL\ianzhong\mes" --output "E:\GAL\ianzhong\mes_json"
-mes_extract.exe "E:\GAL\ianzhong\mes\008_A_140414_0.txt"
+mes_extract.exe "<MES_DIR>"
+mes_extract.exe "<MES_DIR>" --output "<OUTPUT_DIR>\mes_json"
+mes_extract.exe "<MES_DIR>\008_A_140414_0.txt"
 ```
 
 默认输出：
@@ -28,8 +28,8 @@ mes_extract.exe "E:\GAL\ianzhong\mes\008_A_140414_0.txt"
 ## 注入
 
 ```powershell
-mes_inject.exe "E:\GAL\ianzhong\mes" "E:\GAL\ianzhong\mes_json"
-mes_inject.exe "E:\GAL\ianzhong\mes" "E:\GAL\ianzhong\mes_json" --output "E:\GAL\ianzhong\mes_injected"
+mes_inject.exe "<MES_DIR>" "<JSON_DIR>"
+mes_inject.exe "<MES_DIR>" "<JSON_DIR>" --output "<OUTPUT_DIR>\mes_injected"
 mes_inject.exe "008_A_140414_0.txt" "008_A_140414_0.txt.json"
 ```
 

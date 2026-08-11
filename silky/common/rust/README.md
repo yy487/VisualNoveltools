@@ -1,6 +1,6 @@
 # Silky common Rust 工具
 
-这是 `H:\vn-tool\silky\common` Python 工具的 Rust 移植版。用户入口收敛为四个 EXE：
+这是上级目录中 Python 工具的 Rust 移植版。用户入口收敛为四个 EXE：
 
 ```text
 unpack.exe   Silky ARC -> 文件目录
@@ -14,7 +14,6 @@ MES 的 opcode 解析、字符串变换、文本块识别和重定位全部集�
 ## 构建
 
 ```powershell
-cd "H:\vn-tool\silky\common\rust"
 cargo build --release --offline --bins
 ```
 
@@ -119,5 +118,4 @@ MES + JSON  -> SCENE01_injected.MES / mes_injected\
 - 无 ruby 的未修改正文不重写字符串槽，保持 MES byte-exact。含 ruby 的 unchanged inject 会因“删除注音”项目策略产生预期字节变化；底层 `parse -> rebuild` 仍保持 byte-exact。
 - MES 通过整体重建支持正文和可写名字变长/变短。重建会修正 header 两组 offset 及 `0x14/0x15/0x16/0x1B` 的代码相对目标。
 - 工具不会新增、删除或重排指令；未知字节作为 opaque raw node 原样保留。
-
 

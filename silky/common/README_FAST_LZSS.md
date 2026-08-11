@@ -5,19 +5,19 @@
 用法：
 
 ```bat
-python silky_arc_pack.py E:\GAL\yyc\nonomura_re\out_mes Script.arc
+python silky_arc_pack.py "<INPUT_DIR>" Script.arc
 ```
 
 默认 `--jobs 0`，自动使用 CPU 核心数。也可以手动指定：
 
 ```bat
-python silky_arc_pack.py E:\GAL\yyc\nonomura_re\out_mes Script.arc -j 8
+python silky_arc_pack.py "<INPUT_DIR>" Script.arc -j 8
 ```
 
 如果出问题或想对照旧逻辑：
 
 ```bat
-python silky_arc_pack.py E:\GAL\yyc\nonomura_re\out_mes Script.arc -j 1
+python silky_arc_pack.py "<INPUT_DIR>" Script.arc -j 1
 ```
 
 不要使用 `--store-all`，否则会关闭压缩，体积会明显变大。

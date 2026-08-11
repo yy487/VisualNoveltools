@@ -8,8 +8,8 @@ It does not scan arbitrary binary bytes for image-looking data.
 ## Usage
 
 ```powershell
-gpc2png.exe E:\GAL\NECRONOMICON_DUMP\DISK_A\GPC `
-  --output E:\GAL\NECRONOMICON_DUMP\work\03_gpc2png\png
+gpc2png.exe "<GPC_DIR>" `
+  --output "<OUTPUT_DIR>\png"
 ```
 
 Directory input is recursive. Existing output files are rejected instead of

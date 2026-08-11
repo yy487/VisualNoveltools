@@ -4,9 +4,9 @@
 
 ## 样本与依据
 
-- GSC 样本：`E:\GAL\紅殻町博物誌\work\scr_unpacked`
-- EXE 反编译：`E:\GAL\紅殻町博物誌\work\紅殻町博物誌.exe_export_for_ai`
-- 同会社回环样本：`E:\GAL\wenyixi\霞外籠逗留記\work`、`E:\GAL\wenyixi\信天翁航海録\work`、`E:\GAL\wenyixi\花散峪山人考\work`
+- GSC 样本：当前游戏的 `scr_unpacked` 目录
+- EXE 反编译：当前游戏可执行文件的反编译导出
+- 同会社回环样本：`霞外籠逗留記`、`信天翁航海録`、`花散峪山人考`
 - 全部样本均为小端序，文本编码为 CP932。
 
 ## GSC 文件结构

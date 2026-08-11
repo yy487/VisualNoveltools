@@ -36,10 +36,10 @@ target\release\railsoft-xfl.exe
 命令行调用时可增加 `--no-pause`，例如：
 
 ```powershell
-xfl_unpack.exe "E:\GAL\紅殻町博物誌\work\scr.xfl" --no-pause
-gsc_extract.exe "E:\GAL\紅殻町博物誌\work\scr_unpacked" --no-pause
-gsc_inject.exe "E:\GAL\紅殻町博物誌\work\scr_unpacked_json" --no-pause
-xfl_pack.exe "E:\GAL\紅殻町博物誌\work\scr_rebuilt" --no-pause
+xfl_unpack.exe "<WORK_DIR>\scr.xfl" --no-pause
+gsc_extract.exe "<WORK_DIR>\scr_unpacked" --no-pause
+gsc_inject.exe "<WORK_DIR>\scr_unpacked_json" --no-pause
+xfl_pack.exe "<WORK_DIR>\scr_rebuilt" --no-pause
 ```
 
 ## JSON 格式

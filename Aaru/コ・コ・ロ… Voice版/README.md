@@ -1,7 +1,8 @@
 # KOKOROV FL2 / AB localization tool
 
-This Rust tool handles the confirmed KOKOROV sample format in
-`E:\GAL\kokona\work`:
+This Rust tool handles the confirmed KOKOROV sample format. In the examples
+below, `<GAME_DIR>` is the game data directory and `<OUTPUT_DIR>` is a separate
+output directory:
 
 * `fl2_unpack` extracts the `FL2.0\0` archive without modifying it.
 * `fl2_pack` rebuilds an archive from an unpacked directory and its manifest.
@@ -28,9 +29,9 @@ The release binaries are in `target\release`.
 ## Archive usage
 
 ```powershell
-fl2_unpack.exe "E:\GAL\kokona\work\A.FL2"
-fl2_unpack.exe --output "E:\GAL\kokona\work\A_unpacked" "E:\GAL\kokona\work\A.FL2"
-fl2_pack.exe --output "E:\GAL\kokona\work\A_packed.FL2" "E:\GAL\kokona\work\A_unpacked"
+fl2_unpack.exe "<GAME_DIR>\A.FL2"
+fl2_unpack.exe --output "<OUTPUT_DIR>\A_unpacked" "<GAME_DIR>\A.FL2"
+fl2_pack.exe --output "<OUTPUT_DIR>\A_packed.FL2" "<OUTPUT_DIR>\A_unpacked"
 ```
 
 The default output is `<stem>_unpacked`. Existing output is rejected unless
@@ -53,16 +54,16 @@ of `mes_injected` over the matching `.AB` files in `A_unpacked`, and then run
 Single-file workflow:
 
 ```powershell
-ab_extract.exe "E:\GAL\kokona\work\mes\ARS0000.AB"
-ab_inject.exe "E:\GAL\kokona\work\mes\ARS0000.AB" `
-  "E:\GAL\kokona\work\mes\ARS0000.AB.json" --output "ARS0000_injected.AB"
+ab_extract.exe "<GAME_DIR>\mes\ARS0000.AB" --output "<OUTPUT_DIR>\ARS0000.AB.json"
+ab_inject.exe "<GAME_DIR>\mes\ARS0000.AB" `
+  "<OUTPUT_DIR>\ARS0000.AB.json" --output "ARS0000_injected.AB"
 ```
 
 Directory workflow:
 
 ```powershell
-ab_extract.exe "E:\GAL\kokona\work\mes" --output "mes_json"
-ab_inject.exe "E:\GAL\kokona\work\mes" "mes_json" --output "mes_injected"
+ab_extract.exe "<GAME_DIR>\mes" --output "mes_json"
+ab_inject.exe "<GAME_DIR>\mes" "mes_json" --output "mes_injected"
 ```
 
 Directory extraction scans `.AB` files recursively and writes matching

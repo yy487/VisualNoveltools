@@ -85,16 +85,16 @@ Run from `tools/` with a relative script path. Avoid launching Python with an
 absolute path containing Japanese directory names in non-Unicode consoles.
 
 ```powershell
-Set-Location -LiteralPath 'H:\vn-tool\AI5WIN\リフレインブルー\font_fix\tools'
+Set-Location -LiteralPath '<FONT_FIX_TOOLS_DIR>'
 python .\rb_ai5win_font_fix.py --full-redraw --style strong --out-fnt ..\build\FONT_simhei_strong_full_plus_dong_rare.FNT --out-exe ..\output\AI5WIN_chs_simhei_strong_full_plus_dong_rare.exe --preview ..\preview\simhei_strong_full_plus_dong_rare_cluster.png
 ```
 
 Optional parameters:
 
 ```powershell
-python .\rb_ai5win_font_fix.py --indices 472-479 --font C:\Windows\Fonts\simhei.ttf --font-size 22 --outline 2
+python .\rb_ai5win_font_fix.py --indices 472-479 --font "$env:WINDIR\Fonts\simhei.ttf" --font-size 22 --outline 2
 python .\rb_ai5win_font_fix.py --indices 472-479,7065 --style strong --out-fnt ..\build\FONT_simhei_strong_plus_dong_rare.FNT --out-exe ..\output\AI5WIN_chs_simhei_strong_plus_dong_rare.exe --preview ..\preview\simhei_strong_plus_dong_rare.png
-python .\rb_ai5win_font_fix.py --full-redraw --style strong --fallback-fonts C:\Windows\Fonts\msgothic.ttc,C:\Windows\Fonts\meiryo.ttc
+python .\rb_ai5win_font_fix.py --full-redraw --style strong --fallback-fonts "$env:WINDIR\Fonts\msgothic.ttc,$env:WINDIR\Fonts\meiryo.ttc"
 ```
 
 ## EXE layout

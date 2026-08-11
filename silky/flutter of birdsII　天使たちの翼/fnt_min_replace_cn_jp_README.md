@@ -56,13 +56,13 @@ python fnt_min_replace.py apply-map-json json_trans cn_jp.json json_mapped --fie
 ## 生成替换后的 fnt_min.igf
 
 ```bat
-python fnt_min_replace.py patch-font fnt_min.igf cn_jp.json fnt_min_chs.igf --ttf C:\Windows\Fonts\msyh.ttc
+python fnt_min_replace.py patch-font fnt_min.igf cn_jp.json fnt_min_chs.igf --ttf "%WINDIR%\Fonts\msyh.ttc"
 ```
 
 常用调整：
 
 ```bat
-python fnt_min_replace.py patch-font fnt_min.igf cn_jp.json fnt_min_chs.igf --ttf C:\Windows\Fonts\msyh.ttc --size 22 --xoff 0 --yoff 1
+python fnt_min_replace.py patch-font fnt_min.igf cn_jp.json fnt_min_chs.igf --ttf "%WINDIR%\Fonts\msyh.ttc" --size 22 --xoff 0 --yoff 1
 ```
 
 ## 预览

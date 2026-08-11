@@ -37,19 +37,19 @@ overwritten.
 
 ```powershell
 .\target\release\tongern_ks.exe extract `
-  E:\GAL\tongern\ks\scenario `
-  -o H:\IDA-PRO-MCP\tongern\analysis_output\scenario_json
+  "<SCENARIO_DIR>" `
+  -o .\analysis_output\scenario_json
 
 .\target\release\tongern_ks.exe inject `
-  H:\IDA-PRO-MCP\tongern\analysis_output\scenario_json `
-  --source E:\GAL\tongern\ks\scenario `
-  -o H:\IDA-PRO-MCP\tongern\analysis_output\scenario_injected
+  .\analysis_output\scenario_json `
+  --source "<SCENARIO_DIR>" `
+  -o .\analysis_output\scenario_injected
 
 .\target\release\tongern_ks.exe repair-json `
-  E:\GAL\tongern\ks\scenario_json `
-  --source E:\GAL\tongern\ks\scenario `
-  --name-dictionary E:\GAL\字典\终结世界\终结世界_name.toml `
-  -o H:\IDA-PRO-MCP\tongern\analysis_output\scenario_json_repaired
+  "<TRANSLATION_DIR>" `
+  --source "<SCENARIO_DIR>" `
+  --name-dictionary "<NAME_DICTIONARY>" `
+  -o .\analysis_output\scenario_json_repaired
 ```
 
 Use `--macro PATH` only when `macro.ks` is not inside the source directory.

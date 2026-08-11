@@ -47,8 +47,8 @@ python nexas_extract.py <input_dir> -o text_jp/
 python nexas_inject.py <bin_dir> --json <json_dir> -o <output_dir>
 python nexas_inject.py mes/ --json text_zh/ -o mes_zh/ --encoding gbk
 python nexas_inject.py mes\\ --json text_zh\\ -o mes_zh\\ --encoding gbk
-python nexas_extract.py mes\\ -o /tmp/jp\\
-python nexas_inject.py mes\\ --json /tmp/jp\\ -o /tmp/rebuilt\\
+python nexas_extract.py mes/ -o ./tmp/jp/
+python nexas_inject.py mes/ --json ./tmp/jp/ -o ./tmp/rebuilt/
 ```
 
 ## 参数入口速查

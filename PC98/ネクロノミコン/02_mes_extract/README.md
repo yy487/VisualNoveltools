@@ -19,14 +19,14 @@ mes_extract.exe DISK_B\MES\OPEN1.MES --output OPEN1.MES.json
 递归提取 A–K 盘目录：
 
 ```powershell
-mes_extract.exe E:\GAL\NECRONOMICON_DUMP --output json
+mes_extract.exe "<MES_ROOT>" --output json
 ```
 
 若输入根目录下存在 `DISK_A` 至 `DISK_K`，提取器只扫描这些磁盘树，自动忽略
 `work` 内的测试副本。普通目录仍递归搜索全部 `.MES`。
 
-重要：2026-07-18 核对原 FDI 的 FAT12 目录后，确认旧
-`E:\GAL\NECRONOMICON_DUMP` 中的 `DISK_D/G/H/I/J/K` 含错碟副本。最终介质的
+重要：2026-07-18 核对原 FDI 的 FAT12 目录后，确认旧拆包树中的
+`DISK_D/G/H/I/J/K` 含错碟副本。最终介质的
 真实清单为 208 个 MES、17,502 条；注入时必须使用从原 A–K FDI 重新提取且与
 JSON `_file` 一一对应的真实 MES 树，不能直接使用旧 278 文件拆包树。
 
@@ -34,7 +34,7 @@ JSON `_file` 一一对应的真实 MES 树，不能直接使用旧 278 文件拆
 
 ```powershell
 mes_inject.exe json `
-  --source-root E:\GAL\NECRONOMICON_DUMP `
+  --source-root "<MES_ROOT>" `
   --output rebuilt
 ```
 
@@ -98,10 +98,10 @@ JSON 使用 UTF-8。正文不允许 NUL、CR/LF 或会与 MES opcode 冲突的 C
 
 ```powershell
 mes_inject.exe json `
-  --source-root E:\GAL\NECRONOMICON_DUMP `
+  --source-root "<MES_ROOT>" `
   --output rebuilt
 
-fdi_repack.exe E:\GAL\NECRONOMICON\NECRONOMICON_B.FDI `
+fdi_repack.exe "<FDI_DIR>\NECRONOMICON_B.FDI" `
   --replacements rebuilt\DISK_B `
   --output NECRONOMICON_B.translated.FDI
 ```

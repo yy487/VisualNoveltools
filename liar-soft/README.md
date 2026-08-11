@@ -1,6 +1,6 @@
 # Seven Bridges 资源与 GSC 本地化工具
 
-本目录是独立工作区。工具只读取用户提供的游戏目录，所有生成物都写到显式指定的输出目录；不会修改 `H:\vn-tool` 下的参考工程，也不会修改 `scr_unpacked` 或 `grps_unpacked`。
+本目录是独立工作区。工具只读取用户提供的游戏目录，所有生成物都写到显式指定的输出目录；不会修改本仓库中的其他参考工程，也不会修改 `scr_unpacked` 或 `grps_unpacked`。
 
 ## 构建
 
@@ -97,4 +97,3 @@ sbridge-gsc.exe inject "translation_json" `
 - WCG 目前只做 PNG 导出，不做 PNG → WCG 回写；姓名映射只服务翻译上下文。
 
 WCG 算法参考与许可证见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
-

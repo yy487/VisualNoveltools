@@ -113,18 +113,19 @@ validated against the source before any output is written.
 
 ## Commands
 
-Run from `H:\IDA-PRO-MCP\loveletter\obj-text-tool`:
+Run from this project directory. Replace `<OBJ_DIR>` with the game's `obj`
+directory:
 
 ```powershell
-cargo run --offline -- extract E:\GAL\love\obj --output .\obj-json
-cargo run --offline -- inject E:\GAL\love\obj .\obj-json --output .\obj-injected
+cargo run --offline -- extract "<OBJ_DIR>" --output .\obj-json
+cargo run --offline -- inject "<OBJ_DIR>" .\obj-json --output .\obj-injected
 ```
 
 Single files are supported as well:
 
 ```powershell
-cargo run --offline -- extract E:\GAL\love\obj\M_01.o
-cargo run --offline -- inject E:\GAL\love\obj\M_01.o E:\GAL\love\obj\M_01.o.json
+cargo run --offline -- extract "<OBJ_DIR>\M_01.o"
+cargo run --offline -- inject "<OBJ_DIR>\M_01.o" "<OBJ_DIR>\M_01.o.json"
 ```
 
 Directory injection copies all source files and only rebuilds objects with a

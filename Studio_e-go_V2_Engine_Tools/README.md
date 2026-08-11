@@ -152,10 +152,10 @@ python .\tev2_all_scripts_single_entry_short_regression.py --chunk-index <0-base
 
 ## 文档
 
-- [docs/README.md](D:/Code/VN_Reverse/titles/月神楽/docs/README.md)
-- [docs/tev2_script_结构.md](D:/Code/VN_Reverse/titles/月神楽/docs/tev2_script_结构.md)
-- [docs/tev2_script_用法.md](D:/Code/VN_Reverse/titles/月神楽/docs/tev2_script_用法.md)
-- [docs/tev2_script_验证.md](D:/Code/VN_Reverse/titles/月神楽/docs/tev2_script_验证.md)
+- [docs/README.md](docs/README.md)
+- [docs/tev2_script_结构.md](docs/tev2_script_%23U7ed3%23U6784.md)
+- [docs/tev2_script_用法.md](docs/tev2_script_%23U7528%23U6cd5.md)
+- [docs/tev2_script_验证.md](docs/tev2_script_%23U9a8c%23U8bc1.md)
 
 ## 批量工作流入口
 

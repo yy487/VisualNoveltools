@@ -10,9 +10,9 @@ new FDI. It preserves the 0x1000-byte FDI header and refuses to overwrite the
 input or an existing output.
 
 ```powershell
-fdi_repack.exe E:\GAL\NECRONOMICON\NECRONOMICON_A.FDI `
-  --replacements H:\translated\DISK_A `
-  --output H:\translated\NECRONOMICON_A.translated.FDI
+fdi_repack.exe "<FDI_DIR>\NECRONOMICON_A.FDI" `
+  --replacements "<TRANSLATED_DIR>\DISK_A" `
+  --output "<TRANSLATED_DIR>\NECRONOMICON_A.translated.FDI"
 ```
 
 The replacement tree is relative to the disk root. Its files must already
@@ -38,9 +38,9 @@ renderer; CP932 representability and display width remain separate limits.
 the disk directory and pass the matching disk subtree as replacements:
 
 ```powershell
-mes_inject.exe json --source-root E:\GAL\NECRONOMICON_DUMP --output rebuilt
+mes_inject.exe json --source-root "<MES_ROOT>" --output rebuilt
 
-fdi_repack.exe E:\GAL\NECRONOMICON\NECRONOMICON_A.FDI `
+fdi_repack.exe "<FDI_DIR>\NECRONOMICON_A.FDI" `
   --replacements rebuilt\DISK_A `
   --output NECRONOMICON_A.translated.FDI
 ```

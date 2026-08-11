@@ -29,7 +29,7 @@ This folder collects the tools used for `和香様の座する世界` ACV1/NonCo
 
 ## Common Commands
 
-Run these from `H:\IDA-PRO-MCP\和香`.
+Run these from this project directory.
 
 Extract named `z/` resources:
 
@@ -56,9 +56,9 @@ Export matching names again from GARbro's `NCFileMap`:
 python tools\nc_filemap_tool.py export arc0.dat arc1.dat arc2.dat arc3.dat -o tools\name_lists\nc_z_matched_names.txt --prefix z/
 ```
 
-The default GARbro file map path is:
+The GARbro file map files are under its installation directory:
 
 ```text
-C:\Users\john\OneDrive\Desktop\GARbro\GameData\NCFileMap.dat
-C:\Users\john\OneDrive\Desktop\GARbro\GameData\NCFileMap.idx
+<GARbro_DIR>\GameData\NCFileMap.dat
+<GARbro_DIR>\GameData\NCFileMap.idx
 ```

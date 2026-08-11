@@ -1,6 +1,6 @@
 # diannao_ks
 
-`diannao_ks` 是面向 `E:\GAL\diannao\1\scenario` 的 KAG `.ks` 状态机式正文
+`diannao_ks` 是面向游戏 `scenario` 目录的 KAG `.ks` 状态机式正文
 提取/注入工具。源脚本保持无 BOM CP932，翻译交换格式仅使用 UTF-8 JSON。
 
 工具逐文件输出 JSON，不覆盖原脚本或已有输出目录。注入前会重新解析全部源脚本，
@@ -34,13 +34,13 @@ scenario_json\ -> scenario_injected\
 
 ```powershell
 .\target\release\diannao_ks.exe extract `
-  E:\GAL\diannao\1\scenario `
-  -o H:\IDA-PRO-MCP\diannao\analysis_output\scenario_json
+  "<SCENARIO_DIR>" `
+  -o .\analysis_output\scenario_json
 
 .\target\release\diannao_ks.exe inject `
-  H:\IDA-PRO-MCP\diannao\analysis_output\scenario_json `
-  --source E:\GAL\diannao\1\scenario `
-  -o H:\IDA-PRO-MCP\diannao\analysis_output\scenario_injected
+  .\analysis_output\scenario_json `
+  --source "<SCENARIO_DIR>" `
+  -o .\analysis_output\scenario_injected
 ```
 
 运行 `diannao_ks.exe --help` 可查看完整入口。拖放和命令行使用同一实现。

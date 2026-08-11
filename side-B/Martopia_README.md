@@ -290,13 +290,13 @@ font_in\
 ### 9.2 使用微软雅黑重绘
 
 ```bat
-python martopia_cnjp_font_tool.py patch-font Martopia.exe font_in subs_cn_jp.json font_out --ttf C:\Windows\Fonts\msyh.ttc --size 28 --yoff -1
+python martopia_cnjp_font_tool.py patch-font Martopia.exe font_in subs_cn_jp.json font_out --ttf "%WINDIR%\Fonts\msyh.ttc" --size 28 --yoff -1
 ```
 
 ### 9.3 使用宋体重绘
 
 ```bat
-python martopia_cnjp_font_tool.py patch-font Martopia.exe font_in subs_cn_jp.json font_out --ttf C:\Windows\Fonts\simsun.ttc --size 28 --yoff -1
+python martopia_cnjp_font_tool.py patch-font Martopia.exe font_in subs_cn_jp.json font_out --ttf "%WINDIR%\Fonts\simsun.ttc" --size 28 --yoff -1
 ```
 
 输出：
@@ -429,7 +429,7 @@ python martopia_cnjp_font_tool.py convert-json json_trans json_cp932 subs_cn_jp.
 
 ```bat
 python martopia_cnjp_font_tool.py check-map Martopia.exe subs_cn_jp.json
-python martopia_cnjp_font_tool.py patch-font Martopia.exe font_in subs_cn_jp.json font_out --ttf C:\Windows\Fonts\msyh.ttc --size 28 --yoff -1
+python martopia_cnjp_font_tool.py patch-font Martopia.exe font_in subs_cn_jp.json font_out --ttf "%WINDIR%\Fonts\msyh.ttc" --size 28 --yoff -1
 python martopia_cnjp_font_tool.py convert-json json_trans json_cp932 subs_cn_jp.json --strict
 ```
 
@@ -462,7 +462,7 @@ python martopia_cnjp_font_tool.py check-map Martopia.exe subs_cn_jp.json
 ### 12.4 重绘字库
 
 ```bat
-python martopia_cnjp_font_tool.py patch-font Martopia.exe font_in subs_cn_jp.json font_out --ttf C:\Windows\Fonts\msyh.ttc --size 28 --yoff -1
+python martopia_cnjp_font_tool.py patch-font Martopia.exe font_in subs_cn_jp.json font_out --ttf "%WINDIR%\Fonts\msyh.ttc" --size 28 --yoff -1
 ```
 
 ### 12.5 覆盖回解包目录

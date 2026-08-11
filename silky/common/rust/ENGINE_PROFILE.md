@@ -5,8 +5,8 @@
 ```text
 项目名称：リルカは幾重に夜を彩る / Silky common
 引擎/运行时：Silky Engine（具体版本未确认）
-Python 参考实现：H:\vn-tool\silky\common\*.py
-Rust 工具目录：H:\vn-tool\silky\common\rust
+Python 参考实现：上级目录中的 `*.py`
+Rust 工具目录：当前目录
 正式用户入口：unpack / repack / extract / inject
 默认文本与文件名编码：CP932
 真实样本：本目录未提供

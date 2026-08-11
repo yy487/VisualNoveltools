@@ -12,30 +12,30 @@
 提取单个文件：
 
 ```powershell
-qc_extract.exe E:\GAL\qc\work\TEXT\A02.ADV
+qc_extract.exe "<TEXT_DIR>\A02.ADV"
 ```
 
 默认生成 `A02.ADV.json`。提取整个目录：
 
 ```powershell
-qc_extract.exe E:\GAL\qc\work\TEXT
+qc_extract.exe "<TEXT_DIR>"
 ```
 
-默认生成 `E:\GAL\qc\work\TEXT_json`，其中每个 `.ADV` 对应一个 `.ADV.json`。
+默认在输入目录同级生成 `TEXT_json`，其中每个 `.ADV` 对应一个 `.ADV.json`。
 
 回注单个文件：
 
 ```powershell
-qc_inject.exe E:\GAL\qc\work\TEXT\A02.ADV E:\GAL\qc\work\TEXT\A02.ADV.json
+qc_inject.exe "<TEXT_DIR>\A02.ADV" "<JSON_DIR>\A02.ADV.json"
 ```
 
 默认生成 `A02_injected.ADV`。回注整个目录：
 
 ```powershell
-qc_inject.exe E:\GAL\qc\work\TEXT E:\GAL\qc\work\TEXT_json
+qc_inject.exe "<TEXT_DIR>" "<JSON_DIR>"
 ```
 
-默认生成 `E:\GAL\qc\work\TEXT_injected`。目录模式会复制完整源目录，只修改存在对应 JSON 的 `.ADV`。
+默认在输入目录同级生成 `TEXT_injected`。目录模式会复制完整源目录，只修改存在对应 JSON 的 `.ADV`。
 
 可以用 `--output PATH` 或 `-o PATH` 指定新输出。也可以把单个 `.ADV` 拖到 `qc_extract.exe`。
 

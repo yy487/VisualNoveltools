@@ -12,9 +12,9 @@
 ## 命令
 
 ```powershell
-.\target\release\nexas_extract.exe "E:\迅雷下载\zfny\mes" --output "E:\迅雷下载\zfny\work\mes_json"
-.\target\release\nexas_inject.exe "E:\迅雷下载\zfny\mes" "E:\迅雷下载\zfny\work\mes_json" --output "E:\迅雷下载\zfny\work\mes_injected"
-.\target\release\nexas_rebuild.exe "E:\迅雷下载\zfny\mes" --output "E:\迅雷下载\zfny\work\mes_rebuilt"
+.\target\release\nexas_extract.exe "<MES_DIR>" --output "<WORK_DIR>\mes_json"
+.\target\release\nexas_inject.exe "<MES_DIR>" "<WORK_DIR>\mes_json" --output "<WORK_DIR>\mes_injected"
+.\target\release\nexas_rebuild.exe "<MES_DIR>" --output "<WORK_DIR>\mes_rebuilt"
 ```
 
 三个 EXE 都支持 `-h/--help`。Windows 拖放等价于把文件或目录路径作为位置参数传入。省略 `--output` 时使用输入旁的新目录或新文件名；已有输出会直接报错，不会自动删除。
@@ -62,7 +62,7 @@
 
 ## 验证结果
 
-对 `E:\迅雷下载\zfny\mes` 的真实样本已完成：
+对原始 `mes` 样本目录已完成：
 
 - 37 个 `.bin` 中 36 个 `VER-1.00\0` 脚本结构化解析并字节级重建一致；`__global.bin` 原样保留。
 - 提取 24 个 JSON、5051 条文本：3294 条对白、1749 条旁白、8 条选项，62 条带姓名配对。

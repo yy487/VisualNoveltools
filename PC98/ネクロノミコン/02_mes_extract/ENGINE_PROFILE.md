@@ -4,11 +4,11 @@
 
 - 项目：PC-98 `NECRONOMICON`
 - 运行时：16 位实模式 OVL 脚本 VM
-- 原始样本：从 `E:\GAL\NECRONOMICON\NECRONOMICON_A.FDI` 至
-  `NECRONOMICON_K.FDI` 的 FAT12 目录重新提取的真实 A–K MES 树
-- 开发目录：`H:\IDA-PRO-MCP\analysis\necronomicon_opening\02_mes_extract`
-- 正式工具目录：`E:\GAL\NECRONOMICON_DUMP\work` 下的既有工具链
-- 同步规则：本轮只修改 H 盘开发副本；用户明确要求最终更新前不覆盖 E 盘工具。
+- 原始样本：从 `NECRONOMICON_A.FDI` 至 `NECRONOMICON_K.FDI` 的 FAT12
+  目录重新提取的真实 A–K MES 树
+- 开发目录：当前工具目录
+- 正式工具目录：用户指定的既有工具链目录
+- 同步规则：只修改开发副本；用户明确要求最终更新前不覆盖正式工具。
 - 实现：Rust 2024，UTF-8 JSON；`mes_extract` / `mes_inject`
 
 ## 脚本结构

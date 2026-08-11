@@ -77,8 +77,8 @@ a blind whole-file scan for `0x01 ... 0x00` is not enough to describe the VM.
 Current deployed test package:
 
 ```text
-E:\GAL\gui\mes_chs_rebuilt.arc
-E:\GAL\gui\AI5FIX.ini -> ArcMesName=mes_chs_rebuilt.arc
+<GAME_DIR>\mes_chs_rebuilt.arc
+<GAME_DIR>\AI5FIX.ini -> ArcMesName=mes_chs_rebuilt.arc
 ```
 
 Static validation for `mes_chs_rebuilt.arc`:
@@ -102,5 +102,5 @@ size: 3275129
 Report:
 
 ```text
-H:\IDA-PRO-MCP\百鬼\_mes_compare\mes_chs_rebuilt_report.json
+<REPORT_DIR>\mes_chs_rebuilt_report.json
 ```

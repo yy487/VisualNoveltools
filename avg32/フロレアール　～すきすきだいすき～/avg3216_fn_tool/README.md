@@ -24,7 +24,7 @@ fn.exe
 也可以直接传入字体路径，或把字体文件拖到 `fn.exe`：
 
 ```text
-fn.exe "E:\GAL\font\alyce_humming.ttf"
+fn.exe "<FONT_FILE>"
 ```
 
 成功后生成同目录 `fn_chs.dat`。如果该文件已经存在，程序会拒绝覆盖。

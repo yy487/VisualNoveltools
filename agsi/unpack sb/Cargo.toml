@@ -1,0 +1,16 @@
+[package]
+name = "sinfonia-sb2-tool"
+version = "0.1.0"
+edition = "2021"
+description = "Structure-aware AGSI SB2 archive inspector, unpacker, packer, and verifier"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sha2 = "0.10"
+
+[profile.release]
+strip = true
+lto = true
+codegen-units = 1
+

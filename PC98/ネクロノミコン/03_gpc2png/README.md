@@ -1,38 +1,27 @@
 # NECRONOMICON GPC to PNG
 
-`gpc2png` decodes the observed PC-98 `PC98)GPCFILE` format into indexed PNG.
-The parser is structure-aware: it reads the GPC header, palette table, image
-info block, compressed payload, row restoration metadata, and four bitplanes.
-It does not scan arbitrary binary bytes for image-looking data.
+`gpc2png` converts the game's PC-98 `.GPC` images to indexed PNG files.
+
+## Build
+
+```powershell
+cargo build --release --bin gpc2png
+```
 
 ## Usage
 
+Convert one file or recursively convert a directory:
+
 ```powershell
-gpc2png.exe "<GPC_DIR>" `
-  --output "<OUTPUT_DIR>\png"
+gpc2png.exe "<GPC_FILE_OR_DIR>" --output "<PNG_FILE_OR_DIR>"
 ```
 
-Directory input is recursive. Existing output files are rejected instead of
-overwritten. The output is an 8-bit indexed PNG with the 16-color PC-98
-palette; no external image library is required.
+Directory conversion keeps the input directory structure. Existing output
+files are rejected.
 
-## Decoding policy
+## Limits
 
-- Magic: `PC98)GPCFILE`.
-- Palette: 16 entries, 2-byte PC-98 BGR nibbles expanded to 8-bit RGB.
-- Image payload: four bitplanes with the format's interleaving and row
-  prediction restoration.
-- Compression: the observed control-byte/literal/zero-skip stream, with
-  bounds checks and deterministic truncation at the output boundary.
-- Unsupported geometry, plane counts, malformed offsets, or truncated data
-  produce a warning; the process fails if no image can be converted.
-
-## Verification
-
-The release build passes `cargo fmt -- --check`, `cargo test --offline`,
-`cargo clippy --offline --all-targets -- -D warnings`, and
-`cargo build --release --offline --bins`. The full extracted GPC corpus
-contains 388 files; all 388 converted with zero warnings. Every generated PNG
-was checked for signature, IHDR, PLTE, IDAT, IEND, CRC, and valid dimensions.
-
-Source: `src\bin\gpc2png.rs`.
+- Supports the observed `PC98)GPCFILE` format with a 16-color palette and four
+  bitplanes.
+- Malformed or unsupported images are reported and skipped.
+- This tool only decodes GPC to PNG; it does not encode PNG back to GPC.

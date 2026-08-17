@@ -1,162 +1,71 @@
-# Farthest2015 CD 文本工具
+# Farthest2015 CD localization tool
 
-这是针对 Farthest2015 COMPLETE / XUSE `.cd` 脚本的结构化文本提取、
-注入与校验工具。翻译交换格式固定为 UTF-8 JSON；不会把二进制当普通文本扫描，
-也不会依赖文件夹名判断文件类型。
+This Rust tool is used to verify, extract, and rebuild the `.cd` scripts from
+Farthest2015 COMPLETE.
 
-## 已确认的文件角色
+It extracts messages, names, choices, and hyperlinks to UTF-8 JSON. The default
+script encoding is CP932.
 
-- `0.cd` 是加密的脚本标签数据库：172 个场景块、1,820 个标签。标签参与入口
-  和跳转定位，不是正文。
-- `1.cd` 是加密的变量数据库：25 个内部变量，也不是正文。
-- `0000.cd` 至 `0171.cd` 是 172 个带字节码、数据区和完整性字段的场景文件。
-
-提取时会解析并校验 `0.cd`、`1.cd`，但不会导出它们。注入时会把它们原样
-复制到完整输出目录。工具按内容识别三类文件，并不要求这些固定文件名。
-
-## 编码
-
-默认的源编码和写回编码都是 **CP932**。当前游戏运行时未改编码时，应保持这个
-默认值。CP932 无法表示的字符会在写入前报出字符及 Unicode 码位，整个输出不会
-生成一半。
-
-`gbk` / `cp936` 写回通路作为显式选项保留，但它只适用于已经另行修改为读取
-CP936 的游戏运行时：
+## Build
 
 ```powershell
-farthest2015-cd-tool inject `
-  --source <GAME_CD_DIR> `
-  --translation <JSON_DIR> `
-  --output <PATCHED_CD_DIR> `
-  --source-encoding cp932 `
-  --target-encoding gbk
-```
-
-本工具不会修改游戏可执行文件、字体或字符集处理逻辑。
-
-## JSON 组织
-
-每个编号场景对应一个 `.cd.json`。正文始终是标量，不使用 `parts`、
-`scr_msg_parts` 或 `message_parts`：
-
-```json
-{
-  "_file": "0008.cd",
-  "_index": 504,
-  "_type": "dialogue",
-  "_scr_name": "千鳥",
-  "name": "千鳥",
-  "scr_msg": "「[[link:0]]群像委員会[[/link]]については知っていますか？」",
-  "message": "「[[link:0]]群像委員会[[/link]]については知っていますか？」"
-}
-```
-
-- `scr_msg` 是不可修改的源正文；只翻译 `message`。
-- `_scr_name` 是不可修改的源姓名；`name` 可以翻译并写回。
-- 只有指令标志 `0x13` 的第一个存储字符串才是姓名。
-- `0x12` 的全部字符串都是正文。`Ghost　正文`、`NIN-NIN　正文` 之类前缀
-  仍属于可见正文，不会被误拆成姓名。
-- 每个选择项是独立的标量记录，仍然没有 parts 字段。
-- `_file`、`_index`、`_offset`、`_inst_offset`、`_size`、`_opcode`、
-  `_flags`、`_scr_name`、`scr_msg` 和 `_links` 都参与源一致性校验。
-
-## 自动换行
-
-游戏的主文本渲染器会按字形宽度和窗口宽度自动换行，回看文本也有自动折行。
-因此提取时会直接拼接原脚本的物理行槽，不在 `message` 中留下原换行，也不会
-生成 `\n` 转义。
-
-注入已编辑的 `message` 时，工具会根据源物理槽中的全角空格顺序，自动删除能够
-确定来自第二槽及后续槽开头的一个 `U+3000`，并同步修正链接字符坐标。第一槽
-开头和槽内的全角空格（例如 `Ghost　正文`）保留。若翻译增删全角空格后无法唯一
-映射，工具会保守地保留它并在汇总中报告数量，避免误删真实正文间隔。完全未编辑
-的记录不做清理，以维持零修改逐字节回环。
-
-翻译者可以主动在 `message` 中写入一个 LF 作为硬换行；注入器会在内部重新拆成
-多个存储字符串。CR 和 NUL 不允许出现。
-
-## 超链接
-
-`0x46` 指令标记的是一段可点击文字。目标经当前场景的入口表跳转到另一个场景
-标签，常见目标是说明或 Blog 文本页；它不直接指向图片。
-
-链接用 `[[link:N]]...[[/link]]` 表示。标签不会写进显示文字，而是用于重算链接的
-行、起始字符和长度。链接文字移动或变长都可以；删除一整对标签会禁用对应链接。
-相同文字范围上的多个链接 ID 会用合法嵌套标签表示。重复 ID、交叉范围、空范围和
-畸形标签会被拒绝。
-
-工具会按完整连续显示组解析链接坐标：从 `0x46` 后的首条正文开始，跨过 `0x52`
-继续，到 `0x53` 结束。若链接实际落在后续正文记录，标签和 `_links` 元数据会放在
-真正承载该文字的标量 JSON 条目中；注入时再根据前面各记录翻译后的行数重建组内
-坐标。实测 214 个链接全部可定位，其中 3 个跨正文记录，翻译后仍可保留。
-
-早于 0.1.2 版本提取的 JSON 会把这 3 个链接留在较早的条目并标记为
-`"_inline": false`。这三个文件需要用新版本重新提取后合并译文，或迁移链接标签与
-`_links` 元数据；其余 JSON 结构不受影响。
-
-## 校验和写回策略
-
-编号场景包含三层需要区分的约束：
-
-- 文件头前 16 字节是由场景 ID 生成的身份 MD5，用来确认脚本槽位；保持不变。
-- 接下来的 16 字节是加载缓存令牌，不是正文摘要；保守地保持不变。
-- 文件末尾 16 字节是前面全部内容的 MD5；有改动时重新计算。
-
-此外还会校验头部大小、入口表、12 字节指令边界、数据引用、文本段大小、
-字符串数量、链接目标和编码。`0.cd` 的总表、分块和标签记录以及 `1.cd` 的头部
-和变量记录均使用 CRC16-CCITT 校验。
-
-修改后的正文、姓名、选项和链接结构追加到原数据区，只重定向已知指令的操作数。
-未知数据不重排、不压缩。`data_size` 和末尾内容 MD5 会重建；身份 MD5、缓存令牌、
-入口表和代码位置不移动。完全未修改的 JSON 会产生逐字节完全相同的 174 个文件。
-
-单个写回字符串按目标编码计算后不得超过 2,044 字节。正文改变时，无法可靠重算
-的外部注音指令会被禁用并警告；指向原物理行 2 及以后的范围敏感字体控制也会被
-禁用并警告。其余未知字段原样保留。
-
-## 命令行
-
-只读校验一个目录或单个文件：
-
-```powershell
-farthest2015-cd-tool verify --source <CD_DIR_OR_FILE> --text-encoding cp932
-```
-
-提取 UTF-8 JSON：
-
-```powershell
-farthest2015-cd-tool extract `
-  --source <GAME_CD_DIR> `
-  --output <JSON_DIR> `
-  --text-encoding cp932
-```
-
-按默认 CP932 注入，并复制出一套完整目录：
-
-```powershell
-farthest2015-cd-tool inject `
-  --source <GAME_CD_DIR> `
-  --translation <JSON_DIR> `
-  --output <PATCHED_CD_DIR>
-```
-
-输出目录已存在时默认拒绝。确认确实需要完整替换后，显式加 `--overwrite`。
-源目录、翻译目录和输出目录不能互相重叠。注入会先完整解析全部 JSON、源脚本、
-编码和结构，预检通过后才创建输出。
-
-不带参数运行会进入会话式菜单。操作完成、取消或遇到可恢复错误后都会返回主菜单。
-也可以把一个到三个路径拖到程序上；路径只会作为可编辑的预填值，确认前不会写入。
-完整参数的子命令是一次性非交互操作。
-
-## 构建
-
-需要稳定版 Rust 工具链：
-
-```powershell
-cargo test --offline
 cargo build --release --offline
 ```
 
-生成的程序位于 `target/release/farthest2015-cd-tool.exe`。
+## Usage
 
+Verify scripts:
 
+```powershell
+farthest2015-cd-tool verify --source "<GAME_DIR>" --text-encoding cp932
+```
+
+Extract JSON:
+
+```powershell
+farthest2015-cd-tool extract --source "<GAME_DIR>" `
+  --output "<OUTPUT_DIR>\json" --text-encoding cp932
+```
+
+Write translations back:
+
+```powershell
+farthest2015-cd-tool inject --source "<GAME_DIR>" `
+  --translation "<OUTPUT_DIR>\json" --output "<OUTPUT_DIR>\scripts"
+```
+
+Existing output requires `--overwrite`. With no arguments, the program opens a
+menu. Dropped paths are editable prefills and do not write before confirmation.
+
+## Translation JSON
+
+Edit `message`. If `name` is present, it may also be translated. Do not edit
+`scr_msg`, `_scr_name`, or fields beginning with `_`.
+
+Messages are stored as one string even when the source used several visual
+lines. The game wraps text automatically, so original visual line breaks are
+not placed in `message`. Add an LF only when a forced line break is wanted.
+
+Clickable text uses:
+
+```text
+[[link:0]]clickable text[[/link]]
+```
+
+The tags are not displayed. They are used to rebuild the link range. A complete
+tag pair may be removed to disable that link. Malformed, crossing, empty, or
+duplicate link tags are rejected.
+
+## Encoding
+
+CP932 is the default. Use `--target-encoding gbk` only with a game executable
+already patched to read CP936. This tool does not patch the executable or font.
+
+Each encoded string must fit the runtime's 2,044-byte limit.
+
+## Limits
+
+The tool handles the profiled scenario, label, and variable files. Changed text
+may disable ruby or range-based font controls that cannot be rebuilt safely; the
+program reports these cases. Use a game copy for final display, link, choice,
+save, and load testing.

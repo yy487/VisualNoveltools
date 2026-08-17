@@ -1,71 +1,24 @@
-# AVG32 FN.DAT 字库重绘工具
+# AVG32 FN.DAT font tool
 
-## 文件
+`fn.exe` redraws the 24x24 bitmap font used by AVG32 and applies the embedded
+Chinese carrier-character mapping.
 
-- `FN.rs`：单文件 Rust 源码，内置 3018 条 `subs_cn_jp.json` 中文到 CP932 借码槽映射。
-- `fn.exe`：Windows x64 可执行文件。
+Place `fn.exe` and the original `FN.DAT` in the same directory, then run:
 
-## 使用
-
-把以下文件放在同一目录：
-
-- `fn.exe`
-- 原始 `FN.DAT`
-- 可选：一个 `.ttf`、`.ttc` 或 `.otf` 字体
-
-命令行运行：
-
-```text
-fn.exe
-```
-
-程序会提示输入字体路径。同目录存在字体时，直接回车会自动使用按文件名排序后的第一个字体。
-
-也可以直接传入字体路径，或把字体文件拖到 `fn.exe`：
-
-```text
+```powershell
 fn.exe "<FONT_FILE>"
 ```
 
-成功后生成同目录 `fn_chs.dat`。如果该文件已经存在，程序会拒绝覆盖。
+The font may be TTF, TTC, or OTF. With no argument, the program asks for a font
+and can select the first supported font in its directory. The output is
+`fn_chs.dat` beside the program.
 
-## FN.DAT 格式与重绘策略
+Mapped carrier slots are redrawn as Chinese characters. Other valid slots are
+redrawn as their original JIS characters. If the selected font lacks a glyph,
+that slot is copied from the original `FN.DAT`.
 
-- 文件固定为 2,544,768 字节。
-- 共 94 × 94 = 8836 个 JIS 槽位。
-- 每槽 288 字节，对应 24 × 24、4bpp 位图。
-- 每字节低半字节是左像素，高半字节是右像素。
-- 透明度 0 为不透明，15 为全透明。
-- 原始空槽保持全透明。
-- 3018 个借码槽改画为内置映射的中文字符。
-- 其他有效槽按 JIS/CP932 还原原字符后，使用同一所选字体重画。
-- 字形先以 24px 栅格化，再重采样到原槽位的完整墨迹矩形。因此包括标点在内，输出字形的上下左右坐标与原槽一致。
-- 所选字体缺字或得到空字形时，只对对应槽位回退复制原 `FN.DAT` 字形，不使用系统字体替代。
+## Limits
 
-## 验证
-
-工具生成前检查：
-
-- 原始文件大小和内置映射数量。
-- 借码槽是否与 CP932 源字符一致。
-- 所选字体实际缺字。
-
-生成后检查：
-
-- 输出大小仍为 2,544,768 字节。
-- 所有有效槽非空，所有原空槽仍为空。
-- 每个重绘槽打包后的墨迹矩形与原槽完全一致。
-
-使用 `alyce_humming.ttf` 和本作原始 `FN.DAT` 的验收结果：
-
-- 有效槽：7336
-- 使用所选字体重绘：7273
-- 缺字回退原槽：63（62 个不同字符）
-- 空槽：1500
-- 坐标矩形不一致：0
-
-## 已知限制
-
-- 仅支持 BMP 内字符；当前内置映射和本作 FN 槽字符均满足此条件。
-- TTC 读取并选择第一个字体面。
-- 输出文件存在时不会自动覆盖。
+The input must use this game's fixed AVG32 `FN.DAT` layout. Only BMP Unicode
+characters are supported. A TTC uses its first font face. Existing
+`fn_chs.dat` is not overwritten.

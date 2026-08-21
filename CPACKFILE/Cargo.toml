@@ -1,0 +1,20 @@
+[package]
+name = "nosurge-pak"
+version = "0.1.0"
+edition = "2021"
+description = "Read-only archive extractor for Ciel nosurge DX PAK files"
+license = "MIT"
+
+[lib]
+name = "nosurge_pak"
+path = "src/lib.rs"
+
+[[bin]]
+name = "nosurge-pak"
+path = "src/main.rs"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
+

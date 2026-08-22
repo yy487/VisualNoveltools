@@ -1,0 +1,25 @@
+[package]
+name = "ai5win-obj-tool"
+version = "0.1.0"
+edition = "2021"
+description = "Structure-aware AI5WIN Mahjong OBJ text extractor and injector"
+license = "MIT"
+
+[dependencies]
+encoding_rs = "=0.8.35"
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = "=1.0.150"
+sha2 = "=0.10.9"
+
+[lib]
+name = "ai5win_obj"
+path = "src/lib.rs"
+
+[[bin]]
+name = "ai5win-obj-tool"
+path = "src/main.rs"
+
+[profile.release]
+strip = true
+lto = true
+codegen-units = 1

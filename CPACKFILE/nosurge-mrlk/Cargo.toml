@@ -1,0 +1,11 @@
+[package]
+name = "nosurge-mrlk"
+version = "0.1.0"
+edition = "2021"
+description = "MRLK archive unpacker and repacker for Ciel nosurge DX"
+license = "MIT"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true

@@ -1,0 +1,17 @@
+[package]
+name = "liena-sdt"
+version = "0.1.0"
+edition = "2024"
+description = "Structure-aware SDT text extractor and injector for Liena Crystal"
+
+[dependencies]
+anyhow = "1.0"
+clap = { version = "4.5", features = ["derive"] }
+encoding_rs = "0.8"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tempfile = "3.20"
+
+[profile.release]
+lto = true
+strip = true

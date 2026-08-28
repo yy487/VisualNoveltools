@@ -1,0 +1,26 @@
+[package]
+name = "foxy_d88_tool"
+version = "0.1.0"
+edition = "2021"
+autobins = false
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "foxy_disk_tool"
+path = "src/bin/foxy_disk_tool.rs"
+
+[[bin]]
+name = "foxy_mes_tool"
+path = "src/bin/foxy_mes_tool.rs"
+
+[[bin]]
+name = "foxy_font_tool"
+path = "src/bin/foxy_font_tool.rs"
+
+[dependencies]
+encoding_rs = "0.8"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"

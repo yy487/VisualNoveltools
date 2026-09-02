@@ -1,0 +1,22 @@
+[package]
+name = "foxy2-pd7"
+version = "0.1.0"
+edition = "2021"
+description = "Decode elf FOXY2 PD7 graphics to PNG"
+license = "MIT"
+
+[lib]
+name = "foxy2_pd7"
+path = "src/lib.rs"
+
+[[bin]]
+name = "foxy2-pd7"
+path = "src/main.rs"
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = "deny"
+pedantic = "deny"
+

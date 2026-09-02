@@ -1,0 +1,19 @@
+[package]
+name = "oretubar_tob_sob_tool"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+encoding_rs = "0.8"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[[bin]]
+name = "oretubar-tob"
+path = "src/bin/tob.rs"
+
+[[bin]]
+name = "oretubar-sob"
+path = "src/bin/sob.rs"
+
+[workspace]

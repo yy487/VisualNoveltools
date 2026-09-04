@@ -1,0 +1,20 @@
+[package]
+name = "tauhido-nfd-unpacker"
+version = "0.1.0"
+edition = "2021"
+description = "Tauhido NFD archive, script localization, font and rebuild tool"
+license = "MIT"
+
+[dependencies]
+encoding_rs = "=0.8.35"
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = "=1.0.150"
+sha2 = "=0.10.9"
+
+[lib]
+name = "tauhido_nfd_unpacker"
+path = "src/lib.rs"
+
+[[bin]]
+name = "tauhido_nfd_unpacker"
+path = "src/main.rs"

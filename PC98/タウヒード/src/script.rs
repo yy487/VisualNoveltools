@@ -633,8 +633,10 @@ fn parse_code_path(
         pos += 1;
         let mut terminal = false;
         match opcode {
-            b'A' | b'B' | b'R' | b'}' | b'M' => {}
-            b'F' | b']' => terminal = true,
+            // `]` invokes NACT8S's input-code handler, then control returns to
+            // BETA.OUT and parsing continues with the following instruction.
+            b'A' | b'B' | b'R' | b'}' | b'M' | b']' => {}
+            b'F' => terminal = true,
             b'Q' | b'G' | b'P' | b'X' | b'S' => pos = checked_advance(bytes, pos, 1)?,
             b'L' => {
                 pos = checked_advance(bytes, pos, 1)?;
@@ -694,7 +696,13 @@ fn parse_code_path(
                 }
                 pos += 1;
             }
-            b'{' => pos = skip_expression(script_index, bytes, pos)?,
+            b'{' => {
+                pos = skip_expression(script_index, bytes, pos)?;
+                let false_target = find_conditional_end(script_index, bytes, pos)?;
+                if false_target < bytes.len() {
+                    add_target(script_index, bytes, false_target, queue, queued)?;
+                }
+            }
             0 | 0x1A => return Ok(()),
             _ => {
                 return Err(format!(
@@ -708,6 +716,81 @@ fn parse_code_path(
         }
     }
     Ok(())
+}
+
+fn find_conditional_end(script_index: usize, bytes: &[u8], mut pos: usize) -> Result<usize> {
+    let mut depth = 1usize;
+    while pos < bytes.len() {
+        if is_text_start(bytes[pos]) {
+            while pos < bytes.len() && is_text_start(bytes[pos]) {
+                let (_, next) = decode_text_unit(script_index, bytes, pos)?;
+                pos = next;
+            }
+            continue;
+        }
+
+        let opcode = bytes[pos];
+        pos += 1;
+        match opcode {
+            b'{' => {
+                pos = skip_expression(script_index, bytes, pos)?;
+                depth += 1;
+            }
+            b'}' => {
+                depth -= 1;
+                if depth == 0 {
+                    return Ok(pos);
+                }
+            }
+            b'A' | b'B' | b'F' | b'R' | b'M' | b']' => {}
+            b'Q' | b'G' | b'P' | b'X' | b'S' | b'L' => {
+                pos = checked_advance(bytes, pos, 1)?;
+            }
+            b'U' | b'@' => pos = checked_advance(bytes, pos, 2)?,
+            b'Y' | b'Z' => {
+                pos = skip_expression(script_index, bytes, pos)?;
+                pos = skip_expression(script_index, bytes, pos)?;
+            }
+            b'!' => {
+                pos = skip_variable(bytes, pos)?;
+                pos = skip_expression(script_index, bytes, pos)?;
+            }
+            b'&' => pos = skip_expression(script_index, bytes, pos)?,
+            b'$' => {
+                pos = checked_advance(bytes, pos, 2)?;
+                loop {
+                    let byte = *bytes.get(pos).ok_or_else(|| {
+                        format!("script {script_index}: 条件块内选择文本缺少 $ 终止符")
+                    })?;
+                    if byte == b'$' {
+                        pos += 1;
+                        break;
+                    }
+                    if !is_text_start(byte) {
+                        return Err(format!(
+                            "script {script_index}: 条件块内选择文本 0x{pos:X} 含非文本字节 {byte:02X}"
+                        ));
+                    }
+                    let (_, next) = decode_text_unit(script_index, bytes, pos)?;
+                    pos = next;
+                }
+            }
+            0 | 0x1A => {
+                return Err(format!(
+                    "script {script_index}: 条件块在终止符前缺少匹配的 }}"
+                ));
+            }
+            _ => {
+                return Err(format!(
+                    "script {script_index}: 扫描条件块时在 0x{:X} 遇到未知操作码 0x{opcode:02X}",
+                    pos - 1
+                ));
+            }
+        }
+    }
+    Err(format!(
+        "script {script_index}: 条件块越过脚本末尾，缺少匹配的 }}"
+    ))
 }
 
 fn add_target(
@@ -966,19 +1049,40 @@ fn rebuild_scenario_file(
     }
     let reparsed = parse_scenario_file(output.clone(), source.source_name.clone())?;
     let reextracted = build_text_document(&reparsed)?.document;
-    for (actual, extracted) in document.entries.iter().zip(reextracted.entries.iter()) {
-        let expected = match plan {
+    let mut expected_entries = Vec::new();
+    for actual in &document.entries {
+        let text = match plan {
             Some(plan) => plan.normalize_text(&actual.message)?,
             None => actual.message.clone(),
         };
+        // 空译文会把原文本跨度完全删除，重新解析时自然不再产生该条目。
+        if !text.is_empty() {
+            expected_entries.push((actual, text));
+        }
+    }
+    if expected_entries.len() != reextracted.entries.len() {
+        return Err(format!(
+            "{}: 重建后文本条目数不一致；期望 {}（已排除空译文），实际 {}",
+            document.source_file,
+            expected_entries.len(),
+            reextracted.entries.len()
+        ));
+    }
+    for ((actual, expected), extracted) in expected_entries.iter().zip(&reextracted.entries) {
         let extracted_text = match plan {
             Some(plan) => plan.decode_carriers(&extracted.scr_msg),
             None => extracted.scr_msg.clone(),
         };
-        if expected != extracted_text {
+        if *expected != extracted_text {
             return Err(format!(
-                "{} entry {}: 重建后复查文本不一致",
-                document.source_file, actual.index
+                "{} entry {} (script {}): 重建后复查文本不一致；期望 {:?}，实际 {:?}（回读 script {} offset 0x{:X}）",
+                document.source_file,
+                actual.index,
+                actual.script_index,
+                expected,
+                extracted_text,
+                extracted.script_index,
+                extracted.script_offset
             ));
         }
     }
@@ -1042,33 +1146,54 @@ fn rebuild_script(
         return Ok(original.to_vec());
     }
     let opaque_tail = &original[layout.active_end..];
-    if resizable && opaque_tail.iter().any(|byte| *byte != 0) && new_active_end != layout.active_end
-    {
-        return Err(format!(
-            "script {}: 活动区后有未知非零数据，拒绝在改变长度时搬移",
-            layout.index
-        ));
+    let first_opaque = opaque_tail
+        .iter()
+        .position(|byte| *byte != 0)
+        .map(|relative| layout.active_end + relative);
+    if resizable {
+        if let Some(opaque_start) = first_opaque {
+            if new_active_end > opaque_start {
+                let has_terminal_marker =
+                    layout.active_end > 0 && original.get(layout.active_end - 1) == Some(&0x1A);
+                let referenced = layout
+                    .pointer_refs
+                    .iter()
+                    .any(|reference| reference.target >= layout.active_end);
+                if !has_terminal_marker || referenced {
+                    return Err(format!(
+                        "script {}: 重建活动区结束于 0x{:X}，会覆盖从 0x{:X} 开始且不能安全重定位的未知非零数据",
+                        layout.index, new_active_end, opaque_start
+                    ));
+                }
+                // 0x1A is the script terminator. Bytes behind it are not on any
+                // parsed execution path and no known pointer targets them. Keep
+                // the complete post-terminator region, but move it behind the
+                // expanded active region instead of overwriting it.
+                rebuilt.extend_from_slice(&original[layout.active_end..]);
+                let target = round_up_to_record(rebuilt.len())?;
+                rebuilt.resize(target, 0);
+                return Ok(rebuilt);
+            }
+            // 未知块不参与重定位：保持其脚本内偏移和全部原字节。
+            rebuilt.resize(opaque_start, 0);
+            rebuilt.extend_from_slice(&original[opaque_start..]);
+            return Ok(rebuilt);
+        }
     }
     let target = if resizable {
-        let minimum = new_active_end
-            .checked_add(if opaque_tail.iter().any(|byte| *byte != 0) {
-                opaque_tail.len()
-            } else {
-                0
-            })
-            .ok_or_else(|| format!("script {}: 重建长度溢出", layout.index))?;
-        minimum
-            .checked_add(RECORD_SIZE - 1)
-            .map(|value| value / RECORD_SIZE * RECORD_SIZE)
-            .ok_or_else(|| format!("script {}: 记录对齐溢出", layout.index))?
+        round_up_to_record(new_active_end)?
     } else {
         layout.capacity
     };
-    if resizable && opaque_tail.iter().any(|byte| *byte != 0) {
-        rebuilt.extend_from_slice(opaque_tail);
-    }
     rebuilt.resize(target, 0);
     Ok(rebuilt)
+}
+
+fn round_up_to_record(value: usize) -> Result<usize> {
+    value
+        .checked_add(RECORD_SIZE - 1)
+        .map(|sum| sum / RECORD_SIZE * RECORD_SIZE)
+        .ok_or_else(|| "记录对齐溢出".to_string())
 }
 
 fn map_offset(offset: usize, replacements: &[(usize, usize, Vec<u8>)]) -> Result<usize> {
@@ -1393,5 +1518,98 @@ mod tests {
     #[test]
     fn rejects_ascii_that_would_be_an_opcode() {
         assert!(encode_message("ABC", "sample", 0).is_err());
+    }
+
+    #[test]
+    fn closing_input_code_does_not_terminate_the_script_path() {
+        let bytes = [b']', b'}', 0x82, 0xA0, 0];
+        let mut covered = vec![false; bytes.len()];
+        let mut spans = Vec::new();
+        let mut pointer_refs = Vec::new();
+        let mut queue = VecDeque::new();
+        let mut queued = HashSet::new();
+
+        parse_code_path(
+            1,
+            &bytes,
+            0,
+            &mut covered,
+            &mut spans,
+            &mut pointer_refs,
+            &mut queue,
+            &mut queued,
+        )
+        .unwrap();
+
+        assert_eq!(spans.len(), 1);
+        assert_eq!(spans[0].start, 2);
+        assert_eq!(spans[0].text, "あ");
+    }
+
+    #[test]
+    fn expanded_script_relocates_only_unreferenced_post_terminator_bytes() {
+        let mut original = vec![0u8; RECORD_SIZE];
+        original[..3].copy_from_slice(&[0x82, 0xA0, 0x1A]);
+        original[5..8].copy_from_slice(&[0xDE, 0xAD, 0xBE]);
+        let layout = ScriptLayout {
+            index: 1,
+            file_start: 0,
+            capacity: original.len(),
+            text_spans: vec![TextSpan {
+                start: 0,
+                end: 2,
+                entry_type: "message",
+                text: "あ".to_string(),
+            }],
+            pointer_refs: Vec::new(),
+            active_end: 3,
+        };
+        let replacement = vec![0x82, 0xA0, 0x82, 0xA2, 0x82, 0xA4];
+
+        let rebuilt = rebuild_script(&original, &layout, &[(0, 2, replacement)], true).unwrap();
+
+        assert_eq!(&rebuilt[6..7], &[0x1A]);
+        assert_eq!(&rebuilt[9..12], &[0xDE, 0xAD, 0xBE]);
+        assert_eq!(rebuilt.len(), RECORD_SIZE * 2);
+    }
+
+    #[test]
+    fn conditional_queues_the_path_after_its_closing_brace() {
+        let bytes = [b'{', 0x41, 0x7F, b'@', 9, 0, b'}', 0x82, 0xA0, 0];
+        let mut covered = vec![false; bytes.len()];
+        let mut spans = Vec::new();
+        let mut pointer_refs = Vec::new();
+        let mut queue = VecDeque::new();
+        let mut queued = HashSet::new();
+
+        parse_code_path(
+            1,
+            &bytes,
+            0,
+            &mut covered,
+            &mut spans,
+            &mut pointer_refs,
+            &mut queue,
+            &mut queued,
+        )
+        .unwrap();
+
+        assert!(queued.contains(&7));
+        assert!(queued.contains(&9));
+        while let Some(target) = queue.pop_front() {
+            parse_code_path(
+                1,
+                &bytes,
+                target,
+                &mut covered,
+                &mut spans,
+                &mut pointer_refs,
+                &mut queue,
+                &mut queued,
+            )
+            .unwrap();
+        }
+        assert_eq!(spans.len(), 1);
+        assert_eq!(spans[0].text, "あ");
     }
 }

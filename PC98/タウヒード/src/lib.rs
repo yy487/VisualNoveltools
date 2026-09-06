@@ -1042,6 +1042,12 @@ fn normalized_windows_path(path: &Path) -> String {
 }
 
 fn create_unique_sibling(output_root: &Path, purpose: &str) -> Result<PathBuf> {
+    let parent = output_root
+        .parent()
+        .filter(|path| !path.as_os_str().is_empty())
+        .unwrap_or_else(|| Path::new("."));
+    fs::create_dir_all(parent)
+        .map_err(|error| format!("创建输出父目录 {} 失败: {error}", parent.display()))?;
     let candidate = unique_unused_sibling(output_root, purpose)?;
     fs::create_dir(&candidate)
         .map_err(|error| format!("创建临时输出目录 {} 失败: {error}", candidate.display()))?;

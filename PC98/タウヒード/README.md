@@ -40,7 +40,10 @@ with the rebuilt disks when testing or distributing the patch.
 
 `--input` accepts an image or a directory whose immediate files are detected by
 signature. It can be repeated. Existing managed output can be replaced with
-`--overwrite`; unrelated non-empty directories are refused.
+`--overwrite`; when refreshing a localization workspace, translations whose
+source file, source hash, offset, type, and `scr_msg` still match are preserved.
+Newly discovered entries retain their Japanese source text. Unrelated non-empty
+directories are refused.
 
 ## Text and control behavior
 
@@ -53,7 +56,11 @@ The engine does not perform horizontal word wrapping. A line has 40 fullwidth
 columns. `R` starts the next line at X=1, while `B` starts it at X=9. Script
 controls (`A`, `B`, `F`, `G`, `L`, `M`, `P`, `Q`, `R`, `S`, `U`, `X`, `Y`, `Z`,
 `!`, `&`, `@`, `$`, `[`, `:`, `]`, `{`, `}`) are structural and are not embedded
-in editable `message` strings.
+in editable `message` strings. `]` returns from the engine's input-code handler
+and does not terminate the surrounding script path. A `{...}` conditional has
+two reachable successors: its body when the condition succeeds and the byte
+after the matching `}` when it fails. Nested conditionals are matched
+structurally so text on either path is extracted.
 
 `AG00` is not scenario bytecode. It has an ASCII count header and verb/object
 records containing 7-bit JIS pairs between `ESC K` and `ESC H`. Its first object
@@ -65,7 +72,8 @@ The embedded `subs_cn_jp.json` supplies preferred Chinese-to-CP932 carrier slots
 collisions are resolved deterministically. Every carrier slot used by the final
 `DISK-A`, `DISK-B`, and `AG00` text is redrawn with the same 16×16 Windows font,
 including directly encodable Japanese characters. `NACT8S` is intentionally not
-extracted, injected, scanned, or protected from slot replacement.
+extracted, injected, scanned, or protected from slot replacement; the archived
+`NACT8S.B` member is likewise outside the localization scope.
 
 ## Archive-only extraction
 
@@ -87,6 +95,8 @@ and disjoint acyclic cluster chains. Rebuilding updates all FAT copies, director
 start clusters, member sector data, and any newly allocated chains. Unknown NFD
 sectors and unrelated members remain byte-preserved.
 
-NFD R1 and unrelated N88 layouts are rejected. A changed script whose active
-region is followed by unknown nonzero bytes is not relocated. Glyph generation
-requires Windows and a usable `新宋体` face.
+NFD R1 and unrelated N88 layouts are rejected. Unknown nonzero script-tail data
+normally keeps its original script-relative offset. If translated text grows
+across such data, the tool relocates it only when it follows a `0x1A` script
+terminator and no parsed pointer targets the region; otherwise packing stops.
+Glyph generation requires Windows and a usable `新宋体` face.

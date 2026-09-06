@@ -98,6 +98,9 @@ pub struct LocalizationExtractReport {
     pub extracted_files: usize,
     pub documents: usize,
     pub entries: usize,
+    pub preserved_entries: usize,
+    pub added_entries: usize,
+    pub dropped_entries: usize,
     pub output_root: PathBuf,
 }
 
@@ -114,6 +117,26 @@ pub struct LocalizationPackReport {
 enum LoadedDocument {
     Scenario(TextDocument),
     Ag00(Ag00Document),
+}
+
+#[derive(Clone, Debug, Eq, Hash, PartialEq)]
+struct TranslationKey {
+    source_file: String,
+    source_sha256: String,
+    offset: u64,
+    entry_type: String,
+    scr_msg: String,
+}
+
+#[derive(Default)]
+struct TranslationMemory {
+    messages: HashMap<TranslationKey, String>,
+}
+
+#[derive(Clone, Copy, Debug, Default)]
+struct TranslationMerge {
+    previous_entries: usize,
+    preserved_entries: usize,
 }
 
 impl LoadedDocument {
@@ -140,6 +163,11 @@ pub fn extract_localization(
     let paths = resolve_inputs(inputs)?;
     crate::validate_output_does_not_contain_inputs(&paths, output_root)?;
     validate_existing(output_root, overwrite, WORKSPACE_FORMAT, "workspace.json")?;
+    let previous = if overwrite && output_root.join("workspace.json").is_file() {
+        Some(read_translation_memory(output_root)?)
+    } else {
+        None
+    };
 
     let mut images = Vec::with_capacity(paths.len());
     for (index, path) in paths.iter().enumerate() {
@@ -155,9 +183,9 @@ pub fn extract_localization(
     }
     let targets = find_targets(&images)?;
     let staging = create_unique_sibling(output_root, "localize-staging")?;
-    let result = write_extract_workspace(&images, &targets, &staging);
-    let manifest = match result {
-        Ok(manifest) => manifest,
+    let result = write_extract_workspace(&images, &targets, &staging, previous.as_ref());
+    let (manifest, merge) = match result {
+        Ok(result) => result,
         Err(error) => {
             let _ = fs::remove_dir_all(&staging);
             return Err(error);
@@ -172,6 +200,14 @@ pub fn extract_localization(
         extracted_files: manifest.summary.extracted_files,
         documents: manifest.documents.len(),
         entries: manifest.summary.entries,
+        preserved_entries: merge.preserved_entries,
+        added_entries: manifest
+            .summary
+            .entries
+            .saturating_sub(merge.preserved_entries),
+        dropped_entries: merge
+            .previous_entries
+            .saturating_sub(merge.preserved_entries),
         output_root: output_root.to_path_buf(),
     })
 }
@@ -240,12 +276,13 @@ pub fn pack_localization(
         let member = find_member(source, &reference.source_member)?;
         let (bytes, changed) = match document {
             LoadedDocument::Scenario(document) => {
-                script::rebuild_document(&member.data, &member.name, document, &plan)?
+                script::rebuild_document(&member.data, &member.name, document, &plan)
             }
             LoadedDocument::Ag00(document) => {
-                ag00::rebuild(&member.data, &member.name, document, &plan)?
+                ag00::rebuild(&member.data, &member.name, document, &plan)
             }
-        };
+        }
+        .map_err(|error| format!("{} / {}: {error}", source.source_name, member.name))?;
         changed_entries += changed;
         if replacements_by_image[image_index]
             .insert(member.name.clone(), bytes)
@@ -331,7 +368,8 @@ fn write_extract_workspace(
     images: &[(String, ParsedImage)],
     targets: &[(usize, usize, &'static str)],
     staging: &Path,
-) -> Result<LocalizationManifest> {
+    previous: Option<&TranslationMemory>,
+) -> Result<(LocalizationManifest, TranslationMerge)> {
     let extract_root = staging.join("extract");
     let translation_root = staging.join("translation_json");
     let profile_root = staging.join("profile");
@@ -374,6 +412,10 @@ fn write_extract_workspace(
     let mut documents = Vec::new();
     let mut entry_total = 0usize;
     let mut scenario_files = 0usize;
+    let mut merge = TranslationMerge {
+        previous_entries: previous.map_or(0, |memory| memory.messages.len()),
+        preserved_entries: 0,
+    };
     for (image_index, file_index, kind) in targets {
         let image = &images[*image_index].1;
         let file = &image.files[*file_index];
@@ -381,14 +423,20 @@ fn write_extract_workspace(
         let json_path = translation_root.join(&json_name);
         let entries = match *kind {
             "scenario" => {
-                let document = script::extract_document(&file.data, &file.name)?;
+                let mut document = script::extract_document(&file.data, &file.name)?;
+                if let Some(memory) = previous {
+                    merge.preserved_entries += merge_scenario_translations(&mut document, memory);
+                }
                 let count = document.entries.len();
                 write_json(&json_path, &document)?;
                 scenario_files += 1;
                 count
             }
             "ag00" => {
-                let document = ag00::extract_document(&file.data, &file.name)?;
+                let mut document = ag00::extract_document(&file.data, &file.name)?;
+                if let Some(memory) = previous {
+                    merge.preserved_entries += merge_ag00_translations(&mut document, memory);
+                }
                 let count = document.entries.len();
                 write_json(&json_path, &document)?;
                 count
@@ -417,17 +465,18 @@ fn write_extract_workspace(
             "structural": ["A", "B", "F", "G", "L", "M", "P", "Q", "R", "S", "U", "X", "Y", "Z", "!", "&", "@", "$", "[", ":", "]", "{", "}"],
             "R": "new line and reset X to 1",
             "B": "new line and reset X to 9",
-            "A": "wait/page prompt"
+            "A": "wait/page prompt",
+            "{...}": "conditional body plus the false successor after the matching }"
         },
         "font": {
             "base": "embedded font.tmp",
             "mapping": "embedded subs_cn_jp.json with deterministic collision fallback",
             "redraw_policy": "redraw every carrier slot used by final DISK-A, DISK-B and AG00 text",
-            "ignored_program": "NACT8S"
+            "ignored_program": "NACT8S.B"
         }
     });
     write_json(&profile_root.join("project.json"), &profile)?;
-    let format_note = "# Tauhido text formats\n\nDISK-A and DISK-B are parsed as 256-byte records with a record pointer table, a page map, per-script command tables, bytecode, local pointers, choices, and text spans. R and B are structural line controls; the engine does not wrap horizontally.\n\nAG00 is a separate table: an ASCII count header followed by verb/object lines. Normal lines store 7-bit JIS pairs between ESC K and ESC H; the first object `*` remains structural.\n\nPacking plans one global carrier slot per final character, rebuilds every used slot in `font.tmp`, updates script-local and file-level pointers, then rewrites the N88 directory/FAT/member sectors in each NFD image. NACT8S is deliberately excluded.\n";
+    let format_note = "# Tauhido text formats\n\nDISK-A and DISK-B are parsed as 256-byte records with a record pointer table, a page map, per-script command tables, bytecode, local pointers, choices, and text spans. R and B are structural line controls; the engine does not wrap horizontally. Both the body and false successor of each `{...}` conditional are traversed, including nested conditionals.\n\nAG00 is a separate table: an ASCII count header followed by verb/object lines. Normal lines store 7-bit JIS pairs between ESC K and ESC H; the first object `*` remains structural.\n\nPacking plans one global carrier slot per final character, rebuilds every used slot in `font.tmp`, updates script-local and file-level pointers, then rewrites the N88 directory/FAT/member sectors in each NFD image. NACT8S.B is deliberately excluded.\n";
     fs::write(analysis_root.join("FORMAT.md"), format_note.as_bytes())
         .map_err(|error| format!("写入 FORMAT.md 失败: {error}"))?;
 
@@ -443,7 +492,122 @@ fn write_extract_workspace(
         },
     };
     write_json(&staging.join("workspace.json"), &manifest)?;
-    Ok(manifest)
+    Ok((manifest, merge))
+}
+
+fn read_translation_memory(root: &Path) -> Result<TranslationMemory> {
+    let manifest: LocalizationManifest = read_json(&root.join("workspace.json"))?;
+    if manifest.format != WORKSPACE_FORMAT {
+        return Err("workspace.json 不是 Tauhido 本地化工作区".to_string());
+    }
+    let mut memory = TranslationMemory::default();
+    for reference in &manifest.documents {
+        let path = root.join(relative_path(&reference.json_file)?);
+        match reference.kind.as_str() {
+            "scenario" => {
+                let document: TextDocument = read_json(&path)?;
+                for entry in &document.entries {
+                    remember_translation(
+                        &mut memory,
+                        translation_key(
+                            &document.source_file,
+                            &document.source_sha256,
+                            entry.offset,
+                            &entry.entry_type,
+                            &entry.scr_msg,
+                        ),
+                        &entry.message,
+                        &path,
+                    )?;
+                }
+            }
+            "ag00" => {
+                let document: Ag00Document = read_json(&path)?;
+                for entry in &document.entries {
+                    remember_translation(
+                        &mut memory,
+                        translation_key(
+                            &document.source_file,
+                            &document.source_sha256,
+                            entry.offset,
+                            &entry.entry_type,
+                            &entry.scr_msg,
+                        ),
+                        &entry.message,
+                        &path,
+                    )?;
+                }
+            }
+            other => return Err(format!("{}: 不支持的文档种类 {other:?}", path.display())),
+        }
+    }
+    Ok(memory)
+}
+
+fn remember_translation(
+    memory: &mut TranslationMemory,
+    key: TranslationKey,
+    message: &str,
+    path: &Path,
+) -> Result<()> {
+    if let Some(previous) = memory.messages.insert(key, message.to_string()) {
+        if previous != message {
+            return Err(format!("{}: 出现冲突的重复翻译条目", path.display()));
+        }
+    }
+    Ok(())
+}
+
+fn merge_scenario_translations(document: &mut TextDocument, memory: &TranslationMemory) -> usize {
+    let mut matched = 0usize;
+    for entry in &mut document.entries {
+        let key = translation_key(
+            &document.source_file,
+            &document.source_sha256,
+            entry.offset,
+            &entry.entry_type,
+            &entry.scr_msg,
+        );
+        if let Some(message) = memory.messages.get(&key) {
+            entry.message.clone_from(message);
+            matched += 1;
+        }
+    }
+    matched
+}
+
+fn merge_ag00_translations(document: &mut Ag00Document, memory: &TranslationMemory) -> usize {
+    let mut matched = 0usize;
+    for entry in &mut document.entries {
+        let key = translation_key(
+            &document.source_file,
+            &document.source_sha256,
+            entry.offset,
+            &entry.entry_type,
+            &entry.scr_msg,
+        );
+        if let Some(message) = memory.messages.get(&key) {
+            entry.message.clone_from(message);
+            matched += 1;
+        }
+    }
+    matched
+}
+
+fn translation_key(
+    source_file: &str,
+    source_sha256: &str,
+    offset: u64,
+    entry_type: &str,
+    scr_msg: &str,
+) -> TranslationKey {
+    TranslationKey {
+        source_file: source_file.to_ascii_lowercase(),
+        source_sha256: source_sha256.to_ascii_lowercase(),
+        offset,
+        entry_type: entry_type.to_string(),
+        scr_msg: scr_msg.to_string(),
+    }
 }
 
 fn find_targets(images: &[(String, ParsedImage)]) -> Result<Vec<(usize, usize, &'static str)>> {

@@ -34,6 +34,7 @@ Tauhido NFD R0 / N88 Disk BASIC 2HD 解包、文本本地化与重建工具。
 
 输出:
   extract-localization 提取 DISK-A、DISK-B、AG00 的 UTF-8 JSON。
+  使用 --overwrite 刷新已有本地化工作区时，会按源文件、偏移和 scr_msg 保留匹配译文。
   pack-localization 注回文本、重建三张 NFD，并同步生成全槽位重绘的 font.tmp。
   所有命令都不会修改输入镜像。
 "#;
@@ -224,6 +225,18 @@ fn run_extract_localization(
     println!("[extract-localization] documents={}", report.documents);
     println!("[extract-localization] entries={}", report.entries);
     println!(
+        "[extract-localization] preserved_entries={}",
+        report.preserved_entries
+    );
+    println!(
+        "[extract-localization] added_entries={}",
+        report.added_entries
+    );
+    println!(
+        "[extract-localization] dropped_entries={}",
+        report.dropped_entries
+    );
+    println!(
         "[extract-localization] output={}",
         report.output_root.display()
     );
@@ -348,7 +361,7 @@ fn interactive_extract_localization(inputs: &mut Vec<PathBuf>) -> Result<(), Str
             PathBuf::from(strip_outer_quotes(output_text.trim()))
         };
         let overwrite = matches!(
-            prompt("若工作区已存在，是否覆盖本工具工作区？[y/N]")?
+            prompt("若工作区已存在，是否刷新并保留匹配译文？[y/N]")?
                 .trim()
                 .to_ascii_lowercase()
                 .as_str(),

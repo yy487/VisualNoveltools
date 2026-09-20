@@ -87,6 +87,9 @@ pub fn is_resource_name(value: &str) -> bool {
     {
         return true;
     }
+    if is_script_identifier(value) {
+        return true;
+    }
     if has_japanese(value) || value.contains(' ') || value.contains('「') || value.contains('」')
     {
         return false;
@@ -120,6 +123,18 @@ pub fn is_resource_name(value: &str) -> bool {
         "se",
     ];
     prefixes.iter().any(|prefix| lower.starts_with(prefix))
+}
+
+pub fn is_script_identifier(value: &str) -> bool {
+    let Some((prefix, suffix)) = value.split_once('_') else {
+        return false;
+    };
+    prefix.len() == 4
+        && prefix.bytes().all(|byte| byte.is_ascii_digit())
+        && !suffix.is_empty()
+        && !suffix
+            .chars()
+            .any(|character| "@「」『』\r\n".contains(character))
 }
 
 pub fn is_name_candidate(value: &str) -> bool {
@@ -297,5 +312,13 @@ mod tests {
         assert_eq!(marks.get(&0).map(|mark| mark.index), Some(0));
         assert_eq!(marks.get(&1).map(|mark| mark.index), Some(1));
         assert!(!marks.contains_key(&2));
+    }
+
+    #[test]
+    fn script_identifiers_are_resources() {
+        assert!(is_script_identifier("1019_本編"));
+        assert!(is_resource_name("1019_本編"));
+        assert!(!is_script_identifier("希望さん_本編"));
+        assert!(!is_script_identifier("1019_本編@n次"));
     }
 }

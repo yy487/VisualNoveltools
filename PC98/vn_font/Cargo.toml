@@ -1,0 +1,17 @@
+[package]
+name = "vn-font"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "Separate reusable PC88 and PC98 font modules with a vn-cli panel"
+
+[dependencies]
+vn-cli = { path = "../vn_cli" }
+encoding_rs = "0.8"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+
+[[bin]]
+name = "vn_font_tool"
+path = "src/bin/vn_font_tool.rs"

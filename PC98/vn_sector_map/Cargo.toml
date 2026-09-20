@@ -1,0 +1,10 @@
+[package]
+name = "vn-sector-map"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "Small shared sector-address, extent, region, and fixed-patch contracts"
+
+[lib]
+path = "src/lib.rs"
+

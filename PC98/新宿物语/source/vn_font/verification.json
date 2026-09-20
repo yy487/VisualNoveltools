@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "verified_on": "2026-09-13",
+  "platform": "Windows x86_64",
+  "rustc": "1.92.0 (ded5c06cf 2025-12-08)",
+  "cargo": "1.92.0 (344c4567c 2025-10-21)",
+  "checks": [
+    {
+      "command": "cargo fmt -- --check",
+      "result": "passed"
+    },
+    {
+      "command": "cargo test --offline",
+      "result": "passed",
+      "passed": 43,
+      "ignored": 1
+    },
+    {
+      "command": "cargo clippy --offline --all-targets -- -D warnings",
+      "environment": {
+        "CARGO_INCREMENTAL": "0"
+      },
+      "result": "passed"
+    },
+    {
+      "command": "cargo build --release --offline --bins",
+      "result": "passed"
+    },
+    {
+      "command": "cargo test --offline --test compatibility pc88_real_rom_outputs_match -- --ignored",
+      "result": "passed",
+      "passed": 1,
+      "input_environment": "VN_FONT_TEST_ROM",
+      "input_sha256": "7608040cffb1951e5cc567abb63f75b5746777a1ba96196c1b75606b793bb4bb"
+    },
+    {
+      "command": "release/vn_font_tool.exe --help",
+      "result": "passed"
+    },
+    {
+      "command": "cargo tree --offline -p vn-font --depth 1",
+      "result": "passed",
+      "resolved_shared_dependency": "../vn_cli"
+    }
+  ],
+  "integration": {
+    "entry": "src/bin/vn_font_tool.rs",
+    "execution": "vn_cli::Panel::run_env",
+    "operations": "src/panel.rs",
+    "font_modules": [
+      "src/font_88.rs",
+      "src/font_98.rs"
+    ]
+  },
+  "differential": {
+    "pc88": "New and original mapping, encoded text, complete ROM and BMP previews match; synthetic and supplied original ROM checked; original input unchanged.",
+    "pc98": "New and original mapping, patched count and complete font.tmp match with game normalization applied outside the library, using Windows GDI 新宋体."
+  },
+  "regressions": [
+    "PC88 cross-text loaded mapping collision rejection",
+    "PC88 invalid JIS and forged plan metadata rejection",
+    "PC98 source-slot and fullwidth-space preservation",
+    "PC98 physical-slot aliases rejected for different glyphs, coalesced for the same glyph",
+    "PC98 external baseline preservation and missing font rejection",
+    "Panel preflight without writes, overwrite conflicts, independent inputs, CLI and interactive execution"
+  ],
+  "release": {
+    "path": "release/vn_font_tool.exe",
+    "sha256": "938072bed298729bc1dfcd7e2b34707c3dd927012bdf78f8fd862d00275ab653"
+  },
+  "limitations": [
+    "Original game tools have not been migrated; full script import, disk repacking and emulator playback are outside this package verification.",
+    "PC88 supports the confirmed KANJI1 layout; PC98 supports the confirmed NP2 BMP layout and requires Windows GDI for rendering.",
+    "Cargo used file copies when the filesystem could not hard-link incremental cache files; tests passed."
+  ],
+  "provenance": "provenance.json"
+}

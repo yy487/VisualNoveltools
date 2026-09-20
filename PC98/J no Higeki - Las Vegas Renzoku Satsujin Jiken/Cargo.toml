@@ -1,0 +1,28 @@
+[package]
+name = "j-no-higeki-d88-tool"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "J no Higeki PC-98 JACK text export, injection, D88 repack and NP2 font tool"
+
+[dependencies]
+encoding_rs = "=0.8.35"
+misty-blue-d88-tool = { path = "../misty_blue_d88_tool" }
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = "=1.0.150"
+sha2 = "=0.10.9"
+vn-cli = { path = "../vn_cli" }
+vn-font = { path = "../vn_font" }
+
+[lib]
+name = "j_no_higeki_d88_tool"
+path = "src/lib.rs"
+
+[[bin]]
+name = "j-no-higeki-d88-tool"
+path = "src/main.rs"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true

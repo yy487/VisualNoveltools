@@ -1,0 +1,13 @@
+[package]
+name = "vn-d88"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "Independent D88/D77/D98 container interface for sector-oriented VN tooling"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+vn-sector-map = { path = "../vn_sector_map" }
+

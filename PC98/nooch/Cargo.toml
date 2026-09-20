@@ -1,0 +1,21 @@
+[package]
+name = "nooch-tool"
+version = "0.3.7"
+edition = "2021"
+description = "Nooch trilogy FDI resource extraction and localization repacker"
+
+[dependencies]
+anyhow = "1.0"
+clap = { version = "4.5", features = ["derive"] }
+drrnger-d88-tool = { path = "H:/IDA-PRO-MCP/projects/rust/drrnger_d88_tool" }
+encoding_rs = "0.8"
+pc98-fdi-unpack = { path = "H:/IDA-PRO-MCP/projects/rust/pc98_fdi_unpack" }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sha2 = "0.10"
+walkdir = "2.5"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true

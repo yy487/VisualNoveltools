@@ -1,0 +1,18 @@
+[package]
+name = "repi-unpack"
+version = "0.1.0"
+edition = "2021"
+description = "RepiPack v5 unpacker for Littlewitch velvet Faeries archives"
+publish = false
+
+[dependencies]
+vn-cli = { path = "../vn_cli" }
+vn-text = { path = "../vn_text" }
+
+[lib]
+name = "repi_unpack"
+path = "src/lib.rs"
+
+[[bin]]
+name = "repi_unpack"
+path = "src/main.rs"

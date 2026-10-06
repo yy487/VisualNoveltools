@@ -1,0 +1,14 @@
+[package]
+name = "repi-unpack-v2"
+version = "0.1.0"
+edition = "2021"
+description = "Littlewitch RepiPack v2 unpacker, repacker, and script text adapter"
+publish = false
+
+[dependencies]
+vn-cli = { path = "vendor/vn_cli" }
+vn-text = { path = "vendor/vn_text" }
+
+[[bin]]
+name = "repi_unpack_v2"
+path = "src/main.rs"

@@ -1,0 +1,29 @@
+[package]
+name = "tenboudai-pc88-tool"
+version = "0.1.0"
+edition = "2021"
+description = "PC-8801 disk, script and KANJI1 tooling for Tenboudai"
+publish = false
+
+[dependencies]
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = "=1.0.150"
+sha2 = "=0.10.9"
+encoding_rs = "=0.8.35"
+vn-cli = { path = "../vn_cli" }
+vn-d88 = { path = "../vn_d88" }
+vn-font = { path = "../vn_font" }
+vn-text = { path = "../vn_text" }
+
+[lib]
+name = "tenboudai_pc88_tool"
+path = "src/lib.rs"
+
+[[bin]]
+name = "tenboudai-pc88-tool"
+path = "src/main.rs"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true

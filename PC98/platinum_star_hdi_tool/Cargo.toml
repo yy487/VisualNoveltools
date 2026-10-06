@@ -1,0 +1,23 @@
+[package]
+name = "platinum-star-hdi-tool"
+version = "0.4.0"
+edition = "2021"
+description = "Validated Anex86 HDI/FAT12 unpacker for Platinum Star (PC-98)"
+license = "MIT"
+publish = false
+
+[dependencies]
+encoding_rs = "=0.8.35"
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = "=1.0.150"
+sha2 = "=0.10.9"
+vn-cli = { path = "../vn_cli" }
+vn-font = { path = "../vn_font" }
+
+[lib]
+name = "platinum_star_hdi_tool"
+path = "src/lib.rs"
+
+[[bin]]
+name = "platinum-star-hdi-tool"
+path = "src/main.rs"

@@ -484,6 +484,11 @@ fn decode_track(
     if expected == 0 || expected > (end - start) / SECTOR_HEADER_SIZE {
         return opaque(format!("track declares an invalid sector count {expected}"));
     }
+    // The recovery search below is recursive. Preserve oversized tracks whole
+    // instead of allowing an untrusted count to exhaust the process stack.
+    if expected > 256 {
+        return opaque(format!("track declares {expected} sectors, exceeding the 256-record recovery limit; track preserved without interpretation"));
+    }
     let mut memo = HashMap::new();
     let Some(layout) = choose_sector_layout(source, slot, start, end, 0, expected, &mut memo)
     else {
@@ -635,6 +640,16 @@ pub struct SectorKey {
 mod tests {
     use super::*;
     use vn_sector_map::{FixedPatch, PatchPlan, Region, RegionKind, WritePolicy};
+
+    #[test]
+    fn oversized_track_counts_remain_opaque_without_recursive_decoding() {
+        let mut bytes = vec![0u8; 257 * SECTOR_HEADER_SIZE];
+        bytes[4..6].copy_from_slice(&257u16.to_le_bytes());
+        let (track, diagnostic) = decode_track(&bytes, 0, 0, 0, bytes.len());
+        assert!(track.sectors.is_empty());
+        assert_eq!(track.opaque_tail, Some(0..bytes.len()));
+        assert!(diagnostic.unwrap().message.contains("recovery limit"));
+    }
 
     #[test]
     fn header_variants_remain_explicit() {

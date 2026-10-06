@@ -1,0 +1,25 @@
+[package]
+name = "galaxy-railway-pc98"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "Galaxy Railway PC-98 variable-length text, font, and D88 rebuild workflow"
+
+[dependencies]
+encoding_rs = "0.8"
+fivec-new = { path = "../fivec_new" }
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = "=1.0.150"
+sha2 = "0.10"
+vn-cli = { path = "../vn_cli" }
+vn-d88 = { path = "../vn_d88" }
+vn-font = { path = "../vn_font" }
+vn-sector-map = { path = "../vn_sector_map" }
+
+[lib]
+name = "galaxy_railway_pc98"
+path = "src/lib.rs"
+
+[[bin]]
+name = "galaxy_railway_pc98"
+path = "src/main.rs"

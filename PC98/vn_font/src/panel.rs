@@ -61,9 +61,13 @@ impl Operation for FontOperation {
             ),
         ];
         if self.pc88 {
+            fields.push(
+                Field::new("face", "缺字时现场绘制用字体", FieldKind::Text)
+                    .default(Value::Text(font_88::DEFAULT_GLYPH_FONT_FACE.into())),
+            );
             fields.push(Field::new(
                 "glyphs",
-                "FCG1 点阵表（未设置使用内置资源）",
+                "FCG1 完整表或增量表（未设置使用内置资源）",
                 FieldKind::Path,
             ));
         } else {
@@ -153,16 +157,49 @@ impl Operation for FontOperation {
         let mut files = BTreeMap::new();
         let patched;
         if self.pc88 {
-            let glyphs = match parameters.get("glyphs") {
+            let glyph_table = match parameters.get("glyphs") {
                 Some(Value::Path(path)) => {
                     let bytes = fs::read(path)?;
                     inputs.push(fs::canonicalize(path)?);
-                    bytes
+                    Some(bytes)
                 }
-                _ => font_88::EMBEDDED_GLYPHS.to_vec(),
+                _ => None,
             };
-            resource_hashes.insert("glyphs", digest(&glyphs));
-            let resources = font_88::FontResources::from_bytes(&mapping, &glyphs).map_err(Error)?;
+            let mut resources = if let Some(glyph_table) = &glyph_table {
+                let resources = match font_88::FontResources::from_bytes(&mapping, glyph_table) {
+                    Ok(resources) => resources,
+                    Err(full_table_error) => {
+                        let mut resources = font_88::FontResources::from_bytes(
+                            &mapping,
+                            font_88::EMBEDDED_GLYPHS,
+                        )
+                        .map_err(|base_error| {
+                            Error(format!(
+                                "FCG1 既不是完整字形表（{full_table_error}），也无法使用内置字形作为基表（{base_error}）"
+                            ))
+                        })?;
+                        resources
+                            .extend_glyphs_from_fcg1(glyph_table)
+                            .map_err(|sidecar_error| {
+                                Error(format!(
+                                    "FCG1 既不是完整字形表（{full_table_error}），也无法合并为增量表（{sidecar_error}）"
+                                ))
+                            })?;
+                        resources
+                    }
+                };
+                resource_hashes.insert("glyphs", digest(glyph_table));
+                resources
+            } else {
+                resource_hashes.insert("glyphs", digest(font_88::EMBEDDED_GLYPHS));
+                font_88::FontResources::from_bytes(&mapping, font_88::EMBEDDED_GLYPHS)
+                    .map_err(Error)?
+            };
+            let face = parameters.text("face")?;
+            resources
+                .generate_missing_glyphs(&request.final_texts, face)
+                .map_err(Error)?;
+            resource_hashes.insert("font_face", digest(face.as_bytes()));
             let plan = resources
                 .plan_dynamic_mapping(request.reserved_cp932.iter().copied(), &request.final_texts)
                 .map_err(Error)?;
@@ -179,6 +216,9 @@ impl Operation for FontOperation {
                 files.insert(page.file_name, page.bmp);
             }
             files.insert("font_plan.json".into(), json(&plan)?);
+            if let Some(generated) = resources.generated_glyph_table().map_err(Error)? {
+                files.insert("generated_glyphs.fcg1".into(), generated);
+            }
             files.insert(
                 "mapping_used.json".into(),
                 font_88::mapping_used_json_bytes(&plan).map_err(Error)?,

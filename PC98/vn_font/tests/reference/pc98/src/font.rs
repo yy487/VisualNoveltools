@@ -1,11 +1,9 @@
-//! NP2 2048x2048 1bpp font.tmp backend. Game normalization belongs to the caller.
 use encoding_rs::SHIFT_JIS;
-use serde::{Deserialize, Serialize};
-use sha2::{Digest, Sha256};
-use std::collections::{BTreeMap, BTreeSet, HashMap};
+use serde::Serialize;
+use std::collections::{BTreeMap, BTreeSet, HashMap, HashSet};
 
-pub const EMBEDDED_FONT: &[u8] = include_bytes!("../assets/pc98/font.tmp");
-pub const EMBEDDED_SUBSTITUTIONS: &str = include_str!("../assets/pc98/subs_cn_jp.json");
+const EMBEDDED_FONT: &[u8] = include_bytes!("../assets/font.tmp");
+const EMBEDDED_SUBSTITUTIONS: &str = include_str!("../assets/subs_cn_jp.json");
 const BMP_FILE_SIZE: usize = 0x8003E;
 const BMP_PIXEL_OFFSET: usize = 0x3E;
 const BMP_WIDTH: usize = 2048;
@@ -17,12 +15,7 @@ const GLYPH_BYTES_PER_ROW: usize = 2;
 const GLYPH_BYTES: usize = GLYPH_HEIGHT * GLYPH_BYTES_PER_ROW;
 pub const FONT_FACE: &str = "新宋体";
 
-pub type FontResult<T> = std::result::Result<T, String>;
-type Result<T> = FontResult<T>;
-
-/// Row-major 16x16 monochrome bitmap, MSB first. 0 is black, 1 is white.
-/// PC88 ROM bitmaps use the opposite polarity and cannot be copied directly.
-pub type GlyphBitmap = [u8; GLYPH_BYTES];
+type Result<T> = std::result::Result<T, String>;
 
 #[derive(Clone, Debug)]
 pub struct SubstitutionMap {
@@ -45,10 +38,9 @@ pub struct FontBuild {
 pub struct EncodingPlan {
     display_to_carrier: BTreeMap<char, char>,
     carrier_to_display: BTreeMap<char, char>,
-    reserved_slots: BTreeSet<FontSlot>,
 }
 
-#[derive(Clone, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug, Serialize)]
 pub struct EncodingPlanEntry {
     pub character: String,
     pub carrier: String,
@@ -72,11 +64,7 @@ struct FontSlot {
 
 impl SubstitutionMap {
     pub fn embedded() -> Result<Self> {
-        Self::from_json(EMBEDDED_SUBSTITUTIONS.as_bytes())
-    }
-
-    pub fn from_json(bytes: &[u8]) -> Result<Self> {
-        let raw: BTreeMap<String, String> = serde_json::from_slice(bytes)
+        let raw: BTreeMap<String, String> = serde_json::from_str(EMBEDDED_SUBSTITUTIONS)
             .map_err(|error| format!("内置 subs_cn_jp.json 无法解析: {error}"))?;
         let mut mappings = HashMap::with_capacity(raw.len());
         let mut carriers = BTreeMap::new();
@@ -88,7 +76,7 @@ impl SubstitutionMap {
             }
             let source = source_chars[0];
             let carrier = carrier_chars[0];
-            if let Some(previous) = carriers.insert(slot_for_carrier(carrier)?, source) {
+            if let Some(previous) = carriers.insert(carrier, source) {
                 return Err(format!(
                     "内置字形载体 {carrier} 同时分配给 {previous} 和 {source}"
                 ));
@@ -125,67 +113,29 @@ impl SubstitutionMap {
 }
 
 impl EncodingPlan {
-    /// Inputs are final display characters, already processed by the game's
-    /// normalization/control parser. Reserve all source CP932 codes whose original
-    /// glyphs must survive, including untouched scripts and non-dialogue text.
-    pub fn build<'a>(
-        substitutions: &SubstitutionMap,
-        reserved_cp932: impl IntoIterator<Item = u16>,
-        texts: impl IntoIterator<Item = &'a str>,
-    ) -> Result<Self> {
-        Self::build_with_forbidden_cp932(substitutions, reserved_cp932, [], texts)
-    }
-
-    /// Build a plan while excluding CP932 slots that the caller's script engine
-    /// cannot safely consume. Unlike `reserved_cp932`, forbidden slots also force
-    /// otherwise-native characters to use a different carrier.
-    pub fn build_with_forbidden_cp932<'a>(
-        substitutions: &SubstitutionMap,
-        reserved_cp932: impl IntoIterator<Item = u16>,
-        forbidden_cp932: impl IntoIterator<Item = u16>,
-        texts: impl IntoIterator<Item = &'a str>,
-    ) -> Result<Self> {
-        let mut reserved_slots = reserved_cp932
-            .into_iter()
-            .map(|code| slot_for_cp932(code.to_be_bytes()))
-            .collect::<Result<BTreeSet<_>>>()?;
-        let forbidden_slots = forbidden_cp932
-            .into_iter()
-            .map(|code| slot_for_cp932(code.to_be_bytes()))
-            .collect::<Result<BTreeSet<_>>>()?;
-        // Space always encodes to its native slot and must remain blank.
-        reserved_slots.insert(slot_for_carrier('　')?);
+    pub fn build<'a>(texts: impl IntoIterator<Item = &'a str>) -> Result<Self> {
+        let substitutions = SubstitutionMap::embedded()?;
         let mut characters = BTreeSet::new();
         for text in texts {
             for character in text.chars() {
-                validate_display_character(character)?;
-                if character != '　' {
-                    characters.insert(character);
+                let normalized = normalize_character(character)?;
+                if normalized != '　' {
+                    characters.insert(normalized);
                 }
             }
         }
 
         let mut display_to_carrier = BTreeMap::new();
         let mut carrier_to_display = BTreeMap::new();
-        let mut used = reserved_slots
-            .union(&forbidden_slots)
-            .copied()
-            .collect::<BTreeSet<_>>();
-        let mut native_owners = BTreeMap::new();
+        let mut used = HashSet::new();
 
         // 原生双字节字符优先占用自己的槽位，之后才给代换字符分配载体。
         // 这样日文原字与简体中文同时出现时，不会把原字的显示含义覆盖掉。
         for character in characters.iter().copied() {
-            if let Ok(slot) = slot_for_carrier(character) {
-                if forbidden_slots.contains(&slot) {
-                    continue;
-                }
-                if let Some(previous) = native_owners.insert(slot, character) {
-                    return Err(format!("字符 {previous} 与 {character} 对应同一个物理字槽"));
-                }
+            if has_loaded_np2_slot(character) {
                 display_to_carrier.insert(character, character);
                 carrier_to_display.insert(character, character);
-                used.insert(slot);
+                used.insert(character);
             }
         }
 
@@ -196,13 +146,12 @@ impl EncodingPlan {
             }
             let preferred = substitutions.carrier_for(character, character);
             let carrier = preferred
-                .filter(|candidate| {
-                    slot_for_carrier(*candidate).is_ok_and(|slot| !used.contains(&slot))
-                })
+                .filter(|candidate| !used.contains(candidate))
                 .or_else(|| {
-                    fallback.iter().copied().find(|candidate| {
-                        slot_for_carrier(*candidate).is_ok_and(|slot| !used.contains(&slot))
-                    })
+                    fallback
+                        .iter()
+                        .copied()
+                        .find(|candidate| !used.contains(candidate))
                 })
                 .ok_or_else(|| {
                     format!(
@@ -212,27 +161,30 @@ impl EncodingPlan {
                 })?;
             display_to_carrier.insert(character, carrier);
             carrier_to_display.insert(carrier, character);
-            used.insert(slot_for_carrier(carrier)?);
+            used.insert(carrier);
         }
         Ok(Self {
             display_to_carrier,
             carrier_to_display,
-            reserved_slots,
         })
     }
 
+    pub fn normalize_text(&self, text: &str) -> Result<String> {
+        text.chars().map(normalize_character).collect()
+    }
+
     pub fn carrier_for(&self, character: char) -> Result<char> {
-        validate_display_character(character)?;
-        if character == '　' {
-            return Ok(character);
+        let normalized = normalize_character(character)?;
+        if normalized == '　' {
+            return Ok(normalized);
         }
         self.display_to_carrier
-            .get(&character)
+            .get(&normalized)
             .copied()
             .ok_or_else(|| {
                 format!(
-                    "字符 {character} (U+{:04X}) 不在本次字槽计划中",
-                    character as u32
+                    "字符 {normalized} (U+{:04X}) 不在本次字槽计划中",
+                    normalized as u32
                 )
             })
     }
@@ -253,11 +205,6 @@ impl EncodingPlan {
     pub fn requests(&self) -> Vec<FontPatchRequest> {
         self.display_to_carrier
             .iter()
-            .filter(|(replacement, carrier)| {
-                replacement != carrier
-                    || !slot_for_carrier(**carrier)
-                        .is_ok_and(|slot| self.reserved_slots.contains(&slot))
-            })
             .map(|(replacement, carrier)| FontPatchRequest {
                 carrier: *carrier,
                 replacement: *replacement,
@@ -280,26 +227,23 @@ impl EncodingPlan {
             })
             .collect()
     }
-
-    /// Double-byte CP932 carriers only. Script byte order / JIS encoding remains
-    /// the game adapter's responsibility.
-    pub fn encode_cp932(&self, text: &str) -> Result<Vec<u8>> {
-        let mut bytes = Vec::new();
-        for character in text.chars() {
-            bytes.extend_from_slice(&cp932_for_carrier(self.carrier_for(character)?)?);
-        }
-        Ok(bytes)
-    }
 }
 
-fn validate_display_character(character: char) -> Result<()> {
-    if character.is_control() || character as u32 > 0xffff {
-        Err(format!(
-            "U+{:04X} 不能作为一个 BMP 显示字形；控制符应由游戏适配层处理",
+pub fn normalize_character(character: char) -> Result<char> {
+    match character {
+        ' ' | '　' => Ok('　'),
+        '\0' | '\r' | '\n' => Err(format!(
+            "文本包含不允许的控制字符 U+{:04X}",
             character as u32
-        ))
-    } else {
-        Ok(())
+        )),
+        '!'..='~' => Ok(
+            char::from_u32(0xFF01 + u32::from(character) - u32::from('!'))
+                .expect("fullwidth ASCII mapping"),
+        ),
+        other if other.is_control() => {
+            Err(format!("文本包含不允许的控制字符 U+{:04X}", other as u32))
+        }
+        other => Ok(other),
     }
 }
 
@@ -362,53 +306,48 @@ pub fn jis_to_cp932(jis: [u8; 2]) -> Result<[u8; 2]> {
 }
 
 pub fn embedded_font_sha256() -> String {
-    format!("{:x}", Sha256::digest(EMBEDDED_FONT))
+    crate::sha256_hex(EMBEDDED_FONT)
 }
 
 pub fn prepare_font(
-    source_font: &[u8],
     requests: &[FontPatchRequest],
-    reserved_cp932: &BTreeSet<u16>,
-    face: &str,
+    literal_characters: &BTreeSet<char>,
 ) -> Result<FontBuild> {
-    let layout = validate_font_tmp(source_font)?;
-    let mut reserved_slots = reserved_cp932
-        .iter()
-        .map(|code| slot_for_cp932(code.to_be_bytes()))
-        .collect::<Result<BTreeSet<_>>>()?;
-    reserved_slots.insert(slot_for_carrier('　')?);
-    let mut coalesced = BTreeMap::<FontSlot, (char, char)>::new();
+    let layout = validate_font_tmp(EMBEDDED_FONT)?;
+    let mut coalesced = BTreeMap::<char, char>::new();
     for request in requests {
-        let slot = slot_for_carrier(request.carrier)?;
-        if let Some((_, previous)) = coalesced.insert(slot, (request.carrier, request.replacement))
-        {
+        if let Some(previous) = coalesced.insert(request.carrier, request.replacement) {
             if previous != request.replacement {
-                return Err("同一个物理字槽被要求显示不同字符".into());
+                return Err(format!(
+                    "载体字符 {} 同时被要求显示 {} 和 {}",
+                    request.carrier, previous, request.replacement
+                ));
             }
         }
     }
-    for (slot, (carrier, _)) in &coalesced {
-        if reserved_slots.contains(slot) {
+    for carrier in coalesced.keys() {
+        if literal_characters.contains(carrier) {
             return Err(format!(
                 "载体字符 {carrier} 同时作为原义文字出现；重绘会全局改变它的显示"
             ));
         }
     }
 
-    let mut output = source_font.to_vec();
+    let mut output = EMBEDDED_FONT.to_vec();
     let mut allowed = vec![false; output.len()];
-    for (slot, (carrier, replacement)) in &coalesced {
-        let glyph = render_glyph(*replacement, face)?;
-        write_slot(&mut output, layout, *slot, &glyph)?;
-        mark_slot_bytes(&mut allowed, layout, *slot)?;
-        if read_slot(&output, layout, *slot)? != glyph {
+    for (carrier, replacement) in &coalesced {
+        let slot = slot_for_carrier(*carrier)?;
+        let glyph = render_glyph(*replacement, FONT_FACE)?;
+        write_slot(&mut output, layout, slot, &glyph)?;
+        mark_slot_bytes(&mut allowed, layout, slot)?;
+        if read_slot(&output, layout, slot)? != glyph {
             return Err(format!(
                 "font.tmp 载体 {carrier} 的 16×16 点阵写入后读回不一致"
             ));
         }
     }
     validate_font_tmp(&output)?;
-    for (index, (before, after)) in source_font.iter().zip(&output).enumerate() {
+    for (index, (before, after)) in EMBEDDED_FONT.iter().zip(&output).enumerate() {
         if before != after && !allowed[index] {
             return Err(format!("font.tmp 在非目标槽位 0x{index:X} 发生变化"));
         }
@@ -421,14 +360,6 @@ pub fn prepare_font(
 
 pub fn has_loaded_np2_slot(carrier: char) -> bool {
     slot_for_carrier(carrier).is_ok()
-}
-
-pub fn validate_font(bytes: &[u8]) -> Result<()> {
-    validate_font_tmp(bytes).map(|_| ())
-}
-
-pub fn read_glyph(bytes: &[u8], carrier: char) -> Result<GlyphBitmap> {
-    read_slot(bytes, validate_font_tmp(bytes)?, slot_for_carrier(carrier)?)
 }
 
 fn validate_font_tmp(bytes: &[u8]) -> Result<BmpLayout> {
@@ -456,11 +387,11 @@ fn validate_font_tmp(bytes: &[u8]) -> Result<BmpLayout> {
 }
 
 fn slot_for_carrier(carrier: char) -> Result<FontSlot> {
-    slot_for_cp932(cp932_for_carrier(carrier)?)
-}
-
-fn slot_for_cp932(encoded: [u8; 2]) -> Result<FontSlot> {
-    let carrier = format!("CP932 {:02X}{:02X}", encoded[0], encoded[1]);
+    let text = carrier.to_string();
+    let (encoded, _, had_errors) = SHIFT_JIS.encode(&text);
+    if had_errors || encoded.len() != 2 {
+        return Err(format!("载体 {carrier} 不是双字节 CP932 字符"));
+    }
     let lead = encoded[0];
     let mut trail = encoded[1];
     if !((0x81..=0x9F).contains(&lead) || (0xE0..=0xEF).contains(&lead))
@@ -567,28 +498,12 @@ fn read_i32(bytes: &[u8], offset: usize) -> Result<i32> {
 
 #[cfg(windows)]
 fn render_glyph(replacement: char, face: &str) -> Result<[u8; GLYPH_BYTES]> {
-    render_glyph_windows(replacement, face).map(|(glyph, _)| glyph)
+    render_glyph_windows(replacement, face)
 }
 
 #[cfg(not(windows))]
 fn render_glyph(_replacement: char, _face: &str) -> Result<[u8; GLYPH_BYTES]> {
     Err("font.tmp 重绘需要 Windows GDI".to_string())
-}
-
-/// Render one 16x16 glyph with Windows GDI and return the face that supplied
-/// it. The bitmap uses the PC98 convention: 0 is black and 1 is white.
-#[cfg(windows)]
-pub fn render_glyph_16x16_with_face(character: char, face: &str) -> Result<(GlyphBitmap, String)> {
-    render_glyph_windows(character, face)
-}
-
-/// GDI glyph rasterization is only available on Windows.
-#[cfg(not(windows))]
-pub fn render_glyph_16x16_with_face(
-    _character: char,
-    _face: &str,
-) -> Result<(GlyphBitmap, String)> {
-    Err("16x16 字形重绘需要 Windows GDI".to_string())
 }
 
 #[cfg(windows)]
@@ -675,15 +590,6 @@ mod windows_gdi {
         pub fn SetTextColor(hdc: Hdc, color: u32) -> u32;
         pub fn SetBkMode(hdc: Hdc, mode: i32) -> i32;
         pub fn TextOutW(hdc: Hdc, x: i32, y: i32, text: *const u16, count: i32) -> i32;
-        pub fn GetTextFaceW(hdc: Hdc, count: i32, name: *mut u16) -> i32;
-        pub fn GetGlyphIndicesW(
-            hdc: Hdc,
-            text: *const u16,
-            count: i32,
-            indices: *mut u16,
-            flags: u32,
-        ) -> u32;
-        pub fn GdiFlush() -> i32;
     }
 
     #[link(name = "kernel32")]
@@ -693,42 +599,10 @@ mod windows_gdi {
 }
 
 #[cfg(windows)]
-fn render_glyph_windows(replacement: char, face: &str) -> Result<([u8; GLYPH_BYTES], String)> {
-    let faces = face
-        .split('|')
-        .map(str::trim)
-        .filter(|name| !name.is_empty())
-        .collect::<Vec<_>>();
-    if faces.is_empty() {
-        return Err("字体名称为空".into());
-    }
-    let mut missing = Vec::new();
-    for candidate in &faces {
-        match render_glyph_windows_single(replacement, candidate) {
-            Ok(glyph) => return Ok((glyph, (*candidate).to_owned())),
-            Err(error) if error.contains("缺少字符 U+") || error.contains("不可用，系统选择了") => {
-                missing.push(error)
-            }
-            Err(error) => return Err(error),
-        }
-    }
-    Err(format!(
-        "字体回退列表 [{}] 均无法提供字符 U+{:04X}: {}",
-        faces.join(" | "),
-        replacement as u32,
-        missing.join("; ")
-    ))
-}
-
-#[cfg(windows)]
-fn render_glyph_windows_single(replacement: char, face: &str) -> Result<[u8; GLYPH_BYTES]> {
+fn render_glyph_windows(replacement: char, face: &str) -> Result<[u8; GLYPH_BYTES]> {
     use std::ffi::c_void;
     use std::ptr;
     use windows_gdi::*;
-
-    if face.trim().is_empty() || face.contains('\0') {
-        return Err("字体名称为空或包含 NUL".into());
-    }
 
     if replacement as u32 > 0xFFFF || replacement.is_control() {
         return Err(format!(
@@ -816,34 +690,12 @@ fn render_glyph_windows_single(replacement: char, face: &str) -> Result<[u8; GLY
         if old_bitmap.is_null() || old_font.is_null() {
             return Err(gdi_error("SelectObject"));
         }
-        let mut actual_face = [0u16; 128];
-        let face_length = GetTextFaceW(dc, actual_face.len() as i32, actual_face.as_mut_ptr());
-        if face_length <= 0 {
-            return Err(gdi_error("GetTextFaceW"));
-        }
-        let actual_face = String::from_utf16_lossy(&actual_face[..face_length as usize])
-            .trim_end_matches('\0')
-            .to_owned();
-        let default_alias = matches!(face, "新宋体" | "NSimSun")
-            && matches!(actual_face.as_str(), "新宋体" | "NSimSun");
-        if !actual_face.eq_ignore_ascii_case(face) && !default_alias {
-            return Err(format!("字体 {face} 不可用，系统选择了 {actual_face}"));
-        }
-        let mut glyph_index = 0u16;
-        if GetGlyphIndicesW(dc, text_w.as_ptr(), 1, &mut glyph_index, 1) == u32::MAX
-            || glyph_index == u16::MAX
-        {
-            return Err(format!("字体 {face} 缺少字符 U+{:04X}", replacement as u32));
-        }
         if SetBkMode(dc, OPAQUE) == 0
             || SetBkColor(dc, 0x00FF_FFFF) == CLR_INVALID
             || SetTextColor(dc, 0x0000_0000) == CLR_INVALID
             || TextOutW(dc, 0, 0, text_w.as_ptr(), 1) == 0
         {
             return Err(gdi_error("TextOutW"));
-        }
-        if GdiFlush() == 0 {
-            return Err(gdi_error("GdiFlush"));
         }
         let raw = std::slice::from_raw_parts(bits as *const u8, GLYPH_HEIGHT * 4);
         let mut glyph = [0u8; GLYPH_BYTES];
@@ -899,28 +751,15 @@ mod tests {
         );
     }
 
-    #[test]
-    fn forbidden_native_cp932_slot_is_remapped() {
-        let mappings = SubstitutionMap::embedded().expect("embedded substitutions");
-        assert_eq!(cp932_for_carrier('档').unwrap(), [0x9e, 0x83]);
-        let plan = EncodingPlan::build_with_forbidden_cp932(&mappings, [], [0x9e83], ["档"])
-            .expect("plan with forbidden native slot");
-        let encoded = plan.encode_cp932("档").unwrap();
-        assert_ne!(encoded, [0x9e, 0x83]);
-        assert_eq!(plan.decode_carriers(&SHIFT_JIS.decode(&encoded).0), "档");
-    }
-
     #[cfg(windows)]
     #[test]
     fn redraws_embedded_font_in_one_slot() {
         let build = prepare_font(
-            EMBEDDED_FONT,
             &[FontPatchRequest {
                 carrier: '凜',
                 replacement: '你',
             }],
             &BTreeSet::new(),
-            FONT_FACE,
         )
         .expect("redraw embedded font");
         assert_eq!(build.bytes.len(), EMBEDDED_FONT.len());

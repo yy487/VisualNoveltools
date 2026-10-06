@@ -1,0 +1,13 @@
+[package]
+name = "vn-fdi"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "Independent Anex86 FDI floppy-image interface for VN tooling"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+vn-sector-map = { path = "../vn_sector_map" }
+

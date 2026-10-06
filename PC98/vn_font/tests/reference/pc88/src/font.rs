@@ -1,5 +1,3 @@
-//! KANJI1 ROM backend with per-build dynamic carrier allocation. No game script
-//! parsing or output writes.
 use encoding_rs::SHIFT_JIS;
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
@@ -12,19 +10,16 @@ pub type FontResult<T> = Result<T, String>;
 pub const KANJI1_ROM_SIZE: usize = 0x20_000;
 pub const GLYPH_SIDE: usize = 16;
 pub const GLYPH_BYTES: usize = 32;
-pub const DEFAULT_GLYPH_FONT_FACE: &str = "新宋体|微软雅黑|宋体";
 
 const FCG1_MAGIC: &[u8; 4] = b"FCG1";
 const FCG1_RECORD_BYTES: usize = 4 + GLYPH_BYTES;
-pub const EMBEDDED_MAPPING: &[u8] = include_bytes!("../assets/pc88/subs_cn_jp.json");
-pub const EMBEDDED_GLYPHS: &[u8] = include_bytes!("../assets/pc88/glyphs_16_mono.bin");
+const EMBEDDED_MAPPING: &[u8] = include_bytes!("../assets/subs_cn_jp.json");
+const EMBEDDED_GLYPHS: &[u8] = include_bytes!("../assets/glyphs_16_mono.bin");
 
-/// Row-major 16x16 bitmap, MSB first; 1 is black (opposite to NP2 font.tmp).
 pub type GlyphBitmap = [u8; GLYPH_BYTES];
 
-/// A JSON key is a supported target/glyph. The JSON value is retained as
-/// legacy metadata only; carrier slots are selected dynamically from the
-/// addressable KANJI1 space for each build.
+/// A JSON key is a supported target/glyph. Its JSON value is only this
+/// target's preferred carrier; it is never treated as a fixed assignment.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize)]
 pub struct CharacterSupport {
     pub target: char,
@@ -85,14 +80,6 @@ pub struct FontResources {
     supports: BTreeMap<char, CharacterSupport>,
     glyphs: BTreeMap<char, GlyphBitmap>,
     candidate_pool: Vec<CandidateCarrier>,
-    generated_glyphs: BTreeMap<char, GeneratedGlyphInfo>,
-}
-
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub struct GeneratedGlyphInfo {
-    pub target: char,
-    pub font_face: String,
-    pub bitmap_sha256: String,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize)]
@@ -118,7 +105,6 @@ pub struct FontManifest {
     pub source_sha256: String,
     pub output_sha256: String,
     pub supported_targets: usize,
-    pub generated_glyphs: Vec<GeneratedGlyphInfo>,
     pub source_double_byte_codes_preserved: usize,
     pub native_translation_slots_preserved: usize,
     pub mapping_used: Vec<MappingUse>,
@@ -167,15 +153,8 @@ pub struct PreviewPage {
 
 impl FontResources {
     pub fn load_embedded() -> FontResult<Self> {
-        Self::from_bytes(EMBEDDED_MAPPING, EMBEDDED_GLYPHS)
-    }
-
-    /// Load a glyph-target JSON and FCG1 16x16 glyph table. JSON carrier values
-    /// are legacy metadata and do not constrain per-build carrier allocation.
-    pub fn from_bytes(mapping_json: &[u8], glyph_table: &[u8]) -> FontResult<Self> {
-        let supports = parse_support(mapping_json)?;
-        let candidate_pool = dynamic_candidate_pool()?;
-        let glyphs = parse_glyph_table(glyph_table)?;
+        let (supports, candidate_pool) = parse_support_and_candidates(EMBEDDED_MAPPING)?;
+        let glyphs = parse_glyph_table(EMBEDDED_GLYPHS)?;
         let support_targets = supports.keys().copied().collect::<BTreeSet<_>>();
         let glyph_targets = glyphs.keys().copied().collect::<BTreeSet<_>>();
         if support_targets != glyph_targets {
@@ -195,127 +174,13 @@ impl FontResources {
             supports,
             glyphs,
             candidate_pool,
-            generated_glyphs: BTreeMap::new(),
         })
     }
 
-    /// Render only missing, non-native target glyphs used by this build.
-    /// Generated rows are cached in this resource instance and emitted as an
-    /// FCG1 sidecar so the exact rasterized pixels can be reused later.
-    pub fn generate_missing_glyphs<I, S>(
-        &mut self,
-        texts: I,
-        font_face: &str,
-    ) -> FontResult<Vec<GeneratedGlyphInfo>>
-    where
-        I: IntoIterator<Item = S>,
-        S: AsRef<str>,
-    {
-        if font_face.trim().is_empty() || font_face.contains('\0') {
-            return Err("绘制缺失 PC-88 字形的字体名称为空或包含 NUL".into());
-        }
-        let mut missing = BTreeSet::new();
-        for text in texts {
-            for character in text.as_ref().chars() {
-                if character == '\0' {
-                    return Err("translated message contains NUL".into());
-                }
-                if requires_dynamic_mapping(character)? && !self.glyphs.contains_key(&character) {
-                    missing.insert(character);
-                }
-            }
-        }
-
-        for character in missing {
-            let (mut bitmap, face_used) =
-                crate::font_98::render_glyph_16x16_with_face(character, font_face)?;
-            for byte in &mut bitmap {
-                *byte = !*byte;
-            }
-            if bitmap.iter().all(|byte| *byte == 0) {
-                return Err(format!(
-                    "字体 {face_used} 为 U+{:04X} {character:?} 生成了空白 16×16 点阵",
-                    character as u32
-                ));
-            }
-            self.glyphs.insert(character, bitmap);
-            self.generated_glyphs.insert(
-                character,
-                GeneratedGlyphInfo {
-                    target: character,
-                    font_face: face_used,
-                    bitmap_sha256: sha256_hex(&bitmap),
-                },
-            );
-        }
-        Ok(self.generated_glyphs.values().cloned().collect())
-    }
-
-    /// Serialize just the glyphs rendered for this build. The FCG1 sidecar
-    /// preserves their exact pixels independently of installed Windows fonts.
-    pub fn generated_glyph_table(&self) -> FontResult<Option<Vec<u8>>> {
-        if self.generated_glyphs.is_empty() {
-            return Ok(None);
-        }
-        let count = u32::try_from(self.generated_glyphs.len())
-            .map_err(|_| "generated glyph count exceeds FCG1 capacity".to_string())?;
-        let mut bytes = Vec::with_capacity(8 + self.generated_glyphs.len() * FCG1_RECORD_BYTES);
-        bytes.extend_from_slice(FCG1_MAGIC);
-        bytes.extend_from_slice(&count.to_le_bytes());
-        for character in self.generated_glyphs.keys() {
-            bytes.extend_from_slice(&(*character as u32).to_le_bytes());
-            bytes.extend_from_slice(&self.glyphs[character]);
-        }
-        Ok(Some(bytes))
-    }
-
-    /// Add a previously generated FCG1 sidecar to the embedded resource set.
-    /// Embedded targets cannot be silently replaced by different pixels.
-    pub fn extend_glyphs_from_fcg1(&mut self, bytes: &[u8]) -> FontResult<usize> {
-        let additions = parse_glyph_table(bytes)?;
-        let mut added = 0usize;
-        for (character, bitmap) in additions {
-            if let Some(existing) = self.glyphs.get(&character) {
-                if existing != &bitmap {
-                    return Err(format!(
-                        "FCG1 sidecar attempts to replace existing U+{:04X} {character:?} glyph",
-                        character as u32
-                    ));
-                }
-                continue;
-            }
-            self.glyphs.insert(character, bitmap);
-            self.generated_glyphs.insert(
-                character,
-                GeneratedGlyphInfo {
-                    target: character,
-                    font_face: "external FCG1 sidecar".into(),
-                    bitmap_sha256: sha256_hex(&bitmap),
-                },
-            );
-            added += 1;
-        }
-        Ok(added)
-    }
-
-    fn require_dynamic_glyph(&self, character: char, cp932: Option<u16>) -> FontResult<()> {
-        if self.glyphs.contains_key(&character) {
-            return Ok(());
-        }
-        let code_detail = cp932
-            .map(|code| format!(" CP932 {code:04X} is outside the addressable KANJI1.ROM range;"))
-            .unwrap_or_default();
-        Err(format!(
-            "U+{:04X} {character:?}{code_detail} dynamic mapping needs a 16×16 target glyph; no embedded or generated FCG1 bitmap is available",
-            character as u32
-        ))
-    }
-
-    /// Plan one mapping for the entire build. The caller provides all original
-    /// two-byte CP932 codes that must retain their glyphs, plus all final display
-    /// text. Characters that need replacement glyphs are assigned the first
-    /// available addressable CP932 slot, ordered by KANJI1 ROM address. Script
-    /// parsing and control-token handling belong to the game adapter.
+    /// Plan one collision-free mapping for all 28 source MES files and all
+    /// final translated messages. `original_double_byte_codes` must be the
+    /// union of every original MES two-byte CP932 code encountered by the
+    /// structure-aware parser.
     pub fn plan_dynamic_mapping<C, I, S>(
         &self,
         original_double_byte_codes: C,
@@ -326,41 +191,14 @@ impl FontResources {
         I: IntoIterator<Item = S>,
         S: AsRef<str>,
     {
-        self.plan_dynamic_mapping_with_carrier_filter(
-            original_double_byte_codes,
-            translated_texts,
-            |_| true,
-        )
-    }
-
-    /// Like `plan_dynamic_mapping`, with a game-specific predicate for the
-    /// carrier JIS code. Use this when a game's text writer accepts only part
-    /// of the PC-88 KANJI1 addressable range.
-    pub fn plan_dynamic_mapping_with_carrier_filter<C, I, S, F>(
-        &self,
-        original_double_byte_codes: C,
-        translated_texts: I,
-        carrier_jis_allowed: F,
-    ) -> FontResult<DynamicFontPlan>
-    where
-        C: IntoIterator<Item = u16>,
-        I: IntoIterator<Item = S>,
-        S: AsRef<str>,
-        F: Fn(u16) -> bool,
-    {
         let mut original_codes = BTreeSet::new();
         let mut reserved_cp932 = BTreeSet::new();
         let mut reserved_addresses = BTreeSet::new();
         for cp932 in original_double_byte_codes {
-            let jis = sjis_to_jis(cp932).ok_or_else(|| {
-                format!("original MES double-byte code {cp932:04X} is not valid CP932")
+            let (jis, address) = code_to_address(cp932).map_err(|error| {
+                format!("original MES double-byte code {cp932:04X} is invalid: {error}")
             })?;
-            let Some(address) = jis_to_rom_address(jis) else {
-                // It cannot name a KANJI1 slot, so it cannot collide with a
-                // dynamically patched carrier in this ROM.
-                continue;
-            };
-            glyph_range(address)?;
+            let _ = jis;
             original_codes.insert(cp932);
             reserved_cp932.insert(cp932);
             reserved_addresses.insert(address);
@@ -377,27 +215,31 @@ impl FontResources {
                 match native_cp932(character)? {
                     Some(NativeEncoding::Single(_)) => {}
                     Some(NativeEncoding::Double(cp932)) => {
-                        if let Ok((jis, rom_address)) = code_to_address(cp932) {
-                            reserved_cp932.insert(cp932);
-                            reserved_addresses.insert(rom_address);
-                            native_by_address
-                                .entry(rom_address)
-                                .or_insert(NativeDoubleByteUse {
-                                    character,
-                                    cp932,
-                                    jis,
-                                    rom_address,
-                                    rom_byte_offset: usize::from(rom_address) * 2,
-                                });
-                        } else {
-                            self.require_dynamic_glyph(character, Some(cp932))?;
-                            if unsupported_seen.insert(character) {
-                                unsupported_order.push(character);
-                            }
-                        }
+                        let (jis, rom_address) = code_to_address(cp932).map_err(|error| {
+                            format!(
+                                "native U+{:04X} {character:?} CP932 {cp932:04X} cannot use KANJI1.ROM: {error}",
+                                character as u32
+                            )
+                        })?;
+                        reserved_cp932.insert(cp932);
+                        reserved_addresses.insert(rom_address);
+                        native_by_address
+                            .entry(rom_address)
+                            .or_insert(NativeDoubleByteUse {
+                                character,
+                                cp932,
+                                jis,
+                                rom_address,
+                                rom_byte_offset: usize::from(rom_address) * 2,
+                            });
                     }
                     None => {
-                        self.require_dynamic_glyph(character, None)?;
+                        if !self.supports.contains_key(&character) {
+                            return Err(format!(
+                                "U+{:04X} {character:?} is not native CP932 and has no embedded FCG1 glyph",
+                                character as u32
+                            ));
+                        }
                         if unsupported_seen.insert(character) {
                             unsupported_order.push(character);
                         }
@@ -410,13 +252,48 @@ impl FontResources {
         let mut assigned_cp932 = BTreeSet::new();
         let mut assigned_addresses = BTreeSet::new();
 
+        // First preserve every available per-target preference. A target whose
+        // preferred slot is occupied must not steal another pending target's
+        // free preferred slot during fallback allocation.
         for target in &unsupported_order {
+            let support = &self.supports[target];
+            if let (Some(character), Some(cp932), Some(jis), Some(rom_address), Some(byte_offset)) = (
+                support.preferred_carrier,
+                support.preferred_cp932,
+                support.preferred_jis,
+                support.preferred_rom_address,
+                support.preferred_rom_byte_offset,
+            ) {
+                if carrier_is_available(
+                    cp932,
+                    rom_address,
+                    &reserved_cp932,
+                    &reserved_addresses,
+                    &assigned_cp932,
+                    &assigned_addresses,
+                ) {
+                    let candidate = CandidateCarrier {
+                        character,
+                        cp932,
+                        jis,
+                        rom_address,
+                        rom_byte_offset: byte_offset,
+                    };
+                    assigned_cp932.insert(candidate.cp932);
+                    assigned_addresses.insert(candidate.rom_address);
+                    assignments.insert(*target, candidate);
+                }
+            }
+        }
+
+        for target in &unsupported_order {
+            if assignments.contains_key(target) {
+                continue;
+            }
             let candidate = self
                 .candidate_pool
                 .iter()
                 .find(|candidate| {
-                    carrier_jis_allowed(candidate.jis)
-                        &&
                     carrier_is_available(
                         candidate.cp932,
                         candidate.rom_address,
@@ -429,7 +306,7 @@ impl FontResources {
                 .cloned()
                 .ok_or_else(|| {
                     format!(
-                        "no collision-free KANJI1.ROM carrier remains for U+{:04X} {target:?}; required={}, addressable_slots={}, source_reserved={}, native_reserved={}",
+                        "no collision-free KANJI1.ROM carrier remains for U+{:04X} {target:?}; required={}, candidate_pool={}, source_reserved={}, native_reserved={}",
                         *target as u32,
                         unsupported_order.len(),
                         self.candidate_pool.len(),
@@ -446,6 +323,7 @@ impl FontResources {
             .iter()
             .map(|target| {
                 let candidate = &assignments[target];
+                let support = &self.supports[target];
                 MappingUse {
                     target: *target,
                     carrier: candidate.character,
@@ -453,7 +331,8 @@ impl FontResources {
                     jis: candidate.jis,
                     rom_address: candidate.rom_address,
                     rom_byte_offset: candidate.rom_byte_offset,
-                    used_preferred_carrier: false,
+                    used_preferred_carrier: support.preferred_cp932 == Some(candidate.cp932)
+                        && support.preferred_rom_address == Some(candidate.rom_address),
                 }
             })
             .collect::<Vec<_>>();
@@ -468,8 +347,8 @@ impl FontResources {
 
     /// Encode with the already-approved plan. No assignment is performed here,
     /// so the exact same mapping necessarily drives both scripts and the ROM.
-    pub fn encode_text(&self, text: &str, plan: &DynamicFontPlan) -> FontResult<EncodedText> {
-        self.validate_plan(plan)?;
+    pub fn encode_ai1_text(&self, text: &str, plan: &DynamicFontPlan) -> FontResult<EncodedText> {
+        check_plan_conflicts(plan)?;
         let mapping_by_target = plan
             .mapping_used
             .iter()
@@ -486,34 +365,31 @@ impl FontResources {
             match native_cp932(character)? {
                 Some(NativeEncoding::Single(byte)) => bytes.push(byte),
                 Some(NativeEncoding::Double(cp932)) => {
-                    if let Ok((jis, rom_address)) = code_to_address(cp932) {
-                        bytes.extend_from_slice(&cp932.to_be_bytes());
-                        native.entry(rom_address).or_insert(NativeDoubleByteUse {
-                            character,
-                            cp932,
-                            jis,
-                            rom_address,
-                            rom_byte_offset: usize::from(rom_address) * 2,
-                        });
-                    } else {
-                        self.require_dynamic_glyph(character, Some(cp932))?;
-                        let assignment = mapping_by_target.get(&character).ok_or_else(|| {
-                            format!(
-                                "dynamic font plan has no carrier assignment for out-of-range CP932 U+{:04X} {character:?}",
-                                character as u32
-                            )
-                        })?;
-                        bytes.extend_from_slice(&assignment.carrier_cp932.to_be_bytes());
-                        mapped
-                            .entry(assignment.rom_address)
-                            .or_insert_with(|| (*assignment).clone());
-                    }
+                    let (jis, rom_address) = code_to_address(cp932).map_err(|error| {
+                        format!(
+                            "native U+{:04X} {character:?} CP932 {cp932:04X} cannot use KANJI1.ROM: {error}",
+                            character as u32
+                        )
+                    })?;
+                    bytes.extend_from_slice(&cp932.to_be_bytes());
+                    native.entry(rom_address).or_insert(NativeDoubleByteUse {
+                        character,
+                        cp932,
+                        jis,
+                        rom_address,
+                        rom_byte_offset: usize::from(rom_address) * 2,
+                    });
                 }
                 None => {
-                    self.require_dynamic_glyph(character, None)?;
+                    if !self.supports.contains_key(&character) {
+                        return Err(format!(
+                            "U+{:04X} {character:?} is not native CP932 and has no embedded glyph",
+                            character as u32
+                        ));
+                    }
                     let assignment = mapping_by_target.get(&character).ok_or_else(|| {
                         format!(
-                            "dynamic font plan has no carrier assignment for non-native U+{:04X} {character:?}",
+                            "dynamic font plan has no assignment for non-CP932 U+{:04X} {character:?}",
                             character as u32
                         )
                     })?;
@@ -528,7 +404,7 @@ impl FontResources {
         let mapping_used = mapped.into_values().collect::<Vec<_>>();
         let native_double_byte = native.into_values().collect::<Vec<_>>();
         check_carrier_native_conflicts(
-            &plan.mapping_used,
+            &mapping_used,
             &plan.original_double_byte_codes,
             &native_double_byte,
         )?;
@@ -539,21 +415,16 @@ impl FontResources {
         })
     }
 
-    /// Compatibility alias for callers migrating from Foxy.
-    pub fn encode_ai1_text(&self, text: &str, plan: &DynamicFontPlan) -> FontResult<EncodedText> {
-        self.encode_text(text, plan)
-    }
-
     pub fn build_rom(&self, source_rom: &[u8], plan: &DynamicFontPlan) -> FontResult<FontBuild> {
         validate_rom(source_rom)?;
-        self.validate_plan(plan)?;
+        check_plan_conflicts(plan)?;
         let mut output = source_rom.to_vec();
         let mut touched = vec![false; source_rom.len()];
         let mut slots = Vec::with_capacity(plan.mapping_used.len());
         let mut total_changed_bytes = 0usize;
 
         for assignment in &plan.mapping_used {
-            if !self.glyphs.contains_key(&assignment.target) {
+            if !self.supports.contains_key(&assignment.target) {
                 return Err(format!(
                     "dynamic mapping contains unsupported U+{:04X} {:?}",
                     assignment.target as u32, assignment.target
@@ -633,14 +504,13 @@ impl FontResources {
         }
 
         let manifest = FontManifest {
-            format: "PC-8801 KANJI1.ROM dynamic font patch".to_string(),
+            format: "FOXY PC-8801 KANJI1.ROM dynamic font patch".to_string(),
             layout: "131072-byte ROM; JIS-derived base; 16 rows x two adjacent bytes; MSB-left"
                 .to_string(),
             source_size: source_rom.len(),
             source_sha256: sha256_hex(source_rom),
             output_sha256: sha256_hex(&output),
-            supported_targets: self.supports.len() + self.generated_glyphs.len(),
-            generated_glyphs: self.generated_glyphs.values().cloned().collect(),
+            supported_targets: self.supports.len(),
             source_double_byte_codes_preserved: plan.original_double_byte_codes.len(),
             native_translation_slots_preserved: plan.native_double_byte.len(),
             mapping_used: plan.mapping_used.clone(),
@@ -662,7 +532,7 @@ impl FontResources {
         options: &PreviewOptions,
     ) -> FontResult<Vec<PreviewPage>> {
         validate_rom(rom)?;
-        self.validate_plan(plan)?;
+        check_plan_conflicts(plan)?;
         validate_preview_options(options)?;
         if plan.mapping_used.is_empty() {
             return Ok(Vec::new());
@@ -842,101 +712,51 @@ pub fn mapping_used_json_bytes(plan: &DynamicFontPlan) -> FontResult<Vec<u8>> {
 pub fn load_mapping_used(path: &Path) -> FontResult<DynamicFontPlan> {
     let bytes = fs::read(path)
         .map_err(|error| format!("failed to read mapping_used {}: {error}", path.display()))?;
-    FontResources::load_embedded()?.mapping_from_bytes(&bytes)
-}
-
-impl FontResources {
-    /// Load the full build plan, including its protected source/native slots.
-    pub fn plan_from_bytes(&self, bytes: &[u8]) -> FontResult<DynamicFontPlan> {
-        let plan = serde_json::from_slice(bytes).map_err(|e| format!("invalid font plan: {e}"))?;
-        self.validate_plan(&plan)?;
-        Ok(plan)
-    }
-
-    pub fn validate_plan(&self, plan: &DynamicFontPlan) -> FontResult<()> {
-        check_plan_conflicts(plan)?;
-        for entry in &plan.native_double_byte {
-            let cp932 = strict_cp932_pair(entry.character)?;
-            let (jis, address) = code_to_address(cp932)?;
-            if cp932 != entry.cp932
-                || jis != entry.jis
-                || address != entry.rom_address
-                || usize::from(address) * 2 != entry.rom_byte_offset
-            {
-                return Err("native font-plan metadata is inconsistent".into());
-            }
+    let mapping_used: Vec<MappingUse> = serde_json::from_slice(&bytes)
+        .map_err(|error| format!("failed to parse mapping_used {}: {error}", path.display()))?;
+    let resources = FontResources::load_embedded()?;
+    let plan = DynamicFontPlan {
+        mapping_used,
+        original_double_byte_codes: Vec::new(),
+        native_double_byte: Vec::new(),
+    };
+    check_plan_conflicts(&plan)?;
+    for assignment in &plan.mapping_used {
+        let support = resources.supports.get(&assignment.target).ok_or_else(|| {
+            format!(
+                "mapping_used contains unsupported U+{:04X} {:?}",
+                assignment.target as u32, assignment.target
+            )
+        })?;
+        if native_cp932(assignment.target)?.is_some() {
+            return Err(format!(
+                "mapping_used must not remap native CP932 U+{:04X} {:?}",
+                assignment.target as u32, assignment.target
+            ));
         }
-        for entry in &plan.mapping_used {
-            self.require_dynamic_glyph(entry.target, out_of_range_cp932(entry.target)?)?;
-            if !requires_dynamic_mapping(entry.target)? {
-                return Err(format!(
-                    "font plan remaps U+{:04X} {:?}, but it is directly encodable in KANJI1.ROM",
-                    entry.target as u32, entry.target
-                ));
-            }
-            if !self.candidate_pool.iter().any(|c| {
-                c.character == entry.carrier
-                    && c.cp932 == entry.carrier_cp932
-                    && c.jis == entry.jis
-                    && c.rom_address == entry.rom_address
-                    && c.rom_byte_offset == entry.rom_byte_offset
-            }) {
-                return Err(
-                    "font plan contains a carrier outside the dynamic KANJI1 address space".into(),
-                );
-            }
-            if entry.used_preferred_carrier {
-                return Err(
-                    "dynamic KANJI1 carrier plan must not depend on a preferred carrier".into(),
-                );
-            }
+        let candidate_is_valid = resources.candidate_pool.iter().any(|candidate| {
+            candidate.character == assignment.carrier
+                && candidate.cp932 == assignment.carrier_cp932
+                && candidate.jis == assignment.jis
+                && candidate.rom_address == assignment.rom_address
+                && candidate.rom_byte_offset == assignment.rom_byte_offset
+        });
+        if !candidate_is_valid {
+            return Err(format!(
+                "mapping_used U+{:04X} {:?} does not use an embedded AI1-addressable candidate",
+                assignment.target as u32, assignment.target
+            ));
         }
-        Ok(())
-    }
-
-    /// Validate a saved mapping against this resource set. Reservation lists are
-    /// absent in mapping-only files; revalidate against full game inputs before patching.
-    pub fn mapping_from_bytes(&self, bytes: &[u8]) -> FontResult<DynamicFontPlan> {
-        let mapping_used: Vec<MappingUse> = serde_json::from_slice(bytes)
-            .map_err(|error| format!("failed to parse mapping_used: {error}"))?;
-        let resources = self;
-        let plan = DynamicFontPlan {
-            mapping_used,
-            original_double_byte_codes: Vec::new(),
-            native_double_byte: Vec::new(),
-        };
-        check_plan_conflicts(&plan)?;
-        for assignment in &plan.mapping_used {
-            resources
-                .require_dynamic_glyph(assignment.target, out_of_range_cp932(assignment.target)?)?;
-            if !requires_dynamic_mapping(assignment.target)? {
-                return Err(format!(
-                    "mapping_used cannot remap directly addressable character U+{:04X} {:?}",
-                    assignment.target as u32, assignment.target
-                ));
-            }
-            let candidate_is_valid = resources.candidate_pool.iter().any(|candidate| {
-                candidate.character == assignment.carrier
-                    && candidate.cp932 == assignment.carrier_cp932
-                    && candidate.jis == assignment.jis
-                    && candidate.rom_address == assignment.rom_address
-                    && candidate.rom_byte_offset == assignment.rom_byte_offset
-            });
-            if !candidate_is_valid {
-                return Err(format!(
-                    "mapping_used U+{:04X} {:?} does not use an addressable dynamic KANJI1 carrier",
-                    assignment.target as u32, assignment.target
-                ));
-            }
-            if assignment.used_preferred_carrier {
-                return Err(format!(
-                    "mapping_used U+{:04X} {:?} must not declare a preferred carrier",
-                    assignment.target as u32, assignment.target
-                ));
-            }
+        let expected_preferred = support.preferred_cp932 == Some(assignment.carrier_cp932)
+            && support.preferred_rom_address == Some(assignment.rom_address);
+        if assignment.used_preferred_carrier != expected_preferred {
+            return Err(format!(
+                "mapping_used U+{:04X} {:?} has an incorrect used_preferred_carrier flag",
+                assignment.target as u32, assignment.target
+            ));
         }
-        Ok(plan)
     }
+    Ok(plan)
 }
 
 pub fn manifest_json_bytes(manifest: &FontManifest) -> FontResult<Vec<u8>> {
@@ -991,9 +811,6 @@ pub fn sjis_to_jis(sjis: u16) -> Option<u16> {
 }
 
 pub fn jis_to_rom_address(code: u16) -> Option<u16> {
-    if !(0x21..=0x7e).contains(&(code >> 8)) || !(0x21..=0x7e).contains(&(code & 0xff)) {
-        return None;
-    }
     let non_kanji = (0x2121..=0x217e).contains(&code)
         || (0x2221..=0x222e).contains(&code)
         || (0x2330..=0x2339).contains(&code)
@@ -1054,17 +871,6 @@ fn native_cp932(character: char) -> FontResult<Option<NativeEncoding>> {
     }
 }
 
-fn out_of_range_cp932(character: char) -> FontResult<Option<u16>> {
-    match native_cp932(character)? {
-        Some(NativeEncoding::Double(cp932)) if code_to_address(cp932).is_err() => Ok(Some(cp932)),
-        _ => Ok(None),
-    }
-}
-
-fn requires_dynamic_mapping(character: char) -> FontResult<bool> {
-    Ok(native_cp932(character)?.is_none() || out_of_range_cp932(character)?.is_some())
-}
-
 fn code_to_address(cp932: u16) -> FontResult<(u16, u16)> {
     let jis = sjis_to_jis(cp932)
         .ok_or_else(|| format!("CP932 {cp932:04X} is outside standard two-byte JIS"))?;
@@ -1088,10 +894,15 @@ fn carrier_is_available(
         && !assigned_addresses.contains(&address)
 }
 
-fn parse_support(bytes: &[u8]) -> FontResult<BTreeMap<char, CharacterSupport>> {
+fn parse_support_and_candidates(
+    bytes: &[u8],
+) -> FontResult<(BTreeMap<char, CharacterSupport>, Vec<CandidateCarrier>)> {
     let raw: BTreeMap<String, String> = serde_json::from_slice(bytes)
         .map_err(|error| format!("embedded support mapping is invalid UTF-8 JSON: {error}"))?;
     let mut supports = BTreeMap::new();
+    let mut candidate_pool = Vec::with_capacity(raw.len());
+    let mut carrier_owners = BTreeMap::<char, char>::new();
+    let mut address_owners = BTreeMap::<u16, char>::new();
     for (target_text, carrier_text) in raw {
         let target = one_scalar("support target", &target_text)?;
         let carrier = one_scalar("candidate carrier", &carrier_text)?;
@@ -1107,7 +918,24 @@ fn parse_support(bytes: &[u8]) -> FontResult<BTreeMap<char, CharacterSupport>> {
             preferred_rom_address,
             preferred_rom_byte_offset,
         ) = if let Some((cp932, jis, rom_address)) = usable_candidate {
+            if let Some(previous) = carrier_owners.insert(carrier, target) {
+                return Err(format!(
+                        "support targets {previous:?} and {target:?} reuse candidate carrier {carrier:?}"
+                    ));
+            }
+            if let Some(previous) = address_owners.insert(rom_address, target) {
+                return Err(format!(
+                        "support targets {previous:?} and {target:?} reuse ROM address {rom_address:04X}"
+                    ));
+            }
             let rom_byte_offset = usize::from(rom_address) * 2;
+            candidate_pool.push(CandidateCarrier {
+                character: carrier,
+                cp932,
+                jis,
+                rom_address,
+                rom_byte_offset,
+            });
             (
                 Some(carrier),
                 Some(cp932),
@@ -1134,45 +962,10 @@ fn parse_support(bytes: &[u8]) -> FontResult<BTreeMap<char, CharacterSupport>> {
     if supports.is_empty() {
         return Err("embedded support mapping is empty".to_string());
     }
-    Ok(supports)
-}
-
-/// Enumerate usable carriers from the PC-88 ROM address space itself. The
-/// legacy JSON carrier column does not constrain this pool.
-fn dynamic_candidate_pool() -> FontResult<Vec<CandidateCarrier>> {
-    let mut candidates = BTreeMap::<u16, CandidateCarrier>::new();
-    let leads = (0x81u8..=0x9f).chain(0xe0u8..=0xef);
-    for lead in leads {
-        for trail in (0x40u8..=0x7e).chain(0x80u8..=0xfc) {
-            let cp932 = u16::from_be_bytes([lead, trail]);
-            let Ok((jis, rom_address)) = code_to_address(cp932) else {
-                continue;
-            };
-            let bytes = cp932.to_be_bytes();
-            let (decoded, _, had_errors) = SHIFT_JIS.decode(&bytes);
-            if had_errors {
-                continue;
-            }
-            let mut characters = decoded.chars();
-            let Some(character) = characters.next() else {
-                continue;
-            };
-            if characters.next().is_some() {
-                continue;
-            }
-            candidates.entry(rom_address).or_insert(CandidateCarrier {
-                character,
-                cp932,
-                jis,
-                rom_address,
-                rom_byte_offset: usize::from(rom_address) * 2,
-            });
-        }
+    if candidate_pool.is_empty() {
+        return Err("embedded mapping contains no AI1-addressable carrier candidates".to_string());
     }
-    if candidates.is_empty() {
-        return Err("KANJI1.ROM mapping exposes no valid CP932 carrier slots".to_string());
-    }
-    Ok(candidates.into_values().collect())
+    Ok((supports, candidate_pool))
 }
 
 fn parse_glyph_table(bytes: &[u8]) -> FontResult<BTreeMap<char, GlyphBitmap>> {

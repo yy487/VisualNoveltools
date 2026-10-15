@@ -5,8 +5,11 @@ AI6WIN MES 文本提取工具
 输出: GalTransl兼容JSON
 
 用法:
-  python ai6win_extract.py <input.mes> <arc_index.json> [output.json]
-  python ai6win_extract.py <mes_dir> <arc_index.json> <json_dir>  (批量)
+  python ai6win_extract.py [--encoding cp932|gbk] <input.mes> <arc_index.json> [output.json]
+  python ai6win_extract.py [--encoding cp932|gbk] <mes_dir> <arc_index.json> <json_dir>  (批量)
+
+选项:
+  --encoding ENC  源文本编码，cp932(默认) 或 gbk。
 """
 import struct, json, sys, os
 
@@ -59,7 +62,7 @@ OPS = {
 TEXT_OPS = {0x0A, 0x0B}      # 含文本的opcode
 ADDR_OPS = {0x14, 0x15, 0x16, 0x1A}  # 含地址的opcode
 
-def extract_file(mes_path, usize, json_path):
+def extract_file(mes_path, usize, json_path, encoding='cp932'):
     compressed = open(mes_path, 'rb').read()
     data = lzss_decompress(compressed, usize)
     if len(data) != usize:
@@ -86,8 +89,8 @@ def extract_file(mes_path, usize, json_path):
             if b in TEXT_OPS:
                 tid += 1
                 try:
-                    text = data[pos:end].decode('cp932')
-                except:
+                    text = data[pos:end].decode(encoding)
+                except UnicodeDecodeError:
                     text = data[pos:end].hex(' ')
                 # 拆分 ［名前］：台詞 格式
                 name = ""
@@ -111,22 +114,34 @@ def extract_file(mes_path, usize, json_path):
     return len(entries)
 
 def main():
-    if len(sys.argv) < 3:
+    args = sys.argv[1:]
+    encoding = 'cp932'
+    if '--encoding' in args:
+        idx = args.index('--encoding')
+        if idx + 1 >= len(args):
+            print('--encoding 需要参数 (cp932 或 gbk)'); sys.exit(1)
+        encoding = args[idx + 1].lower()
+        if encoding not in ('cp932', 'gbk'):
+            print(f'不支持的编码: {encoding}'); sys.exit(1)
+        del args[idx:idx + 2]
+
+    if len(args) < 2:
         print(f"用法:")
-        print(f"  python {sys.argv[0]} <input.mes> <arc_index.json> [output.json]")
-        print(f"  python {sys.argv[0]} <mes_dir>   <arc_index.json> <json_dir>  (批量)")
+        print(f"  python {sys.argv[0]} [--encoding cp932|gbk] <input.mes> <arc_index.json> [output.json]")
+        print(f"  python {sys.argv[0]} [--encoding cp932|gbk] <mes_dir> <arc_index.json> <json_dir>  (批量)")
         sys.exit(1)
 
-    src = sys.argv[1]
-    idx_path = sys.argv[2]
+    src = args[0]
+    idx_path = args[1]
 
     # 读arc index获取uncompressed_size
     with open(idx_path, 'r', encoding='utf-8') as f:
         arc_meta = json.load(f)
     size_map = {m['filename']: m['uncompressed_size'] for m in arc_meta}
+    print(f'[INFO] 文本解码编码: {encoding}')
 
     if os.path.isdir(src):
-        out = sys.argv[3] if len(sys.argv) > 3 else src + '_json'
+        out = args[2] if len(args) > 2 else src + '_json'
         os.makedirs(out, exist_ok=True)
         files = sorted(f for f in os.listdir(src) if f.lower().endswith('.mes') and not f.startswith('_'))
         total = 0
@@ -135,14 +150,14 @@ def main():
                 print(f"  [SKIP] {fn}: 不在arc_index中")
                 continue
             jp = os.path.join(out, os.path.splitext(fn)[0] + '.json')
-            total += extract_file(os.path.join(src, fn), size_map[fn], jp)
+            total += extract_file(os.path.join(src, fn), size_map[fn], jp, encoding)
         print(f"[INFO] {len(files)} 文件, {total} 条文本")
     else:
         fn = os.path.basename(src)
         if fn not in size_map:
             print(f"[ERROR] {fn} 不在 {idx_path} 中"); sys.exit(1)
-        jp = sys.argv[3] if len(sys.argv) > 3 else os.path.splitext(src)[0] + '.json'
-        extract_file(src, size_map[fn], jp)
+        jp = args[2] if len(args) > 2 else os.path.splitext(src)[0] + '.json'
+        extract_file(src, size_map[fn], jp, encoding)
 
 if __name__ == '__main__':
     main()

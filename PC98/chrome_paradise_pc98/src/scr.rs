@@ -77,25 +77,9 @@ struct ParsedDocument {
 
 pub fn extract_document(raw: &[u8], source_file: impl Into<String>) -> Result<ScrDocument, String> {
     let source_file = source_file.into();
-    let parsed = parse_document(raw, source_file.clone())?;
-    let resource_offsets = resource_offsets(&parsed.records);
-    let speaker_ids = speaker_ids(&parsed.records);
-    let mut strings = Vec::new();
-    let mut filtered = 0usize;
-    for item in &parsed.strings {
-        if resource_offsets.contains(&item.offset) || is_resource_identifier(&item.message) {
-            filtered += 1;
-            continue;
-        }
-        strings.push(ScrString {
-            index: item.index,
-            offset: item.offset,
-            scr_msg: item.message.clone(),
-            message: item.message.clone(),
-            speaker_id: speaker_ids.get(&item.offset).copied(),
-            halfwidth_kana: item.halfwidth_kana.clone(),
-        });
-    }
+    let parsed = parse_document(raw)?;
+    let strings = public_strings(&parsed);
+    let filtered = parsed.strings.len() - strings.len();
     let mut diagnostics = parsed.diagnostics;
     if filtered != 0 {
         diagnostics.push(format!("已过滤 {filtered} 个资源或内部字符串"));
@@ -165,7 +149,7 @@ fn apply_document_internal(
     if fivec_new::sha256(raw) != document.source_sha256 {
         return Err("SCR 原文件 SHA-256 与 JSON 不一致，拒绝注回".into());
     }
-    let baseline = parse_document(raw, document.source_file.clone())?;
+    let baseline = parse_document(raw)?;
     let structural = blocking_diagnostics(&baseline.diagnostics);
     if !structural.is_empty() {
         return Err(format!(
@@ -256,7 +240,7 @@ fn apply_document_internal(
     output.extend_from_slice(&(payload.len() as u16).to_le_bytes());
     output.extend(payload.iter().map(|byte| byte ^ 0x7f));
     output.extend_from_slice(&baseline.trailing);
-    let verified = parse_document(&output, document.source_file.clone())?;
+    let verified = parse_document(&output)?;
     let verified_public = public_strings(&verified);
     if verified_public.len() != document.strings.len() {
         return Err("注回后可翻译字符串数量发生变化".into());
@@ -289,7 +273,7 @@ fn apply_document_internal(
     Ok(output)
 }
 
-fn parse_document(raw: &[u8], _source_file: String) -> Result<ParsedDocument, String> {
+fn parse_document(raw: &[u8]) -> Result<ParsedDocument, String> {
     if raw.len() < 8 || &raw[..4] != b"SCR:" {
         return Err("不是 CPMAIN 识别的 SCR 文件".into());
     }
@@ -339,7 +323,7 @@ fn parse_document(raw: &[u8], _source_file: String) -> Result<ParsedDocument, St
             .map(|relative| cursor + relative)
             .unwrap_or(decoded_payload.len());
         let bytes = &decoded_payload[start..end];
-        let (decoded, _reversible, special_bytes) = decode_message(bytes);
+        let (decoded, special_bytes) = decode_message(bytes);
         let (message, halfwidth_kana) = normalize_halfwidth_kana(&decoded);
         strings.push(ParsedString {
             index,
@@ -595,9 +579,8 @@ fn compose_kana(base: char, mark: char) -> Option<char> {
     })
 }
 
-fn decode_message(bytes: &[u8]) -> (String, bool, Vec<(usize, String)>) {
+fn decode_message(bytes: &[u8]) -> (String, Vec<(usize, String)>) {
     let mut text = String::new();
-    let mut reversible = true;
     let mut special_bytes = Vec::new();
     let mut index = 0usize;
     while index < bytes.len() {
@@ -615,7 +598,6 @@ fn decode_message(bytes: &[u8]) -> (String, bool, Vec<(usize, String)>) {
                 // CPMAIN consumes a one-byte reference argument after 0x02.
                 // Keep a truncated marker losslessly for diagnostics.
                 text.push_str("[[CTRL:02]]");
-                reversible = false;
                 index += 1;
             }
             continue;
@@ -649,20 +631,17 @@ fn decode_message(bytes: &[u8]) -> (String, bool, Vec<(usize, String)>) {
         {
             let code = format!("{byte:02X}{:02X}", bytes[index + 1]);
             text.push_str(&format!("[[CODE:{code}]]"));
-            reversible = false;
             special_bytes.push((index, code));
             index += 2;
             continue;
         }
         if index + width > bytes.len() {
             text.push_str(&format!("[[BYTE:{byte:02X}]]"));
-            reversible = false;
             index += 1;
             continue;
         }
         if byte == 0x80 || byte == 0xa0 {
             text.push_str(&format!("[[BYTE:{byte:02X}]]"));
-            reversible = false;
             index += 1;
             continue;
         }
@@ -670,14 +649,13 @@ fn decode_message(bytes: &[u8]) -> (String, bool, Vec<(usize, String)>) {
             SHIFT_JIS.decode_without_bom_handling(&bytes[index..index + width]);
         if had_errors || decoded.contains('\u{fffd}') {
             text.push_str(&format!("[[BYTE:{byte:02X}]]"));
-            reversible = false;
             index += 1;
         } else {
             text.push_str(&decoded);
             index += width;
         }
     }
-    (text, reversible, special_bytes)
+    (text, special_bytes)
 }
 
 fn encode_message(text: &str) -> Result<Vec<u8>, String> {
@@ -790,7 +768,7 @@ mod tests {
         assert_eq!(document.strings[1].speaker_id, Some(7));
         document.strings[0].message = "A-LONG".into();
         let rebuilt = apply_document(&raw, &document).unwrap();
-        let parsed = parse_document(&rebuilt, "test.SCR".into()).unwrap();
+        let parsed = parse_document(&rebuilt).unwrap();
         assert_eq!(parsed.records[0].arg_b, 11);
         assert_eq!(parsed.records[1].arg_a, 7);
         assert_eq!(parsed.strings[2].message, "B");

@@ -10,10 +10,10 @@ serde = { version = "=1.0.228", features = ["derive"] }
 serde_json = "=1.0.150"
 sha2 = "=0.10.9"
 encoding_rs = "=0.8.35"
-vn-cli = { path = "../vn_cli" }
-vn-d88 = { path = "../vn_d88" }
-vn-font = { path = "../vn_font" }
-vn-text = { path = "../vn_text" }
+vn-cli = { path = "../../PC98/common/vn_cli" }
+vn-d88 = { path = "../../PC98/common/vn_d88" }
+vn-font = { path = "../../PC98/common/vn_font" }
+vn-text = { path = "../../PC98/common/vn_text" }
 
 [lib]
 name = "tenboudai_pc88_tool"

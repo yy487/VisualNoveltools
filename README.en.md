@@ -17,8 +17,8 @@ The general idea is one folder per game.
 
 ### Naming
 
-- When the engine is known, projects usually follow an `engine--game name` naming style.
-- When only the game is known, or the engine hasn't been confirmed, I use the game name or the existing category name.
+- Tools are grouped by engine, platform, or developer. Game folders use the original game title or a commonly used translated title whenever possible.
+- When the game title hasn't been confirmed, I keep the known format name or the existing category name.
 - Sometimes I use the developer's name instead. It mostly depends on what comes to mind at the time.
 - Games using the same engine are kept in separate game directories where possible.
 

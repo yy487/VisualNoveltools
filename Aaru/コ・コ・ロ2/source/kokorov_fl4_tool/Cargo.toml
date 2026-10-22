@@ -1,0 +1,23 @@
+[package]
+name = "kokorov-fl4-tool"
+version = "0.1.0"
+edition = "2021"
+description = "Structure-aware KOKOROV FL4.0 archive unpacker and packer"
+license = "MIT"
+
+[dependencies]
+encoding_rs = "0.8.35"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.150"
+
+[lib]
+name = "kokorov_fl4"
+path = "src/lib.rs"
+
+[[bin]]
+name = "fl4_unpack"
+path = "src/bin/fl4_unpack.rs"
+
+[[bin]]
+name = "fl4_pack"
+path = "src/bin/fl4_pack.rs"

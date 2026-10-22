@@ -1,0 +1,15 @@
+[package]
+name = "suishou_no_dragon_tool"
+version = "0.2.0"
+edition = "2021"
+publish = false
+description = "Suishou no Dragon FDS to MMC5 conversion, banked 16x16 Chinese and text round-trip"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "=0.10.9"
+unicode-normalization = "=0.1.25"
+png = "=0.18.1"
+vn-cli = { path = "../vn_cli" }
+vn-text = { path = "../vn_text" }

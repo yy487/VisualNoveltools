@@ -1,0 +1,13 @@
+[package]
+name = "yox-adv-tool"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "Read-only YOX archive unpacking for the supplied ADV++ game"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+flate2 = "1.1"
+vn-cli = { path = "../vn_cli" }
+vn-text = { path = "../vn_text" }

@@ -40,6 +40,7 @@ RESOURCE_KEY_A = 0xA2FB6AD1
 RESOURCE_KEY_B = 0xE7B5D9F8
 RIO_SCRIPT_KEY = 0x7E6B8CE2
 CRSA_HEADER_SIZE = 12
+RESOURCE_PREAMBLE_SIZE = 3
 
 # sub_1000D230 compact CRuntimeClass-name alphabet.
 CLASS_NAME_TABLE_5 = b"eaitrosducmnSglR"
@@ -50,6 +51,8 @@ CLASS_NAME_TABLE_7 = b"EHTDPWXkqvNjwGz02U_K15JQZ467839\x00"
 # differs by bit 0x10 and is used by COptimizedObs in the second game.
 DIRECT_LOCATOR_FLAGS = (0xC108, 0xC118, 0xC308)
 MAX_COMPACT_CLASS_REFERENCE = 0x100
+CIMGSEL_CLASS_DESCRIPTOR = bytes.fromhex("ffff0200047aaa31e0")
+CRBX_TAIL_SIGNATURE = 0x00010046
 
 
 class FormatError(ValueError):
@@ -665,6 +668,9 @@ def parse_rio_root(
     if not naked_archive:
         raise FormatError(f"unexpected RIO root signature 0x{signature:08X}")
 
+    # UnivUI's naked-archive branch omits each child CString name and merges
+    # records into an already prepared runtime OceanNode table. Consequently,
+    # the static tree below preserves structure and serialization order only.
     child_count = reader.count()
     children = [
         _parse_rio_node(
@@ -687,6 +693,9 @@ def parse_rio_root(
         "signature": f"0x{signature:08X}",
         "archive_version": archive_version,
         "archive_flags": archive_flags,
+        "naked_archive": naked_archive,
+        "child_names_serialized": not naked_archive,
+        "tree_path_kind": "synthetic_serialization_order",
         "runtime_class": root_class,
         "root_object_archive_index": root_object_index,
         "archive_class_table": {
@@ -886,6 +895,242 @@ def scan_rio_resource_locators(
     }
 
 
+def scan_rio_image_bodies(
+    volume_path: Path,
+    address_shift: int,
+) -> dict[str, Any]:
+    """
+    Find complete CRip and CRip007 serialized bodies in a RIO volume.
+
+    Some game images have no locator reachable from the parsed root or the
+    direct-locator scan. Their serialized bodies still carry strict,
+    self-sizing headers, so they can be recovered without guessing an end
+    offset. The common field value 69 at body offset +3 is used only as a
+    search accelerator; every candidate must also pass its format-specific
+    bounds and reserved-field checks.
+    """
+    volume_size = volume_path.stat().st_size
+    records: list[dict[str, Any]] = []
+    marker = struct.pack("<I", 69)
+
+    with volume_path.open("rb") as stream:
+        data = mmap.mmap(stream.fileno(), 0, access=mmap.ACCESS_READ)
+        try:
+            marker_offset = 0
+            while True:
+                marker_offset = data.find(marker, marker_offset)
+                if marker_offset < 0:
+                    break
+                body_offset = marker_offset - RESOURCE_PREAMBLE_SIZE
+                marker_offset += 1
+                if body_offset < 0:
+                    continue
+
+                crip_record = _parse_crip_body_candidate(
+                    data,
+                    body_offset,
+                    volume_size,
+                    volume_path.name,
+                    address_shift,
+                )
+                if crip_record is not None:
+                    records.append(crip_record)
+
+                crip007_record = _parse_crip007_body_candidate(
+                    data,
+                    body_offset,
+                    volume_size,
+                    volume_path.name,
+                    address_shift,
+                )
+                if crip007_record is not None:
+                    records.append(crip007_record)
+        finally:
+            data.close()
+
+    unique = {
+        (
+            record["volume_name"],
+            record["volume_offset"],
+            record["resource_size"],
+        ): record
+        for record in records
+    }
+    selected = sorted(
+        unique.values(),
+        key=lambda item: (item["volume_offset"], item["resource_size"]),
+    )
+    return {
+        "volume": str(volume_path),
+        "selected_record_count": len(selected),
+        "crip_record_count": sum(
+            record["class_name"] == "CRip" for record in selected
+        ),
+        "crip007_record_count": sum(
+            record["class_name"] == "CRip007" for record in selected
+        ),
+        "selected_bytes": sum(record["resource_size"] for record in selected),
+        "records": selected,
+    }
+
+
+def _valid_image_dimensions(width: int, height: int) -> bool:
+    return (
+        0 < width <= 0x7FFF
+        and 0 < height <= 0x7FFF
+        and width * height <= 100_000_000
+    )
+
+
+def _image_body_record(
+    *,
+    class_name: str,
+    volume_name: str,
+    volume_offset: int,
+    resource_size: int,
+    address_shift: int,
+    width: int,
+    height: int,
+    format_fields: dict[str, Any],
+) -> dict[str, Any]:
+    return {
+        "record_offset": volume_offset,
+        "class_kind": "image_body",
+        "class_name": class_name,
+        "flags": "image_body_scan",
+        "logical_address": volume_offset >> address_shift,
+        "volume_name": volume_name,
+        "volume_offset": volume_offset,
+        "resource_size": resource_size,
+        "width": width,
+        "height": height,
+        "image_format": format_fields,
+        "origins": ["image_body_scan"],
+    }
+
+
+def _parse_crip_body_candidate(
+    data: mmap.mmap,
+    offset: int,
+    volume_size: int,
+    volume_name: str,
+    address_shift: int,
+) -> dict[str, Any] | None:
+    header_size = 31
+    if offset + header_size > volume_size:
+        return None
+
+    width, height = struct.unpack_from("<HH", data, offset + 11)
+    codec, planes = struct.unpack_from("<HH", data, offset + 19)
+    payload_size = struct.unpack_from("<I", data, offset + 23)[0]
+    reserved = struct.unpack_from("<I", data, offset + 27)[0]
+    if (
+        not _valid_image_dimensions(width, height)
+        or (codec, planes) not in {(1, 1), (0x0602, 3), (0x0303, 2)}
+        or payload_size == 0
+        or reserved != 0
+        or payload_size > volume_size - offset - header_size
+    ):
+        return None
+
+    if (codec, planes) == (0x0303, 2):
+        (
+            origin_x,
+            origin_y,
+            canvas_width,
+            canvas_height,
+            region_width,
+            region_height,
+        ) = struct.unpack_from("<HHHHHH", data, offset + 7)
+        run_offset = struct.unpack_from("<I", data, offset + header_size)[0]
+        if (
+            (canvas_width, canvas_height) != (width, height)
+            or region_width == 0
+            or region_height == 0
+            or origin_x + region_width > canvas_width
+            or origin_y + region_height > canvas_height
+            or not 4 <= run_offset < payload_size
+        ):
+            return None
+
+    return _image_body_record(
+        class_name="CRip",
+        volume_name=volume_name,
+        volume_offset=offset,
+        resource_size=header_size + payload_size,
+        address_shift=address_shift,
+        width=width,
+        height=height,
+        format_fields={
+            "codec": codec,
+            "planes": planes,
+            "payload_size": payload_size,
+        },
+    )
+
+
+def _parse_crip007_body_candidate(
+    data: mmap.mmap,
+    offset: int,
+    volume_size: int,
+    volume_name: str,
+    address_shift: int,
+) -> dict[str, Any] | None:
+    header_size = 41
+    if offset + header_size > volume_size:
+        return None
+
+    width, height = struct.unpack_from("<HH", data, offset + 15)
+    image_flags = struct.unpack_from("<I", data, offset + 19)[0]
+    quantizer = data[offset + 23]
+    reserved_word = struct.unpack_from("<H", data, offset + 24)[0]
+    pixel_format = struct.unpack_from("<I", data, offset + 26)[0]
+    object_map_count = data[offset + 30]
+    auxiliary_object_tag = struct.unpack_from("<H", data, offset + 31)[0]
+    payload_size = struct.unpack_from("<I", data, offset + 33)[0]
+    reserved_dword = struct.unpack_from("<I", data, offset + 37)[0]
+    channel_bits = (
+        (pixel_format >> 8) & 0xF,
+        (pixel_format >> 16) & 0xF,
+        (pixel_format >> 24) & 0xF,
+    )
+    if (
+        not _valid_image_dimensions(width, height)
+        or image_flags & 0xFE != 2
+        or min(channel_bits) == 0
+        # CRip007's first object reference starts an archive load map here.
+        # The supplied files use 3/4/5 entries, followed by a null CSbm tag.
+        or object_map_count not in (3, 4, 5)
+        or auxiliary_object_tag != 0
+        or payload_size == 0
+        or reserved_dword != 0
+        or payload_size > volume_size - offset - header_size
+    ):
+        return None
+
+    return _image_body_record(
+        class_name="CRip007",
+        volume_name=volume_name,
+        volume_offset=offset,
+        resource_size=header_size + payload_size,
+        address_shift=address_shift,
+        width=width,
+        height=height,
+        format_fields={
+            "image_flags": f"0x{image_flags:08X}",
+            "quantizer": quantizer,
+            "reserved_word": reserved_word,
+            "pixel_format": f"0x{pixel_format:08X}",
+            "object_map_count": object_map_count,
+            "auxiliary_object_tag": auxiliary_object_tag,
+            # Compatibility with manifests generated before the load-map
+            # interpretation was confirmed.
+            "object_marker": object_map_count,
+            "payload_size": payload_size,
+        },
+    )
+
+
 def collect_rio_root_resources(root: dict[str, Any]) -> list[dict[str, Any]]:
     """Flatten external resource locators parsed from the root directory."""
     records: list[dict[str, Any]] = []
@@ -924,6 +1169,7 @@ def collect_rio_root_resources(root: dict[str, Any]) -> list[dict[str, Any]]:
 def merge_rio_resource_records(
     root: dict[str, Any],
     scan: dict[str, Any],
+    image_scan: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """
     Merge root-directory locators with locators found in later streams.
@@ -949,11 +1195,21 @@ def merge_rio_resource_records(
         )
         for record in scan["records"]
     }
+    image_records = image_scan["records"] if image_scan is not None else []
+    image_spans = {
+        (
+            record["volume_name"],
+            record["volume_offset"],
+            record["resource_size"],
+        )
+        for record in image_records
+    }
 
     merged: dict[tuple[str, int, int], dict[str, Any]] = {}
     for origin, records in (
         ("root_tree", root_records),
         ("volume_scan", scan["records"]),
+        ("image_body_scan", image_records),
     ):
         for source_record in records:
             record = dict(source_record)
@@ -1033,6 +1289,13 @@ def merge_rio_resource_records(
         "shared_record_count": len(root_spans & scan_spans),
         "root_only_record_count": len(root_spans - scan_spans),
         "scan_only_record_count": len(scan_spans - root_spans),
+        "image_body_record_count": len(image_records),
+        "image_body_shared_record_count": len(
+            image_spans & (root_spans | scan_spans)
+        ),
+        "image_body_only_record_count": len(
+            image_spans - (root_spans | scan_spans)
+        ),
         "selected_record_count": len(records),
         "named_record_count": sum(
             not record["class_name"].startswith("class_ref_")
@@ -1044,6 +1307,768 @@ def merge_rio_resource_records(
         ),
         "selected_bytes": sum(record["resource_size"] for record in records),
         "records": records,
+    }
+
+
+class _SerializedObjectStream:
+    """Read the object-reference grammar used inside resource payloads."""
+
+    def __init__(
+        self,
+        data: bytes,
+        metadata: dict[str, Any],
+        position: int = RESOURCE_PREAMBLE_SIZE,
+    ) -> None:
+        self.reader = Reader(data, position)
+        self.metadata = metadata
+        self.object_map_started = False
+        self.parent_map_count: int | None = None
+        self.locators: list[dict[str, Any]] = []
+
+    def start_object_map(self) -> None:
+        if self.object_map_started:
+            return
+        self.object_map_started = True
+        count = self.reader.u8()
+        self.parent_map_count = (
+            self.reader.u16() if count == 0xFF else count
+        )
+
+
+def _parse_serialized_object_reference(
+    stream: _SerializedObjectStream,
+    depth: int = 0,
+) -> dict[str, Any]:
+    """
+    Parse the load-side grammar implemented by UnivUI_656.
+
+    Resource streams use the naked-archive branch: a class tag is followed
+    by flags, encoded address/size, a recursive parent reference, and the
+    node's small identity field. Existing object references stop after the
+    class/object tag.
+    """
+    if depth > 256:
+        raise FormatError("serialized object reference exceeds maximum depth")
+
+    stream.start_object_map()
+    reader = stream.reader
+    serialized_offset = reader.position
+    runtime_class = _read_runtime_class(reader)
+    if runtime_class["kind"] == "object_reference":
+        return {
+            "kind": "object_reference",
+            "serialized_offset": serialized_offset,
+            "object_reference": runtime_class["reference"],
+        }
+
+    flags_offset = reader.position
+    flags = reader.u16()
+    if flags & 0x40:
+        raise FormatError(
+            "inline serialized object bodies are not supported "
+            f"at 0x{flags_offset:X}"
+        )
+
+    encoded_address = reader.u32()
+    encoded_size = reader.u32()
+    logical_address = decode_resource_address(encoded_address)
+    resource_size = decode_resource_size(encoded_size)
+    source, volume_offset = map_logical_address(
+        logical_address,
+        stream.metadata["field_28"],
+        stream.metadata["install_sources"],
+    )
+    parent = _parse_serialized_object_reference(stream, depth + 1)
+
+    low_kind = flags & 7
+    if low_kind == 0:
+        type_id = reader.u8() if flags & 0x8000 else reader.u16()
+        object_id = None
+    elif low_kind == 1:
+        object_id = reader.u32()
+        type_id = None
+    else:
+        raise FormatError(
+            f"unsupported serialized node kind {low_kind} "
+            f"at 0x{flags_offset:X}"
+        )
+
+    locator = {
+        "kind": "locator",
+        "serialized_offset": serialized_offset,
+        "flags_offset": flags_offset,
+        "flags": f"0x{flags:04X}",
+        "runtime_class": runtime_class,
+        "class_name": _runtime_class_label(runtime_class),
+        "encoded_address": f"0x{encoded_address:08X}",
+        "encoded_size": f"0x{encoded_size:08X}",
+        "logical_address": logical_address,
+        "volume_name": source["volume_name"],
+        "volume_offset": volume_offset,
+        "resource_size": resource_size,
+        "type_id": type_id,
+        "object_id": object_id,
+        "parent": parent,
+    }
+    stream.locators.append(locator)
+    return locator
+
+
+def _parse_cimgsel_profile(profile: str) -> dict[str, str]:
+    values = {}
+    for key in ("IMGENB", "IMGDSB", "IMGSLC", "IMGPSH", "NAME"):
+        match = re.search(
+            rf"{key}=(?:\{{([^}}]*)\}}|\"([^\"]*)\")",
+            profile,
+        )
+        if match is not None:
+            values[key] = match.group(1) or match.group(2) or ""
+    return values
+
+
+def scan_rio_crbx_groups(
+    volume_path: Path,
+    metadata: dict[str, Any],
+) -> dict[str, Any]:
+    """
+    Recover CRbx's embedded CImgSel map.
+
+    CRbx::Serialize writes a count followed by CImgSel object pointers.
+    The first item carries the schema-2 runtime-class descriptor and later
+    items reuse its archive class index. Each object then stores its archive
+    object id, two 32-bit selector fields, four CSbm references, a profile,
+    a 16-bit value, and an eight-byte rectangle-like tail. CRbx finishes the
+    map with its 0x00010046 marker, canvas dimensions, one dword, and an
+    embedded MFC CObList. The supplied games serialize that list as empty.
+    """
+    groups = []
+    errors = []
+    with volume_path.open("rb") as source:
+        data = mmap.mmap(source.fileno(), 0, access=mmap.ACCESS_READ)
+        try:
+            position = 0
+            while True:
+                position = data.find(CIMGSEL_CLASS_DESCRIPTOR, position)
+                if position < 0:
+                    break
+                descriptor_offset = position
+                position += 1
+                if descriptor_offset < 2:
+                    continue
+
+                item_count = struct.unpack_from(
+                    "<H", data, descriptor_offset - 2
+                )[0]
+                if not 0 < item_count <= 256:
+                    continue
+
+                stream = _SerializedObjectStream(
+                    data,
+                    metadata,
+                    position=descriptor_offset,
+                )
+                # This map is embedded in an already initialized archive.
+                stream.object_map_started = True
+                items = []
+                try:
+                    for item_index in range(item_count):
+                        item_offset = stream.reader.position
+                        runtime_class = _read_runtime_class(stream.reader)
+                        if item_index == 0:
+                            if (
+                                runtime_class["kind"] != "new"
+                                or runtime_class["name"] != "CImgSel"
+                                or runtime_class["schema"] != 2
+                            ):
+                                raise FormatError(
+                                    "invalid leading CImgSel runtime class"
+                                )
+                        elif runtime_class["kind"] != "reference":
+                            raise FormatError(
+                                "CImgSel map item does not reuse its class"
+                            )
+
+                        archive_object_id = stream.reader.u32()
+                        selector_id = stream.reader.u32()
+                        slot_flags = stream.reader.u32()
+                        references = [
+                            _parse_serialized_object_reference(stream)
+                            for _ in range(4)
+                        ]
+                        profile_prefix_offset = stream.reader.position
+                        profile_bytes = stream.reader.cstring_bytes()
+                        profile_content_offset = (
+                            stream.reader.position - len(profile_bytes)
+                        )
+                        profile = profile_bytes.decode(
+                            "cp932", errors="replace"
+                        )
+                        profile_values = _parse_cimgsel_profile(profile)
+                        profile_keys = (
+                            "IMGENB",
+                            "IMGDSB",
+                            "IMGSLC",
+                            "IMGPSH",
+                        )
+                        for slot_index, (profile_key, reference) in enumerate(
+                            zip(profile_keys, references)
+                        ):
+                            reference["slot_index"] = slot_index
+                            reference["profile_key"] = profile_key
+                            reference["profile_name"] = profile_values.get(
+                                profile_key, ""
+                            )
+                        value_u16 = stream.reader.u16()
+                        raw_u16_4 = list(
+                            struct.unpack("<HHHH", stream.reader.read(8))
+                        )
+                        slot_bytes = [
+                            (slot_flags >> (slot * 8)) & 0xFF
+                            for slot in range(4)
+                        ]
+                        items.append(
+                            {
+                                "item_index": item_index,
+                                "serialized_offset": item_offset,
+                                "runtime_class": runtime_class,
+                                "archive_object_id": archive_object_id,
+                                "selector_id": selector_id,
+                                "slot_flags": f"0x{slot_flags:08X}",
+                                "slot_flag_bytes": slot_bytes,
+                                "dynamic_profile_slots": [
+                                    slot
+                                    for slot, value in enumerate(slot_bytes)
+                                    if value & 0xC0 == 0x40
+                                ],
+                                "references": references,
+                                "profile_prefix_offset": (
+                                    profile_prefix_offset
+                                ),
+                                "profile_content_offset": (
+                                    profile_content_offset
+                                ),
+                                "profile_byte_length": len(profile_bytes),
+                                "profile": profile,
+                                "profile_values": profile_values,
+                                "value_u16": value_u16,
+                                "raw_u16_4": raw_u16_4,
+                            }
+                        )
+
+                    tail_offset = stream.reader.position
+                    tail_signature = stream.reader.u32()
+                    canvas_width = stream.reader.u16()
+                    canvas_height = stream.reader.u16()
+                    tail_u32 = stream.reader.u32()
+                    embedded_object_count_offset = stream.reader.position
+                    embedded_object_count = stream.reader.count()
+                    if tail_signature != CRBX_TAIL_SIGNATURE:
+                        raise FormatError(
+                            "CRbx tail signature mismatch at "
+                            f"0x{tail_offset:X}"
+                        )
+                    if embedded_object_count != 0:
+                        raise FormatError(
+                            "non-empty CRbx embedded CObList is not "
+                            "supported at "
+                            f"0x{embedded_object_count_offset:X}"
+                        )
+
+                    null_reference_count = sum(
+                        reference["kind"] == "object_reference"
+                        and reference["object_reference"] == 0
+                        for item in items
+                        for reference in item["references"]
+                    )
+                    groups.append(
+                        {
+                            "count_offset": descriptor_offset - 2,
+                            "descriptor_offset": descriptor_offset,
+                            "serialized_end": stream.reader.position,
+                            "item_count": item_count,
+                            "canvas_width": canvas_width,
+                            "canvas_height": canvas_height,
+                            "tail_signature": (
+                                f"0x{tail_signature:08X}"
+                            ),
+                            "tail_u32": tail_u32,
+                            "embedded_object_count_offset": (
+                                embedded_object_count_offset
+                            ),
+                            "embedded_object_count": embedded_object_count,
+                            "reference_count": item_count * 4,
+                            "null_reference_count": (
+                                null_reference_count
+                            ),
+                            "structural_locator_count": len(
+                                stream.locators
+                            ),
+                            "locators": stream.locators,
+                            "items": items,
+                        }
+                    )
+                except (FormatError, UnicodeError, struct.error) as error:
+                    errors.append(
+                        {
+                            "descriptor_offset": descriptor_offset,
+                            "item_count": item_count,
+                            "error_offset": stream.reader.position,
+                            "error": str(error),
+                        }
+                    )
+        finally:
+            data.close()
+
+    return {
+        "volume": str(volume_path),
+        "group_count": len(groups),
+        "item_count": sum(group["item_count"] for group in groups),
+        "reference_count": sum(
+            group["reference_count"] for group in groups
+        ),
+        "null_reference_count": sum(
+            group["null_reference_count"] for group in groups
+        ),
+        "structural_locator_count": sum(
+            group["structural_locator_count"] for group in groups
+        ),
+        "error_count": len(errors),
+        "errors": errors,
+        "groups": groups,
+    }
+
+
+def _resource_preamble(data: bytes) -> str:
+    if len(data) < RESOURCE_PREAMBLE_SIZE:
+        raise FormatError("serialized resource is shorter than its preamble")
+    return data[:RESOURCE_PREAMBLE_SIZE].hex()
+
+
+def parse_cprocess_ocean_resource(
+    data: bytes,
+    metadata: dict[str, Any],
+) -> dict[str, Any]:
+    """Parse CProcessOcean::Serialize as implemented at Vm60+0x26120."""
+    stream = _SerializedObjectStream(data, metadata)
+    version = stream.reader.u32()
+    if version < 30 or version > 33:
+        raise FormatError(f"unsupported CProcessOcean version {version}")
+
+    names = ["message_box"]
+    if version != 30:
+        names.extend(["rio", "script"])
+        if version != 31:
+            names.append("auxiliary")
+            if version != 32:
+                names.append("secondary_rio")
+
+    references = {
+        name: _parse_serialized_object_reference(stream)
+        for name in names
+    }
+    if stream.reader.position != len(data):
+        raise FormatError(
+            "CProcessOcean parser left trailing bytes at "
+            f"0x{stream.reader.position:X}"
+        )
+    return {
+        "class_name": "CProcessOcean",
+        "resource_preamble": _resource_preamble(data),
+        "version": version,
+        "parent_map_count": stream.parent_map_count,
+        "references": references,
+        "locator_count": len(stream.locators),
+        "locators": stream.locators,
+        "consumed_size": stream.reader.position,
+    }
+
+
+def _parse_cbox_ocean_tree(
+    stream: _SerializedObjectStream,
+    depth: int = 0,
+) -> list[dict[str, Any]]:
+    if depth > 256:
+        raise FormatError("CBoxOcean child list exceeds maximum depth")
+    items = []
+    while True:
+        marker_offset = stream.reader.position
+        marker = stream.reader.u8()
+        if marker == 0:
+            return items
+        reference = _parse_serialized_object_reference(stream)
+        children = (
+            _parse_cbox_ocean_tree(stream, depth + 1)
+            if marker & 1
+            else []
+        )
+        items.append(
+            {
+                "marker_offset": marker_offset,
+                "marker": marker,
+                "reference": reference,
+                "children": children,
+            }
+        )
+
+
+def parse_cbox_ocean_resource(
+    data: bytes,
+    metadata: dict[str, Any],
+    schema: int = 8,
+) -> dict[str, Any]:
+    """Parse the supported branches of CBoxOcean::Serialize."""
+    if schema < 2 or schema > 8:
+        raise FormatError(f"unsupported CBoxOcean schema {schema}")
+
+    stream = _SerializedObjectStream(data, metadata)
+    frame_buffer = _parse_serialized_object_reference(stream)
+    dimensions: list[float] = []
+    if schema >= 8:
+        dimensions = list(struct.unpack("<dd", stream.reader.read(16)))
+
+    primary = _parse_serialized_object_reference(stream)
+    if schema < 6:
+        slots = [_parse_serialized_object_reference(stream)]
+        slot_count = 1
+    else:
+        slot_count = 32 if schema >= 7 else 12
+        slots = [
+            _parse_serialized_object_reference(stream)
+            for _ in range(slot_count)
+        ]
+
+    labels = (
+        [stream.reader.cstring() for _ in range(32)]
+        if schema >= 7
+        else []
+    )
+    menu = _parse_serialized_object_reference(stream)
+
+    frame_is_null = (
+        frame_buffer["kind"] == "object_reference"
+        and frame_buffer["object_reference"] == 0
+    )
+    child_tree: list[dict[str, Any]] = []
+    auxiliary = None
+    auxiliary_tree: list[dict[str, Any]] = []
+    if schema >= 4 and not frame_is_null:
+        child_tree = _parse_cbox_ocean_tree(stream)
+        if schema >= 5:
+            auxiliary = _parse_serialized_object_reference(stream)
+            auxiliary_is_null = (
+                auxiliary["kind"] == "object_reference"
+                and auxiliary["object_reference"] == 0
+            )
+            if not auxiliary_is_null:
+                auxiliary_tree = _parse_cbox_ocean_tree(stream)
+
+    if stream.reader.position != len(data):
+        raise FormatError(
+            "CBoxOcean parser left trailing bytes at "
+            f"0x{stream.reader.position:X}"
+        )
+    return {
+        "class_name": "CBoxOcean",
+        "schema": schema,
+        "resource_preamble": _resource_preamble(data),
+        "parent_map_count": stream.parent_map_count,
+        "frame_buffer": frame_buffer,
+        "dimensions": dimensions,
+        "primary": primary,
+        "slot_count": slot_count,
+        "slots": slots,
+        "labels": labels,
+        "menu": menu,
+        "child_tree": child_tree,
+        "auxiliary": auxiliary,
+        "auxiliary_tree": auxiliary_tree,
+        "locator_count": len(stream.locators),
+        "locators": stream.locators,
+        "consumed_size": stream.reader.position,
+    }
+
+
+def _parse_rvmm515_body(
+    stream: _SerializedObjectStream,
+) -> dict[str, Any]:
+    """
+    Parse CBox::Serialize followed by rvmm_515.
+
+    The embedded CObList is empty in both supplied games. Its non-empty
+    CArchive object-pointer grammar is deliberately left unsupported.
+    """
+    reader = stream.reader
+    box_scalars = {
+        "u16_0": reader.u16(),
+        "u16_1": reader.u16(),
+        "u32_0": reader.u32(),
+        "u8_0": reader.u8(),
+    }
+    box_blocks = [reader.read(8).hex() for _ in range(5)]
+    box_text_prefix_offset = reader.position
+    box_text_bytes = reader.cstring_bytes()
+    box_text_content_offset = reader.position - len(box_text_bytes)
+    box_text = box_text_bytes.decode("cp932", errors="replace")
+
+    embedded_object_count = reader.count()
+    if embedded_object_count:
+        raise FormatError(
+            "non-empty CImgBox embedded CObList is not supported"
+        )
+
+    image_scalars = {
+        "u16_0": reader.u16(),
+        "u16_1": reader.u16(),
+        "u32_0": reader.u32(),
+        "u32_1": reader.u32(),
+        "u32_2": reader.u32(),
+        "u32_3": reader.u32(),
+        "raw8": reader.read(8).hex(),
+        "u16_2": reader.u16(),
+        "u16_3": reader.u16(),
+    }
+    linked_box = _parse_serialized_object_reference(stream)
+    return {
+        "box_scalars": box_scalars,
+        "box_blocks": box_blocks,
+        "box_text": box_text,
+        "box_text_bytes": box_text_bytes.hex(),
+        "box_text_prefix_offset": box_text_prefix_offset,
+        "box_text_content_offset": box_text_content_offset,
+        "box_text_byte_length": len(box_text_bytes),
+        "embedded_object_count": embedded_object_count,
+        "image_scalars": image_scalars,
+        "linked_box": linked_box,
+    }
+
+
+def _parse_cimg_box_body(
+    stream: _SerializedObjectStream,
+) -> dict[str, Any]:
+    result = _parse_rvmm515_body(stream)
+    result["image_mode"] = stream.reader.u8()
+    return result
+
+
+def _parse_cimg_box_derived_resource(
+    data: bytes,
+    metadata: dict[str, Any],
+    class_name: str,
+    read_frame_buffer_tail: bool,
+) -> dict[str, Any]:
+    stream = _SerializedObjectStream(data, metadata)
+    result = _parse_cimg_box_body(stream)
+    if read_frame_buffer_tail:
+        result["hyper_view_object_tag"] = stream.reader.u32()
+    if stream.reader.position != len(data):
+        raise FormatError(
+            f"{class_name} parser left trailing bytes at "
+            f"0x{stream.reader.position:X}"
+        )
+    result.update(
+        {
+            "class_name": class_name,
+            "schema": 15,
+            "resource_preamble": _resource_preamble(data),
+            "parent_map_count": stream.parent_map_count,
+            "locator_count": len(stream.locators),
+            "locators": stream.locators,
+            "consumed_size": stream.reader.position,
+        }
+    )
+    return result
+
+
+def parse_cimg_box_resource(
+    data: bytes,
+    metadata: dict[str, Any],
+) -> dict[str, Any]:
+    return _parse_cimg_box_derived_resource(
+        data,
+        metadata,
+        "CImgBox",
+        read_frame_buffer_tail=False,
+    )
+
+
+def parse_cimg_area_box_resource(
+    data: bytes,
+    metadata: dict[str, Any],
+) -> dict[str, Any]:
+    # CImgAreaBox inherits CImgBox's CObject::Serialize slot unchanged.
+    return _parse_cimg_box_derived_resource(
+        data,
+        metadata,
+        "CImgAreaBox",
+        read_frame_buffer_tail=False,
+    )
+
+
+def parse_cframe_buffer_resource(
+    data: bytes,
+    metadata: dict[str, Any],
+) -> dict[str, Any]:
+    return _parse_cimg_box_derived_resource(
+        data,
+        metadata,
+        "CFrameBuffer",
+        read_frame_buffer_tail=True,
+    )
+
+
+def parse_cmsg_sel_box_resource(
+    data: bytes,
+    metadata: dict[str, Any],
+) -> dict[str, Any]:
+    """Parse CMessBox plus CMsgSelBox's schema-15 suffix."""
+    stream = _SerializedObjectStream(data, metadata)
+    result = _parse_rvmm515_body(stream)
+    message_version = stream.reader.u32()
+    if not 0x120 <= message_version <= 0x122:
+        raise FormatError(
+            f"unsupported CMessBox version 0x{message_version:X}"
+        )
+    result.update(
+        {
+            "message_version": message_version,
+            "message_u16": stream.reader.u16(),
+            "message_u8": stream.reader.u8(),
+        }
+    )
+    result["message_object"] = (
+        _parse_serialized_object_reference(stream)
+        if message_version > 0x121
+        else None
+    )
+    result["selection_u8"] = stream.reader.u8()
+    result["selection_u32"] = stream.reader.u32()
+    if stream.reader.position != len(data):
+        raise FormatError(
+            "CMsgSelBox parser left trailing bytes at "
+            f"0x{stream.reader.position:X}"
+        )
+    result.update(
+        {
+            "class_name": "CMsgSelBox",
+            "schema": 15,
+            "resource_preamble": _resource_preamble(data),
+            "parent_map_count": stream.parent_map_count,
+            "locator_count": len(stream.locators),
+            "locators": stream.locators,
+            "consumed_size": stream.reader.position,
+        }
+    )
+    return result
+
+
+def analyze_known_object_streams(
+    volume_dir: Path,
+    resources: dict[str, Any],
+    metadata: dict[str, Any],
+) -> dict[str, Any]:
+    """Structurally parse resource classes whose Serialize code is closed."""
+    parsers = {
+        "CProcessOcean": parse_cprocess_ocean_resource,
+        "CBoxOcean": parse_cbox_ocean_resource,
+        "CImgBox": parse_cimg_box_resource,
+        "CImgAreaBox": parse_cimg_area_box_resource,
+        "CFrameBuffer": parse_cframe_buffer_resource,
+        "CMsgSelBox": parse_cmsg_sel_box_resource,
+    }
+    resource_by_span = {
+        (
+            item["volume_name"],
+            item["volume_offset"],
+            item["resource_size"],
+        ): item
+        for item in resources["records"]
+    }
+    streams: dict[str, Any] = {}
+    parsed = []
+    errors = []
+    try:
+        for resource in resources["records"]:
+            parser = parsers.get(resource["class_name"])
+            if parser is None:
+                continue
+            volume_name = resource["volume_name"]
+            source = streams.get(volume_name)
+            if source is None:
+                source = (volume_dir / volume_name).open("rb")
+                streams[volume_name] = source
+            source.seek(resource["volume_offset"])
+            data = source.read(resource["resource_size"])
+            if len(data) != resource["resource_size"]:
+                raise FormatError(
+                    "short read parsing serialized object at "
+                    f"0x{resource['volume_offset']:X}"
+                )
+            try:
+                result = parser(data, metadata)
+            except FormatError as error:
+                errors.append(
+                    {
+                        "class_name": resource["class_name"],
+                        "volume_name": volume_name,
+                        "volume_offset": resource["volume_offset"],
+                        "resource_size": resource["resource_size"],
+                        "error": str(error),
+                    }
+                )
+                continue
+            result.update(
+                {
+                    "volume_name": volume_name,
+                    "volume_offset": resource["volume_offset"],
+                    "resource_size": resource["resource_size"],
+                }
+            )
+            for locator in result["locators"]:
+                target = resource_by_span.get(
+                    (
+                        locator["volume_name"],
+                        locator["volume_offset"],
+                        locator["resource_size"],
+                    )
+                )
+                if target is not None:
+                    locator["target_class_name"] = target["class_name"]
+                    locator["target_origins"] = target["origins"]
+            parsed.append(result)
+    finally:
+        for stream in streams.values():
+            stream.close()
+
+    unique_locator_spans = {
+        (
+            locator["volume_name"],
+            locator["volume_offset"],
+            locator["resource_size"],
+        )
+        for item in parsed
+        for locator in item["locators"]
+    }
+    matched_locator_spans = unique_locator_spans & resource_by_span.keys()
+    return {
+        "supported_classes": sorted(parsers),
+        "parsed_stream_count": len(parsed),
+        "error_count": len(errors),
+        "structural_locator_count": sum(
+            item["locator_count"] for item in parsed
+        ),
+        "unique_locator_span_count": len(unique_locator_spans),
+        "matched_resource_span_count": len(matched_locator_spans),
+        "unmatched_resource_spans": [
+            {
+                "volume_name": volume_name,
+                "volume_offset": volume_offset,
+                "resource_size": resource_size,
+            }
+            for volume_name, volume_offset, resource_size
+            in sorted(unique_locator_spans - resource_by_span.keys())
+        ],
+        "streams": parsed,
+        "errors": errors,
     }
 
 
@@ -1433,8 +2458,9 @@ def extract_rio_texts(
     resources: dict[str, Any],
     output_dir: Path,
     address_shift: int,
+    object_streams: dict[str, Any] | None = None,
 ) -> Path:
-    """Scan the complete volume and export every checksum-valid CRsa."""
+    """Export checksum-valid CRsa text and parsed UI-object CStrings."""
     output_dir.mkdir(parents=True, exist_ok=True)
     manifest_records = []
     volume_path = Path(resources["volume"])
@@ -1518,6 +2544,56 @@ def extract_rio_texts(
             }
         )
 
+    ui_records = []
+    if object_streams is not None:
+        ui_dir = output_dir / "ui_objects"
+        for item in object_streams["streams"]:
+            raw_hex = item.get("box_text_bytes", "")
+            if not raw_hex:
+                continue
+            text = item["box_text"]
+            display_text = "".join(
+                character
+                if character == "\n" or ord(character) >= 0x20
+                else f"{{{ord(character)}}}"
+                for character in text
+            )
+            base_name = (
+                f"{item['volume_offset']:08X}_"
+                f"{_safe_extension(item['class_name'])}"
+            )
+            ui_dir.mkdir(parents=True, exist_ok=True)
+            text_path = ui_dir / f"{base_name}.ui.txt"
+            json_path = ui_dir / f"{base_name}.ui.json"
+            record = {
+                "class_name": item["class_name"],
+                "volume_name": item["volume_name"],
+                "volume_offset": item["volume_offset"],
+                "resource_size": item["resource_size"],
+                "field_path": "CBox.box_text",
+                "prefix_offset": item["box_text_prefix_offset"],
+                "content_offset": item["box_text_content_offset"],
+                "volume_content_offset": (
+                    item["volume_offset"] + item["box_text_content_offset"]
+                ),
+                "byte_length": item["box_text_byte_length"],
+                "encoding": "cp932",
+                "text": text,
+                "display_text": display_text,
+                "raw_hex": raw_hex,
+                "text_file": text_path.relative_to(output_dir).as_posix(),
+                "json_file": json_path.relative_to(output_dir).as_posix(),
+            }
+            text_path.write_text(
+                display_text + ("\n" if display_text else ""),
+                encoding="utf-8-sig",
+            )
+            json_path.write_text(
+                json.dumps(record, ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+            ui_records.append(record)
+
     manifest_path = output_dir / "text_manifest.json"
     manifest_path.write_text(
         json.dumps(
@@ -1532,6 +2608,8 @@ def extract_rio_texts(
                     for record in manifest_records
                 ),
                 "records": manifest_records,
+                "ui_text_count": len(ui_records),
+                "ui_records": ui_records,
             },
             ensure_ascii=False,
             indent=2,
@@ -1572,6 +2650,12 @@ def extract_rio_resources(
             if tree_paths:
                 relative_dir = Path("root_tree") / Path(tree_paths[0])
                 classification = "root_tree"
+            elif record.get("origins") == ["image_body_scan"]:
+                relative_dir = (
+                    Path("image_body_scan")
+                    / _safe_extension(record["class_name"])
+                )
+                classification = "image_body_scan"
             else:
                 relative_dir = (
                     Path("serialized_objects")
@@ -1658,15 +2742,69 @@ def inspect_file(
             raise FormatError(f"RIO volume not found: {volume_path}")
         root = parse_rio_root(volume_path, metadata)
         scan = scan_rio_resource_locators(volume_path, metadata)
-        resources = merge_rio_resource_records(root, scan)
+        image_scan = scan_rio_image_bodies(
+            volume_path,
+            metadata["field_28"],
+        )
+        resources = merge_rio_resource_records(root, scan, image_scan)
+        crbx_groups = scan_rio_crbx_groups(volume_path, metadata)
+        resources_by_span = {
+            (
+                record["volume_name"],
+                record["volume_offset"],
+                record["resource_size"],
+            ): record
+            for record in resources["records"]
+        }
+        matched_crbx_locators = 0
+        for group in crbx_groups["groups"]:
+            for locator in group["locators"]:
+                target = resources_by_span.get(
+                    (
+                        locator["volume_name"],
+                        locator["volume_offset"],
+                        locator["resource_size"],
+                    )
+                )
+                if target is not None:
+                    matched_crbx_locators += 1
+                    locator["target_class_name"] = target["class_name"]
+                    locator["target_origins"] = target["origins"]
+                    logical_name = locator.get("profile_name")
+                    if logical_name:
+                        logical_names = target.setdefault(
+                            "logical_names", []
+                        )
+                        if logical_name not in logical_names:
+                            logical_names.append(logical_name)
+        crbx_groups["matched_resource_span_count"] = (
+            matched_crbx_locators
+        )
         metadata["rio_root"] = root
         metadata["rio_scan"] = scan
+        metadata["rio_image_scan"] = image_scan
         metadata["rio_resources"] = resources
+        metadata["rio_crbx_groups"] = crbx_groups
+        metadata["rio_object_streams"] = analyze_known_object_streams(
+            path.parent,
+            resources,
+            metadata,
+        )
         if extract_dir is not None:
             target_dir = extract_dir / volume_path.stem
             metadata["manifest_file"] = str(
                 extract_rio_resources(path.parent, resources, target_dir)
             )
+            crbx_index_path = target_dir / "crbx_index.json"
+            crbx_index_path.write_text(
+                json.dumps(
+                    crbx_groups,
+                    ensure_ascii=False,
+                    indent=2,
+                ),
+                encoding="utf-8",
+            )
+            metadata["crbx_index_file"] = str(crbx_index_path)
         if text_dir is not None:
             target_dir = text_dir / volume_path.stem
             metadata["text_manifest_file"] = str(
@@ -1675,6 +2813,7 @@ def inspect_file(
                     resources,
                     target_dir,
                     metadata["field_28"],
+                    metadata["rio_object_streams"],
                 )
             )
 
@@ -1736,6 +2875,11 @@ def print_summary(metadata: dict[str, Any]) -> None:
             f"({resources['root_only_record_count']} root-only, "
             f"{resources['scan_only_record_count']} scan-only, "
             f"{resources['shared_record_count']} shared)"
+        )
+        image_scan = metadata["rio_image_scan"]
+        print(
+            f"  Image bodies: {image_scan['selected_record_count']} "
+            f"({resources['image_body_only_record_count']} newly reachable)"
         )
         print(f"    selected payload bytes: {resources['selected_bytes']:,}")
     if "manifest_file" in metadata:

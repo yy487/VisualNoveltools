@@ -46,6 +46,8 @@ pub struct MappingUse {
     pub rom_address: u16,
     pub rom_byte_offset: usize,
     pub used_preferred_carrier: bool,
+    #[serde(default)]
+    pub force_native: bool,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -348,6 +350,33 @@ impl FontResources {
         S: AsRef<str>,
         F: Fn(u16) -> bool,
     {
+        self.plan_dynamic_mapping_with_filters(
+            original_double_byte_codes,
+            translated_texts,
+            carrier_jis_allowed,
+            |_| true,
+        )
+    }
+
+    /// Plan a dynamic mapping while separately filtering carrier slots and
+    /// native text codes. A native text code rejected by `native_jis_allowed`
+    /// is encoded through a collision-free carrier and its original ROM glyph
+    /// is copied into that carrier during ROM rebuilding. This is useful when
+    /// a game's control tokens occupy otherwise valid JIS text codes.
+    pub fn plan_dynamic_mapping_with_filters<C, I, S, F, N>(
+        &self,
+        original_double_byte_codes: C,
+        translated_texts: I,
+        carrier_jis_allowed: F,
+        native_jis_allowed: N,
+    ) -> FontResult<DynamicFontPlan>
+    where
+        C: IntoIterator<Item = u16>,
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+        F: Fn(u16) -> bool,
+        N: Fn(u16) -> bool,
+    {
         let mut original_codes = BTreeSet::new();
         let mut reserved_cp932 = BTreeSet::new();
         let mut reserved_addresses = BTreeSet::new();
@@ -369,6 +398,7 @@ impl FontResources {
         let mut native_by_address = BTreeMap::<u16, NativeDoubleByteUse>::new();
         let mut unsupported_order = Vec::new();
         let mut unsupported_seen = BTreeSet::new();
+        let mut forced_native_targets = BTreeSet::new();
         for text in translated_texts {
             for character in text.as_ref().chars() {
                 if character == '\0' {
@@ -380,15 +410,31 @@ impl FontResources {
                         if let Ok((jis, rom_address)) = code_to_address(cp932) {
                             reserved_cp932.insert(cp932);
                             reserved_addresses.insert(rom_address);
-                            native_by_address
-                                .entry(rom_address)
-                                .or_insert(NativeDoubleByteUse {
-                                    character,
-                                    cp932,
-                                    jis,
-                                    rom_address,
-                                    rom_byte_offset: usize::from(rom_address) * 2,
-                                });
+                            if native_jis_allowed(jis) {
+                                native_by_address.entry(rom_address).or_insert(
+                                    NativeDoubleByteUse {
+                                        character,
+                                        cp932,
+                                        jis,
+                                        rom_address,
+                                        rom_byte_offset: usize::from(rom_address) * 2,
+                                    },
+                                );
+                            } else {
+                                if unsupported_seen.insert(character) {
+                                    unsupported_order.push(character);
+                                }
+                                forced_native_targets.insert(character);
+                                native_by_address.entry(rom_address).or_insert(
+                                    NativeDoubleByteUse {
+                                        character,
+                                        cp932,
+                                        jis,
+                                        rom_address,
+                                        rom_byte_offset: usize::from(rom_address) * 2,
+                                    },
+                                );
+                            }
                         } else {
                             self.require_dynamic_glyph(character, Some(cp932))?;
                             if unsupported_seen.insert(character) {
@@ -454,6 +500,7 @@ impl FontResources {
                     rom_address: candidate.rom_address,
                     rom_byte_offset: candidate.rom_byte_offset,
                     used_preferred_carrier: false,
+                    force_native: forced_native_targets.contains(target),
                 }
             })
             .collect::<Vec<_>>();
@@ -482,6 +529,15 @@ impl FontResources {
         for character in text.chars() {
             if character == '\0' {
                 return Err("translated message contains NUL".to_string());
+            }
+            if let Some(assignment) = mapping_by_target.get(&character) {
+                if assignment.force_native {
+                    bytes.extend_from_slice(&assignment.carrier_cp932.to_be_bytes());
+                    mapped
+                        .entry(assignment.rom_address)
+                        .or_insert_with(|| (*assignment).clone());
+                    continue;
+                }
             }
             match native_cp932(character)? {
                 Some(NativeEncoding::Single(byte)) => bytes.push(byte),
@@ -553,12 +609,6 @@ impl FontResources {
         let mut total_changed_bytes = 0usize;
 
         for assignment in &plan.mapping_used {
-            if !self.glyphs.contains_key(&assignment.target) {
-                return Err(format!(
-                    "dynamic mapping contains unsupported U+{:04X} {:?}",
-                    assignment.target as u32, assignment.target
-                ));
-            }
             let candidate = self
                 .candidate_pool
                 .iter()
@@ -576,12 +626,28 @@ impl FontResources {
                     )
                 })?;
             let _ = candidate;
-            let glyph = self.glyphs.get(&assignment.target).ok_or_else(|| {
-                format!(
-                    "embedded FCG1 table has no U+{:04X} {:?}",
-                    assignment.target as u32, assignment.target
-                )
-            })?;
+            let native_source_range = if assignment.force_native {
+                let native = plan
+                    .native_double_byte
+                    .iter()
+                    .find(|native| native.character == assignment.target)
+                    .ok_or_else(|| "forced native mapping has no source glyph".to_owned())?;
+                Some(glyph_range(native.rom_address)?)
+            } else {
+                None
+            };
+            let glyph = if let Some(source_range) = &native_source_range {
+                source_rom
+                    .get(source_range.clone())
+                    .ok_or_else(|| "forced native source glyph exceeds KANJI1.ROM".to_owned())?
+            } else {
+                self.glyphs.get(&assignment.target).ok_or_else(|| {
+                    format!(
+                        "embedded FCG1 table has no U+{:04X} {:?}",
+                        assignment.target as u32, assignment.target
+                    )
+                })?
+            };
             let range = glyph_range(assignment.rom_address)?;
             if touched[range.clone()].iter().any(|value| *value) {
                 return Err(format!(
@@ -624,7 +690,25 @@ impl FontResources {
         }
         for assignment in &plan.mapping_used {
             let range = glyph_range(assignment.rom_address)?;
-            if output[range] != self.glyphs[&assignment.target] {
+            let expected = if assignment.force_native {
+                let native = plan
+                    .native_double_byte
+                    .iter()
+                    .find(|native| native.character == assignment.target)
+                    .ok_or_else(|| "forced native mapping has no source glyph".to_owned())?;
+                let native_range = glyph_range(native.rom_address)?;
+                source_rom
+                    .get(native_range)
+                    .ok_or_else(|| "forced native source glyph exceeds KANJI1.ROM".to_owned())?
+            } else {
+                self.glyphs.get(&assignment.target).ok_or_else(|| {
+                    format!(
+                        "embedded FCG1 table has no U+{:04X} {:?}",
+                        assignment.target as u32, assignment.target
+                    )
+                })?
+            };
+            if output[range] != *expected {
                 return Err(format!(
                     "internal rebuild error: U+{:04X} {:?} did not verify pixel-exactly",
                     assignment.target as u32, assignment.target
@@ -722,6 +806,7 @@ pub fn render_rom_probe_pages(
                 rom_address,
                 rom_byte_offset: usize::from(rom_address) * 2,
                 used_preferred_carrier: false,
+                force_native: false,
             });
         }
     }
@@ -867,12 +952,28 @@ impl FontResources {
             }
         }
         for entry in &plan.mapping_used {
-            self.require_dynamic_glyph(entry.target, out_of_range_cp932(entry.target)?)?;
-            if !requires_dynamic_mapping(entry.target)? {
-                return Err(format!(
-                    "font plan remaps U+{:04X} {:?}, but it is directly encodable in KANJI1.ROM",
-                    entry.target as u32, entry.target
-                ));
+            if entry.force_native {
+                let cp932 = strict_cp932_pair(entry.target)?;
+                let (jis, rom_address) = code_to_address(cp932)?;
+                if !plan.native_double_byte.iter().any(|native| {
+                    native.character == entry.target
+                        && native.cp932 == cp932
+                        && native.jis == jis
+                        && native.rom_address == rom_address
+                }) {
+                    return Err(format!(
+                        "forced native mapping for U+{:04X} {:?} has no reserved source ROM glyph",
+                        entry.target as u32, entry.target
+                    ));
+                }
+            } else {
+                self.require_dynamic_glyph(entry.target, out_of_range_cp932(entry.target)?)?;
+                if !requires_dynamic_mapping(entry.target)? {
+                    return Err(format!(
+                        "font plan remaps U+{:04X} {:?}, but it is directly encodable in KANJI1.ROM",
+                        entry.target as u32, entry.target
+                    ));
+                }
             }
             if !self.candidate_pool.iter().any(|c| {
                 c.character == entry.carrier
@@ -907,13 +1008,20 @@ impl FontResources {
         };
         check_plan_conflicts(&plan)?;
         for assignment in &plan.mapping_used {
-            resources
-                .require_dynamic_glyph(assignment.target, out_of_range_cp932(assignment.target)?)?;
-            if !requires_dynamic_mapping(assignment.target)? {
-                return Err(format!(
-                    "mapping_used cannot remap directly addressable character U+{:04X} {:?}",
-                    assignment.target as u32, assignment.target
-                ));
+            if assignment.force_native {
+                let cp932 = strict_cp932_pair(assignment.target)?;
+                code_to_address(cp932)?;
+            } else {
+                resources.require_dynamic_glyph(
+                    assignment.target,
+                    out_of_range_cp932(assignment.target)?,
+                )?;
+                if !requires_dynamic_mapping(assignment.target)? {
+                    return Err(format!(
+                        "mapping_used cannot remap directly addressable character U+{:04X} {:?}",
+                        assignment.target as u32, assignment.target
+                    ));
+                }
             }
             let candidate_is_valid = resources.candidate_pool.iter().any(|candidate| {
                 candidate.character == assignment.carrier

@@ -297,6 +297,43 @@ fn existing_outputs_require_explicit_overwrite() {
 }
 
 #[test]
+fn empty_output_directories_require_backend_opt_in_and_stay_guarded() {
+    let f = Fixture::new();
+    let output = f.path("empty");
+    fs::create_dir(&output).unwrap();
+    let preview = Preview {
+        outputs: vec![output.clone()],
+        ..Preview::default()
+    };
+    let (mut default_panel, _) = panel(true, preview.clone());
+    assert!(default_panel
+        .run(&args(&["probe"]), &mut NeverRead, &mut Vec::new())
+        .is_err());
+    let state = Rc::new(State::default());
+    let mut operation = spec(true);
+    operation.allow_empty_output_dir = true;
+    let mut p = Panel::new(
+        "tool",
+        "tool",
+        "0",
+        vec![Box::new(Probe {
+            state: state.clone(),
+            spec: operation,
+            preview,
+        })],
+    )
+    .unwrap();
+    p.run(&args(&["probe"]), &mut NeverRead, &mut Vec::new())
+        .unwrap();
+    assert_eq!(state.executions.borrow().len(), 1);
+    fs::write(output.join("keep"), b"keep").unwrap();
+    assert!(p
+        .run(&args(&["probe"]), &mut NeverRead, &mut Vec::new())
+        .is_err());
+    assert_eq!(state.executions.borrow().len(), 1);
+}
+
+#[test]
 fn output_cannot_overlap_any_input_or_another_output_even_with_overwrite() {
     let f = Fixture::new();
     fs::create_dir(f.path("source")).unwrap();

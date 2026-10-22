@@ -1,0 +1,19 @@
+[package]
+name = "funnybee-dat-unpack"
+version = "0.2.0"
+edition = "2021"
+description = "Validated unpack/rebuild library for FunnyBee/System 3 DRI DAT archives"
+license = "MIT"
+
+[dependencies]
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = "=1.0.150"
+sha2 = "=0.10.9"
+
+[lib]
+name = "funnybee_dat_unpack"
+path = "src/lib.rs"
+
+[[bin]]
+name = "dat_unpack"
+path = "src/main.rs"

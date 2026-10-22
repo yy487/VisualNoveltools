@@ -1,0 +1,19 @@
+[package]
+name = "shinjuku-resource-tool"
+version = "0.1.0"
+edition = "2021"
+description = "Resource research tools for Shinjuku Monogatari (PC-98)"
+license = "MIT"
+
+[dependencies]
+sha2 = "=0.10.9"
+vn-cli = { path = "../vn_cli" }
+
+[lib]
+name = "shinjuku_resource_tool"
+path = "src/lib.rs"
+
+[[bin]]
+name = "shinjuku-resource-tool"
+path = "src/main.rs"
+

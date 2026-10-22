@@ -1,0 +1,11 @@
+[package]
+name = "loveletter-crash-fix-patcher"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+sha2 = "0.10"
+
+[[bin]]
+name = "loveletter_crash_fix_patcher"
+path = "src/main.rs"

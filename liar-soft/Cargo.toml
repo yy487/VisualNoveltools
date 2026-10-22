@@ -1,0 +1,31 @@
+[package]
+name = "sbridge-tools"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "Structure-aware tools for Seven Bridges resources"
+
+[dependencies]
+encoding_rs = "0.8.35"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.150"
+
+[lib]
+name = "sbridge_tools"
+path = "src/lib.rs"
+
+[[bin]]
+name = "wcg-png"
+path = "src/bin/wcg_png.rs"
+
+[[bin]]
+name = "sbridge-gsc"
+path = "src/bin/sbridge_gsc.rs"
+
+[profile.release]
+strip = true
+lto = true
+codegen-units = 1
+
+[lints.rust]
+unsafe_code = "forbid"

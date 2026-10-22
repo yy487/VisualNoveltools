@@ -117,6 +117,8 @@ pub struct OperationSpec {
     /// Primary operations appear on the home menu; others under 单项操作.
     pub primary: bool,
     pub writes: bool,
+    /// Opt in only when the backend can safely commit into a selected empty directory.
+    pub allow_empty_output_dir: bool,
     pub fields: Vec<Field>,
 }
 impl OperationSpec {
@@ -127,6 +129,7 @@ impl OperationSpec {
             description: String::new(),
             primary: true,
             writes: true,
+            allow_empty_output_dir: false,
             fields,
         }
     }
@@ -989,7 +992,10 @@ fn check_outputs(spec: &OperationSpec, parameters: &Parameters, preview: &Previe
         if outputs.iter().any(|prior| overlaps(prior, &normalized)) {
             return Err(format!("重复或重叠的输出: {}", output.display()).into());
         }
-        if output.try_exists()? && !parameters.flag("overwrite") {
+        let selected_empty_directory = spec.allow_empty_output_dir
+            && output.is_dir()
+            && std::fs::read_dir(output)?.next().is_none();
+        if output.try_exists()? && !parameters.flag("overwrite") && !selected_empty_directory {
             return Err(format!(
                 "输出已存在，默认不覆盖: {}；可修改路径或允许 --overwrite",
                 output.display()

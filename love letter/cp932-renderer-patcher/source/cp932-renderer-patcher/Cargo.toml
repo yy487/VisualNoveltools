@@ -1,0 +1,11 @@
+[package]
+name = "loveletter-cp932-renderer-patcher"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+sha2 = "0.10"
+
+[[bin]]
+name = "loveletter_cp932_renderer_patcher"
+path = "src/main.rs"

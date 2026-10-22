@@ -1,0 +1,11 @@
+[package]
+name = "loveletter-nodvd-patcher"
+version = "1.0.0"
+edition = "2021"
+
+[dependencies]
+sha2 = "0.10.9"
+
+[[bin]]
+name = "loveletter_nodvd_patcher"
+path = "src/main.rs"

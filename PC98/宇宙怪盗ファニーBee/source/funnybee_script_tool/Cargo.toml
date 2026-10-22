@@ -1,0 +1,26 @@
+[package]
+name = "funnybee-script-tool"
+version = "0.3.2"
+edition = "2021"
+description = "Recursive FDI, DRI DAT, and System 3 localization tool for FunnyBee"
+license = "MIT"
+
+[dependencies]
+encoding_rs = "=0.8.35"
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = "=1.0.150"
+sha2 = "=0.10.9"
+funnybee-dat-unpack = { path = "../funnybee_dat_unpack" }
+pc98-fdi-unpack = { path = "../pc98_fdi_unpack" }
+
+[lib]
+name = "funnybee_script_tool"
+path = "src/lib.rs"
+
+[[bin]]
+name = "funnybee_tool"
+path = "src/main.rs"
+
+[[bin]]
+name = "funnybee_tool_new"
+path = "src/bin/funnybee_tool_new.rs"

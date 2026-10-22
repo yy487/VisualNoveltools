@@ -1,0 +1,15 @@
+[package]
+name = "vn-cli"
+version = "0.1.0"
+edition = "2021"
+description = "Reusable CLI control panel for progressive Rust tool workflows"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "panel_demo"
+path = "src/bin/panel_demo.rs"
+
+[dependencies]

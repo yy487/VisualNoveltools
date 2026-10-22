@@ -1,0 +1,18 @@
+[package]
+name = "kuki-disk-msg"
+version = "0.1.2"
+edition = "2021"
+
+[dependencies]
+ab_glyph = "0.2"
+anyhow = "1.0"
+encoding_rs = "0.8"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sha2 = "0.10"
+ttf-parser = "0.25"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true

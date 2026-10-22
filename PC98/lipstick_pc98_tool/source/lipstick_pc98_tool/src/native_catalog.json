@@ -1,0 +1,586 @@
+[
+  {
+    "game": "Lipstick1",
+    "file": "ADVG.EXE",
+    "offset": 8831,
+    "length": 34,
+    "mode": "Dollar",
+    "expected": "414456472e45584582aa81408349815b8376839382c582ab82dc82b982f181420d0a"
+  },
+  {
+    "game": "Lipstick1",
+    "file": "ADVG.EXE",
+    "offset": 8866,
+    "length": 34,
+    "mode": "Dollar",
+    "expected": "414456472e45584582cc83548343835982f093be82e782ea82dc82b982f181420d0a"
+  },
+  {
+    "game": "Lipstick1",
+    "file": "ADVG.EXE",
+    "offset": 8901,
+    "length": 32,
+    "mode": "Dollar",
+    "expected": "83818382838a815b82cc8a4a95fa82c98eb8947382b582dc82b582bd81420d0a"
+  },
+  {
+    "game": "Lipstick1",
+    "file": "ADVG.EXE",
+    "offset": 44043,
+    "length": 26,
+    "mode": "Dollar",
+    "expected": "826482778264826282c98eb8947382b582dc82b582bd81420d0a"
+  },
+  {
+    "game": "Lipstick1",
+    "file": "ADVG.EXE",
+    "offset": 45346,
+    "length": 120,
+    "mode": "Dollar",
+    "expected": "81968196819681968196819681968196819681968196819681968196819681968196819681960d0a81968196814083748389834f82cc835a815b837582aa82c582ab82dc82b982f18140819681960d0a81968196819681968196819681968196819681968196819681968196819681968196819681960d0a"
+  },
+  {
+    "game": "Lipstick1",
+    "file": "ADVG.EXE",
+    "offset": 46241,
+    "length": 32,
+    "mode": "Dollar",
+    "expected": "837483408343838b82aa8349815b837683938f6f978882dc82b982f181420d0a"
+  },
+  {
+    "game": "Lipstick1",
+    "file": "ADVG.EXE",
+    "offset": 46274,
+    "length": 36,
+    "mode": "Dollar",
+    "expected": "837483408343838b82cc93c782dd8d9e82dd82c98eb8947382b582dc82b582bd81420d0a"
+  },
+  {
+    "game": "Lipstick1",
+    "file": "ADVG.EXE",
+    "offset": 46311,
+    "length": 38,
+    "mode": "Dollar",
+    "expected": "837483408343838b82cc834e838d815b835982c98eb8947382b582dc82b582bd814281420d0a"
+  },
+  {
+    "game": "Lipstick1",
+    "file": "ADVG.EXE",
+    "offset": 58648,
+    "length": 28,
+    "mode": "Dollar",
+    "expected": "8262826782648262826a8140826c8264827282728260826682640d0a"
+  },
+  {
+    "game": "Lipstick1",
+    "file": "OPEN.EXE",
+    "offset": 5920,
+    "length": 30,
+    "mode": "Dollar",
+    "expected": "8ee5906c8cf682cc96bc914f82f093fc97cd82b582c489ba82b382a28142"
+  },
+  {
+    "game": "Lipstick1",
+    "file": "ANIME.EXE",
+    "offset": 13570,
+    "length": 60,
+    "mode": "Dollar",
+    "expected": "816d8260826d8268826c82648144826482778264816e0d0a8140814081408260826d8268826c8264814082658268826b82648144826c826382600d0a"
+  },
+  {
+    "game": "Lipstick1",
+    "file": "LOADADA4.EXE",
+    "offset": 5402,
+    "length": 32,
+    "mode": "Dollar",
+    "expected": "837483408343838b82aa8349815b8376839382c582ab82dc82b982f181420d0a"
+  },
+  {
+    "game": "Lipstick1",
+    "file": "LOADXORW.EXE",
+    "offset": 5402,
+    "length": 32,
+    "mode": "Dollar",
+    "expected": "837483408343838b82aa8349815b8376839382c582ab82dc82b982f181420d0a"
+  },
+  {
+    "game": "Lipstick1",
+    "file": "LODADA24.EXE",
+    "offset": 21765,
+    "length": 72,
+    "mode": "Dollar",
+    "expected": "816d826b826e8263826082638260825182538144826482778264816e0d0a814081408140826b826e826382608263826082518253814082658268826b826481448260826382600d0a"
+  },
+  {
+    "game": "Lipstick1",
+    "file": "ANIME.EXE",
+    "offset": 13631,
+    "length": 32,
+    "mode": "Dollar",
+    "expected": "837483408343838b82aa8349815b8376839382c582ab82dc82b982f181420d0a"
+  },
+  {
+    "game": "Lipstick1",
+    "file": "ANIME.EXE",
+    "offset": 13664,
+    "length": 44,
+    "mode": "Dollar",
+    "expected": "8366815b835e82f093c782dd8d9e82dd928682c983478389815b82aa94ad90b682b582dc82b582bd81420d0a"
+  },
+  {
+    "game": "Lipstick1",
+    "file": "LODADA24.EXE",
+    "offset": 21838,
+    "length": 32,
+    "mode": "Dollar",
+    "expected": "837483408343838b82aa8349815b8376839382c582ab82dc82b982f181420d0a"
+  },
+  {
+    "game": "Lipstick1",
+    "file": "LODADA24.EXE",
+    "offset": 21871,
+    "length": 44,
+    "mode": "Dollar",
+    "expected": "8366815b835e82f093c782dd8d9e82dd928682c983478389815b82aa94ad90b682b582dc82b582bd81420d0a"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "ADVH.EXE",
+    "offset": 106824,
+    "length": 38,
+    "mode": "Dollar",
+    "expected": "3c3c3c202083748389834f82cc835a815b837582aa82c582ab82dc82b982f120203e3e3e0d0a"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "ADVH.EXE",
+    "offset": 106985,
+    "length": 32,
+    "mode": "Dollar",
+    "expected": "83818382838a815b82cc8a4a95fa82c98eb8947382b582dc82b582bd81420d0a"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "ADVH.EXE",
+    "offset": 109505,
+    "length": 26,
+    "mode": "Dollar",
+    "expected": "826482778264826282c98eb8947382b582dc82b582bd81420d0a"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "ADVH.EXE",
+    "offset": 111062,
+    "length": 32,
+    "mode": "Dollar",
+    "expected": "837483408343838b82aa8349815b837683938f6f978882dc82b982f181420d0a"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "ADVH.EXE",
+    "offset": 111095,
+    "length": 36,
+    "mode": "Dollar",
+    "expected": "837483408343838b82cc93c782dd8d9e82dd82c98eb8947382b582dc82b582bd81420d0a"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "ADVH.EXE",
+    "offset": 111132,
+    "length": 36,
+    "mode": "Dollar",
+    "expected": "837483408343838b82cc834e838d815b835982c98eb8947382b582dc82b582bd81420d0a"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "ADVH.EXE",
+    "offset": 122784,
+    "length": 12,
+    "mode": "Dollar",
+    "expected": "4164764820312e3133430d0a"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "ADVH.EXE",
+    "offset": 122797,
+    "length": 32,
+    "mode": "Dollar",
+    "expected": "4d455320837483408343838b82cc8c608eae82aa88e182a282dc82b781420d0a"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "ADVH.EXE",
+    "offset": 122830,
+    "length": 34,
+    "mode": "Dollar",
+    "expected": "4d455320837483408343838b82f08e7792e882b582c482ad82be82b382a281420d0a"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "LIP.EXE",
+    "offset": 12662,
+    "length": 26,
+    "mode": "Zero",
+    "expected": "826d8260826c8264814482638264826582cc8dec90ac8eb89473"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "LIP.EXE",
+    "offset": 12744,
+    "length": 38,
+    "mode": "Zero",
+    "expected": "8ee5906c8cf682cc96bc914f82f095cf8d5882b582dc82b782a9814881698278815e826d816a"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "LIP.EXE",
+    "offset": 12786,
+    "length": 38,
+    "mode": "Zero",
+    "expected": "814081408140814096bc914f82f093fc97cd82b582c482ad82be82b382a28142814081408140"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "LIP.EXE",
+    "offset": 13106,
+    "length": 24,
+    "mode": "Zero",
+    "expected": "8ee5906c8cf682cc96bc914f82cd8140814090f38ca98140"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "LIP.EXE",
+    "offset": 13645,
+    "length": 22,
+    "mode": "Zero",
+    "expected": "81998199814090f38ca981408cdc9859814081998199"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "LIP.EXE",
+    "offset": 13691,
+    "length": 22,
+    "mode": "Zero",
+    "expected": "814082b182cc95a88cea82cc8ee5906c8cf681428140"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "LIP.EXE",
+    "offset": 13737,
+    "length": 22,
+    "mode": "Zero",
+    "expected": "81408d7393ae946882cc925492e382c582a082e98142"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "LIP.EXE",
+    "offset": 13783,
+    "length": 22,
+    "mode": "Zero",
+    "expected": "814090ab8a6981468d8b89f582c982b582c496be89f5"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "LIP.EXE",
+    "offset": 13829,
+    "length": 22,
+    "mode": "Zero",
+    "expected": "81408f9782c98ee382a28f8a82a082e8814281408140"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "LIP.EXE",
+    "offset": 13875,
+    "length": 22,
+    "mode": "Zero",
+    "expected": "814082a082c882bd82cd94de82c982c882c182c48141"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "LIP.EXE",
+    "offset": 13921,
+    "length": 22,
+    "mode": "Zero",
+    "expected": "8140917b8db882f08d7382a282dc82b7814281408140"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "LIP.EXE",
+    "offset": 13967,
+    "length": 22,
+    "mode": "Zero",
+    "expected": "81998199814090b497a2814089b994fc814081998199"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "LIP.EXE",
+    "offset": 14013,
+    "length": 22,
+    "mode": "Zero",
+    "expected": "81408cdc985982c982d082c182c282a282c482a282e9"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "LIP.EXE",
+    "offset": 14059,
+    "length": 22,
+    "mode": "Zero",
+    "expected": "814096be82e982a294fc8fad8f978142814081408140"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "LIP.EXE",
+    "offset": 14105,
+    "length": 22,
+    "mode": "Zero",
+    "expected": "81408cdc985982cc834183568358835e8393836782f0"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "LIP.EXE",
+    "offset": 14151,
+    "length": 22,
+    "mode": "Zero",
+    "expected": "81408ea98fcc82b582c482a282e98142814081408140"
+  },
+  {
+    "game": "Lipstick2",
+    "file": "LIP.EXE",
+    "offset": 14197,
+    "length": 22,
+    "mode": "Zero",
+    "expected": "814097f682c991bd8ab482c8825082588dce81428140"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "LIP3.OV1",
+    "offset": 198000,
+    "length": 80,
+    "mode": "FixedDouble",
+    "expected": "8140814081408140814081408140814081408173814081408f4997b982b582c482e082e682eb82b582a282c582b782a981698299815e828e816a81488140814081748140814081408140814081408140"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "LIP3.OV1",
+    "offset": 198446,
+    "length": 42,
+    "mode": "Zero",
+    "expected": "8140817381408368838983438375826082c583478389815b82aa94ad90b682b582dc82b582bd81428140"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "LIP3.OV1",
+    "offset": 198489,
+    "length": 32,
+    "mode": "Zero",
+    "expected": "836683428358834e82aa8f9182ab8d9e82dd8bd68e7e82c582b7814281408140"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "LIP3.OV1",
+    "offset": 198522,
+    "length": 32,
+    "mode": "Zero",
+    "expected": "836883898343837582cc8f8094f582aa82c582ab82c482a282dc82b982f18142"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "LIP3.OV1",
+    "offset": 198555,
+    "length": 32,
+    "mode": "Zero",
+    "expected": "8366815b835e82cc8f9182ab8d9e82dd82c98eb8947382b582dc82b582bd8142"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "LIP3.OV1",
+    "offset": 198588,
+    "length": 32,
+    "mode": "Zero",
+    "expected": "8366815b835e82cc93c782dd8d9e82dd82c98eb8947382b582dc82b582bd8142"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "LIP3.OV1",
+    "offset": 198621,
+    "length": 32,
+    "mode": "Zero",
+    "expected": "836683428358834e82f08a6d944682b582c482ad82be82b382a2814281408140"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "LIP3.OVL",
+    "offset": 866,
+    "length": 23,
+    "mode": "Zero",
+    "expected": "63616e6e6f7420616c6c6f63617465206d656d6f72792e"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "LIP3.OVL",
+    "offset": 890,
+    "length": 22,
+    "mode": "Zero",
+    "expected": "6d697373696e67202e4d45532066696c656e616d652e"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "LIP3.OVL",
+    "offset": 913,
+    "length": 27,
+    "mode": "Zero",
+    "expected": "63616e6e6f742072756e206f6e2074686973206d616368696e652e"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "LIP3.OVL",
+    "offset": 941,
+    "length": 38,
+    "mode": "Zero",
+    "expected": "41647642494f53206e6f742065786973742c206f7220696c6c6567616c2076657273696f6e2e"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "LIP3.OVL",
+    "offset": 980,
+    "length": 23,
+    "mode": "Zero",
+    "expected": "3f3f3f20756e6b6e6f776e206572726f7220636f64652e"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "LIP3.OVL",
+    "offset": 56826,
+    "length": 34,
+    "mode": "Script",
+    "expected": "814083748389834f82aa835a815b837582c582ab82dc82b982f182c582b582bd8142"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "LIP3.OVL",
+    "offset": 56870,
+    "length": 36,
+    "mode": "Script",
+    "expected": "814082bb82b182c982cd82dc82be835a815b837582b382ea82c482a282dc82b982f18142"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "LIP3.OVL",
+    "offset": 56916,
+    "length": 36,
+    "mode": "Script",
+    "expected": "814083748389834f82cc838d815b836882aa82c582ab82dc82b982f182c582b582bd8142"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "LIP3.COM",
+    "offset": 258,
+    "length": 32,
+    "mode": "Dollar",
+    "expected": "83478389815b3a2083818382838a815b82aa91ab82e882dc82b982f181420d0a"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "INSTH.EXE",
+    "offset": 73859,
+    "length": 50,
+    "mode": "Zero",
+    "expected": "3e3e3e2083688389834383752025633a2082a982e72025633a2082d6208343839383588367815b838b82b582dc82b781420a"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "INSTH.EXE",
+    "offset": 73910,
+    "length": 43,
+    "mode": "Zero",
+    "expected": "3e3e3e2082e682eb82b582af82ea82ce89bd82a9834c815b82f0899f82b582c482ad82be82b382a281420a"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "INSTH.EXE",
+    "offset": 73968,
+    "length": 20,
+    "mode": "Zero",
+    "expected": "0a3e3e3e208f4997b982b582dc82b582bd81420a"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "INSTH.EXE",
+    "offset": 73990,
+    "length": 36,
+    "mode": "Zero",
+    "expected": "20838a836283768358836583428362834e8145834183688378839383608383815b825220"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "INSTH.EXE",
+    "offset": 74084,
+    "length": 26,
+    "mode": "Zero",
+    "expected": "836883898343837582cc8e7792e882aa88e182a282dc82b78142"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "INSTH.EXE",
+    "offset": 74906,
+    "length": 67,
+    "mode": "Zero",
+    "expected": "496e7374483a2041647639385620836e815b8368836683428358834e208343839383588367815b838b208376838d834f83898380202056657273696f6e20312e30310a"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "INSTH.EXE",
+    "offset": 75005,
+    "length": 35,
+    "mode": "Zero",
+    "expected": "436f707972696768742843292028974c29834183438366835820313939312c39332e0a"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "INSTH.EXE",
+    "offset": 75043,
+    "length": 21,
+    "mode": "Zero",
+    "expected": "8376838d834f8389838096bc3a202220257320220a"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "INSTH.EXE",
+    "offset": 75104,
+    "length": 38,
+    "mode": "Zero",
+    "expected": "733a203d208374838d83628373815b836683428358834e82cc836883898343837594d48d860a"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "INSTH.EXE",
+    "offset": 75144,
+    "length": 34,
+    "mode": "Zero",
+    "expected": "643a203d20836e815b8368836683428358834e82cc836883898343837594d48d860a"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "INSTH.EXE",
+    "offset": 75238,
+    "length": 57,
+    "mode": "Zero",
+    "expected": "3e3e3e2083688389834383752025633a2082c920836683428358834e202325632082f0835a8362836782b582c482ad82be82b382a28142070a"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "INSTH.EXE",
+    "offset": 75338,
+    "length": 26,
+    "mode": "Zero",
+    "expected": "837483408343838b82aa83528373815b82c582ab82dc82b982f1"
+  },
+  {
+    "game": "Lipstick3",
+    "file": "INSTH.EXE",
+    "offset": 75400,
+    "length": 34,
+    "mode": "Zero",
+    "expected": "8358835e815b83679770837483408343838b82aa8dec90ac82c582ab82dc82b982f1"
+  }
+]

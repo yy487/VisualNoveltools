@@ -1,0 +1,18 @@
+[package]
+name = "watashi-saku-hana-tool"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "Game script tools for Watashi ni Saku Hana wo Mite Kare wa Waratta"
+
+[[bin]]
+name = "watashi-saku-hana-tool"
+path = "src/main.rs"
+
+[dependencies]
+encoding_rs = "0.8"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sha2 = "0.10"
+vn-cli = { path = "../vn_cli" }
+vn-text = { path = "../vn_text" }

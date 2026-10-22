@@ -1,0 +1,646 @@
+{
+  "source_sha256": "4541b43bbf86dff4f44f5089f1b3d7ae9440bc74934a0a2b91a21430e653d897",
+  "entries": [
+    {
+      "offset": 55943,
+      "capacity": 12,
+      "original": "渦巻　なると",
+      "category": "ending_names",
+      "rule": "fixed_slot",
+      "ea": "1D687",
+      "references": [
+        "0x11f7e"
+      ]
+    },
+    {
+      "offset": 55956,
+      "capacity": 12,
+      "original": "三浦　みさき",
+      "category": "ending_names",
+      "rule": "fixed_slot",
+      "ea": "1D694",
+      "references": [
+        "0x11fa2"
+      ]
+    },
+    {
+      "offset": 55969,
+      "capacity": 12,
+      "original": "岸壁　　美潮",
+      "category": "ending_names",
+      "rule": "fixed_slot",
+      "ea": "1D6A1",
+      "references": [
+        "0x11fd1"
+      ]
+    },
+    {
+      "offset": 55982,
+      "capacity": 12,
+      "original": "貝柱　　帆立",
+      "category": "ending_names",
+      "rule": "fixed_slot",
+      "ea": "1D6AE",
+      "references": [
+        "0x11ff5"
+      ]
+    },
+    {
+      "offset": 55995,
+      "capacity": 12,
+      "original": "蘇我野いるか",
+      "category": "ending_names",
+      "rule": "fixed_slot",
+      "ea": "1D6BB",
+      "references": [
+        "0x12019"
+      ]
+    },
+    {
+      "offset": 56008,
+      "capacity": 12,
+      "original": "美樹本ぱある",
+      "category": "ending_names",
+      "rule": "fixed_slot",
+      "ea": "1D6C8",
+      "references": [
+        "0x1203e"
+      ]
+    },
+    {
+      "offset": 56021,
+      "capacity": 12,
+      "original": "スージー・Ｎ",
+      "category": "ending_names",
+      "rule": "fixed_slot",
+      "ea": "1D6D5",
+      "references": [
+        "0x1206d"
+      ]
+    },
+    {
+      "offset": 56034,
+      "capacity": 12,
+      "original": "赤貝　ヌレ子",
+      "category": "ending_names",
+      "rule": "fixed_slot",
+      "ea": "1D6E2",
+      "references": [
+        "0x1209c"
+      ]
+    },
+    {
+      "offset": 56047,
+      "capacity": 12,
+      "original": "片平　なぎさ",
+      "category": "ending_names",
+      "rule": "fixed_slot",
+      "ea": "1D6EF",
+      "references": [
+        "0x120ff"
+      ]
+    },
+    {
+      "offset": 56060,
+      "capacity": 12,
+      "original": "磯辺　　真樹",
+      "category": "ending_names",
+      "rule": "fixed_slot",
+      "ea": "1D6FC",
+      "references": [
+        "0x12122"
+      ]
+    },
+    {
+      "offset": 56082,
+      "capacity": 10,
+      "original": "ＳＴＡＦＦ",
+      "category": "credits",
+      "rule": "fixed_slot",
+      "ea": "1D712",
+      "references": [
+        "0x12740"
+      ]
+    },
+    {
+      "offset": 56093,
+      "capacity": 14,
+      "original": "《プログラム》",
+      "category": "credits",
+      "rule": "fixed_slot",
+      "ea": "1D71D",
+      "references": [
+        "0x1276c"
+      ]
+    },
+    {
+      "offset": 56108,
+      "capacity": 8,
+      "original": "鈴木留吉",
+      "category": "credits",
+      "rule": "fixed_slot",
+      "ea": "1D72C",
+      "references": [
+        "0x12777"
+      ]
+    },
+    {
+      "offset": 56117,
+      "capacity": 8,
+      "original": "《企画》",
+      "category": "credits",
+      "rule": "fixed_slot",
+      "ea": "1D735",
+      "references": [
+        "0x12798"
+      ]
+    },
+    {
+      "offset": 56126,
+      "capacity": 14,
+      "original": "さっぽろモモコ",
+      "category": "credits",
+      "rule": "fixed_slot",
+      "ea": "1D73E",
+      "references": [
+        "0x127a3",
+        "0x12853",
+        "0x128d7"
+      ]
+    },
+    {
+      "offset": 56141,
+      "capacity": 16,
+      "original": "《グラフィック》",
+      "category": "credits",
+      "rule": "fixed_slot",
+      "ea": "1D74D",
+      "references": [
+        "0x127c4"
+      ]
+    },
+    {
+      "offset": 56158,
+      "capacity": 36,
+      "original": "さっぽろモモコ＆ＤＯＮ－ＭＡＳＴＥＲ",
+      "category": "credits",
+      "rule": "fixed_slot",
+      "ea": "1D75E",
+      "references": [
+        "0x127cf"
+      ]
+    },
+    {
+      "offset": 56195,
+      "capacity": 24,
+      "original": "《グラフィック補佐部隊》",
+      "category": "credits",
+      "rule": "fixed_slot",
+      "ea": "1D783",
+      "references": [
+        "0x127f0"
+      ]
+    },
+    {
+      "offset": 56220,
+      "capacity": 6,
+      "original": "らいち",
+      "category": "credits",
+      "rule": "fixed_slot",
+      "ea": "1D79C",
+      "references": [
+        "0x127fb",
+        "0x128ab"
+      ]
+    },
+    {
+      "offset": 56227,
+      "capacity": 32,
+      "original": "長岡建蔵（はらほれひろはら改め）",
+      "category": "credits",
+      "rule": "fixed_slot",
+      "ea": "1D7A3",
+      "references": [
+        "0x12806"
+      ]
+    },
+    {
+      "offset": 56260,
+      "capacity": 4,
+      "original": "娘々",
+      "category": "credits",
+      "rule": "fixed_slot",
+      "ea": "1D7C4",
+      "references": [
+        "0x12811"
+      ]
+    },
+    {
+      "offset": 56265,
+      "capacity": 4,
+      "original": "はな",
+      "category": "credits",
+      "rule": "fixed_slot",
+      "ea": "1D7C9",
+      "references": [
+        "0x1281c"
+      ]
+    },
+    {
+      "offset": 56270,
+      "capacity": 6,
+      "original": "ＫＺＲ",
+      "category": "credits",
+      "rule": "fixed_slot",
+      "ea": "1D7CE",
+      "references": [
+        "0x12827"
+      ]
+    },
+    {
+      "offset": 56277,
+      "capacity": 18,
+      "original": "《ゲームシナリオ》",
+      "category": "credits",
+      "rule": "fixed_slot",
+      "ea": "1D7D5",
+      "references": [
+        "0x12848"
+      ]
+    },
+    {
+      "offset": 56296,
+      "capacity": 16,
+      "original": "《エロシナリオ》",
+      "category": "credits",
+      "rule": "fixed_slot",
+      "ea": "1D7E8",
+      "references": [
+        "0x12874"
+      ]
+    },
+    {
+      "offset": 56313,
+      "capacity": 36,
+      "original": "ＤＯＮ－ＭＡＳＴＥＲ＆さっぽろモモコ",
+      "category": "credits",
+      "rule": "fixed_slot",
+      "ea": "1D7F9",
+      "references": [
+        "0x1287f"
+      ]
+    },
+    {
+      "offset": 56350,
+      "capacity": 22,
+      "original": "《エロアニメーション》",
+      "category": "credits",
+      "rule": "fixed_slot",
+      "ea": "1D81E",
+      "references": [
+        "0x128a0"
+      ]
+    },
+    {
+      "offset": 56373,
+      "capacity": 8,
+      "original": "《音楽》",
+      "category": "credits",
+      "rule": "fixed_slot",
+      "ea": "1D835",
+      "references": [
+        "0x128cc"
+      ]
+    },
+    {
+      "offset": 56382,
+      "capacity": 24,
+      "original": "《トータルプロデユース》",
+      "category": "credits",
+      "rule": "fixed_slot",
+      "ea": "1D83E",
+      "references": [
+        "0x128f8"
+      ]
+    },
+    {
+      "offset": 56407,
+      "capacity": 8,
+      "original": "長岡建蔵",
+      "category": "credits",
+      "rule": "fixed_slot",
+      "ea": "1D857",
+      "references": [
+        "0x12903"
+      ]
+    },
+    {
+      "offset": 56416,
+      "capacity": 12,
+      "original": "《製造販売》",
+      "category": "credits",
+      "rule": "fixed_slot",
+      "ea": "1D860",
+      "references": [
+        "0x12924"
+      ]
+    },
+    {
+      "offset": 56429,
+      "capacity": 14,
+      "original": "有限会社ハード",
+      "category": "credits",
+      "rule": "fixed_slot",
+      "ea": "1D86D",
+      "references": [
+        "0x1292f"
+      ]
+    },
+    {
+      "offset": 56444,
+      "capacity": 6,
+      "original": "ＥＮＤ",
+      "category": "credits",
+      "rule": "fixed_slot",
+      "ea": "1D87C",
+      "references": [
+        "0x129d4"
+      ]
+    },
+    {
+      "offset": 56490,
+      "capacity": 14,
+      "original": "セーブデータ１",
+      "category": "save_labels",
+      "rule": "fixed_slot",
+      "ea": "1D8AA",
+      "references": []
+    },
+    {
+      "offset": 56505,
+      "capacity": 14,
+      "original": "セーブデータ２",
+      "category": "save_labels",
+      "rule": "fixed_slot",
+      "ea": "1D8B9",
+      "references": []
+    },
+    {
+      "offset": 56520,
+      "capacity": 14,
+      "original": "セーブデータ３",
+      "category": "save_labels",
+      "rule": "fixed_slot",
+      "ea": "1D8C8",
+      "references": []
+    },
+    {
+      "offset": 56535,
+      "capacity": 14,
+      "original": "セーブデータ４",
+      "category": "save_labels",
+      "rule": "fixed_slot",
+      "ea": "1D8D7",
+      "references": []
+    },
+    {
+      "offset": 56550,
+      "capacity": 14,
+      "original": "セーブデータ５",
+      "category": "save_labels",
+      "rule": "fixed_slot",
+      "ea": "1D8E6",
+      "references": []
+    },
+    {
+      "offset": 56565,
+      "capacity": 14,
+      "original": "セーブデータ６",
+      "category": "save_labels",
+      "rule": "fixed_slot",
+      "ea": "1D8F5",
+      "references": []
+    },
+    {
+      "offset": 56580,
+      "capacity": 14,
+      "original": "セーブデータ７",
+      "category": "save_labels",
+      "rule": "fixed_slot",
+      "ea": "1D904",
+      "references": []
+    },
+    {
+      "offset": 56595,
+      "capacity": 14,
+      "original": "セーブデータ８",
+      "category": "save_labels",
+      "rule": "fixed_slot",
+      "ea": "1D913",
+      "references": []
+    },
+    {
+      "offset": 56610,
+      "capacity": 14,
+      "original": "セーブデータ９",
+      "category": "save_labels",
+      "rule": "fixed_slot",
+      "ea": "1D922",
+      "references": []
+    },
+    {
+      "offset": 56625,
+      "capacity": 14,
+      "original": "セーブデータ10",
+      "category": "save_labels",
+      "rule": "fixed_slot",
+      "ea": "1D931",
+      "references": []
+    },
+    {
+      "offset": 56640,
+      "capacity": 36,
+      "original": "音楽担当者よりのメッセージ:BY MOMOKO",
+      "category": "music_menu",
+      "rule": "fixed_slot",
+      "ea": "1D940",
+      "references": [
+        "0x132f7"
+      ]
+    },
+    {
+      "offset": 56677,
+      "capacity": 10,
+      "original": "次のページ",
+      "category": "music_menu",
+      "rule": "fixed_slot",
+      "ea": "1D965",
+      "references": [
+        "0x1331b",
+        "0x13354"
+      ]
+    },
+    {
+      "offset": 56688,
+      "capacity": 10,
+      "original": "前のページ",
+      "category": "music_menu",
+      "rule": "fixed_slot",
+      "ea": "1D970",
+      "references": [
+        "0x13330",
+        "0x13369"
+      ]
+    },
+    {
+      "offset": 56699,
+      "capacity": 6,
+      "original": "やめる",
+      "category": "music_menu",
+      "rule": "fixed_slot",
+      "ea": "1D97B",
+      "references": [
+        "0x1338d"
+      ]
+    },
+    {
+      "offset": 56716,
+      "capacity": 12,
+      "original": "ロードゲーム",
+      "category": "title_menu",
+      "rule": "fixed_slot",
+      "ea": "1D98C",
+      "references": [
+        "0x13591"
+      ]
+    },
+    {
+      "offset": 56729,
+      "capacity": 12,
+      "original": "ニューゲーム",
+      "category": "title_menu",
+      "rule": "fixed_slot",
+      "ea": "1D999",
+      "references": [
+        "0x1359d"
+      ]
+    },
+    {
+      "offset": 56742,
+      "capacity": 16,
+      "original": "  ゲームスタート",
+      "category": "title_menu",
+      "rule": "fixed_slot",
+      "ea": "1D9A6",
+      "references": [
+        "0x138c9"
+      ]
+    },
+    {
+      "offset": 56759,
+      "capacity": 18,
+      "original": "ミュージックモード",
+      "category": "title_menu",
+      "rule": "fixed_slot",
+      "ea": "1D9B7",
+      "references": [
+        "0x138d5"
+      ]
+    },
+    {
+      "offset": 56778,
+      "capacity": 18,
+      "original": "グラフィックモード",
+      "category": "title_menu",
+      "rule": "fixed_slot",
+      "ea": "1D9CA",
+      "references": [
+        "0x138e1"
+      ]
+    },
+    {
+      "offset": 57162,
+      "capacity": 47,
+      "original": "RS-232Cに接続したMIDI音源の電源を入れてください",
+      "category": "device_messages",
+      "rule": "fixed_slot",
+      "ea": "1DB4A",
+      "references": [
+        "0x1549c"
+      ]
+    },
+    {
+      "offset": 57210,
+      "capacity": 46,
+      "original": "音源を使用しない場合には右クリックでキャンセル",
+      "category": "device_messages",
+      "rule": "fixed_slot",
+      "ea": "1DB7A",
+      "references": [
+        "0x154a5"
+      ]
+    },
+    {
+      "offset": 57257,
+      "capacity": 36,
+      "original": "ディスクを抜いて電源を切ってください",
+      "category": "device_messages",
+      "rule": "fixed_slot",
+      "ea": "1DBA9",
+      "references": [
+        "0x1555f"
+      ]
+    },
+    {
+      "offset": 57336,
+      "capacity": 11,
+      "original": "ディスク?を",
+      "category": "disk_messages",
+      "rule": "disk_id_at_byte_8",
+      "ea": "1DBF8",
+      "references": []
+    },
+    {
+      "offset": 57348,
+      "capacity": 8,
+      "original": "ドライブ",
+      "category": "disk_messages",
+      "rule": "exact_8_bytes",
+      "ea": "1DC04",
+      "references": [
+        "0x171e0"
+      ]
+    },
+    {
+      "offset": 57357,
+      "capacity": 8,
+      "original": "の何れか",
+      "category": "disk_messages",
+      "rule": "fixed_slot",
+      "ea": "1DC0D",
+      "references": [
+        "0x17239"
+      ]
+    },
+    {
+      "offset": 57366,
+      "capacity": 2,
+      "original": "に",
+      "category": "disk_messages",
+      "rule": "fixed_slot",
+      "ea": "1DC16",
+      "references": [
+        "0x1724d"
+      ]
+    },
+    {
+      "offset": 57369,
+      "capacity": 16,
+      "original": "挿入してください",
+      "category": "disk_messages",
+      "rule": "fixed_slot",
+      "ea": "1DC19",
+      "references": []
+    }
+  ]
+}

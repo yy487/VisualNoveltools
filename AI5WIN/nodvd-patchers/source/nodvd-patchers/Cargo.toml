@@ -1,0 +1,15 @@
+[package]
+name = "ai5win-nodvd-patchers"
+version = "1.0.0"
+edition = "2021"
+
+[dependencies]
+sha2 = "0.10.9"
+
+[[bin]]
+name = "shangrila1_nodvd_patcher"
+path = "src/bin/shangrila1_nodvd_patcher.rs"
+
+[[bin]]
+name = "shangrila2_nodvd_patcher"
+path = "src/bin/shangrila2_nodvd_patcher.rs"

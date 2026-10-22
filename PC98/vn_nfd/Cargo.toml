@@ -1,0 +1,13 @@
+[package]
+name = "vn-nfd"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "Independent T98-Next NFD R0/R1 interface for sector-oriented VN tooling"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+vn-sector-map = { path = "../vn_sector_map" }
+
